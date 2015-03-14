@@ -1,0 +1,16 @@
+#hamburger { line-height: .9em; font-size: 2em; cursor: pointer; float: right; margin-right: .5em; font-family: sans-serif; color: white; font-weight: bold;}
+
+li.sub_menu ul { display: none; }
+span.sub_menu_toggle { cursor: pointer; float: right;}
+#menu li>span:hover{ background-color: pink; }
+#menu li>span{display: block; padding: .5em 1em .5em 0;}
+#menu>ul { display: none; background-color: #CCC; }
+
+/* First level */
+#menu > ul > li > span > a { padding-left: 1em; }
+#menu > ul > li > ul > li > span > a { padding-left: 2em; }
+#menu > ul > li > ul > li > ul > li > span > a { padding-left: 3em; }
+#menu > ul > li > ul > li > ul > li > ul > li > span > a { padding-left: 4em; }
+#menu > ul > li > ul > li > ul > li > ul > li > ul > li > span > a { padding-left: 5em; }
+/* Sixth level */
+#menu > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > span > a { padding-left: 6em; }
