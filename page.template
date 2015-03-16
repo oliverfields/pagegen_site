@@ -7,16 +7,16 @@
 <title>{{title}}</title>
 <base href="{{base_url}}" />
 <link rel="stylesheet" href="/include/css/style.css" type="text/css" />
-<link rel="stylesheet" href="/include/css/menu.css" type="text/css" />
-<link rel="shortcut icon" href="/include/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/include/css/navigation.css" type="text/css" />
+<link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="/include/javascript/menu.js"></script>
+<script src="/include/javascript/navigation.js"></script>
 </head>
 <body>
 <header>
-<a href="/" id="logo"></a>
+<a href="/" id="logo" class="sprite"></a>
 <nav>
-<div id="hamburger">&equiv;</div>
+<div id="hamburger" class="sprite"></div>
 <div id="crumb_trail">{{crumb_trail}}</div>
 <div id="menu">
 {{menu}}
@@ -25,7 +25,9 @@
 </header>
 <article>{{content}}</article>
 <footer>
-<div id="pagegend"></div>
+<div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
+<div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
+<div id="pagegend" class="sprite"></div>
 </footer>
 </body>
 </html>

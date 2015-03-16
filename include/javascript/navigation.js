@@ -4,7 +4,7 @@ toggle_id='#hamburger';
 sub_menu_class='sub_menu';
 no_sub_menu_class='no_sub_menu';
 toggle_class='sub_menu_toggle';
-crumb_trail='#crumb_trail > ul';
+crumb_trail='#crumb_trail';
 crumb_trail_separator='<span class="crumb_trail_separator">&rtri;</span>';
 menu_shown_class='menu_shown'
 sub_menu_shown_class='sub_menu_shown'
@@ -25,7 +25,7 @@ $(function() {
   });
 
   // Add separators to crumb trail
-  $(crumb_trail+' li:not(:last)').each(function(){
+  $(crumb_trail+' > ul li:not(:last)').each(function(){
     $(this).append(crumb_trail_separator);
   });
 
@@ -64,5 +64,14 @@ $(document).ready(function(){
   $('.'+no_sub_menu_class).click(function(event) {
     event.stopPropagation();
   });
+
+  // Replace first crumb trail item with icon, or remove it if on homepage
+  if($(crumb_trail+' li').length == 1){
+    $(crumb_trail+' ul').css('visibility', 'hidden');
+  }
+  else {
+    $(crumb_trail+' li a').first().addClass('sprite home');
+  }
+
 
 });

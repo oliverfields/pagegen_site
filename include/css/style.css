@@ -68,17 +68,25 @@ padding:0;
 input, select {
 vertical-align:middle;
 }
-h1 { font-size: 3em; }
-h2 { font-size: 2em; }
-h3 { font-size: 1.5em; }
-h4 { font-size: 1em; }
-#logo { margin: .5em auto; display: block; width: 160px; height: 52px; background: url(/include/images/sprite.gif) no-repeat; background-position: 0px 0px; }
-#pagegend { width: 46px; height: 13px; background: url(/include/images/sprite.gif) no-repeat; background-position: 0px -52px; }
-#crumb_trail a { text-decoration: none; }
-#crumb_trail { background-color: lime; padding-left: 1em;}
-#crumb_trail li { display: inline; vertical-align: middle; line-height: 2em; }
+.sprite, a.external {background-image: url('/include/graphics/sprite.png'); background-repeat: no-repeat; display: block; }
+#logo { margin: .4em 0 .6em 0; width: 160px; height: 52px; background-position: -320px 0px;}
+#pagegend { width: 46px; height: 13px; background-position: -480px 0px; }
 body { background-color: #0FF; }
+#contact, #copyright, #pagegend { float: right; clear: right; margin: .4em 0 .6em 0;  font-size: .8em; }
+/* RST styles */
+article h1 { font-size: 3em;  margin: .4em 0em .6em 0em; }
+article h2 { font-size: 2em;  margin: .4em 0em .6em 0em; }
+article h3 { font-size: 1.5em;  margin: .4em 0em .6em 0em; }
+article h4 { font-size: 1em;  margin: .4em 0em .6em 0em; }
+div.sidebar { width: 30%; float: right; background-color: yellow; padding: 1em; }
+article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 2em; }
+article p { line-height: 1.2em; }
+p.sidebar-title { font-weight: bold; }
+footer { padding: 2em 0; }
+a.external { padding: 0 0 .3em 0; width: 16px; height: 16px; background-position: -558px 0px;}
+
 /* Design is formeost for mobile devices, override settings for larger screens */
 @media (min-width: 600px) {
 header, article, footer { width: 600px; margin: 0 auto;}
+html { overflow-y: scroll; }
 }
