@@ -1,2 +1,4 @@
 pagegen_site.scite_session
 site
+include/downloads/*.tar.gz
+include/downloads/*.deb

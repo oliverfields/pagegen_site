@@ -1,0 +1,104 @@
+Content is stored as regular files and organized with directories and naming.
+
+Content directory
+*********************************
+
+Pagegen pages are just plain text files containing page options and content organized by directory hiearchy. Each directory is treated as a page containing child pages. For directories the page content is stored in a mandatory **index** file within each directory. The index file is identical, in both syntax and structure, to regular page files.
+
+Pages (a file or both a directory and file) contain headers(options/settings) and reStructuredText markup. All page content is located in the **content directory** (<pagegen directory>/content).
+
+.. tip::
+
+	The front page is **content/index**.
+
+
+.. warning::
+
+	All directories must contain an **index** page file.
+
+
+Naming
+*********************************
+
+The name of the file, or directory, are used to determine the final page attributes title, URL and optionally menu sort order. The name of pages, both files and diretories & **index** file, are treated the alike, except for the extension. The page path name is used to create the URL to the page.
+
+**Name syntax: [<sort order>_]<title>[.<extension>]**
+
+
+Title
+===================
+
+The page title will become the file or directory name without the sort order or extension (unless overridden using Title header, see below). The title can contain any legal file name charachter, except a period(.).
+
+
+Sort order 
+===================
+
+Pages are sorted in the menu by listing them alphabetically, to override the default sort files and directories can be prefixed by integers followed by an underscore. The sort prefix will be striped from the title and URL.
+
+.. tip::
+
+	A good practice is to use increments of 10 when setting the sort prefix (010\_, 020\_, 030\_ etc.). This means an item can be added in the sequence with for instance 011\_ without having to rename all items.
+
+
+Extension
+===================
+
+An extension is optional and is left as is. Directory index files can have extensions.
+
+
+URL
+===================
+
+The page URL will be the path from the **content directory** to the file, converted to lower case. Where sort prefix is removed and all characters that are not a-z, 0-9, dash(-), underscore(_) or period(.) are replaced with dash(-), file extensions are kept, if they are present.
+
+
+.. table:: Name examples
+
+	================================== =============== =================
+	Name                               Title           URL              
+	================================== =============== =================
+	content/Fruit juice                Fruit juice     /fruit-juice
+	content/fruit juice+ice            Fruit juice+ice /fruit-juice-ice
+	content/0001_Fruit juice           Fruit juice     /fruit-juice
+	content/0001_Fruit juice.html      Fruit juice     /fruit-juice.html
+	content/002_Fruit juice/index.html Fruit juice     /fruit-juice/
+	================================== =============== =================
+
+
+Page file structure
+***********************************
+
+Content for each page consists of an optional header containing any settings for the page followed by a blank line and reStructuredText markup.
+
+.. code::
+
+	[<header name>: <header value>]
+	[...]
+	
+	The rest is content marked up using reStructuredText
+
+
+Headers
+=====================
+
+All headers are optional. They must start on the first line and content start is signaled by a blank line after the headers.
+
+.. table:: Page headers
+
+	=============== ======= =======================================
+	Name            Default Description
+	=============== ======= =======================================
+	description     None    Html meta tag description
+	generate html   True    Enable/disable parsing of page content
+	menu exclude    False   Remove page from menu/crumbtrail
+	menu title      None    If set use for title in menu/crumbtrail
+	sitemap exclude False   Remove page from sitemap
+	title           None    If set overrides page title
+	=============== ======= =======================================
+
+
+reStructuredText
+======================
+
+Pagegen uses `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ for markup.

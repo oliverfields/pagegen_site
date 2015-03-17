@@ -1,0 +1,29 @@
+On generation pagegen will build site from pages in **content directory**. The command must be run from the pagegen root directory or one of its sub directories.
+
+.. code::
+
+	$ pagegen gen
+
+After generation the generated HTML will be in the **site directory**, simply copy this directory to your web server to go live:)
+
+Site generation involves first creating page html in the **site directory**, creating sitemap and copying **include directory** to the **site directory**.
+
+Site generation can be configured by the **site.conf**, found in the pagegen root directory.
+
+.. code::
+
+	# Set site root directory, mandatory
+	base_url=http://localhost
+	
+	# Toggle sitemap generation. Default True, optional
+	#exclude_sitemap=False
+	
+	# Toggle relative or absolute URLs. Default False, optional
+	#absolute_urls=True
+	
+	# Toggle copy or make symlink to include directory in site directory
+	# Default False, optional
+	#symlink_include
+	
+	# Toggle include page titles in content. Default False, optional
+	#page_titles

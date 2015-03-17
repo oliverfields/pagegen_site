@@ -1,0 +1,74 @@
+.. note::
+	For in depth documentation please see `user manual </user-manual>`_.
+
+Setup
+--------------------------
+
+Assuming Debian based OS, download `latest .deb </download/pagegen_latest.deb>`_, install and create new pagegen site directory according to the following. For other installation options please see `installation </user-manual/install>`_.
+
+.. code::
+
+	$ wget http://pagegen.phnd.net/download/pagegen_latest.deb
+	$ dpkg -i pagegn_latest.deb
+	$ mkdir my_site
+	$ cd my_site
+	$ pagegen init
+
+The last command sets up the current directory with a basic pagegen framework of files and folders.
+
+
+Create example site
+----------------------------
+
+We are going to create our site according to this outline.
+
+* Home page
+
+* Fruit
+
+	* Pear
+
+	* Apple
+
+* Contact us
+
+Ensure the commands below are run from *my_site* directory. They will first delete the example site content which comes with Pagegen and create the site as outlined above.
+
+.. code::
+
+	$ rm -Rf content/*
+	$ echo "This is the home page" > content/index.html
+	$ mkdir content/Fruit
+	$ echo "All directories must have a file named index" > content/Fruit/index.html
+	$ echo "We want Pear first in menu" > content/Fruit/001_Pear.html
+	$ echo "We want Apple last" > content/Fruit/002_Apple.html
+	$ echo "Who ya gonna call" > content/Contact\ us.html
+
+
+Generate example site
+------------------------------
+
+We are now ready to generate the site. This will create the finished site in the *my_site/site* directory.
+
+.. code::
+
+	$ pagegen gen
+
+The *my_site/site* directory now contains a freshly generated site ready for upload to a web server.
+
+The generated site maps to the above outline as follows.
+
+.. csv-table::
+	:header: "Name", "Site"
+
+	"Home page","index.html"
+	"Fruit","fruit/index.html"
+	"Pear","fruit/pear.html"
+	"Apple","fruit/apple.html"
+	"Contact us","contact-us.html"
+
+
+Customize layout
+-----------------------
+
+Pagegen adds layout and navigation elements to each page when they are processed. To change the site look and feel change *my_site/page.template* and add required elements to *my_site/include* directory, e.g. css, images, javascript etc..

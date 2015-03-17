@@ -73,5 +73,9 @@ $(document).ready(function(){
     $(crumb_trail+' li a').first().addClass('sprite home');
   }
 
+  // Add icon to external links
+  $("a").filter(function() {
+    return this.hostname && this.hostname !== location.hostname;
+  }).append('<span class="sprite"></span>');
 
 });
