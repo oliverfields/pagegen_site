@@ -20,13 +20,14 @@
 <div id="crumb_trail">{{crumb_trail}}</div>
 <div id="menu">
 {{menu}}
+<div id="issue_tracker"><a href="https://github.com/oliverfields/pagegen_v2_site/issues">Report a bug</a></div>
+<div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
 </div>
 </nav>
 </header>
 <article>{{content}}</article>
 <footer>
-<div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
-<div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
+<div id="copyright">Copyright &copy; {{year}}</div>
 <div id="pagegend" class="sprite"></div>
 </footer>
 </body>

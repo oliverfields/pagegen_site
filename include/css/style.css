@@ -72,7 +72,8 @@ vertical-align:middle;
 #logo { margin: .4em 0 .6em 0; width: 160px; height: 52px; background-position: -320px 0px;}
 #pagegend { width: 46px; height: 13px; background-position: -480px 0px; }
 body { background-color: #0FF; }
-#contact, #copyright, #pagegend { float: right; clear: right; margin: .4em 0 .6em 0;  font-size: .8em; }
+#contact { text-align: right; padding: .4em 1em .6em 1em; border-top: solid 1px black;}
+#copyright, #pagegend { float: right; clear: right; margin: .4em 0 .6em 0;  font-size: .8em; }
 /* RST styles */
 article h1 { font-size: 3em;  margin: .4em 0em .6em 0em; }
 article h2 { font-size: 2em;  margin: .4em 0em .6em 0em; }

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Pre hook"
+echo "--------"
+
+cd "$PAGEGEN_SOURCE_DIR"
+
+echo
+echo "Todos:"
+echo "* Filter to update given content variables, e.g. current version"
+echo "* Deploy to ftp"
+echo "* Create new analytics tag"
+echo "* Test config for Nginx and Apache"
+echo "* Register with GWT"
+echo "* Run google mobile report"
+echo "* Run Yahoo optimization"
+echo "* Run google page speed optimization"
+echo "* Content"
+grep -R TODO * | sed 's/^/\t* /'
+echo

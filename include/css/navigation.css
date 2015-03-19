@@ -5,7 +5,7 @@ span.sub_menu_toggle { cursor: pointer; float: right; width: 16px; height: 16px;
 span.sub_menu_shown { background-position: -304px 0px !important; }
 #menu li>span:hover{ background-color: pink; }
 #menu li>span{display: block; padding: .5em 1em .5em 0;}
-#menu>ul { display: none; background-color: #CCC; }
+#menu { display: none; background-color: #CCC; }
 /* First level */
 #menu > ul > li > span > a { padding-left: 1em; }
 #menu > ul > li > ul > li > span > a { padding-left: 2em; }

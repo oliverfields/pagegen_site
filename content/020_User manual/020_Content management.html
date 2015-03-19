@@ -1,7 +1,7 @@
 Content is stored as regular files and organized with directories and naming.
 
 Content directory
-*********************************
+*****************
 
 Pagegen pages are just plain text files containing page options and content organized by directory hiearchy. Each directory is treated as a page containing child pages. For directories the page content is stored in a mandatory **index** file within each directory. The index file is identical, in both syntax and structure, to regular page files.
 
@@ -18,21 +18,25 @@ Pages (a file or both a directory and file) contain headers(options/settings) an
 
 
 Naming
-*********************************
+******
 
 The name of the file, or directory, are used to determine the final page attributes title, URL and optionally menu sort order. The name of pages, both files and diretories & **index** file, are treated the alike, except for the extension. The page path name is used to create the URL to the page.
+
+.. warning::
+
+	On generation a **sitemap.txt** will be created, unless disabled in site configuration. A page can therefor not be called **content/sitemap.txt**.
 
 **Name syntax: [<sort order>_]<title>[.<extension>]**
 
 
 Title
-===================
+=====
 
 The page title will become the file or directory name without the sort order or extension (unless overridden using Title header, see below). The title can contain any legal file name charachter, except a period(.).
 
 
-Sort order 
-===================
+Sort order
+==========
 
 Pages are sorted in the menu by listing them alphabetically, to override the default sort files and directories can be prefixed by integers followed by an underscore. The sort prefix will be striped from the title and URL.
 
@@ -42,13 +46,13 @@ Pages are sorted in the menu by listing them alphabetically, to override the def
 
 
 Extension
-===================
+=========
 
 An extension is optional and is left as is. Directory index files can have extensions.
 
 
 URL
-===================
+===
 
 The page URL will be the path from the **content directory** to the file, converted to lower case. Where sort prefix is removed and all characters that are not a-z, 0-9, dash(-), underscore(_) or period(.) are replaced with dash(-), file extensions are kept, if they are present.
 
@@ -67,7 +71,7 @@ The page URL will be the path from the **content directory** to the file, conver
 
 
 Page file structure
-***********************************
+*******************
 
 Content for each page consists of an optional header containing any settings for the page followed by a blank line and reStructuredText markup.
 
@@ -80,25 +84,38 @@ Content for each page consists of an optional header containing any settings for
 
 
 Headers
-=====================
+=======
 
 All headers are optional. They must start on the first line and content start is signaled by a blank line after the headers.
 
 .. table:: Page headers
 
-	=============== ======= =======================================
-	Name            Default Description
-	=============== ======= =======================================
-	description     None    Html meta tag description
-	generate html   True    Enable/disable parsing of page content
-	menu exclude    False   Remove page from menu/crumbtrail
-	menu title      None    If set use for title in menu/crumbtrail
-	sitemap exclude False   Remove page from sitemap
-	title           None    If set overrides page title
-	=============== ======= =======================================
+	=============== ======== =======================================
+	Name            Default  Description                            
+	=============== ======== =======================================
+	description     None     Html meta tag description              
+	generate html   True     Enable/disable parsing of page content 
+	menu exclude    False    Remove page from menu/crumbtrail       
+	menu title      None     If set use for title in menu/crumbtrail
+	sitemap exclude False    Remove page from sitemap               
+	template        page.tpl Template file from /templates          
+	title           None     If set overrides page title            
+	=============== ======== =======================================
 
 
 reStructuredText
-======================
+================
 
-Pagegen uses `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ for markup.
+Pages are marked up using `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_.
+
+Some files that comprise a web site may just be regular text files. These files can be setup by using the page header **generate html: false**, in which case Pagegen will dump file contents as-is, without running it through reStructuredText parser.
+
+.. tip::
+
+	robots.txt or .htaccess are files that should be configured with **generate html: false** header.
+
+
+Executable files
+================
+
+Content files may be executables. If a file is executable its content from stdout will be used instead of actual file content. The output form the executable is treated identically to a regular content file, so it may specify headers and non-header content will be parsed as reStructuredText.

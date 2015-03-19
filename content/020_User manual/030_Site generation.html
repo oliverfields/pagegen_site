@@ -2,7 +2,7 @@ On generation pagegen will build site from pages in **content directory**. The c
 
 .. code::
 
-	$ pagegen gen
+	$ pagegen
 
 After generation the generated HTML will be in the **site directory**, simply copy this directory to your web server to go live:)
 
@@ -18,7 +18,7 @@ Site generation can be configured by the **site.conf**, found in the pagegen roo
 	# Toggle sitemap generation. Default True, optional
 	#exclude_sitemap=False
 	
-	# Toggle relative or absolute URLs. Default False, optional
+	# Toggle relative or absolute URLs. Default True, optional
 	#absolute_urls=True
 	
 	# Toggle copy or make symlink to include directory in site directory
@@ -27,3 +27,6 @@ Site generation can be configured by the **site.conf**, found in the pagegen roo
 	
 	# Toggle include page titles in content. Default False, optional
 	#page_titles
+	
+	# Toggle index file in url for directories. Default True, optional
+	#url_include_index=False

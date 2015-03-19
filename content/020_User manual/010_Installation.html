@@ -1,0 +1,50 @@
+Installation available either from .deb or from github release.
+
+.deb
+====
+
+.. code::
+
+	$ wget http://pagegen.phnd.net/include/downloads/pagegen-2.0.0.deb
+	$ sudo dpkg -i pagegen-2.0.0.deb
+
+
+github.com
+==========
+
+.. code::
+
+	mkdir pagegen
+	cd pagegen
+	$ wget https://github.com/oliverfields/pagegen_v2/archive/2.0.0.tar.gz
+	$ tar .zxf 2.0.0.tar.gz
+	$ chmod u+x pagegen
+	$ echo "skel_dir=$PWD/skel" > ~/.config/pagegen.conf
+
+
+Test installation
+=================
+
+Assuming bash shell, create directory for new site, initialise directory, setup site.conf and finally generate site.
+
+.. code::
+
+	$ mkdir my_site
+	$ cd my_site
+	$ <path to pagegen>/pagegen init
+	$ echo -e "base_url=file://$PWD/site" > site.conf
+	$ <path to pagegen>/pagegen
+
+Open **my_site/site/index.html** in a browser to view (typically File > Open).
+
+Alternatively test with a web server, this example uses the Python SimpleHTTPServer.
+
+	$ mkdir my_site
+	$ cd my_site
+	$ <path to pagegen>/pagegen init
+	$ echo -e "base_url=http://localhost:8000" > site.conf
+	$ <path to pagegen>/pagegen
+	$ cd site
+	$ python -m SimpleHTTPServer
+
+Open **http://localhost:8000** in a browser to view.

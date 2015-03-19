@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Post hook"
+echo "---------"
+echo
+echo "* CSS minify"
+echo "* HTML tidy"
+echo "* Gzip stuff"
+echo "* Upload to server"

@@ -1,0 +1,60 @@
+Setting up page layout is controlled by page templates. Pages may specify a template by setting **Template** header. All templates are located in **templates** directory and the default one is **page.tpl**. The templates can be freely customized and supports the following variables.
+
+Page template variables
+***********************
+
+.. raw:: html
+
+	<dl>
+	  <dt>&lbrace;&lbrace;content&rbrace;&rbrace;</dt>
+	  <dd>Page content</dd>
+	  <dt>&lbrace;&lbrace;crumb_trail&rbrace;&rbrace;</dt>
+	  <dd>Bread crumb trail
+	  <dt>&lbrace;&lbrace;description&rbrace;&rbrace;</dt>
+	  <dd>Description text</dd>
+	  <dt>&lbrace;&lbrace;menu&rbrace;&rbrace;</dt>
+	  <dd>Site menu</dd>
+	  <dt>&lbrace;&lbrace;title&rbrace;&rbrace;</dt>
+	  <dd>Page title</dd>
+	</dl>
+
+Misc template variables
+***********************
+
+.. raw:: html
+
+	<dl>
+	  <dt>&lbrace;&lbrace;base_url&rbrace;&rbrace;</dt>
+	  <dd>Site base url setting</dd>
+	  <dt>&lbrace;&lbrace;year&rbrace;&rbrace;</dt>
+	  <dd>Current year</dd>
+	  <dt>&lbrace;&lbrace;month&rbrace;&rbrace;</dt>
+	  <dd>Current month</dd>
+	  <dt>&lbrace;&lbrace;day&rbrace;&rbrace;</dt>
+	  <dd>Current day</dd>
+	</dl>
+
+
+CSS, Javascript, images and stuff
+*********************************
+
+When generating the site all contents in the [site directory]/include directory are either copied(default) or symlinked to the output folder (see `Site generation </user-manual/site-genration.html>`_). Add CSS, Javascript and images (or anything else) to this directory to have them included with the generated site.
+
+
+Site menu
+*********
+
+A key feature of Pagegen is that each page has a full site menu on each page. The menu can be customized as follows.
+
+.. raw:: html
+
+	<dl>
+	  <dt>Absolute urls</dt>
+	  <dd>**site.conf** setting **absolute_urls* toggles relative or absolute URLs in menu</dt>
+	  <dt>Excluding pages</dt>
+	  <dd>Pages with header **Menu exclude** are not removed from menu. Implication is that all children of Page are removed from menu also</dd>
+	  <dt>Menu title</dt>
+	  <dd>Pages with header **Menu title** appear with this value in menu</dd>
+	  <dt>Order</dt>
+	  <dd>Prefix file or directories in **content directory** with **<integer>_** to order menu items</dd>
+	</dl>

@@ -1,5 +1,5 @@
 // Config
-menu='#menu > ul';
+menu='#menu';
 toggle_id='#hamburger';
 sub_menu_class='sub_menu';
 no_sub_menu_class='no_sub_menu';

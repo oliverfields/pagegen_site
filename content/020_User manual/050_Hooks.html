@@ -1,0 +1,25 @@
+To make the static site more dynamic(pun intended) Pagegen can run executables at preset times, hooks, during the generation process.
+
+To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``). Hooks are run with the following environment variables. Non zero exit from a hook immidiatly aborts generation.
+
+
+.. raw:: html
+
+	<dl>
+	  <dt>PAGEGEN_SITE_DIR</dt>
+	  <dd>Pagegen root directory</dd>
+	  <dt>PAGEGEN_SOURCE_DIR</dt>
+	  <dd>Content directory (<pagegen root directory>/content)</dd>
+	  <dt>PAGEGEN_TARGET_DIR</dt>
+	  <dd>Generated site directory (<pagegen root directory>/site)</dd>
+	</dl>
+
+
+.. table:: Available hooks
+
+	============= ============================
+	Name          Description
+	============= ============================
+	pre_generate  Run before generation starts
+	post_generate Run when generation complete
+	============= ============================
