@@ -5,6 +5,8 @@ All necessary files for a freshly generated site are found in the **site directo
 
 .. tip:: If using Apache the .htaccess file can be saved as a normal page in the **content directory**. Most likely the headers should be: **Generate html: False**, **Menu exclude: True** and **Sitemap exclude: True**
 
+The following settings may be set in different configuration files depending on the web server setup, exactly where to put them is outside the scope of this article, but with the setting names and google you should be on your way.
+
 
 Nice URLs
 *********
@@ -33,7 +35,9 @@ Apache
 Nginx
 =====
 
-TODO!
+.. code::
+
+	default_type text/html;
 
 
 Serve default file
@@ -46,17 +50,17 @@ Content files for directories are **index** (with optional extension), the web s
 Apache
 ======
 
-Set the DirectoryIndex in the appropriate configuration file (e.g. .htaccess).
-
 .. code::
 
-	 DirectoryIndex default
+	 DirectoryIndex index.html
 
 
 Nginx
 =====
 
-TODO!
+.. code::
+
+	index index.html;
 
 
 Custom error pages
@@ -78,8 +82,6 @@ Create the following files with appropriate content. Set the page headers to **M
 Apache
 ======
 
-For Apache the following will specify which error page to show. Add the following to the appropriate configuration file (e.g. .htaccess).
-
 .. code::
 
 	ErrorDocument 403 /403.html
@@ -90,10 +92,32 @@ For Apache the following will specify which error page to show. Add the followin
 Nginx
 =====
 
-Todo!
+.. code::
+
+	error_page 403 /403.html;
+	error_page 404 /404.html;
+	error_page 500 /500.html;
 
 
 Serve compressed content
 ************************
 
-Todo!
+For performance content suitable for compression (e.g. text, not images) should be gzipped.
+
+
+Apache
+======
+
+.. code::
+
+	SetOutputFilter DEFLATE
+	AddOutputFilterByType DEFLATE text/plain text/html application/javascript text/javascript application/x-javascript text/css
+
+
+Nginx
+=====
+
+.. code::
+
+	gzip on;
+	gzip_types text/plain text/html application/javascript text/javascript application/x-javascript text/css;
