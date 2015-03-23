@@ -25,8 +25,8 @@ $(function() {
   });
 
   // Add separators to crumb trail
-  $(crumb_trail+' > ul li:not(:last)').each(function(){
-    $(this).append(crumb_trail_separator);
+  $(crumb_trail+' > ul li').each(function(){
+    $(this).prepend(crumb_trail_separator);
   });
 
 });
@@ -64,14 +64,6 @@ $(document).ready(function(){
   $('.'+no_sub_menu_class).click(function(event) {
     event.stopPropagation();
   });
-
-  // Replace first crumb trail item with icon, or remove it if on homepage
-  if($(crumb_trail+' li').length == 1){
-    $(crumb_trail+' ul').css('visibility', 'hidden');
-  }
-  else {
-    $(crumb_trail+' li a').first().addClass('sprite home');
-  }
 
   // Add icon to external links
   $("a").filter(function() {

@@ -14,10 +14,10 @@
 </head>
 <body>
 <header>
-<a href="/" id="logo" class="sprite"></a>
 <nav>
-<div id="hamburger" class="sprite"></div>
+<a href="/" id="logo" class="sprite"></a>
 <div id="crumb_trail">{{crumb_trail}}</div>
+<div id="hamburger" class="sprite"></div>
 <div id="menu">
 {{menu}}
 <div id="issue_tracker"><a href="https://github.com/oliverfields/pagegen_v2_site/issues">Report a bug</a></div>
