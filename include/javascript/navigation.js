@@ -46,7 +46,7 @@ $(document).ready(function(){
   });
 
   // Add span around a tag to ease styling, need to add toggle in this span
-  $(menu+' a').wrap('<span></span>');
+  $(menu+' > ul a').wrap('<span></span>');
 
   $(menu+' li:has(ul) > span').each(function() {
     $(this).append('<span class="sprite '+toggle_class+'"></span>');

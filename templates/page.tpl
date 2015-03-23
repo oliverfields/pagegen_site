@@ -7,7 +7,6 @@
 <title>{{title}}</title>
 <base href="{{base_url}}" />
 <link rel="stylesheet" href="/include/css/style.css" type="text/css" />
-<link rel="stylesheet" href="/include/css/navigation.css" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="/include/javascript/navigation.js"></script>
