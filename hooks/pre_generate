@@ -8,9 +8,9 @@ cd "$PAGEGEN_SOURCE_DIR"
 echo
 echo "Todos:"
 echo "* Filter to update given content variables, e.g. current version"
-echo "* Deploy to ftp"
+echo "* Canonical tag for pages"
+echo "* 301 redirect to canonical page url"
 echo "* Create new analytics tag"
-echo "* gzip files, perhaps hook pre and post file?"
 echo "* Register with GWT"
 echo "* Run google mobile report"
 echo "* Run Yahoo optimization"
@@ -20,5 +20,6 @@ echo "* User manual should have tip admonition link to quick start"
 echo "* Nicer 'pagegen name syntax' block on content management.html"
 echo "* Icons for admonitions"
 echo "* Optimize sprite"
+echo "* If url_include_index=False then don't show index in sitemap either"
 grep -R TODO * | sed 's/^/\t* /'
 echo

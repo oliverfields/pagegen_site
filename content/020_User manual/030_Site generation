@@ -2,7 +2,7 @@ On generation pagegen will build site from pages in **content directory**. The c
 
 .. code::
 
-	$ pagegen
+	$ pagegen --generate
 
 After generation the generated HTML will be in the **site directory**, simply copy this directory to your web server to go live:)
 
@@ -14,6 +14,9 @@ Site generation can be configured by the **site.conf**, found in the pagegen roo
 
 	# Set site root directory, mandatory
 	base_url=http://localhost
+	
+	# Specify default extension, if file does not already have one. Default None, optional
+	#default_extension=.html
 	
 	# Toggle sitemap generation. Default True, optional
 	#exclude_sitemap=False

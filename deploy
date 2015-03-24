@@ -1,0 +1,108 @@
+#!/bin/bash
+
+set -e
+
+env="$1"
+pagegen='/home/oliver/Personal/projects/pagegen/v2/pagegen'
+site_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/site'
+prod_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/prod_site.conf'
+test_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/test_site.conf'
+
+source ftp_conf
+
+if [ "$env" = "prod" ]; then
+  $pagegen --generate --config "$prod_conf"
+
+  # Gzip seperate html, css and javascript files, that way can serve both gzip and regular files
+
+  echo "Only return files over certain size, compressing small files is stupid"
+
+  # Rename html files with .html
+  find "$site_dir" -type f -regex '^[^\.]*$' -exec mv {} {}.html \;
+
+  # Compress files
+  find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) -exec gzip --best {} \;
+  tree "$site_dir"
+
+  # Add prod .htaccess
+  # Inspiration gzip content
+  # http://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache
+  echo '
+AddEncoding x-gzip .gz
+AddCharset UTF-8 *
+
+<files *.css.gz>
+ForceType text/css
+</files>
+<files *.js.gz>
+ForceType application/javascript
+</files>
+<files *.txt.gz>
+ForceType text/plain
+</files>
+<files *.html.gz>
+ForceType text/html
+</files>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on 
+
+  RewriteCond (robots|sitemap).txt.gz -f
+  RewriteRule ^.*(robots|sitemap)\.txt$ /$1.txt.gz [L]
+
+  # Serve gzipped if exists
+  RewriteCond %{REQUEST_FILENAME}.(txt|css|js).gz -f
+  RewriteRule ^(.*)\.(txt|css|js)$ $1.$2.gz [L]
+
+  # If not exists gzipped version just show regular
+  RewriteCond %{REQUEST_FILENAME}.(txt|css|js) -f
+  RewriteRule ^(.*)\.(txt|css|js)$ $1.$2 [L]
+
+  # If directory show gzipped index file
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html.gz -f
+  RewriteRule ^(.*)$ $1/index.html.gz [L]
+
+  # If directory show index file
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+
+  # Serve gzip if available
+  RewriteCond %{REQUEST_FILENAME}.html.gz -f
+  RewriteRule ^(.*)$ $1.html.gz [L]
+
+  # Serve ungziped if available
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+</IfModule>
+
+' > "$site_dir/.htaccess"
+
+  echo "Test content" > "$site_dir/test.html"
+
+  chmod_dirs="$(find "$site_dir" -type d | sed "s#^$site_dir#$prod_target_dir# ; s/^/chmod 755\ /")"
+  chmod_files="$(find "$site_dir" -type f | sed "s#^$site_dir#$prod_target_dir# ; s/^/chmod 644\ /")"
+
+  # NB! TLS at fastline is broken, so need "set ssl:verify-certificate no" in ~/.lftp/rc
+  lftp -f /dev/stdin <<EOFFTP
+open $prod_host
+user $prod_user $prod_pass
+lcd $site_dir
+mirror --reverse --delete $site_dir $prod_target_dir
+$chmod_dirs
+$chmod_files
+bye
+EOFFTP
+
+elif [ "$env" = "test" ]; then
+    $pagegen --generate --config "$test_conf"
+
+else
+  echo "Error Unknown environment '$env'" 2>&1
+  exit 1
+fi
+
+
+echo "Deployment to '$env' complete"

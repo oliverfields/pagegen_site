@@ -13,7 +13,7 @@ Assuming Debian based OS, download `latest .deb </download/pagegen_latest.deb>`_
 	$ dpkg -i pagegn_latest.deb
 	$ mkdir my_site
 	$ cd my_site
-	$ pagegen init
+	$ pagegen --init
 
 The last command sets up the current directory with a basic pagegen framework of files and folders.
 
@@ -53,7 +53,7 @@ We are now ready to generate the site. This will create the finished site in the
 
 .. code::
 
-	$ pagegen
+	$ pagegen --generate
 
 The *my_site/site* directory now contains a freshly generated site ready for upload to a web server.
 

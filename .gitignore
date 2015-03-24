@@ -3,3 +3,4 @@ pgtest.phnd.net
 site
 include/downloads/*.tar.gz
 include/downloads/*.deb
+ftp_conf
