@@ -20,11 +20,11 @@ outline:0;
 font-size:14px;
 color: #D4D8D1;
 vertical-align:baseline;
-font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 body {
 line-height:1em;
 padding: 0 .5em;
+font-family: Tahoma, Geneva, sans-serif;
 }
 article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section {
 display:block;
@@ -86,14 +86,14 @@ header { padding: .4em 0;}
 #copyright, #pagegend { float: right; clear: right; margin: .4em 0 .6em 0;  font-size: .8em; }
 
 article { margin: 0 auto 1.8em auto; }
-article h1, article h2, article h3, article h4, article h5, article h6 { line-height: 1em; margin: .8em 0em .6em 0em; }
+article h1, article h2, article h3, article h4, article h5, article h6 { line-height: 1em; margin: .8em 0em .6em 0em; font-family: "Trebuchet MS", Helvetica, sans-serif;}
 article h1 { font-size: 3em; color: #577492; }
 article h2 { font-size: 2em; color: #AA9A66;}
 article h3 { font-size: 1.5em; color: #67655D;}
 article h4 { font-size: 1em; color: #67655D;}
 article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 2em; }
 article p { line-height: 1.6em; margin-bottom: 2em}
-p.sidebar-title { font-weight: bold; color: #577492; font-size: 1.5em; margin: 0 0 .6em 0;}
+p.sidebar-title { font-weight: bold; color: #577492; font-size: 1.5em; margin: 0 0 .6em 0; font-family: "Trebuchet MS", Helvetica, sans-serif;}
 div.sidebar { padding: .4em; background-color: #D4D8D1; color: #332C2F; margin: 0 0 .8em .8em;}
 div.sidebar p { padding: 0; }
 div.sidebar ul { margin: .4em 0 .6em 0; }
@@ -108,9 +108,10 @@ margin: 0;
 dt { font-weight: bold; font-size: 1.2em; padding: .2em; color: #A8A8A1;}
 dd { margin: 0 0 .8em 2em; padding: .2em;}
 strong { color: #fff; }
-
+span.admonition-good {width: 32px; height: 32px; background-position: -756px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
+span.admonition-bad {width: 32px; height: 32px; background-position: -788px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
 /* Navigational elements */
-#hamburger { cursor: pointer; float: left; width: 32px; height: 32px; background-position: -676px 0px; margin-right: 1em;}
+#hamburger { cursor: pointer; width: 32px; height: 32px; background-position: -676px 0px; float: right;}
 .menu_shown { background-position: -708px 0px !important; background-color: #577492; border-top-left-radius: .2em; border-top-right-radius: .2em;}
 li.sub_menu ul { display: none; }
 span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -192px 0px; margin-left: 1em;}
@@ -142,6 +143,7 @@ article { width: 600px; }
 html { overflow-y: scroll; }
 div.sidebar { width: 30%; float: right; padding: .4em 1em .6em 1em; }
 #crumb_trail { display: inline-block; }
+#hamburger {float: left; margin-right: 1em; }
 }
 
 /* docutils html4css1.css */
@@ -186,7 +188,7 @@ div.hint p,
 div.important p,
 div.note p,
 div.tip p {
-padding: .4em;
+padding: .4em 1em .6em 1em;
 }
 
 div.admonition,
@@ -205,7 +207,9 @@ div.tip p.admonition-title {
   font-weight: bold ;
 margin-bottom: .2em;
 background-color: #577492;
-padding: .4em;}
+padding: .4em;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 1.4em;}
 
 div.attention,
 div.caution,
@@ -223,7 +227,9 @@ div.warning p.admonition-title {
 font-weight: bold ;
 margin-bottom: .2em;
 background-color: #B74934;
-padding: .4em;}
+padding: .4em;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 1.4em;}
 
 
 /* Uncomment (and remove this text!) to get reduced vertical space in
@@ -432,6 +438,7 @@ table.footnote {
 
 article table th {
 border-bottom: solid 1px #A8A8A1;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 article table td, article table th {

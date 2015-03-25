@@ -4,31 +4,31 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 
 .. table:: Available hooks
 
-	================== ================================= ================================================================================
-	Name               Description                       Environment variables                                                           
-	================== ================================= ================================================================================
-	pre_generate       Run before generation starts      PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR                        
-	post_generate      Run when generation complete      PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR                        
-	pre_generate_page  Run before page generation starts PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR and PAGEGEN_PAGE_*
-	post_generate_page Run before page generation starts PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR and PAGEGEN_PAGE_*
-	================== ================================= ================================================================================
+	================== =================================
+	Name               Description                      
+	================== =================================
+	pre_generate       Run before generation starts     
+	post_generate      Run when generation complete     
+	pre_generate_page  Run before page generation starts
+	post_generate_page Run before page generation starts
+	================== =================================
 
 
 .. raw:: html
 
 	<dl>
 	  <dt>PAGEGEN_SITE_DIR</dt>
-	  <dd>Pagegen root directory</dd>
+	  <dd>Pagegen root directory, available all hooks</dd>
 	  <dt>PAGEGEN_SOURCE_DIR</dt>
-	  <dd>Content directory (<pagegen root directory>/content)</dd>
+	  <dd>Content directory (<pagegen root directory>/content), available all hooks</dd>
 	  <dt>PAGEGEN_TARGET_DIR</dt>
-	  <dd>Generated site directory (<pagegen root directory>/site)</dd>
+	  <dd>Generated site directory (<pagegen root directory>/site), available all hooks</dd>
 	  <dt>PAGEGEN_PAGE_TITLE</dt>
-	  <dd>Page title</dd>
+	  <dd>Page title, available *_page hooks</dd>
 	  <dt>PAGEGEN_PAGE_URL</dt>
-	  <dd>Page url</dd>
+	  <dd>Page url, available *_page hooks</dd>
 	  <dt>PAGEGEN_PAGE_SOURCE_PATH</dt>
-	  <dd>Path to page source</dd>
+	  <dd>Path to page source, available *_page hooks</dd>
 	  <dt>PAGEGEN_PAGE_TARGET_PATH</dt>
-	  <dd>Path to page target</dd>
+	  <dd>Path to page target, available *_page hooks</dd>
 	</dl>

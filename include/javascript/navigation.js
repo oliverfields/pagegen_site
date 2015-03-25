@@ -70,4 +70,8 @@ $(document).ready(function(){
     return this.hostname && this.hostname !== location.hostname;
   }).append('<span class="sprite"></span>');
 
+  // Add admonition icons
+  $('div.admonition p.admonition-title, div.hint p.admonition-title, div.important p.admonition-title, div.note p.admonition-title, div.tip p.admonition-title').prepend('<span class="sprite admonition-good"></span>');
+  $('div.attention p.admonition-title, div.caution p.admonition-title, div.danger p.admonition-title, div.error p.admonition-title, div.warning p.admonition-title').prepend('<span class="sprite admonition-bad"></span>');
+
 });

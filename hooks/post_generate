@@ -1,28 +1,10 @@
 #!/bin/bash
 
-www_dir="/usr/share/nginx/pagegen"
-
 set -e
 
 echo "Post hook"
 echo "---------"
 echo
-
-
-#echo -n "Removing old site.."
-#rm -Rf "$www_dir/"*
-#echo " done"
-
-#echo -n "Copying site.."
-#cp -R "$PAGEGEN_TARGET_DIR/"* "$www_dir/."
-#echo " done"
-
-#echo -n "Setting ownership and permissions.."
-#chgrp -R www-data "$www_dir/"*
-#echo " done"
-#echo
-
 echo "Todo:"
 echo "* CSS minify"
 echo "* HTML tidy"
-echo "* Gzip stuff"
