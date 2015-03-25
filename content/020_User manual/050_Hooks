@@ -2,6 +2,17 @@ To make the static site more dynamic(pun intended) Pagegen can run executables a
 
 To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``). Hooks are run with the following environment variables. Non zero exit from a hook immidiatly aborts generation.
 
+.. table:: Available hooks
+
+	================== ================================= ================================================================================
+	Name               Description                       Environment variables                                                           
+	================== ================================= ================================================================================
+	pre_generate       Run before generation starts      PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR                        
+	post_generate      Run when generation complete      PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR                        
+	pre_generate_page  Run before page generation starts PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR and PAGEGEN_PAGE_*
+	post_generate_page Run before page generation starts PAGEGEN_SITE_DIR, PAGEGEN_SOURCE_DIR, PAGEGEN_TARGET_DIR and PAGEGEN_PAGE_*
+	================== ================================= ================================================================================
+
 
 .. raw:: html
 
@@ -12,14 +23,12 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 	  <dd>Content directory (<pagegen root directory>/content)</dd>
 	  <dt>PAGEGEN_TARGET_DIR</dt>
 	  <dd>Generated site directory (<pagegen root directory>/site)</dd>
+	  <dt>PAGEGEN_PAGE_TITLE</dt>
+	  <dd>Page title</dd>
+	  <dt>PAGEGEN_PAGE_URL</dt>
+	  <dd>Page url</dd>
+	  <dt>PAGEGEN_PAGE_SOURCE_PATH</dt>
+	  <dd>Path to page source</dd>
+	  <dt>PAGEGEN_PAGE_TARGET_PATH</dt>
+	  <dd>Path to page target</dd>
 	</dl>
-
-
-.. table:: Available hooks
-
-	============= ============================
-	Name          Description
-	============= ============================
-	pre_generate  Run before generation starts
-	post_generate Run when generation complete
-	============= ============================

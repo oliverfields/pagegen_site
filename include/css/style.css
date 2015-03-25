@@ -77,10 +77,11 @@ input, select {
 vertical-align:middle;
 }
 .sprite {background-image: url('/include/graphics/sprite.png'); background-repeat: no-repeat; display: block; }
-header {border-bottom: solid 1px #B74934; padding: .4em 0;}
+header { padding: .4em 0;}
 #logo { width: 108px; height: 32px; background-position: -568px 0px; display: inline-block;  vertical-align: middle; }
-#pagegend { width: 46px; height: 13px; background-position: -480px 0px; }
-#contact, #issue_tracker { text-align: right; padding: .4em 1em .6em 1em;}
+#pagegend { width: 46px; height: 13px; background-position: -480px 0px;}
+#contact, #issue_tracker { text-align: right; padding: .4em 1em .6em 1em; line-height: 16px;}
+#issue_tracker .bug {width: 16px; height: 16px; background-position: -740px 0px; display: inline-block; vertical-align: middle; margin-left: 1em;}
 #contact a, #issue_tracker a { font-weight: bold; color: #fff; }
 #copyright, #pagegend { float: right; clear: right; margin: .4em 0 .6em 0;  font-size: .8em; }
 
@@ -109,7 +110,7 @@ dd { margin: 0 0 .8em 2em; padding: .2em;}
 strong { color: #fff; }
 
 /* Navigational elements */
-#hamburger { cursor: pointer; float: right; width: 32px; height: 32px; background-position: -676px 0px; }
+#hamburger { cursor: pointer; float: left; width: 32px; height: 32px; background-position: -676px 0px; margin-right: 1em;}
 .menu_shown { background-position: -708px 0px !important; background-color: #577492; border-top-left-radius: .2em; border-top-right-radius: .2em;}
 li.sub_menu ul { display: none; }
 span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -192px 0px; margin-left: 1em;}
@@ -434,7 +435,7 @@ border-bottom: solid 1px #A8A8A1;
 }
 
 article table td, article table th {
-  padding: .2em .8em .2em 0;
+  padding: .2em .8em .4em 0;
   vertical-align: top;
 text-align: left; }
 

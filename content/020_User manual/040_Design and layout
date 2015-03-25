@@ -6,6 +6,8 @@ Page template variables
 .. raw:: html
 
 	<dl>
+	  <dt>&lbrace;&lbrace;absolute_url&rbrace;&rbrace;</dt>
+	  <dd>Full url to page</dd>
 	  <dt>&lbrace;&lbrace;content&rbrace;&rbrace;</dt>
 	  <dd>Page content</dd>
 	  <dt>&lbrace;&lbrace;crumb_trail&rbrace;&rbrace;</dt>

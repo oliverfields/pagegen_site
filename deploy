@@ -78,7 +78,7 @@ ForceType text/html
 
 </IfModule>
 
-' > "$site_dir/.htaccess"
+' | sed 's/^\ *// ; /^#/d ; /^$/d' > "$site_dir/.htaccess"
 
   echo "Test content" > "$site_dir/test.html"
 
@@ -97,7 +97,10 @@ bye
 EOFFTP
 
 elif [ "$env" = "test" ]; then
-    $pagegen --generate --config "$test_conf"
+  $pagegen --generate --config "$test_conf"
+
+  # Replace js.gz and css.gz extensions
+  find "$site_dir" -name '*.html' -type f -exec sed -i 's/\.\(js\|css\)\.gz"/.\1"/g' {} \;
 
 else
   echo "Error Unknown environment '$env'" 2>&1

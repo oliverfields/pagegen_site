@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ "$PAGEGEN_PAGE_TITLE" = "Download" ]; then
+  echo "Gotcha!"
+fi
