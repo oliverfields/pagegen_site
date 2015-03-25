@@ -1,3 +1,20 @@
+.. raw:: html
+
+	<table>
+	<tr><th>Version</th><th>Released</th>
+	<tr><td><a href="/include/downloads/pagegen_2.0.4_all.deb">2.0.4</a></td><td>2010-11-19</td></tr>
+	</table>
+
+Git repository
+--------------
+
+.. code::
+
+	$ git clone https://github.com/oliverfields/pagegen_v2.git
+
+
+Old school pagegen
+------------------
 
 .. raw:: html
 
@@ -11,10 +28,3 @@
 	<tr><td>0.8.1</td><td>2009-07-27</td><td><a href="/include/downloads/pagegen-0.8.1.tar.gz">tar.gz</a></td></tr>
 	<tr><td>0.8.0</td><td>2009-07-26</td><td><a href="/include/downloads/pagegen-0.8.0.tar.gz">tar.gz</a></td></tr>
 	</table>
-
-Git repository @ github
---------------------------------
-
-.. code::
-
-	$ git clone https://github.com/oliverfields/pagegen_v2.git

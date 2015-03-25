@@ -78,10 +78,10 @@ vertical-align:middle;
 }
 .sprite {background-image: url('/include/graphics/sprite.png'); background-repeat: no-repeat; display: block; }
 header { padding: .4em 0;}
-#logo { width: 108px; height: 32px; background-position: -568px 0px; display: inline-block;  vertical-align: middle; }
-#pagegend { width: 46px; height: 13px; background-position: -480px 0px;}
+#logo { width: 108px; height: 32px; background-position: -80px 0px; display: inline-block;  vertical-align: middle; }
+#pagegend { width: 46px; height: 13px; background-position: -294px 0px;}
 #contact, #issue_tracker { text-align: right; padding: .4em 1em .6em 1em; line-height: 16px;}
-#issue_tracker .bug {width: 16px; height: 16px; background-position: -740px 0px; display: inline-block; vertical-align: middle; margin-left: 1em;}
+#issue_tracker .bug {width: 16px; height: 16px; background-position: -64px 0px; display: inline-block; vertical-align: middle; margin-left: 1em;}
 #contact a, #issue_tracker a { font-weight: bold; color: #fff; }
 #copyright, #pagegend { float: right; clear: right; margin: .4em 0 .6em 0;  font-size: .8em; }
 
@@ -94,28 +94,29 @@ article h4 { font-size: 1em; color: #67655D;}
 article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 2em; }
 article p { line-height: 1.6em; margin-bottom: 2em}
 p.sidebar-title { font-weight: bold; color: #577492; font-size: 1.5em; margin: 0 0 .6em 0; font-family: "Trebuchet MS", Helvetica, sans-serif;}
-div.sidebar { padding: .4em; background-color: #D4D8D1; color: #332C2F; margin: 0 0 .8em .8em;}
+div.sidebar { padding: .4em; background-color: #D4D8D1; color: #332C2F; margin: .4em 0 .6em 0;}
 div.sidebar p { padding: 0; }
 div.sidebar ul { margin: .4em 0 .6em 0; }
 div.sidebar li { margin-left: 1.4em; color: #332C2F;}
 footer { padding: 1em 0 3em 0; border-top: solid 2px #B74934;}
-a.external span { margin: 2px 0 0 .2em; width: 10px; height: 10px; background-position: -558px 0px; display: inline-block;}
+a.external span { margin: 2px 0 0 .2em; width: 10px; height: 10px; background-position: -284px 0px; display: inline-block;}
 article a { color: #577492; }
 article a:hover { color: #B74934; }
 article li p.first {
 margin: 0;
 }
-dt { font-weight: bold; font-size: 1.2em; padding: .2em; color: #A8A8A1;}
+dt { font-weight: bold; padding: .2em; color: #A8A8A1;}
 dd { margin: 0 0 .8em 2em; padding: .2em;}
+dl { margin: 1em 0 1.2em 0; }
 strong { color: #fff; }
-span.admonition-good {width: 32px; height: 32px; background-position: -756px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
-span.admonition-bad {width: 32px; height: 32px; background-position: -788px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
+span.admonition-good {width: 32px; height: 32px; background-position: -0px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
+span.admonition-bad {width: 32px; height: 32px; background-position: -32px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
 /* Navigational elements */
-#hamburger { cursor: pointer; width: 32px; height: 32px; background-position: -676px 0px; float: right;}
-.menu_shown { background-position: -708px 0px !important; background-color: #577492; border-top-left-radius: .2em; border-top-right-radius: .2em;}
+#hamburger { cursor: pointer; width: 32px; height: 32px; background-position: -220px 0px; float: right;}
+.menu_shown { background-position: -188px 0px !important; background-color: #577492; border-top-left-radius: .2em; border-top-right-radius: .2em;}
 li.sub_menu ul { display: none; }
-span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -192px 0px; margin-left: 1em;}
-span.sub_menu_shown { background-position: -288px 0px !important; }
+span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -252px 0px; margin-left: 1em;}
+span.sub_menu_shown { background-position: -268px 0px !important; }
 #menu a { text-decoration: none; color: #D4D8D1;}
 #menu li>span:hover{ background-color: #AA9A66; }
 #menu li>span{display: block; padding: .5em 1em .5em 0;}
@@ -130,7 +131,7 @@ span.sub_menu_shown { background-position: -288px 0px !important; }
 /* Sixth level */
 #menu > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li > span > a { padding-left: 6em; }
 .crumb_trail_separator { margin: 0 .5em; }
-#crumb_trail li:first-child { visibility: hidden; width: 0px; }
+#crumb_trail li:first-child { display: none; }
 #crumb_trail li { display: inline-block; vertical-align: middle; line-height: 32px; }
 #crumb_trail { padding-left: -.5em; display: none;}
 #crumb_trail a { text-decoration: none; color: #577492; }
@@ -144,6 +145,7 @@ html { overflow-y: scroll; }
 div.sidebar { width: 30%; float: right; padding: .4em 1em .6em 1em; }
 #crumb_trail { display: inline-block; }
 #hamburger {float: left; margin-right: 1em; }
+div.sidebar { margin: 0 0 .8em .8em;}
 }
 
 /* docutils html4css1.css */
@@ -178,6 +180,19 @@ div.abstract p.topic-title {
   font-weight: bold ;
   text-align: center }
 
+div.attention,
+div.caution,
+div.danger,
+div.error,
+div.warning,
+div.admonition,
+div.hint,
+div.important,
+div.note,
+div.tip {
+padding: .4em .4em .6em .4em;
+}
+
 div.attention p,
 div.caution p,
 div.danger p,
@@ -188,7 +203,7 @@ div.hint p,
 div.important p,
 div.note p,
 div.tip p {
-padding: .4em 1em .6em 1em;
+margin: 0 0 0 46px;
 }
 
 div.admonition,
@@ -196,50 +211,40 @@ div.hint,
 div.important,
 div.note,
 div.tip{
-margin: .8em 0 .6em 0;
-border: 1px solid #577492;}
-
-div.admonition p.admonition-title,
-div.hint p.admonition-title,
-div.important p.admonition-title,
-div.note p.admonition-title,
-div.tip p.admonition-title {
-  font-weight: bold ;
-margin-bottom: .2em;
 background-color: #577492;
-padding: .4em;
-font-family: "Trebuchet MS", Helvetica, sans-serif;
-font-size: 1.4em;}
+margin: 0 0 1.8em 0;
+}
+div.admonition a,
+div.hint a,
+div.important a,
+div.note a,
+div.tip a{
+color: #AA9A66;
+}
 
 div.attention,
 div.caution,
 div.danger,
 div.error,
 div.warning {
-margin: .8em 0 .6em 0;
-border: 1px solid #B74934;}
+background-color: #B74934;
+margin: 0 0 1.8em 0;}
 
+div.admonition p.admonition-title,
+div.hint p.admonition-title,
+div.important p.admonition-title,
+div.note p.admonition-title,
+div.tip p.admonition-title,
 div.attention p.admonition-title,
 div.caution p.admonition-title,
 div.danger p.admonition-title,
 div.error p.admonition-title,
 div.warning p.admonition-title {
 font-weight: bold ;
-margin-bottom: .2em;
-background-color: #B74934;
-padding: .4em;
+margin: 0;
+padding: 0 0 0 6px;
 font-family: "Trebuchet MS", Helvetica, sans-serif;
 font-size: 1.4em;}
-
-
-/* Uncomment (and remove this text!) to get reduced vertical space in
-   compound paragraphs.
-div.compound .compound-first, div.compound .compound-middle {
-  margin-bottom: 0.5em }
-
-div.compound .compound-last, div.compound .compound-middle {
-  margin-top: 0.5em }
-*/
 
 div.dedication {
   margin: 2em 5em ;
@@ -400,7 +405,6 @@ padding: 1em;
 font-family: "Courier New", Courier, monospace;
 background-color: #000;
 color: lime;
-font-size: 15px;
 margin: .6em 0 .8em 0;
 overflow: scroll;
 }
@@ -423,14 +427,14 @@ table.docinfo {
   margin: 2em 4em }
 
 article table {
-  margin: .8em 0 .6em 0;
-border-bottom: solid 1px #A8A8A1;
+  margin: .8em 0 2.6em 0;
 }
 article table caption{
 margin: 0 0 .4em 0;
 font-weight: bold;
 color: #AA9A66;
 text-align: left;
+font-size: 1.2em;
 }
 table.footnote {
   border-left: solid 1px black;
@@ -442,7 +446,7 @@ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 article table td, article table th {
-  padding: .2em .8em .4em 0;
+  padding: .4em .8em .6em 0;
   vertical-align: top;
 text-align: left; }
 

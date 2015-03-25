@@ -3,4 +3,4 @@ Menu exclude: True
 Sitemap exclude: True
 
 User-agent: *
-Disallow: /*gz
+Disallow: /

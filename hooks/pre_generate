@@ -2,22 +2,9 @@
 
 echo "Pre hook"
 echo "--------"
-
-cd "$PAGEGEN_SOURCE_DIR"
-
 echo
 echo "Todos:" 
-echo "* Download page"
-echo "* Optimize sprite"
-echo "* New icons:"
-echo "	*16x16"
-echo "		* bulb"
-echo "		* exclamation"
-echo "		* arrow up/down"
-echo "		* bug"
-echo "	*32x32"
-echo "		* burger"
-echo "		* cross"
+echo "* tidy up post hook"
 echo "* Create new analytics tag"
 echo "* Register with GWT"
 echo "* Run google mobile report"
@@ -25,6 +12,5 @@ echo "* Run Yahoo optimization"
 echo "* Run google page speed optimization"
 echo "* Create redirects for old pagegen site"
 echo "* quick-start.html -> list includes ugly markup from rst, consider subclassing rst to fix"
-echo "* Nicer 'pagegen name syntax' block on content management.html"
-grep -R TODO * | sed 's/^/\t* /'
+grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/\t* /'
 echo

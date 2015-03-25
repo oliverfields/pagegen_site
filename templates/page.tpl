@@ -7,10 +7,9 @@
 <title>{{title}}</title>
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
-<link rel="stylesheet" href="/include/css/style.css.gz" type="text/css" />
+<link rel="stylesheet" href="/include/css/style.min.css.gz" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="/include/javascript/navigation.js.gz"></script>
+<script src="/include/javascript/site.min.js.gz"></script>
 </head>
 <body>
 <header>

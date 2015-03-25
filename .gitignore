@@ -1,4 +1,8 @@
+include/css/style.min.css
+include/javascript/jquery.min.js
+include/javascript/site.min.js
 pagegen_site.scite_session
+sprite/copy*
 pgtest.phnd.net
 site
 include/downloads/*.tar.gz

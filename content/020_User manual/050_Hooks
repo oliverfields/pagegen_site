@@ -10,7 +10,7 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 	pre_generate       Run before generation starts     
 	post_generate      Run when generation complete     
 	pre_generate_page  Run before page generation starts
-	post_generate_page Run before page generation starts
+	post_generate_page Run when page generation complete
 	================== =================================
 
 

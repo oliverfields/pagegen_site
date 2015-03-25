@@ -26,7 +26,9 @@ The name of the file, or directory, are used to determine the final page attribu
 
 	On generation a **sitemap.txt** will be created, unless disabled in site configuration. A page can therefor not be called **content/sitemap.txt**.
 
-**Name syntax: [<sort order>_]<title>[.<extension>]**
+.. important::
+
+	**Name syntax: [<sort order>_]<title>[.<extension>]**
 
 
 Title
@@ -120,7 +122,8 @@ Executable files
 
 Content files may be executables. If a file is executable its content from stdout will be used instead of actual file content. The output form the executable is treated identically to a regular content file, so it may specify headers and non-header content will be parsed as reStructuredText.
 
-Example shell script.
+Example shell script
+--------------------
 
 .. code::
 

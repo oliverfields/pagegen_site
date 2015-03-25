@@ -2,7 +2,7 @@
 	For in depth documentation please see `user manual </user-manual>`_.
 
 Setup
---------------------------
+-----
 
 Assuming Debian based OS, download `latest .deb </download/pagegen_latest.deb>`_, install and create new pagegen site directory according to the following. For other installation options please see `installation </user-manual/install>`_.
 
@@ -18,7 +18,7 @@ The last command sets up the current directory with a basic pagegen framework of
 
 
 Create example site
-----------------------------
+-------------------
 
 We are going to create our site according to this outline.
 
@@ -46,7 +46,7 @@ Ensure the commands below are run from *my_site* directory. They will first dele
 
 
 Generate example site
-------------------------------
+---------------------
 
 We are now ready to generate the site. This will create the finished site in the *my_site/site* directory.
 
@@ -54,7 +54,7 @@ We are now ready to generate the site. This will create the finished site in the
 
 	$ pagegen --generate
 
-The *my_site/site* directory now contains a freshly generated site ready for upload to a web server.
+The **my_site/site** directory now contains a freshly generated site ready for upload to a web server.
 
 The generated site maps to the above outline as follows.
 
@@ -71,4 +71,4 @@ The generated site maps to the above outline as follows.
 Customize layout
 -----------------------
 
-Pagegen adds layout and navigation elements to each page when they are processed. To change the site look and feel change *my_site/page.template* and add required elements to *my_site/include* directory, e.g. css, images, javascript etc..
+Pagegen adds layout and navigation elements to each page when they are processed. To change the site look and feel change **my_site/page.template** and add required elements to **my_site/include** directory, e.g. css, images, javascript etc..
