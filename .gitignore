@@ -5,5 +5,5 @@ pagegen_site.scite_session
 sprite/copy*
 pgtest.phnd.net
 site
-ftp_conf
+*_ftp.conf
 pagegen_301_redirects.csv

@@ -1,0 +1,22 @@
+Pagegen v2.0
+============
+
+.. raw:: html
+
+	<table>
+	<tr><th>Version</th><th>Released</th>
+	<tr><td><a href="PAGEGEN_LATEST_DEB_URL">2.0.2</a></td><td>2015-03-26</td></tr>
+	</table>
+
+Git repository Pagegen
+----------------------
+
+.. code::
+
+	$ git clone https://github.com/oliverfields/pagegen_v2.git
+
+
+Pagegen v0.8
+============
+
+* `Pagegen v0.8 </download/pagegen-v0-8>`_

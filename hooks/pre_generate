@@ -4,15 +4,10 @@ echo "Pre hook"
 echo "--------"
 echo
 echo "Todos:" 
-echo "* Add old Analytics tag and create annotation for in analytics to mark new site launch. Do this to preserve historical data for comparison"
-echo "* Register with GWT"
-echo "* Register with Bing"
+echo "* Add goal for downloading in Analytics"
 echo "* Run google mobile report"
 echo "* Run Yahoo optimization"
-echo "* Run google page speed optimization"
-echo "* Create redirects for old pagegen site"
-echo "* Link checking"
+echo "* Run google page speed optimization - Blocking CSS and minify html remaining"
 echo "* quick-start.html -> list includes ugly markup from rst, consider subclassing rst to fix"
-echo "* Track 404 pages, perhaps with analytics?"
 grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/\t* /'
 echo

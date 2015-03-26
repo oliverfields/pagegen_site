@@ -65,6 +65,11 @@ $(document).ready(function(){
     event.stopPropagation();
   });
 
+  // Ensure menu a tags don't trigger toggle menu events
+  $(menu+' a').click(function(event) {
+    event.stopPropagation();
+  });
+
   // Add icon to external links
   $("a").filter(function() {
     return this.hostname && this.hostname !== location.hostname;

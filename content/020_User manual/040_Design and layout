@@ -40,7 +40,7 @@ Misc template variables
 CSS, Javascript, images and stuff
 *********************************
 
-When generating the site all contents in the [site directory]/include directory are either copied(default) or symlinked to the output folder (see `Site generation </user-manual/site-genration.html>`_). Add CSS, Javascript and images (or anything else) to this directory to have them included with the generated site.
+When generating the site all contents in the [site directory]/include directory are either copied(default) or symlinked to the output folder (see `Site generation </user-manual/site-generation>`_). Add CSS, Javascript and images (or anything else) to this directory to have them included with the generated site.
 
 
 Site menu

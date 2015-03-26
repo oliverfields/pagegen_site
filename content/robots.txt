@@ -1,6 +1,0 @@
-Generate html: False
-Menu exclude: True
-Sitemap exclude: True
-
-User-agent: *
-Disallow: /

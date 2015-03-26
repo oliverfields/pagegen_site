@@ -5,13 +5,27 @@ set -e
 env="$1"
 pagegen='/home/oliver/Personal/projects/pagegen/v2/pagegen'
 site_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/site'
+prod_url="http://pagegen.phnd.net"
+stage_url="http://pagegen.phnd.net"
 prod_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/prod_site.conf'
+stage_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/stage_site.conf'
 test_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/test_site.conf'
 
-source ftp_conf
 
-if [ "$env" = "prod" ]; then
-  $pagegen --generate --config "$prod_conf"
+
+if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
+
+  if [ "$env" = "prod" ]; then
+    conf="$prod_conf"
+    url="$prod_url"
+  else
+    conf="$stage_conf"
+    url="$stage_url"
+  fi
+
+  $pagegen --generate --config "$conf"
+
+  source "${env}_ftp.conf"
 
   # Gzip seperate html, css and javascript files, that way can serve both gzip and regular files
 
@@ -20,9 +34,13 @@ if [ "$env" = "prod" ]; then
   # Rename html files with .html
   find "$site_dir" -type f -regex '^[^\.]*$' -exec mv {} {}.html \;
 
-  # Compress files
-  find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) -exec gzip --best {} \;
-  tree "$site_dir"
+  # Create compressed copies of files that are larger than 1.4Kb
+  #find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) -exec gzip --best {} \;
+  find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) \
+  | sed 's/.*/gzip --best -c "&" > "&.gz"/' \
+  | sh
+
+#  tree "$site_dir"
 
   # Add prod .htaccess
   # Inspiration gzip content
@@ -30,6 +48,19 @@ if [ "$env" = "prod" ]; then
   echo '
 AddEncoding x-gzip .gz
 AddCharset UTF-8 *
+
+ErrorDocument 404 /404.html
+
+ExpiresActive On
+ExpiresDefault "access plus 60 seconds"
+ExpiresByType text/html "access plus 60 seconds"
+ExpiresByType image/x-icon "access plus 2592000 seconds"
+ExpiresByType image/gif "access plus 2592000 seconds"
+ExpiresByType image/jpeg "access plus 2592000 seconds"
+ExpiresByType image/png "access plus 2592000 seconds"
+ExpiresByType text/css "access plus 604800 seconds"
+ExpiresByType text/javascript "access plus 86400 seconds"
+ExpiresByType application/javascript "access plus 86400 seconds"
 
 <files *.css.gz>
 ForceType text/css
@@ -78,29 +109,34 @@ ForceType text/html
   RewriteCond (robots|sitemap).txt.gz -f
   RewriteRule ^.*(robots|sitemap)\.txt$ /$1.txt.gz [NC,L]
 
+  # There will always be html, css, js or txt version of file
+  # If file is large enough there will exist a .gz version
+  # If gz version exists and client accepts gzip content send it
+  # else send regular
+
   # Serve gzipped if exists
+  RewriteCond %{HTTP:Accept-Encoding} gzip
   RewriteCond %{REQUEST_FILENAME}.(txt|css|js).gz -f
   RewriteRule ^(.*)\.(txt|css|js)$ $1.$2.gz [NC,L]
 
-  # If not exists gzipped version just show regular
-  RewriteCond %{REQUEST_FILENAME}.(txt|css|js) -f
-  RewriteRule ^(.*)\.(txt|css|js)$ $1.$2 [NC,L]
-
   # If directory show gzipped index file
+  RewriteCond %{HTTP:Accept-Encoding} gzip
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html.gz -f
   RewriteRule ^(.*)$ $1/index.html.gz [NC,L]
 
-  # If directory show index file
+  # If directory show index file (without .html)
+  RewriteCond %{HTTP:Accept-Encoding} !gzip
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^(.*)$ $1/index.html [NC,L]
 
-  # Serve gzip if available
+  # Serve gzip if available and supported (without .html)
+  RewriteCond %{HTTP:Accept-Encoding} gzip
   RewriteCond %{REQUEST_FILENAME}.html.gz -f
   RewriteRule ^(.*)$ $1.html.gz [NC,L]
 
-  # Serve ungziped if available
+  # Serve ungziped if available (without .html)
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [NC,L]
 
@@ -108,7 +144,12 @@ ForceType text/html
 
 ' | sed 's/^\ *// ; /^#/d ; /^$/d' > "$site_dir/.htaccess"
 
-  echo "Test content" > "$site_dir/test.html"
+  if [ "$env" = "stage" ]; then
+    echo -e "User-agent: *\nDisallow: /" > "$site_dir/robots.txt"
+  else
+    # Prod we want to allow everything
+    echo -e "User-agent: *\nAllow: /" > "$site_dir/robots.txt"
+  fi
 
   chmod_dirs="$(find "$site_dir" -type d | sed "s#^$site_dir#$prod_target_dir# ; s/^/chmod 755\ /")"
   chmod_files="$(find "$site_dir" -type f | sed "s#^$site_dir#$prod_target_dir# ; s/^/chmod 644\ /")"
@@ -123,6 +164,20 @@ $chmod_dirs
 $chmod_files
 bye
 EOFFTP
+
+  # Check links
+  echo "Press [ENTER] to check links on new site, any thing else skips:"
+  read check_links
+  if [ "$check_links" = "" ]; then
+    link_log="/tmp/linkchecker.csv"
+    if [ "$env" = "stage" ]; then
+      pass="-urice -p "
+    fi
+    linkchecker -ocsv "$pass"$url | sed '/^#/d ; /^mailto:pagegen@phnd.net/d ; /^urlname/d' > "$link_log"
+    if [ -s "$link_log" ]; then
+      localc "$link_log"
+    fi
+  fi
 
 elif [ "$env" = "test" ]; then
   $pagegen --generate --config "$test_conf"

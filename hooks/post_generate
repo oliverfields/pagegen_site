@@ -2,8 +2,9 @@
 
 set -e
 
-latest_deb_url='hohoho'
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s/PAGEGEN_LATEST_DEB_URL/$latest_deb_url/g" {} \;
+latest_deb_url='/include/download/pagegen_2.0.2_all.deb'
+
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB_URL#$latest_deb_url#g" {} \;
 
 yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/style.min.css" "$PAGEGEN_SITE_DIR/include/css/style.css" || exit 1
 
