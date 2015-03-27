@@ -5,8 +5,8 @@ Installation available either from .deb or from github release.
 
 .. code::
 
-	$ wget http://pagegen.phnd.net/include/downloads/pagegen-2.0.0.deb
-	$ sudo dpkg -i pagegen-2.0.0.deb
+	$ wget http://pagegen.phnd.net/include/download/PAGEGEN_LATEST_DEB
+	$ sudo dpkg -i PAGEGEN_LATEST_DEB
 
 
 github.com
@@ -16,8 +16,8 @@ github.com
 
 	mkdir pagegen
 	cd pagegen
-	$ wget https://github.com/oliverfields/pagegen_v2/archive/2.0.0.tar.gz
-	$ tar .zxf 2.0.0.tar.gz
+	$ wget https://github.com/oliverfields/pagegen_v2/archive/PAGEGEN_LATEST_TAR
+	$ tar -zxf pagegen_v2-PAGEGEN_LATEST_TAR
 	$ chmod u+x pagegen
 	$ echo "skel_dir=$PWD/skel" > ~/.config/pagegen.conf
 

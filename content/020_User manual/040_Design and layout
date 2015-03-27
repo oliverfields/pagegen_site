@@ -51,7 +51,7 @@ A key feature of Pagegen is that each page has a full site menu on each page. Th
 .. raw:: html
 
 	<dl>
-	  <dt>Absolute urls</dt>
+	  <dt>Absolute URLs</dt>
 	  <dd><strong>site.conf</strong> setting <strong>absolute_urls</strong> toggles relative or absolute URLs in menu</dt>
 	  <dt>Excluding pages</dt>
 	  <dd>Pages with header <strong>Menu exclude</strong> are not removed from menu. Implication is that all children of Page are removed from menu also</dd>

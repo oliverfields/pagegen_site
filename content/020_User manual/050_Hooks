@@ -1,6 +1,6 @@
 To make the static site more dynamic(pun intended) Pagegen can run executables at preset times, hooks, during the generation process.
 
-To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``). Hooks are run with the following environment variables. Non zero exit from a hook immidiatly aborts generation.
+To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``). Hooks are run with the following environment variables. Non zero exit from a hook immediately aborts generation.
 
 .. table:: Available hooks
 
@@ -20,13 +20,13 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 	  <dt>PAGEGEN_SITE_DIR</dt>
 	  <dd>Pagegen root directory, available all hooks</dd>
 	  <dt>PAGEGEN_SOURCE_DIR</dt>
-	  <dd>Content directory (<pagegen root directory>/content), available all hooks</dd>
+	  <dd>Content directory (<Pagegen root directory>/content), available all hooks</dd>
 	  <dt>PAGEGEN_TARGET_DIR</dt>
-	  <dd>Generated site directory (<pagegen root directory>/site), available all hooks</dd>
+	  <dd>Generated site directory (<Pagegen root directory>/site), available all hooks</dd>
 	  <dt>PAGEGEN_PAGE_TITLE</dt>
 	  <dd>Page title, available *_page hooks</dd>
 	  <dt>PAGEGEN_PAGE_URL</dt>
-	  <dd>Page url, available *_page hooks</dd>
+	  <dd>Page URL, available *_page hooks</dd>
 	  <dt>PAGEGEN_PAGE_SOURCE_PATH</dt>
 	  <dd>Path to page source, available *_page hooks</dd>
 	  <dt>PAGEGEN_PAGE_TARGET_PATH</dt>

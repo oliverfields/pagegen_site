@@ -4,12 +4,12 @@
 Setup
 -----
 
-Assuming Debian based OS, download `latest .deb <PAGEGEN_LATEST_DEB_URL>`_, install and create new pagegen site directory according to the following. For other installation options please see `installation </user-manual/installation>`_.
+Assuming Debian based OS, download `latest .deb </include/download/PAGEGEN_LATEST_DEB>`_, install and create new pagegen site directory according to the following. For other installation options please see `installation </user-manual/installation>`_.
 
 .. code::
 
-	$ wget http://pagegen.phnd.netPAGEGEN_LATEST_DEB_URL
-	$ dpkg -i pagegn_latest.deb
+	$ wget http://pagegen.phnd.net/include/download/PAGEGEN_LATEST_DEB
+	$ dpkg -i PAGEGEN_LATEST_DEB
 	$ mkdir my_site
 	$ cd my_site
 	$ pagegen --init

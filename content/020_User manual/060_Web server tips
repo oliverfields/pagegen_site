@@ -5,7 +5,7 @@ All necessary files for a freshly generated site are found in the **site directo
 
 .. tip:: If using Apache the .htaccess file can be saved as a normal page in the **content directory**. Most likely the headers should be: **Generate html: False**, **Menu exclude: True** and **Sitemap exclude: True**
 
-The following settings may be set in different configuration files depending on the web server setup, exactly where to put them is outside the scope of this article, but with the setting names and google you should be on your way.
+The following settings may be set in different configuration files depending on the web server setup, exactly where to put them is outside the scope of this article, but with the setting names and Google you should be on your way.
 
 
 Nice URLs
@@ -13,7 +13,7 @@ Nice URLs
 
 File name extensions are optional to Pagegen, however if they are not used the web server must be configured to serve extensionless files with the correct mime type.
 
-The configuration below tells the web server to set the HTTP *Content-Type* header to *text/html* for all files, exept if the file has an extension, in wich case use default mime type.
+The configuration below tells the web server to set the HTTP *Content-Type* header to *text/html* for all files, except if the file has an extension, in which case use default mime type.
 
 
 Apache

@@ -1,14 +1,14 @@
-On generation pagegen will build site from pages in **content directory**. The command must be run from the pagegen root directory or one of its sub directories.
+On generation Pagegen will build site from pages in **content directory**. The command must be run from the Pagegen root directory or one of its sub directories.
 
 .. code::
 
-	$ pagegen --generate
+	$ Pagegen --generate
 
 After generation the generated HTML will be in the **site directory**, simply copy this directory to your web server to go live:)
 
-Site generation involves first creating page html in the **site directory**, creating sitemap and copying **include directory** to the **site directory**.
+Site generation involves first creating page HTML in the **site directory**, creating sitemap and copying **include directory** to the **site directory**.
 
-Site generation can be configured by the **site.conf**, found in the pagegen root directory.
+Site generation can be configured by the **site.conf**, found in the Pagegen root directory.
 
 .. code::
 
@@ -31,5 +31,5 @@ Site generation can be configured by the **site.conf**, found in the pagegen roo
 	# Toggle include page titles in content. Default False, optional
 	#page_titles
 	
-	# Toggle index file in url for directories. Default True, optional
+	# Toggle index file in URL for directories. Default True, optional
 	#url_include_index=False

@@ -3,3 +3,6 @@
 if [ "$PAGEGEN_PAGE_TITLE" = "Download" ]; then
   echo "Gotcha!"
 fi
+
+# Compress file
+htmlcompress --type html -o "$PAGEGEN_PAGE_TARGET_PATH" "$PAGEGEN_PAGE_TARGET_PATH"

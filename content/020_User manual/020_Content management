@@ -3,7 +3,7 @@ Content is stored as regular files and organized with directories and naming.
 Content directory
 *****************
 
-Pagegen pages are just plain text files containing page options and content organized by directory hiearchy. Each directory is treated as a page containing child pages. For directories the page content is stored in a mandatory **index** file within each directory. The index file is identical, in both syntax and structure, to regular page files.
+Pagegen pages are just plain text files containing page options and content organized by directory hierarchy. Each directory is treated as a page containing child pages. For directories the page content is stored in a mandatory **index** file within each directory. The index file is identical, in both syntax and structure, to regular page files.
 
 Pages (a file or both a directory and file) contain headers(options/settings) and reStructuredText markup. All page content is located in the **content directory** (<pagegen directory>/content).
 
@@ -20,7 +20,7 @@ Pages (a file or both a directory and file) contain headers(options/settings) an
 Naming
 ******
 
-The name of the file, or directory, are used to determine the final page attributes title, URL and optionally menu sort order. The name of pages, both files and diretories & **index** file, are treated the alike, except for the extension. The page path name is used to create the URL to the page.
+The name of the file, or directory, are used to determine the final page attributes title, URL and optionally menu sort order. The name of pages, both files and directories & **index** file, are treated the alike, except for the extension. The page path name is used to create the URL to the page.
 
 .. warning::
 
@@ -34,7 +34,7 @@ The name of the file, or directory, are used to determine the final page attribu
 Title
 =====
 
-The page title will become the file or directory name without the sort order or extension (unless overridden using Title header, see below). The title can contain any legal file name charachter, except a period(.).
+The page title will become the file or directory name without the sort order or extension (unless overridden using Title header, see below). The title can contain any legal file name character, except a period(.).
 
 
 Sort order
@@ -97,8 +97,8 @@ All headers are optional. They must start on the first line and content start is
 	=============== ======== =======================================
 	description     None     Html meta tag description              
 	generate html   True     Enable/disable parsing of page content 
-	menu exclude    False    Remove page from menu/crumbtrail       
-	menu title      None     If set use for title in menu/crumbtrail
+	menu exclude    False    Remove page from menu/crumb trail       
+	menu title      None     If set use for title in menu/crumb trail
 	sitemap exclude False    Remove page from sitemap               
 	template        page.tpl Template file from /templates          
 	title           None     If set overrides page title            

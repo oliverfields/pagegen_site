@@ -5,13 +5,19 @@ set -e
 env="$1"
 pagegen='/home/oliver/Personal/projects/pagegen/v2/pagegen'
 site_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/site'
+content_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/content'
 prod_url="http://pagegen.phnd.net"
-stage_url="http://pagegen.phnd.net"
+stage_url="http://pgtest.phnd.net"
 prod_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/prod_site.conf'
 stage_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/stage_site.conf'
 test_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/test_site.conf'
 
-
+# Spell check source files before generation?
+echo -e "Spell check? [y|n(DEFAULT)]?"
+read spell_check
+if [ "$spell_check" = "y" ]; then
+  find "$content_dir" -type f  \! -executable -exec aspell --lang=en check {} \;
+fi
 
 if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
 
@@ -23,15 +29,13 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
     url="$stage_url"
   fi
 
-  $pagegen --generate --config "$conf"
+  PAGEGEN_TARGET_ENVIRONMENT="$env" $pagegen --generate --config "$conf"
 
   source "${env}_ftp.conf"
 
   # Gzip seperate html, css and javascript files, that way can serve both gzip and regular files
 
-  echo "Only return files over certain size, compressing small files is stupid"
-
-  # Rename html files with .html
+    # Rename html files with .html
   find "$site_dir" -type f -regex '^[^\.]*$' -exec mv {} {}.html \;
 
   # Create compressed copies of files that are larger than 1.4Kb
@@ -47,20 +51,21 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
   # http://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache
   echo '
 AddEncoding x-gzip .gz
-AddCharset UTF-8 *
+AddDefaultCharset UTF-8
 
 ErrorDocument 404 /404.html
 
 ExpiresActive On
 ExpiresDefault "access plus 60 seconds"
-ExpiresByType text/html "access plus 60 seconds"
-ExpiresByType image/x-icon "access plus 2592000 seconds"
-ExpiresByType image/gif "access plus 2592000 seconds"
-ExpiresByType image/jpeg "access plus 2592000 seconds"
-ExpiresByType image/png "access plus 2592000 seconds"
-ExpiresByType text/css "access plus 604800 seconds"
-ExpiresByType text/javascript "access plus 86400 seconds"
-ExpiresByType application/javascript "access plus 86400 seconds"
+ExpiresByType text/html "now plus 1 day"
+ExpiresByType image/x-icon "now plus 1 month"
+ExpiresByType image/gif "now plus 1 month"
+ExpiresByType image/jpeg "now plus 1 month"
+ExpiresByType image/png "now plus 1 month"
+ExpiresByType text/css "now plus 1 month"
+ExpiresByType multipart/x-gzip "now plus 1 month"
+ExpiresByType text/javascript "now plus 1 month"
+ExpiresByType application/javascript "now plus 1 month"
 
 <files *.css.gz>
 ForceType text/css
@@ -166,21 +171,21 @@ bye
 EOFFTP
 
   # Check links
-  echo "Press [ENTER] to check links on new site, any thing else skips:"
+  echo -e "Check links [y|n(Default)]?"
   read check_links
-  if [ "$check_links" = "" ]; then
+  if [ "$check_links" = "y" ]; then
     link_log="/tmp/linkchecker.csv"
     if [ "$env" = "stage" ]; then
       pass="-urice -p "
     fi
-    linkchecker -ocsv "$pass"$url | sed '/^#/d ; /^mailto:pagegen@phnd.net/d ; /^urlname/d' > "$link_log"
+    linkchecker -ocsv ${pass}$url | sed '/^#/d ; /^mailto:pagegen@phnd.net/d ; /^urlname/d' > "$link_log"
     if [ -s "$link_log" ]; then
       localc "$link_log"
     fi
   fi
 
 elif [ "$env" = "test" ]; then
-  $pagegen --generate --config "$test_conf"
+  PAGEGEN_TARGET_ENVIRONMENT="$env" $pagegen --generate --config "$test_conf"
 
   # Replace js.gz and css.gz extensions
   find "$site_dir" -name '*.html' -type f -exec sed -i 's/\.\(js\|css\)\.gz"/.\1"/g' {} \;
@@ -189,6 +194,3 @@ else
   echo "Error Unknown environment '$env'" 2>&1
   exit 1
 fi
-
-
-echo "Deployment to '$env' complete"

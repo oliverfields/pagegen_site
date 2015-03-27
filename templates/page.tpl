@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <meta name="Generator" content="Pagegen" />
 <meta name=viewport content="width=device-width, initial-scale=1">
-<title>{{title}}</title>
+<title>{{title}} - Pagegen</title>
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
 <link rel="stylesheet" href="/include/css/style.min.css" type="text/css" />

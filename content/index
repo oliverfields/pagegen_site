@@ -3,7 +3,7 @@ Menu title: Home
 
 .. sidebar:: Get Pagegen
 
-	* `Download .deb <PAGEGEN_LATEST_DEB_URL>`_
+	* `Download .deb </include/download/PAGEGEN_LATEST_DEB>`_
 	* `github.com <https://github.com/oliverfields/pagegen_v2>`_
 
 Pagegen generates web sites from flat text files and directories, allowing you to manage your site from the command line.

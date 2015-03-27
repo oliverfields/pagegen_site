@@ -18,6 +18,9 @@ src_dir="$script_dir/source"
 # Add icons and graphics to sprite
 convert "$src_dir/"*.png +append "$sprite"
 
+# Lossless compression
+optipng -o 2 -quiet "$sprite"
+
 # CSS for test page
 echo "<style>* {font-family: sans-serif; font-size: 10px;} h1 {font-size: 3em; } tr:hover{ background-color: #ccc; }</style><h1>Backgrounds</h1>" >> "$page"
 
@@ -29,7 +32,6 @@ done
 echo "<h1>CSS</h1>" >> "$page"
 # Generate css
 echo "<table>" >> "$page"
-# Hackis, assume starting image is icon 32 wide
 sprite_start=0
 last_width=0
 for f in "$src_dir/"*.png; do

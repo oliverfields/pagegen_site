@@ -2,13 +2,16 @@
 
 set -e
 
-latest_deb_url='/include/download/pagegen_2.0.2_all.deb'
+latest_deb='pagegen_2.0.2_all.deb'
+latest_tar='2.0.2.tar.gz'
 
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB_URL#$latest_deb_url#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB#$latest_deb#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_TAR#$latest_tar#g" {} \;
 
-yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/style.min.css" "$PAGEGEN_SITE_DIR/include/css/style.css" || exit 1
+# Compress css
+yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/style.min.css" "$PAGEGEN_SITE_DIR/include/css/style.css"
 
+# Compress js
 site_min_js="$PAGEGEN_TARGET_DIR/include/javascript/site.min.js"
-#exit 1
 cat "$PAGEGEN_SITE_DIR/include/javascript/jquery.min.js" > "$site_min_js"
 yui-compressor "$PAGEGEN_SITE_DIR/include/javascript/navigation.js" >> "$site_min_js"

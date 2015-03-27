@@ -5,7 +5,7 @@ sub_menu_class='sub_menu';
 no_sub_menu_class='no_sub_menu';
 toggle_class='sub_menu_toggle';
 crumb_trail='#crumb_trail';
-crumb_trail_separator='<span class="crumb_trail_separator">&rtri;</span>';
+crumb_trail_separator='<span class="crumb_trail_separator">&raquo;</span>';
 menu_shown_class='menu_shown'
 sub_menu_shown_class='sub_menu_shown'
 

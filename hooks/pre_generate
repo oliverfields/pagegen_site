@@ -1,12 +1,35 @@
 #!/bin/bash
 
+# Keep Analytics script out of test and stage environments
+master_page_template="$PAGEGEN_SITE_DIR/templates/master_page.tpl"
+page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
+
+{
+  while read line; do
+    if [ "$line" = "PAGEGEN_ANALYTICS_SCRIPT" ]; then
+      if [ "$PAGEGEN_TARGET_ENVIRONMENT" = "prod" ]; then
+        echo "<script type=\"text/javascript\">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9947760-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>"
+      fi
+    else
+      echo "$line"
+    fi
+  done < "$master_page_template"
+} > "$page_template"
+
 echo "Pre hook"
 echo "--------"
 echo
 echo "Todos:" 
 echo "* Add goal for downloading in Analytics"
-echo "* Run google mobile report"
-echo "* Run Yahoo optimization"
 echo "* Run google page speed optimization - Blocking CSS and minify html remaining"
 echo "* quick-start.html -> list includes ugly markup from rst, consider subclassing rst to fix"
 grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/\t* /'
