@@ -1,3 +1,5 @@
+Description: Organization and management of Pagegen content. Including file naming conventions, content file headers and content markup (reStructuredText).
+
 Content is stored as regular files and organized with directories and naming.
 
 Content directory

@@ -1,3 +1,5 @@
+Description: Designing and customization of generated HTML using templates and template variables.
+
 Setting up page layout is controlled by page templates. Pages may specify a template by setting **Template** header. All templates are located in **templates** directory and the default one is **page.tpl**. The templates can be freely customized and supports the following variables.
 
 Page template variables

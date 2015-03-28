@@ -1,3 +1,5 @@
+Description: Pagegen user experience and SEO may be increased by configuring the web server appropriately. 
+
 All necessary files for a freshly generated site are found in the **site directory**. To publish the site, this directory must be uploaded to the web server. The site will work out of the box if sane settings are used, but a little configuration of the web server can make the site more friendly to humans and crawlers.
 
 .. tip::

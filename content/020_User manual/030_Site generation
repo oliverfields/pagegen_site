@@ -1,3 +1,5 @@
+Description: How to generate finished HTML files from Pagegen content files and the available configuration settings.
+
 On generation Pagegen will build site from pages in **content directory**. The command must be run from the Pagegen root directory or one of its sub directories.
 
 .. code::
@@ -33,3 +35,9 @@ Site generation can be configured by the **site.conf**, found in the Pagegen roo
 	
 	# Toggle index file in URL for directories. Default True, optional
 	#url_include_index=False
+	
+	# If set, report warning if page description length is outside the given range
+	#description_length_range=100-130
+	
+	# If set, report warning if page title length is outside the given range
+	#title_length_range=40-60
