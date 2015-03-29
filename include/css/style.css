@@ -79,7 +79,7 @@ vertical-align:middle;
 .sprite {background-image: url('/include/graphics/sprite.png'); background-repeat: no-repeat; display: block; }
 header { padding: .4em 0;}
 #logo { width: 108px; height: 32px; background-position: -80px 0px; display: inline-block;  vertical-align: middle; }
-#pagegend { width: 46px; height: 13px; background-position: -294px 0px;}
+#pagegend { width: 46px; height: 13px; background-position: -326px 0px;}
 #contact, #issue_tracker { text-align: right; padding: .4em 1em .6em 1em; line-height: 16px;}
 #issue_tracker .bug {width: 16px; height: 16px; background-position: -64px 0px; display: inline-block; vertical-align: middle; margin-left: 1em;}
 #contact a, #issue_tracker a { font-weight: bold; color: #fff; }
@@ -99,7 +99,7 @@ div.sidebar p { padding: 0; }
 div.sidebar ul { margin: .4em 0 .6em 0; }
 div.sidebar li { margin-left: 1.4em; color: #332C2F;}
 footer { padding: 1em 0 3em 0; border-top: solid 2px #B74934;}
-a.external span { margin: 2px 0 0 .2em; width: 10px; height: 10px; background-position: -284px 0px; display: inline-block;}
+a.external span { margin: 2px 0 0 .2em; width: 10px; height: 10px; background-position: -252px 0px; display: inline-block;}
 article a { color: #577492; }
 article a:hover { color: #B74934; }
 article li p.first {
@@ -115,8 +115,8 @@ span.admonition-bad {width: 32px; height: 32px; background-position: -32px 0px; 
 #hamburger { cursor: pointer; width: 32px; height: 32px; background-position: -220px 0px; float: right;}
 .menu_shown { background-position: -188px 0px !important; background-color: #577492; border-top-left-radius: .2em; border-top-right-radius: .2em;}
 li.sub_menu ul { display: none; }
-span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -252px 0px; margin-left: 1em;}
-span.sub_menu_shown { background-position: -268px 0px !important; }
+span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -294px 0px; margin-left: 1em;}
+span.sub_menu_shown { background-position: -262px 0px !important; }
 #menu a { text-decoration: none; color: #D4D8D1;}
 #menu li>span:hover{ background-color: #AA9A66; }
 #menu li>span{display: block; padding: .5em 1em .5em 0;}
@@ -135,12 +135,17 @@ span.sub_menu_shown { background-position: -268px 0px !important; }
 #crumb_trail li { display: inline-block; vertical-align: middle; line-height: 32px; }
 #crumb_trail { padding-left: -.5em; display: none;}
 #crumb_trail a { text-decoration: none; color: #577492; }
+#previous_link {float: left; display: inline-block;}
+#next_link {float: right; display: inline-block;}
+#previous_link a, #next_link a, #goto_top { color: #A8A8A1; text-decoration: none; font-size: .9em; }
+#goto_top { margin: auto 0; display: inline-block;}
+#shortcuts {text-align: center; margin: .8em auto 1em auto;}
 /* end Navigational elements */
 
 /* Design is formeost for mobile devices, override settings for larger screens */
 @media (min-width: 600px) {
 header, footer { width: 600px; margin: 0 auto;}
-article { width: 600px; }
+article, #shortcuts { width: 600px; }
 html { overflow-y: scroll; }
 div.sidebar { width: 30%; float: right; padding: .4em 1em .6em 1em; }
 #crumb_trail { display: inline-block; }

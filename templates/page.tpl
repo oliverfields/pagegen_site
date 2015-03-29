@@ -4,24 +4,18 @@
 <meta name="Generator" content="Pagegen" />
 <meta name=viewport content="width=device-width, initial-scale=1">
 <title>{{title}} - Pagegen</title>
+<meta name="copyright" content="Copyright &copy; {{year}} Oliver Fields" />
+<meta name="author" content="Oliver Fields">
+<meta name="contact" content="pagegen@phnd.net" />
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
 <link rel="stylesheet" href="/include/css/style.min.css" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
 <script async src="/include/javascript/site.min.js"></script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-9947760-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </head>
 <body>
+<a name="top"></a>
 <header>
 <nav>
 <div id="hamburger" class="sprite"></div>
@@ -35,8 +29,13 @@
 </nav>
 </header>
 <article>{{content}}</article>
+<div id="shortcuts">
+<div id="previous_link">&leftarrow; {{previous_link}}</div>
+<a id="goto_top" href="{{absolute_url}}#top">&uparrow;</a>
+<div id="next_link">{{next_link}} &rightarrow;</div>
+</div>
 <footer>
-<div id="copyright">Copyright &copy; {{year}}</div>
+<div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
 <div id="pagegend" class="sprite"></div>
 </footer>
 </body>

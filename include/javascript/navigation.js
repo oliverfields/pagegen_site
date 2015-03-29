@@ -6,8 +6,10 @@ no_sub_menu_class='no_sub_menu';
 toggle_class='sub_menu_toggle';
 crumb_trail='#crumb_trail';
 crumb_trail_separator='<span class="crumb_trail_separator">&raquo;</span>';
-menu_shown_class='menu_shown'
-sub_menu_shown_class='sub_menu_shown'
+menu_shown_class='menu_shown';
+sub_menu_shown_class='sub_menu_shown';
+previous_link='#previous_link';
+next_link='#next_link';
 
 
 // Toggle menu visibility
@@ -78,5 +80,9 @@ $(document).ready(function(){
   // Add admonition icons
   $('div.admonition p.admonition-title, div.hint p.admonition-title, div.important p.admonition-title, div.note p.admonition-title, div.tip p.admonition-title').prepend('<span class="sprite admonition-good"></span>');
   $('div.attention p.admonition-title, div.caution p.admonition-title, div.danger p.admonition-title, div.error p.admonition-title, div.warning p.admonition-title').prepend('<span class="sprite admonition-bad"></span>');
+
+  // Hide previous or next links if they are empty (first or last pages in link sequence
+  if($(previous_link+' a').length == 0) { $(previous_link).remove() }
+  if($(next_link+' a').length == 0) { $(next_link).remove() }
 
 });

@@ -1,4 +1,6 @@
 Description: Introduction to Pagegen setup and getting started with site generation.
+Publish: 2015-03-26
+Link chain exclude: True
 
 .. note::
 	For in depth documentation please see `user manual </user-manual>`_.

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+set -e # Halt on first error
+#set -x # Show commands
 
 latest_deb='pagegen_2.0.2_all.deb'
 latest_tar='2.0.2.tar.gz'

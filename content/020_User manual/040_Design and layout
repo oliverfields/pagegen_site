@@ -18,8 +18,12 @@ Page template variables
 	  <dd>Description text</dd>
 	  <dt>&lbrace;&lbrace;menu&rbrace;&rbrace;</dt>
 	  <dd>Site menu</dd>
+	  <dt>&lbrace;&lbrace;publish&rbrace;&rbrace;</dt>
+	  <dd>Page publish date</dd>
 	  <dt>&lbrace;&lbrace;title&rbrace;&rbrace;</dt>
 	  <dd>Page title</dd>
+	  <dt>&lbrace;&lbrace;previous_link&rbrace;&rbrace; and &lbrace;&lbrace;next_link&rbrace;&rbrace;</dt>
+	  <dd>Links to previous or next page, use page header **link_chain_exclude** to keep pages out of the link sequence</dd>
 	</dl>
 
 Misc template variables

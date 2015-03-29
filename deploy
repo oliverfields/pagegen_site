@@ -12,14 +12,15 @@ prod_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/prod_site.conf'
 stage_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/stage_site.conf'
 test_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/test_site.conf'
 
-# Spell check source files before generation?
-echo -e "Spell check? [y|n(DEFAULT)]?"
-read spell_check
-if [ "$spell_check" = "y" ]; then
-  find "$content_dir" -type f  \! -executable -exec aspell --dont-backup --lang=en check {} \;
-fi
 
 if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
+
+  # Spell check source files before generation?
+  echo -e "Spell check? [y|n(DEFAULT)]?"
+  read spell_check
+  if [ "$spell_check" = "y" ]; then
+    find "$content_dir" -type f  \! -executable -exec aspell --dont-backup --lang=en check {} \;
+  fi
 
   if [ "$env" = "prod" ]; then
     conf="$prod_conf"

@@ -1,6 +1,7 @@
 Title: Pagegen static site generator
 Menu title: Home
 Description: Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.
+Publish: 2015-03-26
 
 .. sidebar:: Get Pagegen
 
@@ -10,8 +11,9 @@ Description: Pagegen is a static web site generator, it creates web sites from t
 Pagegen generates web sites from flat text files and directories, allowing you to manage your site from the command line.
 
 * Pages are simple text files with `reStructured Text <http://docutils.sourceforge.net/rst.html>`_ markup
-* Infinitely nested pages and generated navigational menu and breadcrumbs
+* Hierachical page structure with menu and bread crumbs
 * Web friendly URLs and sitemap
-* Requires basic http server, no script or database support needed
+* Generated html files can be hosted on any web server
 * Run custom scripts during generation (e.g. automate FTP upload or CSS/JS compression)
 * Template support
+* Requires Python for generation
