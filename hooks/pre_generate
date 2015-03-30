@@ -31,6 +31,8 @@ Pre hook
 --------
 
 Todos: 
+  * Generate change log on download page?
+  * Ipad view port not optimal, check if perhaps need wider
   * Color error, warning and notice in output
   * Remove compression when in test? Forces reload to test stuff
   * Add goal for downloading in Analytics

@@ -13,6 +13,16 @@
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
 <script async src="/include/javascript/site.min.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9947760-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </head>
 <body>
 <a name="top"></a>
@@ -30,9 +40,9 @@
 </header>
 <article>{{content}}</article>
 <div id="shortcuts">
-<div id="previous_link">&leftarrow; {{previous_link}}</div>
-<a id="goto_top" href="{{absolute_url}}#top">&uparrow;</a>
-<div id="next_link">{{next_link}} &rightarrow;</div>
+<div id="previous_link">&#8592; {{previous_link}}</div>
+<a id="goto_top" href="{{absolute_url}}#top">&#8593;</a>
+<div id="next_link">{{next_link}} &#8594;</div>
 </div>
 <footer>
 <div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>

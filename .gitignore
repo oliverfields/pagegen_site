@@ -3,7 +3,7 @@ include/javascript/jquery.min.js
 include/javascript/site.min.js
 pagegen_site.scite_session
 sprite/copy*
-pgtest.phnd.net
+pgstage.phnd.net
 site
 *_ftp.conf
 pagegen_301_redirects.csv

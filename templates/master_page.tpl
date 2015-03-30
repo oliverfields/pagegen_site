@@ -31,9 +31,9 @@ PAGEGEN_ANALYTICS_SCRIPT
 </header>
 <article>{{content}}</article>
 <div id="shortcuts">
-<div id="previous_link">&leftarrow; {{previous_link}}</div>
-<a id="goto_top" href="{{absolute_url}}#top">&uparrow;</a>
-<div id="next_link">{{next_link}} &rightarrow;</div>
+<div id="previous_link">&#8592; {{previous_link}}</div>
+<a id="goto_top" href="{{absolute_url}}#top">&#8593;</a>
+<div id="next_link">{{next_link}} &#8594;</div>
 </div>
 <footer>
 <div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
