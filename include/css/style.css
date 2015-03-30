@@ -120,7 +120,7 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 #menu a { text-decoration: none; color: #D4D8D1;}
 #menu li>span:hover{ background-color: #AA9A66; }
 #menu li>span{display: block; padding: .5em 1em .5em 0;}
-#menu { display: none; background-color: #577492; border-bottom-left-radius: .2em; border-bottom-right-radius: .2em; }
+#menu { display: none; background-color: #577492; border-bottom-left-radius: .2em; border-bottom-right-radius: .2em;}
 #menu > ul { border-bottom: dotted 1px #42586f; padding-bottom: .6em; margin-bottom: .6em;}
 /* First level */
 #menu > ul > li > span > a { padding-left: 1em; }
@@ -141,6 +141,15 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 #goto_top { margin: auto 0; display: inline-block;}
 #shortcuts {text-align: center; margin: .8em auto 1em auto;}
 /* end Navigational elements */
+
+/* Google custom site search */
+.gsc-control-cse { padding: 1em !important; border-top: none !important; border-left: none !important; border-right: none !important; border-bottom: dotted 1px #42586f !important; background-color: #577492 !important;}
+.gsc-search-button { display: none !important; }
+table.gsc-search-box, form.gsc-search-box { margin: 0 !important; }
+td.gsc-search-button { display: none; }
+table.gsc-search-box td.gsc-input, .gsc-search-box-tools .gsc-search-box .gsc-input { padding-right: 0 !important; }
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus { border: none !important; box-shadow: none !important;}
+/* end Google custom site search */
 
 /* Design is formeost for mobile devices, override settings for larger screens */
 @media (min-width: 600px) {

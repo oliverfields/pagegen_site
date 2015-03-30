@@ -13,16 +13,6 @@
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
 <script async src="/include/javascript/site.min.js"></script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-9947760-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </head>
 <body>
 <a name="top"></a>
@@ -32,6 +22,9 @@
 <a href="/" id="logo" class="sprite"></a>
 <div id="crumb_trail">{{crumb_trail}}</div>
 <div id="menu">
+<!-- Google Custom Site Engine - https://cse.google.com/cse/all -->
+<gcse:search></gcse:search>
+<!-- end CSE -->
 {{menu}}
 <div id="issue_tracker"><a href="https://github.com/oliverfields/pagegen_v2_site/issues">Report a bug<span class="sprite bug"></span></a></div>
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
@@ -48,5 +41,19 @@
 <div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
 <div id="pagegend" class="sprite"></div>
 </footer>
+<!-- Google Custom Site Engine - https://cse.google.com/cse/all -->
+<script>
+(function() {
+var cx = '013365502467450085413:kkur9yhecwy';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+'//www.google.com/cse/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+<!-- end CSE -->
 </body>
 </html>

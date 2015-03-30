@@ -1,0 +1,9 @@
+Generate html: False
+Menu exclude: True
+Sitemap exclude: True
+Link chain exclude: True
+
+<?xml version="1.0"?>
+<users>
+	<user>84E130AB44415CC626D9E94D44F869B1</user>
+</users>

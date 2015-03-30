@@ -21,8 +21,8 @@ $(function() {
   });
 
   $(menu).mouseleave(function() {
-    $(menu).toggle();
-    $(toggle_id).toggleClass(menu_shown_class);
+    //$(menu).toggle();
+    //$(toggle_id).toggleClass(menu_shown_class);
     return false;
   });
 

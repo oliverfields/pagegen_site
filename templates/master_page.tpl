@@ -9,10 +9,10 @@
 <meta name="contact" content="pagegen@phnd.net" />
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
-<link rel="stylesheet" href="/include/css/style.min.css" type="text/css" />
+<link rel="stylesheet" href="PAGEGEN_SITE_CSS" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
-<script async src="/include/javascript/site.min.js"></script>
+<script async src="PAGEGEN_SITE_JAVASCRIPT"></script>
 PAGEGEN_ANALYTICS_SCRIPT
 </head>
 <body>
@@ -23,6 +23,9 @@ PAGEGEN_ANALYTICS_SCRIPT
 <a href="/" id="logo" class="sprite"></a>
 <div id="crumb_trail">{{crumb_trail}}</div>
 <div id="menu">
+<!-- Google Custom Site Engine - https://cse.google.com/cse/all -->
+<gcse:search></gcse:search>
+<!-- end CSE -->
 {{menu}}
 <div id="issue_tracker"><a href="https://github.com/oliverfields/pagegen_v2_site/issues">Report a bug<span class="sprite bug"></span></a></div>
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
@@ -39,5 +42,19 @@ PAGEGEN_ANALYTICS_SCRIPT
 <div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
 <div id="pagegend" class="sprite"></div>
 </footer>
+<!-- Google Custom Site Engine - https://cse.google.com/cse/all -->
+<script>
+  (function() {
+    var cx = '013365502467450085413:kkur9yhecwy';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<!-- end CSE -->
 </body>
 </html>

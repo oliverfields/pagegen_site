@@ -1,9 +1,12 @@
 #!/bin/bash
 
+set -e
+
 # Keep Analytics script out of test and stage environments
 master_page_template="$PAGEGEN_SITE_DIR/templates/master_page.tpl"
 page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
 
+# Add Analytics script if env is prod
 {
   while read line; do
     if [ "$line" = "PAGEGEN_ANALYTICS_SCRIPT" ]; then
@@ -25,6 +28,18 @@ page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
   done < "$master_page_template"
 } > "$page_template"
 
+
+# Set CSS and Javascript links
+if [ "$PAGEGEN_TARGET_ENVIRONMENT" = "test" ]; then
+  echo "$page_template"
+  sed -i 's#PAGEGEN_SITE_JAVASCRIPT#/include/javascript/site.js#' "$page_template"
+  sed -i 's#PAGEGEN_SITE_CSS#/include/css/style.css#' "$page_template"
+else
+  sed -i 's#PAGEGEN_SITE_JAVASCRIPT#/include/javascript/site.min.js#' "$page_template"
+  sed -i 's#PAGEGEN_SITE_CSS#/include/css/style.min.css#' "$page_template"
+fi
+
+
 {
   echo "
 Pre hook
@@ -34,12 +49,11 @@ Todos:
   * Generate change log on download page?
   * Ipad view port not optimal, check if perhaps need wider
   * Color error, warning and notice in output
-  * Remove compression when in test? Forces reload to test stuff
   * Add goal for downloading in Analytics
   * Executable to generate changelog data in downloads, add option in deploy to do this 
     * Fix blocking CSS?
   * quick-start.html -> list includes ugly markup from rst, consider subclassing rst to fix
-  * TOC over child elements template variable
+  * TOC over child elements template variable - perhaps filter tag for template use, e.g get all pages, limit level and number?
   * Skel site:
     * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
     * Include html4css1.css so rst is basically handled in shipped theme
@@ -47,7 +61,6 @@ Todos:
     * https://staticsitegenerators.net/
     * Submit to www.staticgen.com
   * Content: Pagegen can handle regular sites, blogs and documentation sites -> Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
-  * Site search
   * SSI/partials tag to include other files in templates
   * Page header apply recursive options for: sitemap_exclude_children Bool, template_children <template>, rss_include_children Bool
   * Make blog aware (see mind map)
