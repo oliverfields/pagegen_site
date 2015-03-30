@@ -46,12 +46,12 @@ Pre hook
 --------
 
 Todos: 
+  * Pagegen aims to come to the table with all you need, just add CSS
   * Generate change log on download page?
-  * Ipad view port not optimal, check if perhaps need wider
   * Color error, warning and notice in output
   * Add goal for downloading in Analytics
   * Executable to generate changelog data in downloads, add option in deploy to do this 
-    * Fix blocking CSS?
+  * Fix blocking CSS?
   * quick-start.html -> list includes ugly markup from rst, consider subclassing rst to fix
   * TOC over child elements template variable - perhaps filter tag for template use, e.g get all pages, limit level and number?
   * Skel site:

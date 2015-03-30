@@ -151,8 +151,8 @@ table.gsc-search-box td.gsc-input, .gsc-search-box-tools .gsc-search-box .gsc-in
 input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus { border: none !important; box-shadow: none !important;}
 /* end Google custom site search */
 
-/* Design is formeost for mobile devices, override settings for larger screens */
-@media (min-width: 600px) {
+/* Design is formeost for mobile devices, override settings for larger screens. If width > 769 then limit to 600, else use 100% */
+@media (min-width: 769px) {
 header, footer { width: 600px; margin: 0 auto;}
 article, #shortcuts { width: 600px; }
 html { overflow-y: scroll; }
