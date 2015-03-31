@@ -33,6 +33,7 @@
 </header>
 <article>{{content}}</article>
 <div id="shortcuts">
+{{tags}}
 <div id="previous_link">&#8592; {{previous_link}}</div>
 <a id="goto_top" href="{{absolute_url}}#top">&#8593;</a>
 <div id="next_link">{{next_link}} &#8594;</div>

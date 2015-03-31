@@ -2,8 +2,8 @@ Description: Designing and customization of generated HTML using templates and t
 
 Setting up page layout is controlled by page templates. Pages may specify a template by setting **Template** header. All templates are located in **templates** directory and the default one is **page.tpl**. The templates can be freely customized and supports the following variables.
 
-Page template variables
-***********************
+Template variables
+******************
 
 .. raw:: html
 
@@ -22,16 +22,6 @@ Page template variables
 	  <dd>Page publish date</dd>
 	  <dt>&lbrace;&lbrace;title&rbrace;&rbrace;</dt>
 	  <dd>Page title</dd>
-	  <dt>&lbrace;&lbrace;previous_link&rbrace;&rbrace; and &lbrace;&lbrace;next_link&rbrace;&rbrace;</dt>
-	  <dd>Links to previous or next page, use page header **link_chain_exclude** to keep pages out of the link sequence</dd>
-	</dl>
-
-Misc template variables
-***********************
-
-.. raw:: html
-
-	<dl>
 	  <dt>&lbrace;&lbrace;base_url&rbrace;&rbrace;</dt>
 	  <dd>Site base url setting</dd>
 	  <dt>&lbrace;&lbrace;year&rbrace;&rbrace;</dt>
@@ -40,6 +30,10 @@ Misc template variables
 	  <dd>Current month</dd>
 	  <dt>&lbrace;&lbrace;day&rbrace;&rbrace;</dt>
 	  <dd>Current day</dd>
+	  <dt>&lbrace;&lbrace;previous_link&rbrace;&rbrace; and &lbrace;&lbrace;next_link&rbrace;&rbrace;</dt>
+	  <dd>Links to previous or next page, use page header **link_chain_exclude** to keep pages out of the link sequence</dd>
+	  <dt>&lbrace;&lbrace;tags&rbrace;&rbrace;</dt>
+	  <dd>List of tags (assuming pages have been tagged)</dd>
 	</dl>
 
 

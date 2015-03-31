@@ -104,6 +104,7 @@ All headers are optional. They must start on the first line and content start is
 	publish         Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past
 	rss include     False              If set page is included in RSS feed (assuming site include_rss)        
 	sitemap exclude False              Remove page from sitemap                                               
+	tags            None               Comma separated list of tags, if exist then /tag/<tag> pages generated 
 	template        page.tpl           Template file from /templates                                          
 	title           None               If set overrides page title                                            
 	=============== ================== =======================================================================
