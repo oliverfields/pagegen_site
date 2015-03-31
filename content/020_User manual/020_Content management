@@ -102,6 +102,7 @@ All headers are optional. They must start on the first line and content start is
 	menu exclude    False              Remove page (and child pages) from menu/crumb trail                    
 	menu title      None               If set use for title in menu/crumb trail                               
 	publish         Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past
+	rss include     False              If set page is included in RSS feed (assuming site include_rss)        
 	sitemap exclude False              Remove page from sitemap                                               
 	template        page.tpl           Template file from /templates                                          
 	title           None               If set overrides page title                                            

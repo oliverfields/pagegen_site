@@ -14,30 +14,50 @@ Site generation can be configured by the **site.conf**, found in the Pagegen roo
 
 .. code::
 
-	# Set site root directory, mandatory
+	# Set site root directory, mandatory.
 	base_url=http://localhost
 	
-	# Specify default extension, if file does not already have one. Default None, optional
+	# Specify default extension, if file does not already have one. Default None, optional.
 	#default_extension=.html
 	
-	# Toggle sitemap generation. Default True, optional
+	# Toggle sitemap generation. Default True, optional.
 	#exclude_sitemap=False
 	
-	# Toggle relative or absolute URLs. Default True, optional
+	# Toggle relative or absolute URLs. Default True, optional.
 	#absolute_urls=True
 	
 	# Toggle copy or make symlink to include directory in site directory
-	# Default False, optional
+	# Default False, optional.
 	#symlink_include
 	
-	# Toggle include page titles in content. Default False, optional
+	# Toggle include page titles in content. Default False, optional.
 	#page_titles
 	
-	# Toggle index file in URL for directories. Default True, optional
+	# Toggle index file in URL for directories. Default True, optional.
 	#url_include_index=False
 	
-	# If set, report warning if page description length is outside the given range
+	# If set, report warning if page description length is outside the given range.
+	# Default None, optional.
 	#description_length_range=100-130
 	
-	# If set, report warning if page title length is outside the given range
+	# If set, report warning if page title length is outside the given range. Optional.
 	#title_length_range=40-60
+	
+	# If set, generate site/feed.rss containing all pages with header "rss include" set to True.
+	# Default False, optional.
+	#include_rss=True
+	
+	# RSS feed max items in feed. Default 15, optional.
+	#max_rss_items=15
+	
+	# RSS feed title. Default '', optional.
+	#rss_title=RSS Feed title
+	
+	# RSS feed description. Default '', optional.
+	#self.rss_description=RSS Feed description
+	
+	# Tag pages parent url. Default tag, optional
+	#tag_url=tag
+	
+	# Tag page title. Default Tags, optional
+	#tag_title=Tags

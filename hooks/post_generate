@@ -3,13 +3,22 @@
 set -e # Halt on first error
 #set -x # Show commands
 
+  echo "
+Post hook
+---------"
+
 latest_deb='pagegen_2.0.2_all.deb'
 latest_tar='2.0.2.tar.gz'
 
 find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB#$latest_deb#g" {} \;
 find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_TAR#$latest_tar#g" {} \;
 
-if [ "$PAGEGEN_TARGET_ENVIRONMENT" != "test" ]; then
+if [ "$PAGEGEN_TARGET_ENVIRONMENT" = "test" ]; then
+  # Combine js
+  site_js="$PAGEGEN_TARGET_DIR/include/javascript/site.js"
+  cat "$PAGEGEN_SITE_DIR/include/javascript/jquery.min.js" > "$site_js"
+  yui-compressor "$PAGEGEN_SITE_DIR/include/javascript/navigation.js" >> "$site_js"
+else
   # Compress css
   yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/style.min.css" "$PAGEGEN_SITE_DIR/include/css/style.css"
 

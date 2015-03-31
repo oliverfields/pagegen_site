@@ -45,7 +45,8 @@ fi
 Pre hook
 --------
 
-Todos: 
+Todos:
+  * Page type -> define sets of default header values that can be assigned to a page, headers can be overridden. E.g. Type: System implies settings to hide from menu, sitemap etc for e.g 404 page, Type: blog_post implies rss_include and hide from menu and link chain true.
   * Pagegen aims to come to the table with all you need, just add CSS
   * Generate change log on download page?
   * Color error, warning and notice in output
@@ -64,7 +65,10 @@ Todos:
   * SSI/partials tag to include other files in templates
   * Page header apply recursive options for: sitemap_exclude_children Bool, template_children <template>, rss_include_children Bool
   * Make blog aware (see mind map)
+  * Go through code and create helper functions, especially for setting url using settings (absolute urls e.g.)
 "
 }
 grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/\t* /'
+grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/\t* /'
+grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/\t* /'
 echo
