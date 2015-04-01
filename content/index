@@ -8,12 +8,14 @@ Publish: 2015-03-26
 	* `Download .deb </include/download/PAGEGEN_LATEST_DEB>`_
 	* `github.com <https://github.com/oliverfields/pagegen_v2>`_
 
-Pagegen generates web sites from flat text files and directories, allowing you to manage your site from the command line.
+Pagegen can handle regular sites and blogs, organizing and generating content from flat text files and directories. Manage your site from the command line.
 
-* Pages are simple text files with `reStructured Text <http://docutils.sourceforge.net/rst.html>`_ markup
-* Hierachical page structure with menu and bread crumbs
+* Pages are simple text files with `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ markup
+* Hierarchical page structure with menu and bread crumbs
+* RSS feed
+* Sitemap
 * Web friendly URLs and sitemap
 * Generated html files can be hosted on any web server
-* Run custom scripts during generation (e.g. automate FTP upload or CSS/JS compression)
+* Run custom scripts during generation (e.g. automate FTP upload or CSS/Javascript compression)
 * Template support
 * Requires Python for generation

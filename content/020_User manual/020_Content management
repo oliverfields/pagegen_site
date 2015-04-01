@@ -90,13 +90,14 @@ Content for each page consists of an optional header containing any settings for
 Headers
 =======
 
-All headers are optional. They must start on the first line and content start is signaled by a blank line after the headers. Headers are often refered to as front matter by static site generation engines.
+All headers are optional. They must start on the first line and content start is signaled by a blank line after the headers. Headers are often referred to as front matter by static site generation engines.
 
 .. table:: Page headers
 
 	=============== ================== =======================================================================
 	Name            Default            Description                                                            
 	=============== ================== =======================================================================
+	category        None               Page category, if exist then /category/<category> pages generated      
 	description     None               Html meta tag description                                              
 	generate html   True               Enable/disable parsing of page content                                 
 	menu exclude    False              Remove page (and child pages) from menu/crumb trail                    

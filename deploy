@@ -4,10 +4,11 @@ set -e
 
 env="$1"
 pagegen='/home/oliver/Personal/projects/pagegen/v2/pagegen'
+aspell_personal_dictionary='/home/oliver/Personal/projects/pagegen/pagegenv2_site/aspell-pagegen-dictionary.txt'
 site_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/site'
 content_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/content'
 prod_url="http://pagegen.phnd.net"
-stage_url="http://pgtest.phnd.net"
+stage_url="http://pgstage.phnd.net"
 prod_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/prod_site.conf'
 stage_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/stage_site.conf'
 test_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/test_site.conf'
@@ -19,7 +20,7 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
   echo -e "Spell check? [y|n(DEFAULT)]?"
   read spell_check
   if [ "$spell_check" = "y" ]; then
-    find "$content_dir" -type f  \! -executable -exec aspell --dont-backup --lang=en check {} \;
+    find "$content_dir" -type f  \! -executable -exec aspell --dont-backup --lang=en --personal=$aspell_personal_dictionary check {} \;
   fi
 
   if [ "$env" = "prod" ]; then

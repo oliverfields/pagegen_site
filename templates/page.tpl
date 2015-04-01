@@ -9,10 +9,10 @@
 <meta name="contact" content="pagegen@phnd.net" />
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
-<link rel="stylesheet" href="/include/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/include/css/style.min.css" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
-<script async src="/include/javascript/site.js"></script>
+<script async src="/include/javascript/site.min.js"></script>
 </head>
 <body>
 <a name="top"></a>
@@ -33,7 +33,6 @@
 </header>
 <article>{{content}}</article>
 <div id="shortcuts">
-{{tags}}
 <div id="previous_link">&#8592; {{previous_link}}</div>
 <a id="goto_top" href="{{absolute_url}}#top">&#8593;</a>
 <div id="next_link">{{next_link}} &#8594;</div>

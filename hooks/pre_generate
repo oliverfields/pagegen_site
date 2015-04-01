@@ -31,7 +31,6 @@ page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
 
 # Set CSS and Javascript links
 if [ "$PAGEGEN_TARGET_ENVIRONMENT" = "test" ]; then
-  echo "$page_template"
   sed -i 's#PAGEGEN_SITE_JAVASCRIPT#/include/javascript/site.js#' "$page_template"
   sed -i 's#PAGEGEN_SITE_CSS#/include/css/style.css#' "$page_template"
 else
@@ -61,10 +60,8 @@ Todos:
   * Submit
     * https://staticsitegenerators.net/
     * Submit to www.staticgen.com
-  * Content: Pagegen can handle regular sites, blogs and documentation sites -> Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
+  * Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
   * SSI/partials tag to include other files in templates
-  * Page header apply recursive options for: sitemap_exclude_children Bool, template_children <template>, rss_include_children Bool
-  * Make blog aware (see mind map)
   * Go through code and create helper functions, especially for setting url using settings (absolute urls e.g.)
 "
 }
