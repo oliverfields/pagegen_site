@@ -9,10 +9,10 @@
 <meta name="contact" content="pagegen@phnd.net" />
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
-<link rel="stylesheet" href="/include/css/style.min.css" type="text/css" />
+<link rel="stylesheet" href="/include/css/style.css" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
-<script async src="/include/javascript/site.min.js"></script>
+<script async src="/include/javascript/site.js"></script>
 </head>
 <body>
 <a name="top"></a>

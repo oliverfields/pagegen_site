@@ -100,6 +100,7 @@ All headers are optional. They must start on the first line and content start is
 	category        None               Page category, if exist then /category/<category> pages generated      
 	description     None               Html meta tag description                                              
 	generate html   True               Enable/disable parsing of page content                                 
+	header profile  None               If specified default headers will be read from header_profiles/<value> 
 	menu exclude    False              Remove page (and child pages) from menu/crumb trail                    
 	menu title      None               If set use for title in menu/crumb trail                               
 	publish         Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past
@@ -109,6 +110,16 @@ All headers are optional. They must start on the first line and content start is
 	template        page.tpl           Template file from /templates                                          
 	title           None               If set overrides page title                                            
 	=============== ================== =======================================================================
+
+
+Header profiles
+---------------
+
+Sometimes simmilar types of pages, e.g. system pages, blog posts or regular article pages, will have the samme headers set. Header profiles allows for headers to be defined in a profile, and that profile applied to the pages that reference it in the **header profile** header.
+
+Header profiles have same syntax as headers and are located in the **header_profiles** directory.
+
+Headers specified in the page content will override the headers from the profile.
 
 
 reStructuredText
