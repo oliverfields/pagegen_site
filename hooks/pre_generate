@@ -40,24 +40,24 @@ fi
 
 
 {
-  echo "
+  echo -e "
 Pre hook
 --------
 
 Todos:
+  * http://pagegen.phnd.net/statistikk -> should work soon. good for checking 404's and downloads
   * Add goal for downloading in Analytics
-  * Executable to generate changelog data in downloads, add option in deploy to do this 
   * Skel site:
     * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
     * Include html4css1.css so rst is basically handled in shipped theme
-  * Submit
+  * Check added to
     * https://staticsitegenerators.net/
     * Submit to www.staticgen.com
   * Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
   * SSI/partials tag to include other files in templates
 "
 }
-grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/\t* /'
-grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/\t* /'
-grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/\t* /'
+grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
+grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/  * /'
+grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/  * /'
 echo

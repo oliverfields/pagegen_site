@@ -7,8 +7,8 @@ set -e # Halt on first error
 Post hook
 ---------"
 
-latest_deb='pagegen_2.0.2_all.deb'
-latest_tar='2.0.2.tar.gz'
+latest_deb='pagegen_2.0.3_all.deb'
+latest_tar='2.0.3.tar.gz'
 
 find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB#$latest_deb#g" {} \;
 find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_TAR#$latest_tar#g" {} \;

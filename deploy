@@ -93,6 +93,7 @@ ForceType text/html
   Redirect 301 /examples/content-variables /user-manual/content-management
   Redirect 301 /examples/custom-meta-description-tag /user-manual/design-and-layout
   Redirect 301 /examples/custom-page-title-tag /user-manual/design-and-layout
+  Redirect 301 /examples /
   Redirect 301 /examples/default /
   Redirect 301 /examples/dynamic-content-page /user-manual/content-management
   Redirect 301 /examples/dynamic-templates /user-manual/content-management

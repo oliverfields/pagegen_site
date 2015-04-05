@@ -19,3 +19,4 @@ Pagegen can handle regular sites and blogs, organizing and generating content fr
 * Run custom scripts during generation (e.g. automate FTP upload or CSS/Javascript compression)
 * Template support
 * Requires Python for generation
+* GPLv3
