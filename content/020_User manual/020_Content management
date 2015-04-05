@@ -115,7 +115,7 @@ All headers are optional. They must start on the first line and content start is
 Header profiles
 ---------------
 
-Sometimes simmilar types of pages, e.g. system pages, blog posts or regular article pages, will have the samme headers set. Header profiles allows for headers to be defined in a profile, and that profile applied to the pages that reference it in the **header profile** header.
+Sometimes similar types of pages, e.g. system pages, blog posts or regular article pages, will have the same headers set. Header profiles allows for headers to be defined in a profile, and that profile applied to the pages that reference it in the **header profile** header.
 
 Header profiles have same syntax as headers and are located in the **header_profiles** directory.
 

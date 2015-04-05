@@ -45,15 +45,8 @@ Pre hook
 --------
 
 Todos:
-  * Page type -> define sets of default header values that can be assigned to a page, headers can be overridden. E.g. Type: System implies settings to hide from menu, sitemap etc for e.g 404 page, Type: blog_post implies rss_include and hide from menu and link chain true.
-  * Pagegen aims to come to the table with all you need, just add CSS
-  * Generate change log on download page?
-  * Color error, warning and notice in output
   * Add goal for downloading in Analytics
   * Executable to generate changelog data in downloads, add option in deploy to do this 
-  * Fix blocking CSS?
-  * quick-start.html -> list includes ugly markup from rst, consider subclassing rst to fix
-  * TOC over child elements template variable - perhaps filter tag for template use, e.g get all pages, limit level and number?
   * Skel site:
     * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
     * Include html4css1.css so rst is basically handled in shipped theme
@@ -62,7 +55,6 @@ Todos:
     * Submit to www.staticgen.com
   * Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
   * SSI/partials tag to include other files in templates
-  * Go through code and create helper functions, especially for setting url using settings (absolute urls e.g.)
 "
 }
 grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/\t* /'

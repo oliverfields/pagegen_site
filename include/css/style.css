@@ -92,6 +92,8 @@ article h2 { font-size: 2em; color: #AA9A66;}
 article h3 { font-size: 1.5em; color: #67655D;}
 article h4 { font-size: 1em; color: #67655D;}
 article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 2em; }
+/* Sub lists */
+article li ul { margin: 0em 1em .5em 1em; }
 article p { line-height: 1.6em; margin-bottom: 2em}
 p.sidebar-title { font-weight: bold; color: #577492; font-size: 1.5em; margin: 0 0 .6em 0; font-family: "Trebuchet MS", Helvetica, sans-serif;}
 div.sidebar { padding: .4em; background-color: #D4D8D1; color: #332C2F; margin: .4em 0 .6em 0; border-radius: 1px;}

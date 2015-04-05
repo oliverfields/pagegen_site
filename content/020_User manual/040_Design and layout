@@ -1,3 +1,6 @@
+Tags: so effing, What, Lips
+Category: Sweeeet
+
 Description: Designing and customization of generated HTML using templates and template variables.
 
 Setting up page layout is controlled by page templates. Pages may specify a template by setting **Template** header. All templates are located in **templates** directory and the default one is **page.tpl**. The templates can be freely customized and supports the following variables.
@@ -7,34 +10,31 @@ Template variables
 
 .. raw:: html
 
-	<dl>
-	  <dt>&lbrace;&lbrace;absolute_url&rbrace;&rbrace;</dt>
-	  <dd>Full url to page</dd>
-	  <dt>&lbrace;&lbrace;content&rbrace;&rbrace;</dt>
-	  <dd>Page content</dd>
-	  <dt>&lbrace;&lbrace;crumb_trail&rbrace;&rbrace;</dt>
-	  <dd>Bread crumb trail
-	  <dt>&lbrace;&lbrace;description&rbrace;&rbrace;</dt>
-	  <dd>Description text</dd>
-	  <dt>&lbrace;&lbrace;menu&rbrace;&rbrace;</dt>
-	  <dd>Site menu</dd>
-	  <dt>&lbrace;&lbrace;publish&rbrace;&rbrace;</dt>
-	  <dd>Page publish date</dd>
-	  <dt>&lbrace;&lbrace;title&rbrace;&rbrace;</dt>
-	  <dd>Page title</dd>
-	  <dt>&lbrace;&lbrace;base_url&rbrace;&rbrace;</dt>
-	  <dd>Site base url setting</dd>
-	  <dt>&lbrace;&lbrace;year&rbrace;&rbrace;</dt>
-	  <dd>Current year</dd>
-	  <dt>&lbrace;&lbrace;month&rbrace;&rbrace;</dt>
-	  <dd>Current month</dd>
-	  <dt>&lbrace;&lbrace;day&rbrace;&rbrace;</dt>
-	  <dd>Current day</dd>
-	  <dt>&lbrace;&lbrace;previous_link&rbrace;&rbrace; and &lbrace;&lbrace;next_link&rbrace;&rbrace;</dt>
-	  <dd>Links to previous or next page, use page header **link_chain_exclude** to keep pages out of the link sequence</dd>
-	  <dt>&lbrace;&lbrace;tags&rbrace;&rbrace;</dt>
-	  <dd>List of tags (assuming pages have been tagged)</dd>
-	</dl>
+	<table>
+	<tr><th>Tag</th><th>Description</th></tr>
+	<tr><td>&lbrace;&lbrace;absolute_url&rbrace;&rbrace;</td><td>Full url to page</td></tr>
+	<tr><td>&lbrace;&lbrace;base_url&rbrace;&rbrace;</td><td>Site base url setting</td></tr>
+	<tr><td>&lbrace;&lbrace;categories&rbrace;&rbrace;</td><td>All categories (requires categorized pages)</td></tr>
+	<tr><td>&lbrace;&lbrace;content&rbrace;&rbrace;</td><td>Page content</td></tr>
+	<tr><td>&lbrace;&lbrace;crumb_trail&rbrace;&rbrace;</td><td>Bread crumb trail</td></tr>
+	<tr><td>&lbrace;&lbrace;day&rbrace;&rbrace;</td><td>Current day</td></tr>
+	<tr><td>&lbrace;&lbrace;description&rbrace;&rbrace;</td><td>Description text</td></tr>
+	<tr><td>&lbrace;&lbrace;menu&rbrace;&rbrace;</td><td>Site menu</td></tr>
+	<tr><td>&lbrace;&lbrace;month&rbrace;&rbrace;</td><td>Current month</td></tr>
+	<tr><td>&lbrace;&lbrace;next_link&rbrace;&rbrace;</td><td>Links to next page</td></tr>
+	<tr><td>&lbrace;&lbrace;page_category&rbrace;&rbrace;</td><td>Page category</td></tr>
+	<tr><td>&lbrace;&lbrace;page_tags&rbrace;&rbrace;</td><td>List of page tags</td></tr>
+	<tr><td>&lbrace;&lbrace;previous_link&rbrace;&rbrace;</td><td>Links to previous</td></tr>
+	<tr><td>&lbrace;&lbrace;publish&rbrace;&rbrace;</td><td>Page publish date</td></tr>
+	<tr><td>&lbrace;&lbrace;tags&rbrace;&rbrace;</td><td>All tags (requires tagged pages)</td></tr>
+	<tr><td>&lbrace;&lbrace;title&rbrace;&rbrace;</td><td>Page title</td></tr>
+	<tr><td>&lbrace;&lbrace;year&rbrace;&rbrace;</td><td>Current year</td></tr>
+	</table>
+
+
+.. note::
+
+	For **previous_link** and **next_link** template variables, use page header **link_chain_exclude** to keep pages out of the link sequence.
 
 
 CSS, Javascript, images and stuff
