@@ -144,14 +144,10 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 #shortcuts {text-align: center; margin: .8em auto 1em auto;}
 /* end Navigational elements */
 
-/* Google custom site search */
-.gsc-control-cse { padding: 1em !important; border-top: none !important; border-left: none !important; border-right: none !important; border-bottom: dotted 1px #42586f !important; background-color: #577492 !important;}
-.gsc-search-button { display: none !important; }
-table.gsc-search-box, form.gsc-search-box { margin: 0 !important; }
-td.gsc-search-button { display: none; }
-table.gsc-search-box td.gsc-input, .gsc-search-box-tools .gsc-search-box .gsc-input { padding-right: 0 !important; }
-input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus { border: none !important; box-shadow: none !important;}
-/* end Google custom site search */
+#search { display: none; padding: 1em; border-bottom: dotted 1px #42586f;}
+#search_query { width: 300px; background-color: #D4D8D1; }
+#search_button { width: 16px; height: 16px; display: inline-block; margin-left: 1em; cursor: pointer;}
+
 
 /* Design is formeost for mobile devices, override settings for larger screens. If width > 769 then limit to 600, else use 100% */
 @media (min-width: 769px) {

@@ -45,6 +45,9 @@ Pre hook
 --------
 
 Todos:
+  * Justify content
+  * Document search index (stopwords, how it works etc)
+  * document include_search setting and implement and document search index exclude page header
   * http://pagegen.phnd.net/statistikk -> should work soon. good for checking 404's and downloads
   * Add goal for downloading in Analytics
   * Skel site:

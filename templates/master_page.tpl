@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="Generator" content="Pagegen" />
-<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{title}} - Pagegen</title>
-<meta name="copyright" content="Copyright &copy; {{year}} Oliver Fields" />
+<meta name="copyright" content="Copyright &#169; {{year}} Oliver Fields" />
 <meta name="author" content="Oliver Fields">
 <meta name="contact" content="pagegen@phnd.net" />
 <base href="{{base_url}}" />
@@ -23,9 +24,7 @@ PAGEGEN_ANALYTICS_SCRIPT
 <a href="/" id="logo" class="sprite"></a>
 <div id="crumb_trail">{{crumb_trail}}</div>
 <div id="menu">
-<!-- Google Custom Site Engine - https://cse.google.com/cse/all -->
-<gcse:search></gcse:search>
-<!-- end CSE -->
+<div id="search"></div>
 {{menu}}
 <div id="issue_tracker"><a href="https://github.com/oliverfields/pagegen_v2_site/issues">Report a bug<span class="sprite bug"></span></a></div>
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
@@ -39,7 +38,7 @@ PAGEGEN_ANALYTICS_SCRIPT
 <div id="next_link">{{next_link}} &#8594;</div>
 </div>
 <footer>
-<div id="copyright">Copyright &copy; {{year}} Oliver Fields</div>
+<div id="copyright">Copyright &#169; {{year}} Oliver Fields</div>
 <div id="pagegend" class="sprite"></div>
 </footer>
 <!-- Google Custom Site Engine - https://cse.google.com/cse/all -->

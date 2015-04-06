@@ -1,5 +1,8 @@
 // Config
 menu='#menu';
+search='#search'
+search_query='#search_query'
+search_button='#search_button'
 toggle_id='#hamburger';
 sub_menu_class='sub_menu';
 no_sub_menu_class='no_sub_menu';
@@ -11,30 +14,26 @@ sub_menu_shown_class='sub_menu_shown';
 previous_link='#previous_link';
 next_link='#next_link';
 
+$(document).ready(function(){
 
-// Toggle menu visibility
-$(function() {
+  // Toggle menu visibility
   $(toggle_id).click(function() {
     $(menu).toggle();
     $(this).toggleClass(menu_shown_class);
     return false;
   });
-
+  
+  // Hide menu on mouse out
   $(menu).mouseleave(function() {
     //$(menu).toggle();
     //$(toggle_id).toggleClass(menu_shown_class);
     return false;
   });
-
+  
   // Add separators to crumb trail
   $(crumb_trail+' > ul li').each(function(){
     $(this).prepend(crumb_trail_separator);
   });
-
-});
-
-
-$(document).ready(function(){
 
   // Add class to each li that has a sub menu
   // Add toggle visibility icon to sub menu li
@@ -85,4 +84,47 @@ $(document).ready(function(){
   if($(previous_link+' a').length == 0) { $(previous_link).remove() }
   if($(next_link+' a').length == 0) { $(next_link).remove() }
 
+  // Setup search
+  $(search).css('display', 'block');
+  $(search).append('<input type="text" id="search_query" /><span class="sprite" id="search_button">Search</span>')
+
+  function do_search() {
+    query=$(search_query).val().split(' ');
+    result=[];
+
+    // Get search index json
+    $.getJSON('/search-index.json', function(data) {
+
+      // Split query into words and return result for each word that matches
+      var q_length = query.length;
+      for (var i=0;i<q_length; i++) {
+        if (typeof data.terms[query[i]] !== 'undefined') {
+          var r_length = data.terms[query[i]].length;
+          for (var x=0;x<r_length; x++) {
+            url_id=data.terms[query[i]][x][0];
+            weight=data.terms[query[i]][x][1];
+            url=data.urls[url_id];
+            result.push([url, weight]);
+            alert('Matched '+url+', weight '+weight);
+          }
+        }
+      }
+
+    });
+
+    // Loop over query words and get results for each word
+
+  }
+
+  $(search_query).keypress(function(e){
+    if (e.which == 13){
+      do_search();
+    }
+  });
+
+  $(search_button).click(function(){
+    do_search();
+  });
+
+  // end Search
 });
