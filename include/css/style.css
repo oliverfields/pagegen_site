@@ -146,7 +146,7 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 
 #search { display: none; padding: 1em; border-bottom: dotted 1px #42586f;}
 #search_query { width: 300px; background-color: #D4D8D1; }
-#search_button { width: 16px; height: 16px; display: inline-block; margin-left: 1em; cursor: pointer;}
+#search_button { margin-left: 1em; }
 
 
 /* Design is formeost for mobile devices, override settings for larger screens. If width > 769 then limit to 600, else use 100% */

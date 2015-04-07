@@ -13,6 +13,7 @@ menu_shown_class='menu_shown';
 sub_menu_shown_class='sub_menu_shown';
 previous_link='#previous_link';
 next_link='#next_link';
+search_text='Search'
 
 $(document).ready(function(){
 
@@ -86,7 +87,17 @@ $(document).ready(function(){
 
   // Setup search
   $(search).css('display', 'block');
-  $(search).append('<input type="text" id="search_query" /><span class="sprite" id="search_button">Search</span>')
+  $(search).append('<input type="text" id="search_query" /><input type="button" id="search_button" value="'+search_text+'" />')
+
+  function hit_in_result(hit, result){
+    for (var i=0;i<result.length;i++) {
+      if (result[i].url == hit.url) {
+        return true
+      }
+    }
+    return false
+  }
+
 
   function do_search() {
     query=$(search_query).val().split(' ');
@@ -94,26 +105,26 @@ $(document).ready(function(){
 
     // Get search index json
     $.getJSON('/search-index.json', function(data) {
-
-      // Split query into words and return result for each word that matches
-      var q_length = query.length;
-      for (var i=0;i<q_length; i++) {
-        if (typeof data.terms[query[i]] !== 'undefined') {
-          var r_length = data.terms[query[i]].length;
-          for (var x=0;x<r_length; x++) {
-            url_id=data.terms[query[i]][x][0];
-            weight=data.terms[query[i]][x][1];
-            url=data.urls[url_id];
-            result.push([url, weight]);
-            alert('Matched '+url+', weight '+weight);
+      for (var i=0;i<query.length; i++) {
+        var term=query[i];
+        if (typeof data.terms[term] !== 'undefined') {
+          for (var x=0;x<data.terms[term].length; x++) {
+            url_id=data.terms[term][x];
+            hit={
+              url:data.urls[url_id][0],
+              desc:data.urls[url_id][1]
+            }
+            if (hit_in_result(hit, result) == false) {
+              result.push(hit);
+            }
           }
         }
       }
-
+      // Build result content
+      for (var n=0;n<result.length;n++) {
+        alert(result[n].url);
+      }
     });
-
-    // Loop over query words and get results for each word
-
   }
 
   $(search_query).keypress(function(e){
