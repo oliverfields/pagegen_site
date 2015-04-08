@@ -4,6 +4,7 @@ search='#search'
 search_query='#search_query'
 search_button='#search_button'
 toggle_id='#hamburger';
+toggle_search_id='#search_toggle';
 sub_menu_class='sub_menu';
 no_sub_menu_class='no_sub_menu';
 toggle_class='sub_menu_toggle';
@@ -13,12 +14,32 @@ menu_shown_class='menu_shown';
 sub_menu_shown_class='sub_menu_shown';
 previous_link='#previous_link';
 next_link='#next_link';
-search_text='Search'
 
 $(document).ready(function(){
 
+  // Set search value if in query string
+  // Read a page's GET URL variables and return them as an associative array.
+  function getUrlVars()
+  {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=');
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+    }
+    return vars;
+  }
+
+  q=getUrlVars()['q'];
+  if (typeof q !== 'undefined') {
+    $(search_query).val(decodeURIComponent(q));
+  }
+
   // Toggle menu visibility
   $(toggle_id).click(function() {
+    $(search).css('display', 'none');
+    $(toggle_search_id).removeClass(menu_shown_class);
     $(menu).toggle();
     $(this).toggleClass(menu_shown_class);
     return false;
@@ -26,11 +47,28 @@ $(document).ready(function(){
   
   // Hide menu on mouse out
   $(menu).mouseleave(function() {
-    //$(menu).toggle();
-    //$(toggle_id).toggleClass(menu_shown_class);
+    $(menu).toggle();
+    $(toggle_id).toggleClass(menu_shown_class);
+    return false;
+  });
+
+  // Toggle search menu visibility
+  $(toggle_search_id).click(function() {
+    $(menu).css('display', 'none');
+    $(toggle_id).removeClass(menu_shown_class);
+    $(search).toggle();
+    $(this).toggleClass(menu_shown_class);
     return false;
   });
   
+  // Hide search menu on mouse out
+  $(search).mouseleave(function() {
+    $(search).toggle();
+    $(toggle_search_id).toggleClass(menu_shown_class);
+    return false;
+  });
+
+
   // Add separators to crumb trail
   $(crumb_trail+' > ul li').each(function(){
     $(this).prepend(crumb_trail_separator);
@@ -85,10 +123,7 @@ $(document).ready(function(){
   if($(previous_link+' a').length == 0) { $(previous_link).remove() }
   if($(next_link+' a').length == 0) { $(next_link).remove() }
 
-  // Setup search
-  $(search).css('display', 'block');
-  $(search).append('<input type="text" id="search_query" /><input type="button" id="search_button" value="'+search_text+'" />')
-
+  // Search
   function hit_in_result(hit, result){
     for (var i=0;i<result.length;i++) {
       if (result[i].url == hit.url) {
@@ -98,9 +133,10 @@ $(document).ready(function(){
     return false
   }
 
-
   function do_search() {
-    query=$(search_query).val().split(' ');
+    original_query=$(search_query).val().toLowerCase();
+    query=original_query.split(' ');
+    query_string=encodeURIComponent($(search_query).val())
     result=[];
 
     // Get search index json
@@ -112,7 +148,8 @@ $(document).ready(function(){
             url_id=data.terms[term][x];
             hit={
               url:data.urls[url_id][0],
-              desc:data.urls[url_id][1]
+              desc:data.urls[url_id][2],
+              title:data.urls[url_id][1]
             }
             if (hit_in_result(hit, result) == false) {
               result.push(hit);
@@ -121,12 +158,26 @@ $(document).ready(function(){
         }
       }
       // Build result content
-      for (var n=0;n<result.length;n++) {
-        alert(result[n].url);
+      if(result.length>0) {
+        html='<div id="hit_count">'+result.length+' results</div>'
+        for (var n=0;n<result.length;n++) {
+          html+='<div class="search_hit"><a href="'+result[n].url+'?q='+query_string+'">'+result[n].title+'</a>'
+          if (result[n].desc.length > 0) {
+            html+='<p>'+result[n].desc+'</p>';
+          }
+          html+='</div>'
+        }
       }
+      else {
+        html='Sorry, nothing found.'
+      }
+
+      $('#search_results').remove()
+      $(search).append('<div id="search_results">'+html+'</div>');
+
     });
   }
-
+ 
   $(search_query).keypress(function(e){
     if (e.which == 13){
       do_search();

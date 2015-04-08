@@ -45,18 +45,14 @@ Pre hook
 --------
 
 Todos:
-  * Justify content
-  * Document search index (stopwords, how it works etc)
-  * document include_search setting and implement and document search index exclude page header
-  * http://pagegen.phnd.net/statistikk -> should work soon. good for checking 404's and downloads
-  * Add goal for downloading in Analytics
-  * Skel site:
+   * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
+  * Add goal for downloading in Analytics, tracking 404's and what people are searching for
+  * Create pagegen site that works out of box, only needs styling in colors fonts etc, think basic theme ready for css zen gardening:
     * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
     * Include html4css1.css so rst is basically handled in shipped theme
   * Check added to
     * https://staticsitegenerators.net/
     * Submit to www.staticgen.com
-  * Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
   * SSI/partials tag to include other files in templates
 "
 }

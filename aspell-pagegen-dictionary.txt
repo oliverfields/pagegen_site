@@ -1,16 +1,21 @@
-personal_ws-1.1 en 61 
+personal_ws-1.1 en 74 
 SimpleHTTPServer
 td
 symlink
+oliver
 stdout
 PWD
 sitemap
 th
 htaccess
+xpaths
+json
+del
 extensionless
 skel
 cd
 url
+dfn
 javascript
 github
 rbrace
@@ -22,6 +27,7 @@ init
 dl
 txt
 wget
+onclick
 dpkg
 dt
 dir
@@ -35,16 +41,20 @@ gt
 SetOutputFilter
 mkdir
 gz
+blockquote
 YYYY
 css
 sudo
 executables
 html
+li
 xml
 csv
+kbd
 href
 zxf
 Google
+figcaption
 gzip
 MM
 chmod
@@ -56,7 +66,11 @@ ErrorDocument
 reStructuredText
 lbrace
 gzipped
+typeof
 conf
 urls
 pagegen
+samp
+jQuery
 SEO
+GPLv3

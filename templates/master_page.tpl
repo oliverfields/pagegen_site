@@ -21,14 +21,17 @@ PAGEGEN_ANALYTICS_SCRIPT
 <header>
 <nav>
 <div id="hamburger" class="sprite"></div>
+<div id="search_toggle" class="sprite"></div>
 <a href="/" id="logo" class="sprite"></a>
 <div id="crumb_trail">{{crumb_trail}}</div>
 <div id="menu">
-<div id="search"></div>
 {{menu}}
 <div id="issue_tracker"><a href="https://github.com/oliverfields/pagegen_v2_site/issues">Report a bug<span class="sprite bug"></span></a></div>
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
-</div>
+</div><!-- /menu -->
+<div id="search">
+<input type="text" id="search_query" value="" /><input type="button" id="search_button" value="Search" />
+</div><!-- /search -->
 </nav>
 </header>
 <article>{{content}}</article>

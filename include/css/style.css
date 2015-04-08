@@ -94,7 +94,7 @@ article h4 { font-size: 1em; color: #67655D;}
 article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 2em; }
 /* Sub lists */
 article li ul { margin: 0em 1em .5em 1em; }
-article p { line-height: 1.6em; margin-bottom: 2em}
+article p { line-height: 1.6em; margin-bottom: 2em; text-align: justify;}
 p.sidebar-title { font-weight: bold; color: #577492; font-size: 1.5em; margin: 0 0 .6em 0; font-family: "Trebuchet MS", Helvetica, sans-serif;}
 div.sidebar { padding: .4em; background-color: #D4D8D1; color: #332C2F; margin: .4em 0 .6em 0; border-radius: 1px;}
 div.sidebar p { padding: 0; }
@@ -115,6 +115,7 @@ span.admonition-good {width: 32px; height: 32px; background-position: -0px 0px; 
 span.admonition-bad {width: 32px; height: 32px; background-position: -32px 0px; display: inline-block; vertical-align: middle; margin-right: .5em;}
 /* Navigational elements */
 #hamburger { cursor: pointer; width: 32px; height: 32px; background-position: -220px 0px; float: right;}
+#search_toggle { cursor: pointer; width: 32px; height: 32px; background-position: -372px 0px; float: right; margin-right: 1em;}
 .menu_shown { background-position: -188px 0px !important; background-color: #577492; border-top-left-radius: .2em; border-top-right-radius: .2em;}
 li.sub_menu ul { display: none; }
 span.sub_menu_toggle { cursor: pointer; display: inline-block; width: 16px; height: 16px; background-position: -294px 0px; margin-left: 1em;}
@@ -122,7 +123,7 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 #menu a { text-decoration: none; color: #D4D8D1;}
 #menu li>span:hover{ background-color: #AA9A66; }
 #menu li>span{display: block; padding: .5em 1em .5em 0;}
-#menu { display: none; background-color: #577492; border-bottom-left-radius: .2em; border-bottom-right-radius: .2em;}
+#menu, #search { display: none; background-color: #577492; border-bottom-left-radius: .2em; border-bottom-right-radius: .2em;}
 #menu > ul { border-bottom: dotted 1px #42586f; padding-bottom: .6em; margin-bottom: .6em;}
 /* First level */
 #menu > ul > li > span > a { padding-left: 1em; }
@@ -144,10 +145,14 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 #shortcuts {text-align: center; margin: .8em auto 1em auto;}
 /* end Navigational elements */
 
-#search { display: none; padding: 1em; border-bottom: dotted 1px #42586f;}
-#search_query { width: 300px; background-color: #D4D8D1; }
-#search_button { margin-left: 1em; }
-
+#search { display: none; padding: 1em; }
+#search_query { width: 50%; background-color: #D4D8D1; border: none; padding: .2em; color: #332C2F;}
+#search_button { margin-left: 1em; border: none; padding: .2em; background-color: #332C2F; color: #D4D8D1;}
+#search_results { margin: 1em 0 1.8em 0; max-height: 200px; overflow-x: auto;}
+#search_results p { margin: .6em 1em 1.2em 1em; color: #D4D8D1; line-height: 1.2em; }
+#search_results a { color: #fff; font-weight: bold;}
+/* .search_hit:hover { background-color: #AA9A66; } */
+#hit_count { margin: 0 0 1em 0; font-size: .8em; color: #D4D8D1; }
 
 /* Design is formeost for mobile devices, override settings for larger screens. If width > 769 then limit to 600, else use 100% */
 @media (min-width: 769px) {
@@ -156,7 +161,7 @@ article, #shortcuts { width: 600px; }
 html { overflow-y: scroll; }
 div.sidebar { width: 30%; float: right; padding: .4em 1em .6em 1em; }
 #crumb_trail { display: inline-block; }
-#hamburger {float: left; margin-right: 1em; }
+#hamburger, #search_toggle {float: left; margin-right: 1em; }
 div.sidebar { margin: 0 0 .8em .8em;}
 }
 
