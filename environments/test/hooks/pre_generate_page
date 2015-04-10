@@ -1,24 +1,3 @@
 #!/bin/bash
 
 set -e
-
-{
-  echo -e "
-Todos:
-  * Search not looking hot on iphone
-  * Add context around term for display in search result
-   * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
-  * Add goal for downloading in Analytics, tracking 404's and what people are searching for
-  * Create pagegen site that works out of box, only needs styling in colors fonts etc, think basic theme ready for css zen gardening:
-    * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
-    * Include html4css1.css so rst is basically handled in shipped theme
-  * Check added to
-    * https://staticsitegenerators.net/
-    * Submit to www.staticgen.com
-  * SSI/partials tag to include other files in templates
-"
-}
-grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
-grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/  * /'
-grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/  * /'
-echo
