@@ -10,10 +10,10 @@
 <meta name="contact" content="pagegen@phnd.net" />
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
-<link rel="stylesheet" href="/include/css/style.min.css" type="text/css" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
-<script async src="/include/javascript/site.min.js"></script>
+<link type="text/css" href="/include/css/site.min.css" rel="stylesheet"></link>
+<script src="/include/javascript/site.min.js" async=""></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-9947760-1']);
@@ -39,7 +39,7 @@
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
 </div><!-- /menu -->
 <div id="search">
-<input type="text" id="search_query" value="" /><input type="button" id="search_button" value="Search" />
+<input type="text" id="search_query" value="" />
 </div><!-- /search -->
 </nav>
 </header>
@@ -53,19 +53,5 @@
 <div id="copyright">Copyright &#169; {{year}} Oliver Fields</div>
 <div id="pagegend" class="sprite"></div>
 </footer>
-<!-- Google Custom Site Engine - https://cse.google.com/cse/all -->
-<script>
-(function() {
-var cx = '013365502467450085413:kkur9yhecwy';
-var gcse = document.createElement('script');
-gcse.type = 'text/javascript';
-gcse.async = true;
-gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-'//www.google.com/cse/cse.js?cx=' + cx;
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(gcse, s);
-})();
-</script>
-<!-- end CSE -->
 </body>
 </html>

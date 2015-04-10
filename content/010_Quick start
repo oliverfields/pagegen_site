@@ -5,23 +5,56 @@ Publish: 2015-03-26
 	For in depth documentation please see `user manual </user-manual>`_.
 
 Setup
------
+*****
 
-Assuming Debian based OS, download `latest .deb </include/download/PAGEGEN_LATEST_DEB>`_, install and create new pagegen site directory according to the following. For other installation options please see `installation </user-manual/installation>`_.
+Pagegen is packaged as a .deb or a Python package. If running Debian/Ubuntu installing the .deb is easiest, else go for the Python package.
 
-.. code::
+.deb installation
+=================
+
+Download, dpkg and Bob's your uncle.
+
+::
 
 	$ wget http://pagegen.phnd.net/include/download/PAGEGEN_LATEST_DEB
 	$ dpkg -i PAGEGEN_LATEST_DEB
+
+
+Python package
+==============
+
+We will setup a virtual environment and install Pagegen using Python. Virtual environment allows a project to run it's own Python environment.
+
+First we download and extract.
+
+::
+
+	$ curl -O http://pagegen.phnd.net/include/download/PAGEGEN_LATEST_TAR
+	$ tar -zxf PAGEGEN_LATEST_TAR
+
+Create virtual environment, activate it and install Pagegen. Because we activate the virtual environment using the source command, when we run Python to install Pagegen is installed in the virtual environment and not globally.
+
+::
+
+	$ mkdir pagegen_virtualenv
+	$ virtualenv pagegen_virtualenv
+	$ source pagegen_virtualenv/bin/activate
+	$ cd UNPACKED_TAR_DIR
+	$ python setup.py install
+
+
+Create example site
+*******************
+
+First initialise a new Pagegen site directory.
+
+::
+
 	$ mkdir my_site
 	$ cd my_site
 	$ pagegen --init
 
 The last command sets up the current directory with a basic pagegen framework of files and folders.
-
-
-Create example site
--------------------
 
 We are going to create our site according to this outline.
 
@@ -37,7 +70,7 @@ We are going to create our site according to this outline.
 
 Ensure the commands below are run from *my_site* directory. They will first delete the example site content which comes with Pagegen and create the site as outlined above.
 
-.. code::
+::
 
 	$ rm -Rf content/*
 	$ echo "This is the home page" > content/index.html
@@ -49,11 +82,11 @@ Ensure the commands below are run from *my_site* directory. They will first dele
 
 
 Generate example site
----------------------
+*********************
 
 We are now ready to generate the site. This will create the finished site in the *my_site/site* directory.
 
-.. code::
+::
 
 	$ pagegen --generate
 
@@ -72,6 +105,6 @@ The generated site maps to the above outline as follows.
 
 
 Customize layout
------------------------
+****************
 
 Pagegen adds layout and navigation elements to each page when they are processed. To change the site look and feel change **my_site/page.template** and add required elements to **my_site/include** directory, e.g. css, images, javascript etc..

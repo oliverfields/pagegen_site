@@ -79,7 +79,7 @@ Page file structure
 
 Content for each page consists of an optional header containing any settings for the page followed by a blank line and reStructuredText markup.
 
-.. code::
+::
 
 	[<header name>: <header value>]
 	[...]
@@ -143,7 +143,7 @@ Content files may be executables. If a file is executable its content from stdou
 Example shell script
 --------------------
 
-.. code::
+::
 
 	#!/bin/bash
 	

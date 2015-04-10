@@ -1,0 +1,3 @@
+* Not serving json.gz even though it exists
+* Ignore statistikk folder on fastline
+* 

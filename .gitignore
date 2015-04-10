@@ -4,6 +4,10 @@ include/javascript/site.min.js
 pagegen_site.scite_session
 sprite/copy*
 pgstage.phnd.net
-site
-*_ftp.conf
 pagegen_301_redirects.csv
+deploy_assets/prod_ftp.conf
+deploy_assets/stage_ftp.conf
+environments/test/site
+environments/stage/site
+environments/prod/site
+include/css/site.min.css

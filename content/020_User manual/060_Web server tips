@@ -21,7 +21,7 @@ The configuration below tells the web server to set the HTTP *Content-Type* head
 Apache
 ======
 
-.. code::
+::
 
 	 # Force text/html for all files
 	<FilesMatch "\.*">
@@ -37,7 +37,7 @@ Apache
 Nginx
 =====
 
-.. code::
+::
 
 	default_type text/html;
 
@@ -52,7 +52,7 @@ Content files for directories are **index** (with optional extension), the web s
 Apache
 ======
 
-.. code::
+::
 
 	 DirectoryIndex index.html
 
@@ -60,7 +60,7 @@ Apache
 Nginx
 =====
 
-.. code::
+::
 
 	index index.html;
 
@@ -84,7 +84,7 @@ Create the following files with appropriate content. Set the page headers to **M
 Apache
 ======
 
-.. code::
+::
 
 	ErrorDocument 403 /403.html
 	ErrorDocument 404 /404.html
@@ -94,7 +94,7 @@ Apache
 Nginx
 =====
 
-.. code::
+::
 
 	error_page 403 /403.html;
 	error_page 404 /404.html;
@@ -110,7 +110,7 @@ For performance content suitable for compression (e.g. text, not images) should 
 Apache
 ======
 
-.. code::
+::
 
 	SetOutputFilter DEFLATE
 	AddOutputFilterByType DEFLATE text/plain text/html application/javascript text/javascript application/x-javascript text/css
@@ -119,7 +119,7 @@ Apache
 Nginx
 =====
 
-.. code::
+::
 
 	gzip on;
 	gzip_types text/plain text/html application/javascript text/javascript application/x-javascript text/css;

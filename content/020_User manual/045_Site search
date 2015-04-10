@@ -31,7 +31,7 @@ Index structure
 
 The search index is a JSON file located on the web root, **/search-index.json**. It consists of two main sections, terms and urls. The terms section lists each term and a reference to the urls section indicating which page it is found in. The urls section lists the pages that have been indexed with their title and description.
 
-.. code::
+::
 
 	{
 	  "terms": {
@@ -71,7 +71,7 @@ Implementing a site search can be done using the following jQuery. It will searc
 HTML
 ====
 
-.. code::
+::
 
 	<input type="text" id="search_query" />
 	<input type="button" onclick="do_search();" value="Search" />
@@ -81,7 +81,7 @@ HTML
 Javascript
 ==========
 
-.. code::
+::
 
 	function hit_in_result(hit, result){
 	  for (var i=0;i<result.length;i++) {

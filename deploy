@@ -3,197 +3,190 @@
 set -e
 
 env="$1"
+
+####################################################
+# Settings                                         #
+####################################################
+
 pagegen='/home/oliver/Personal/projects/pagegen/v2/pagegen'
-aspell_personal_dictionary='/home/oliver/Personal/projects/pagegen/pagegenv2_site/aspell-pagegen-dictionary.txt'
-site_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/site'
-content_dir='/home/oliver/Personal/projects/pagegen/pagegenv2_site/content'
+pg_dir='/home/oliver/Personal/projects/pagegen/pg_site'
+deploy_assets_dir="$pg_dir/deploy_assets"
+aspell_personal_dictionary="$deploy_assets_dir/aspell-pagegen-dictionary.txt"
+content_dir="$pg_dir/content"
 prod_url="http://pagegen.phnd.net"
 stage_url="http://pgstage.phnd.net"
-prod_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/prod_site.conf'
-stage_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/stage_site.conf'
-test_conf='/home/oliver/Personal/projects/pagegen/pagegenv2_site/test_site.conf'
+env_dir="$pg_dir/environments/$env"
+site_dir="$env_dir/site"
+master_page_template="$pg_dir/templates/master_page.tpl"
+page_template="$pg_dir/templates/page.tpl"
 
+
+####################################################
+# Quick sanity check                               #
+####################################################
+
+if [ "$env" = "test" ] || [ "$env" = "stage" ] || [ "$env" = "prod" ]; then
+  :
+else
+  echo "Unknown environment '$env', must be test, stage or prod"
+  exit 1
+fi
+
+if [ ! -e "$env_dir" ]; then
+  echo "Not found '$env_dir'"
+  exit 1
+fi
+
+
+####################################################
+# Setup pagetemplate for environment               #
+####################################################
+
+# Trawl template and replace placeholders as apropriate
+{
+  while read line; do
+    case "$line" in
+    "PAGEGEN_ANALYTICS_SCRIPT")
+      if [ "$env" = "prod" ]; then
+        echo "<script type=\"text/javascript\">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9947760-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>"
+      fi
+    ;;
+    "PAGEGEN_HEADER_LINKS")
+      if [ "$env" = "test" ]; then
+        echo '<link rel="stylesheet" href="/include/css/site.css" type="text/css" />
+<script async src="/include/javascript/jquery.min.js"></script>
+<script async src="/include/javascript/pagegen.js"></script>'
+      else
+        echo '<link type="text/css" href="/include/css/site.min.css" rel="stylesheet"></link>
+<script src="/include/javascript/site.min.js" async=""></script>'
+      fi
+    ;;
+    *)
+      echo "$line"
+    ;;
+    esac
+  done < "$master_page_template"
+} > "$page_template"
+
+
+####################################################
+# Spell check source files before generation?      #
+####################################################
 
 if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
-
-  # Spell check source files before generation?
   echo -e "Spell check? [y|n(DEFAULT)]?"
   read spell_check
   if [ "$spell_check" = "y" ]; then
     find "$content_dir" -type f  \! -executable -exec aspell --dont-backup --lang=en --personal=$aspell_personal_dictionary check {} \;
   fi
+fi
 
-  if [ "$env" = "prod" ]; then
-    conf="$prod_conf"
-    url="$prod_url"
-  else
-    conf="$stage_conf"
-    url="$stage_url"
-  fi
 
-  PAGEGEN_TARGET_ENVIRONMENT="$env" $pagegen --generate --config "$conf"
+####################################################
+# Generate site                                    #
+####################################################
 
-  source "${env}_ftp.conf"
+cd "$env_dir" && $pagegen --generate
 
-  # Gzip seperate html, css and javascript files, that way can serve both gzip and regular files
 
-    # Rename html files with .html
+####################################################
+# Gzip and file rename                             #
+####################################################
+
+# Gzip seperate html, css and javascript files, that way can serve both gzip and regular files
+# and rename html files with .html
+if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
+  
   find "$site_dir" -type f -regex '^[^\.]*$' -exec mv {} {}.html \;
 
   # Create compressed copies of files that are larger than 1.4Kb
   #find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) -exec gzip --best {} \;
-  find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) \
+  find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' -o -name '*.json' -o -name '*.rss' \) \
   | sed 's/.*/gzip --best -c "&" > "&.gz"/' \
   | sh
-
-#  tree "$site_dir"
-
-  # Add prod .htaccess
-  # Inspiration gzip content
-  # http://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache
-  echo '
-AddEncoding x-gzip .gz
-AddDefaultCharset UTF-8
-
-ErrorDocument 404 /404.html
-
-ExpiresActive On
-ExpiresDefault "access plus 60 seconds"
-ExpiresByType text/html "now plus 1 day"
-ExpiresByType image/x-icon "now plus 1 month"
-ExpiresByType image/gif "now plus 1 month"
-ExpiresByType image/jpeg "now plus 1 month"
-ExpiresByType image/png "now plus 1 month"
-ExpiresByType text/css "now plus 1 month"
-ExpiresByType multipart/x-gzip "now plus 1 month"
-ExpiresByType text/javascript "now plus 1 month"
-ExpiresByType application/javascript "now plus 1 month"
-
-<files *.css.gz>
-ForceType text/css
-</files>
-<files *.js.gz>
-ForceType application/javascript
-</files>
-<files *.txt.gz>
-ForceType text/plain
-</files>
-<files *.html.gz>
-ForceType text/html
-</files>
-
-<IfModule mod_rewrite.c>
-  RewriteEngine on 
-
-  # Old pagegen v0.8 site redirects
-  Redirect 301 /contact/default /
-  Redirect 301 /default /
-  Redirect 301 /download/default /download
-  Redirect 301 /examples/content-formating /user-manual/content-management
-  Redirect 301 /examples/content-variables /user-manual/content-management
-  Redirect 301 /examples/custom-meta-description-tag /user-manual/design-and-layout
-  Redirect 301 /examples/custom-page-title-tag /user-manual/design-and-layout
-  Redirect 301 /examples /
-  Redirect 301 /examples/default /
-  Redirect 301 /examples/dynamic-content-page /user-manual/content-management
-  Redirect 301 /examples/dynamic-templates /user-manual/content-management
-  Redirect 301 /examples/images /
-  Redirect 301 /examples/incremental-variables /
-  Redirect 301 /examples/sample-site-structure /user-manual/content-management
-  Redirect 301 /quick-start/default /quick-start
-  Redirect 301 /user-manual/customize-site-design /user-manual/design-and-layout
-  Redirect 301 /user-manual/default /user-manual
-  Redirect 301 /user-manual/dynamic-content /
-  Redirect 301 /user-manual/generate-site /user-manual/site-generation
-  Redirect 301 /user-manual/managing-content /user-manual/content-management
-  Redirect 301 /user-manual/pextile-markup-reference /
-  Redirect 301 /user-manual/site-configuration /user-manual/site-generation
-  Redirect 301 /user-manual/sitemap.xml-and-robots.txt /user-manual/site-generation
-  Redirect 301 /user-manual/site-navigation /user-manual/content-management
-  Redirect 301 /user-manual/web-server-setup /user-manual/web-server-tips
-  # End Old pagegen v0.8 site redirects
+fi
 
 
-  RewriteCond (robots|sitemap).txt.gz -f
-  RewriteRule ^.*(robots|sitemap)\.txt$ /$1.txt.gz [NC,L]
+####################################################
+# .htaccess                                        #
+####################################################
 
-  # There will always be html, css, js or txt version of file
-  # If file is large enough there will exist a .gz version
-  # If gz version exists and client accepts gzip content send it
-  # else send regular
+# Prod htaccess has expires set long time, stage not so much
+if [ "$env" = "prod" ]; then
+  sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" > "$site_dir/.htaccess"
+elif [ "$env" = "stage" ]; then
+  sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" | sed '/^ExpiresByType/ s/".*/"now"/' > "$site_dir/.htaccess"
+fi
 
-  # Serve gzipped if exists
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME}.(txt|css|js).gz -f
-  RewriteRule ^(.*)\.(txt|css|js)$ $1.$2.gz [NC,L]
 
-  # If directory show gzipped index file
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html.gz -f
-  RewriteRule ^(.*)$ $1/index.html.gz [NC,L]
+####################################################
+# Robots.txt                                       #
+####################################################
 
-  # If directory show index file (without .html)
-  RewriteCond %{HTTP:Accept-Encoding} !gzip
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^(.*)$ $1/index.html [NC,L]
+if [ "$env" = "prod" ]; then
+  # Prod we want to allow everything
+  echo -e "User-agent: *\nAllow: /" > "$site_dir/robots.txt"
+else
+  echo -e "User-agent: *\nDisallow: /" > "$site_dir/robots.txt"
+fi
 
-  # Serve gzip if available and supported (without .html)
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME}.html.gz -f
-  RewriteRule ^(.*)$ $1.html.gz [NC,L]
 
-  # Serve ungziped if available (without .html)
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [NC,L]
+####################################################
+# Deplpoyment                                      #
+####################################################
 
-</IfModule>
+if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
+  source "$deploy_assets_dir/${env}_ftp.conf"
 
-' | sed 's/^\ *// ; /^#/d ; /^$/d' > "$site_dir/.htaccess"
-
-  if [ "$env" = "stage" ]; then
-    echo -e "User-agent: *\nDisallow: /" > "$site_dir/robots.txt"
-  else
-    # Prod we want to allow everything
-    echo -e "User-agent: *\nAllow: /" > "$site_dir/robots.txt"
-  fi
-
-  chmod_dirs="$(find "$site_dir" -type d | sed "s#^$site_dir#$prod_target_dir# ; s/^/chmod 755\ /")"
-  chmod_files="$(find "$site_dir" -type f | sed "s#^$site_dir#$prod_target_dir# ; s/^/chmod 644\ /")"
+  chmod_dirs="$(find "$site_dir" -type d | sed "s#^$site_dir#$ftp_target_dir# ; s/^/chmod 755\ /")"
+  chmod_files="$(find "$site_dir" -type f | sed "s#^$site_dir#$ftp_target_dir# ; s/^/chmod 644\ /")"
 
   # NB! TLS at fastline is broken, so need "set ssl:verify-certificate no" in ~/.lftp/rc
   lftp -f /dev/stdin <<EOFFTP
-open $prod_host
-user $prod_user $prod_pass
+open $ftp_host
+user $ftp_user $ftp_pass
 lcd $site_dir
-mirror --reverse --delete $site_dir $prod_target_dir
+mirror --reverse --delete $site_dir $ftp_target_dir
 $chmod_dirs
 $chmod_files
 bye
 EOFFTP
 
-  # Check links
+elif [ "$env" = "test" ]; then
+  # Replace js.gz and css.gz extensions
+  find "$site_dir" -name '*.html' -type f -exec sed -i 's/\.\(js\|css\)\.gz"/.\1"/g' {} \;
+fi
+
+
+####################################################
+# Check links                                      #
+####################################################
+
+if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
+
   echo -e "Check links [y|n(Default)]?"
   read check_links
   if [ "$check_links" = "y" ]; then
     link_log="/tmp/linkchecker.csv"
     if [ "$env" = "stage" ]; then
       pass="-urice -p "
+      url="$stage_url"
+    else
+      url="$prod_url"
     fi
-    linkchecker -ocsv ${pass}$url | sed '/^#/d ; /^mailto:pagegen@phnd.net/d ; /^urlname/d' > "$link_log"
-    if [ -s "$link_log" ]; then
+
+    linkchecker -ocsv ${pass}$url | sed '/^#/d ; /^mailto:pagegen@phnd.net/d' > "$link_log"
+    if [ "$(wc -l "$link_log")" != "1 $link_log" ]; then
       localc "$link_log"
     fi
   fi
-
-elif [ "$env" = "test" ]; then
-  PAGEGEN_TARGET_ENVIRONMENT="$env" $pagegen --generate --config "$test_conf"
-
-  # Replace js.gz and css.gz extensions
-  find "$site_dir" -name '*.html' -type f -exec sed -i 's/\.\(js\|css\)\.gz"/.\1"/g' {} \;
-
-else
-  echo "Error Unknown environment '$env'" 2>&1
-  exit 1
 fi

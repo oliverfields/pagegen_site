@@ -6,15 +6,16 @@ Pagegen v2.0
 .. raw:: html
 
 	<table>
-	<tr><th>Version</th><th>Released</th>
-	<tr><td><a href="/include/download/PAGEGEN_LATEST_DEB">2.0.3</a></td><td>2015-04-05</td></tr>
-	<tr><td><a href="/include/download/pagegen_2.0.2_all.deb">2.0.2</a></td><td>2015-03-26</td></tr>
+	<tr><th>Version</th><th>Released</th><th>Download</th>
+	<tr><td>2.0.4</td><td>2015-04-09</td><td><a href="/include/download/pagegen_2.0.4_all.deb">deb</a>, <a href="/include/download/pagegen-2.0.4.tar.gz">tar.gz</a></td></tr>
+	<tr><td>2.0.3</td><td>2015-04-05</td><td><a href="/include/download/pagegen_2.0.3_all.deb">deb</a></td></tr>
+	<tr><td>2.0.2</td><td>2015-03-26</td><td><a href="/include/download/pagegen_2.0.2_all.deb">deb</a></td></tr>
 	</table>
 
 Git repository Pagegen
 ----------------------
 
-.. code::
+::
 
 	$ git clone https://github.com/oliverfields/pagegen_v2.git
 

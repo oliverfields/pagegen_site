@@ -147,7 +147,6 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 
 #search { display: none; padding: 1em; }
 #search_query { width: 50%; background-color: #D4D8D1; border: none; padding: .2em; color: #332C2F;}
-#search_button { margin-left: 1em; border: none; padding: .2em; background-color: #332C2F; color: #D4D8D1;}
 #search_results { margin: 1em 0 1.8em 0; max-height: 200px; overflow-x: auto;}
 #search_results p { margin: .6em 1em 1.2em 1em; color: #D4D8D1; line-height: 1.2em; }
 #search_results a { color: #fff; font-weight: bold;}
@@ -418,7 +417,7 @@ span.interpreted {
 
 span.option {
   white-space: nowrap }
-pre.code {
+pre.literal-block {
 padding: 1em;
 font-family: "Courier New", Courier, monospace;
 background-color: #000;

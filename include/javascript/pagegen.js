@@ -2,7 +2,6 @@
 menu='#menu';
 search='#search'
 search_query='#search_query'
-search_button='#search_button'
 toggle_id='#hamburger';
 toggle_search_id='#search_toggle';
 sub_menu_class='sub_menu';
@@ -182,10 +181,6 @@ $(document).ready(function(){
     if (e.which == 13){
       do_search();
     }
-  });
-
-  $(search_button).click(function(){
-    do_search();
   });
 
   // end Search

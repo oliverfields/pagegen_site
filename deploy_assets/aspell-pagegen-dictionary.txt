@@ -1,8 +1,9 @@
-personal_ws-1.1 en 74 
+personal_ws-1.1 en 78 
 SimpleHTTPServer
 td
 symlink
 oliver
+py
 stdout
 PWD
 sitemap
@@ -23,6 +24,7 @@ ForceType
 dd
 FilesMatch
 SetOuptupFilter
+setup
 init
 dl
 txt
@@ -32,6 +34,7 @@ dpkg
 dt
 dir
 AddOutputFilterByType
+GPLv
 TODO
 Nginx
 DirectoryIndex
@@ -73,4 +76,4 @@ pagegen
 samp
 jQuery
 SEO
-GPLv3
+virtualenv
