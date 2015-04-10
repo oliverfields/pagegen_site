@@ -1,3 +1,3 @@
 * Not serving json.gz even though it exists
 * Ignore statistikk folder on fastline
-* 
+* Ignore system files when warning about title and description ranges

@@ -44,6 +44,7 @@ ForceType application/json
 
   # Old pagegen v0.8 site redirects
   Redirect 301 /contact/default /
+  Redirect 301 /contact/ /
   Redirect 301 /default /
   Redirect 301 /download/default /download
   Redirect 301 /examples/content-formating /user-manual/content-management
@@ -51,6 +52,9 @@ ForceType application/json
   Redirect 301 /examples/custom-meta-description-tag /user-manual/design-and-layout
   Redirect 301 /examples/custom-page-title-tag /user-manual/design-and-layout
   Redirect 301 /examples /
+  Redirect 301 /dynamic-templates /
+  Redirect 301 /images /
+  Redirect 301 /incremental-variables /
   Redirect 301 /examples/default /
   Redirect 301 /examples/dynamic-content-page /user-manual/content-management
   Redirect 301 /examples/dynamic-templates /user-manual/content-management
@@ -71,8 +75,8 @@ ForceType application/json
   # End Old pagegen v0.8 site redirects
 
 
-  RewriteCond (robots|sitemap).txt.gz -f
-  RewriteRule ^.*(robots|sitemap)\.txt$ /$1.txt.gz [NC,L]
+  RewriteCond sitemap.txt.gz -f
+  RewriteRule ^.*sitemap\.txt$ /$1.txt.gz [NC,L]
 
   # There will always be html, css, js, json, rss or txt version of file
   # If file is large enough there will exist a .gz version

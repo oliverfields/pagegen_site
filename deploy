@@ -48,7 +48,8 @@ fi
     case "$line" in
     "PAGEGEN_ANALYTICS_SCRIPT")
       if [ "$env" = "prod" ]; then
-        echo "<script type=\"text/javascript\">
+        echo "<meta name=\"google-site-verification\" content=\"h9pxP5_cbPYfxaHUtlg4XGHgB_WR9G2pmapS8qShDSM\" />
+<script type=\"text/javascript\">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-9947760-1']);
   _gaq.push(['_trackPageview']);
@@ -132,10 +133,7 @@ fi
 # Robots.txt                                       #
 ####################################################
 
-if [ "$env" = "prod" ]; then
-  # Prod we want to allow everything
-  echo -e "User-agent: *\nAllow: /" > "$site_dir/robots.txt"
-else
+if [ "$env" = "stage" ] || [ "$env" = "test" ]; then
   echo -e "User-agent: *\nDisallow: /" > "$site_dir/robots.txt"
 fi
 
