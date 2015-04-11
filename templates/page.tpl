@@ -12,9 +12,8 @@
 <link rel="canonical" href="{{absolute_url}}" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
-<link rel="stylesheet" href="/include/css/site.css" type="text/css" />
-<script async src="/include/javascript/jquery.min.js"></script>
-<script async src="/include/javascript/pagegen.js"></script>
+<link type="text/css" href="/include/css/site.min.css" rel="stylesheet"></link>
+<script src="/include/javascript/site.min.js" async=""></script>
 </head>
 <body>
 <a name="top"></a>
@@ -30,7 +29,7 @@
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
 </div><!-- /menu -->
 <div id="search">
-<input type="text" id="search_query" value="" />
+<input type="text" id="search_query" value="Search" />
 </div><!-- /search -->
 </nav>
 </header>

@@ -32,10 +32,8 @@ github.com
 
 ::
 
-	mkdir pagegen
-	cd pagegen
-	$ wget https://github.com/oliverfields/pagegen_v2/archive/PAGEGEN_LATEST_TAR
-	$ tar -zxf pagegen_v2-PAGEGEN_LATEST_TAR
+	$ git clone GIT_REPO pagegen
+	$ cd pagegen
 	$ chmod u+x pagegen
 	$ echo "skel_dir=$PWD/skel" > ~/.config/pagegen.conf
 

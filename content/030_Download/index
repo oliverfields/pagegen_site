@@ -17,7 +17,7 @@ Git repository Pagegen
 
 ::
 
-	$ git clone https://github.com/oliverfields/pagegen_v2.git
+	$ git clone GIT_REPO
 
 Archive
 =======

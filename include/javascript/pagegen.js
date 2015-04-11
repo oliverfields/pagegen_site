@@ -67,6 +67,17 @@ $(document).ready(function(){
     return false;
   });
 
+  // Toggle Search default text
+  $(search_query).focus(function(){
+    if ($(search_query).val()=="Search") {
+      $(search_query).val('');
+    }
+  });
+  $(search_query).blur(function(){
+    if ($(search_query).val()=='') {
+      $(search_query).val('Search');
+    }
+  });
 
   // Add separators to crumb trail
   $(crumb_trail+' > ul li').each(function(){
@@ -139,7 +150,7 @@ $(document).ready(function(){
     result=[];
 
     // Get search index json
-    $.getJSON('/search-index.json', function(data) {
+    $.getJSON('/search-index.json.gz', function(data) {
       for (var i=0;i<query.length; i++) {
         var term=query[i];
         if (typeof data.terms[term] !== 'undefined') {

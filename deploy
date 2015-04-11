@@ -96,7 +96,16 @@ fi
 # Generate site                                    #
 ####################################################
 
-cd "$env_dir" && $pagegen --generate
+cd "$env_dir" && PAGEGEN_TARGET_ENVIRONMENT="$env" $pagegen --generate
+
+
+####################################################
+# Robots.txt                                       #
+####################################################
+
+if [ "$env" = "stage" ] || [ "$env" = "test" ]; then
+  echo -e "User-agent: *\nDisallow: /" > "$site_dir/robots.txt"
+fi
 
 
 ####################################################
@@ -110,7 +119,6 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
   find "$site_dir" -type f -regex '^[^\.]*$' -exec mv {} {}.html \;
 
   # Create compressed copies of files that are larger than 1.4Kb
-  #find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' \) -exec gzip --best {} \;
   find "$site_dir" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' -o -name '*.json' -o -name '*.rss' \) \
   | sed 's/.*/gzip --best -c "&" > "&.gz"/' \
   | sh
@@ -130,12 +138,17 @@ fi
 
 
 ####################################################
-# Robots.txt                                       #
+# 404                                              #
 ####################################################
 
-if [ "$env" = "stage" ] || [ "$env" = "test" ]; then
-  echo -e "User-agent: *\nDisallow: /" > "$site_dir/robots.txt"
-fi
+# Setup 404 page
+pg_404_page="$site_dir/404.html"
+source_cgi_404_page="$deploy_assets_dir/404.pl"
+cgi_404_page_name="404.pl"
+cp "$source_cgi_404_page" "$site_dir/$cgi_404_page_name"
+sed -i -e "/^PAGEGEN_404_PAGE_CONTENT$/{r $pg_404_page" -e 'd}' "$site_dir/$cgi_404_page_name"
+rm "$pg_404_page"
+rm "${pg_404_page}.gz"
 
 
 ####################################################
@@ -148,14 +161,19 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
   chmod_dirs="$(find "$site_dir" -type d | sed "s#^$site_dir#$ftp_target_dir# ; s/^/chmod 755\ /")"
   chmod_files="$(find "$site_dir" -type f | sed "s#^$site_dir#$ftp_target_dir# ; s/^/chmod 644\ /")"
 
+echo "chmod 755 $ftp_cgi_dir/$cgi_404_page_name"
+
   # NB! TLS at fastline is broken, so need "set ssl:verify-certificate no" in ~/.lftp/rc
+  # NB!2 Note that 404.pl tracking page needs moving to cgi-bin and giving appropriate perms
   lftp -f /dev/stdin <<EOFFTP
 open $ftp_host
 user $ftp_user $ftp_pass
 lcd $site_dir
-mirror --reverse --delete $site_dir $ftp_target_dir
+mirror --reverse --exclude statistikk --delete $site_dir $ftp_target_dir
 $chmod_dirs
 $chmod_files
+mv $ftp_target_dir/$cgi_404_page_name $ftp_cgi_dir/$cgi_404_page_name
+chmod 755 $ftp_cgi_dir/$cgi_404_page_name
 bye
 EOFFTP
 

@@ -4,7 +4,7 @@
 AddEncoding x-gzip .gz
 AddDefaultCharset UTF-8
 
-ErrorDocument 404 /404.html
+ErrorDocument 404 /cgi-bin/404.pl
 
 ExpiresActive On
 ExpiresDefault "access plus 60 seconds"
@@ -35,6 +35,9 @@ ForceType text/html
 ForceType application/rss+xml
 </files>
 <files *.json.gz>
+ForceType application/json
+</files>
+<files *.json>
 ForceType application/json
 </files>
 
@@ -74,9 +77,11 @@ ForceType application/json
   Redirect 301 /user-manual/web-server-setup /user-manual/web-server-tips
   # End Old pagegen v0.8 site redirects
 
+  # Debugging on stage
+  #RewriteRule (.*) /cgi-bin/envs.pl?url=$1 [L]
 
-  RewriteCond sitemap.txt.gz -f
-  RewriteRule ^.*sitemap\.txt$ /$1.txt.gz [NC,L]
+  #RewriteCond sitemap.txt.gz -f
+  #RewriteRule ^/sitemap\.txt$ /$1.txt.gz [NC,L]
 
   # There will always be html, css, js, json, rss or txt version of file
   # If file is large enough there will exist a .gz version
@@ -85,8 +90,8 @@ ForceType application/json
 
   # Serve gzipped if exists
   RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME}.(txt|css|js|json|rss).gz -f
-  RewriteRule ^(.*)\.(txt|css|js|json|rss)$ $1.$2.gz [NC,L]
+  RewriteCond %{REQUEST_FILENAME}.(txt|css|json|js|rss).gz -f
+  RewriteRule ^(.*)\.(txt|css|json|js|rss)$ $1.$2.gz [NC,L]
 
   # If directory show gzipped index file
   RewriteCond %{HTTP:Accept-Encoding} gzip

@@ -13,4 +13,6 @@ Site generation involves first creating page HTML in the **site directory**, cre
 Site generation can be configured by the **site.conf**, found in the Pagegen root directory.
 
 .. include:: /home/oliver/Personal/projects/pagegen/v2/skel/site.conf
+	:literal:
+
 

@@ -29,7 +29,7 @@ PAGEGEN_ANALYTICS_SCRIPT
 <div id="contact">Get in touch <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></div>
 </div><!-- /menu -->
 <div id="search">
-<input type="text" id="search_query" value="" />
+<input type="text" id="search_query" value="Search" />
 </div><!-- /search -->
 </nav>
 </header>
