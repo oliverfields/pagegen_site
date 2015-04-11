@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+#echo "Hook: Post generate page"
+
+case "$PAGEGEN_TARGET_ENVIRONMENT" in
+  "test")
+    :
+  ;;
+  "prod"|"stage")
+    # Minify html files
+    htmlcompress --type html -o "$PAGEGEN_PAGE_TARGET_PATH" "$PAGEGEN_PAGE_TARGET_PATH"
+  ;;
+  *)
+    echo "PAGEGEN_TARGET_ENVIRONMENT not set or unrecognized '$PAGEGEN_TARGET_ENVIRONMENT'"
+    exit 1
+  ;;
+esac

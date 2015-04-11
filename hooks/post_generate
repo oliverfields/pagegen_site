@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -e # halt on first error
+
+#echo "Hook: Post generate"
+
+latest_deb='pagegen_2.0.4_all.deb'
+latest_tar='pagegen-2.0.4.tar.gz'
+unpacked_tar_dir='pagegen-2.0.4'
+pg_site="/home/oliver/Personal/projects/pagegen/pg_site"
+git_repo="https://github.com/oliverfields/pagegen_v2.git"
+
+
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB#$latest_deb#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_TAR#$latest_tar#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#UNPACKED_TAR_DIR#$unpacked_tar_dir#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#GIT_REPO#$git_repo#g" {} \;
+
+
+case "$PAGEGEN_TARGET_ENVIRONMENT" in
+  "test")
+    echo "Todos:"
+    cat "$pg_site/TODO"
+    grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
+    grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/  * /'
+    grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/  * /'
+    echo
+  ;;
+  "prod"|"stage")
+    # Compress css
+    yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/site.min.css" "$PAGEGEN_SITE_DIR/include/css/site.css"
+
+    # Compress js
+    site_min_js="$PAGEGEN_TARGET_DIR/include/javascript/site.min.js"
+    cat "$PAGEGEN_SITE_DIR/include/javascript/jquery.min.js" > "$site_min_js"
+    yui-compressor "$PAGEGEN_SITE_DIR/include/javascript/pagegen.js" >> "$site_min_js"
+  ;;
+  *)
+    echo "PAGEGEN_TARGET_ENVIRONMENT not set or unrecognized '$PAGEGEN_TARGET_ENVIRONMENT'"
+    exit 1
+  ;;
+esac
