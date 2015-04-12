@@ -169,13 +169,26 @@ $(document).ready(function(){
       }
       // Build result content
       if(result.length>0) {
-        html='<div id="hit_count">'+result.length+' results</div>'
+        if (result.length > 1) {
+          result_text='results';
+        }
+        else {
+          result_text='result'
+        }
+        html='<div id="hit_count">'+result.length+' '+result_text+'</div>'
         for (var n=0;n<result.length;n++) {
           html+='<div class="search_hit"><a href="'+result[n].url+'?q='+query_string+'">'+result[n].title+'</a>'
           if (result[n].desc.length > 0) {
             html+='<p>'+result[n].desc+'</p>';
           }
           html+='</div>'
+        }
+        // Log query
+        try {
+          _gaq.push(['_trackEvent', 'Search', 'query', query_string+' ('+result.length+' '+result_text+')']);
+        }
+        catch(err) {
+          // Unable to log query
         }
       }
       else {

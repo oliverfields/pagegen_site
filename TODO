@@ -3,7 +3,6 @@
  * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
 * Add Analytics goals:
   * Download
-  * Tracking 404's
   * What people are searching for
 * Create pagegen site that works out of box, only needs styling in colors fonts etc, think basic theme ready for css zen gardening:
   * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)

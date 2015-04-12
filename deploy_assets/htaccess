@@ -80,6 +80,9 @@ ForceType application/json
   # Debugging on stage
   #RewriteRule (.*) /cgi-bin/envs.pl?url=$1 [L]
 
+  # Rewrite favicon.ico
+  RewriteRule ^favicon\.ico$ /include/graphics/favicon.ico [NC,L]
+
   #RewriteCond sitemap.txt.gz -f
   #RewriteRule ^/sitemap\.txt$ /$1.txt.gz [NC,L]
 

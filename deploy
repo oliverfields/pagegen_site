@@ -32,11 +32,6 @@ else
   exit 1
 fi
 
-if [ ! -e "$env_dir" ]; then
-  echo "Not found '$env_dir'"
-  exit 1
-fi
-
 
 ####################################################
 # Setup pagetemplate for environment               #
@@ -93,6 +88,27 @@ fi
 
 
 ####################################################
+# Setup environment                                #
+####################################################
+
+if [ -e "$env_dir" ]; then
+  rm -Rf "$env_dir"
+fi
+mkdir "$env_dir"
+
+# Create links to appropriate pagegen assets
+cp -R "$pg_dir/content" "$env_dir/content"
+cp -R "$pg_dir/header_profiles" "$env_dir/header_profiles"
+cp -R "$pg_dir/hooks" "$env_dir/hooks"
+cp -R "$pg_dir/include" "$env_dir/include"
+cp -R "$pg_dir/templates" "$env_dir/templates"
+cp -R "$deploy_assets_dir/stopwords.txt" "$env_dir/stopwords.txt"
+cp -R "$deploy_assets_dir/${env}_site.conf" "$env_dir/site.conf"
+cp -R "$pg_dir/sprite/sprite.png" "$env_dir/include/graphics/"
+mkdir "$env_dir/site"
+
+
+####################################################
 # Generate site                                    #
 ####################################################
 
@@ -142,13 +158,16 @@ fi
 ####################################################
 
 # Setup 404 page
-pg_404_page="$site_dir/404.html"
-source_cgi_404_page="$deploy_assets_dir/404.pl"
-cgi_404_page_name="404.pl"
-cp "$source_cgi_404_page" "$site_dir/$cgi_404_page_name"
-sed -i -e "/^PAGEGEN_404_PAGE_CONTENT$/{r $pg_404_page" -e 'd}' "$site_dir/$cgi_404_page_name"
-rm "$pg_404_page"
-rm "${pg_404_page}.gz"
+
+if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
+  pg_404_page="$site_dir/404.html"
+  source_cgi_404_page="$deploy_assets_dir/404.pl"
+  cgi_404_page_name="404.pl"
+  cp "$source_cgi_404_page" "$site_dir/$cgi_404_page_name"
+  sed -i -e "/^PAGEGEN_404_PAGE_CONTENT$/{r $pg_404_page" -e 'd}' "$site_dir/$cgi_404_page_name"
+  rm "$pg_404_page"
+  rm "${pg_404_page}.gz"
+fi
 
 
 ####################################################
@@ -160,8 +179,6 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
 
   chmod_dirs="$(find "$site_dir" -type d | sed "s#^$site_dir#$ftp_target_dir# ; s/^/chmod 755\ /")"
   chmod_files="$(find "$site_dir" -type f | sed "s#^$site_dir#$ftp_target_dir# ; s/^/chmod 644\ /")"
-
-echo "chmod 755 $ftp_cgi_dir/$cgi_404_page_name"
 
   # NB! TLS at fastline is broken, so need "set ssl:verify-certificate no" in ~/.lftp/rc
   # NB!2 Note that 404.pl tracking page needs moving to cgi-bin and giving appropriate perms
@@ -178,8 +195,7 @@ bye
 EOFFTP
 
 elif [ "$env" = "test" ]; then
-  # Replace js.gz and css.gz extensions
-  find "$site_dir" -name '*.html' -type f -exec sed -i 's/\.\(js\|css\)\.gz"/.\1"/g' {} \;
+  :
 fi
 
 
@@ -204,5 +220,21 @@ if [ "$env" = "prod" ] || [ "$env" = "stage" ]; then
     if [ "$(wc -l "$link_log")" != "1 $link_log" ]; then
       localc "$link_log"
     fi
+  fi
+fi
+
+
+####################################################
+# Start test HTTP server                           #
+####################################################
+
+if [ "$env" = "test" ]; then
+  # Fix reference to search-index.json.gz
+  sed -i 's/search-index\.json\.gz/search-index.json/g' "$site_dir/include/javascript/pagegen.js"
+
+  echo -e "Start test HTTP server? [y|n(DEFAULT)]?"
+  read spell_check
+  if [ "$spell_check" = "y" ]; then
+    cd "$site_dir" && python -m SimpleHTTPServer
   fi
 fi

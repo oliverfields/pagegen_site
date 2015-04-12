@@ -1,3 +1,4 @@
+deploy_assets/pgstage.phnd.net
 include/css/style.min.css
 include/javascript/jquery.min.js
 include/javascript/site.min.js
@@ -7,7 +8,5 @@ pgstage.phnd.net
 pagegen_301_redirects.csv
 deploy_assets/prod_ftp.conf
 deploy_assets/stage_ftp.conf
-environments/test/site
-environments/stage/site
-environments/prod/site
+environments/*
 include/css/site.min.css

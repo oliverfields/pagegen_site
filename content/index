@@ -5,9 +5,14 @@ Publish: 2015-03-26
 
 .. sidebar:: Get Pagegen
 
-	* `Download .deb </include/download/PAGEGEN_LATEST_DEB>`_
-	* `Download .tar.gz  </include/download/PAGEGEN_LATEST_TAR>`_
-	* `github.com <https://github.com/oliverfields/pagegen_v2>`_
+	.. raw:: html
+ 
+		<ul>
+		<li><a href="/include/download/PAGEGEN_LATEST_DEB" onclick="_gaq.push(['_trackEvent', 'Download', 'deb', 'PAGEGEN_LATEST_VERSION']);">Download .deb</a></li>
+		<li><a href="/include/download/PAGEGEN_LATEST_TAR" onclick="_gaq.push(['_trackEvent', 'Download', 'tar.gz', 'PAGEGEN_LATEST_VERSION']);">Download .tar.gz</a></li>
+		<li><a href="https://github.com/oliverfields/pagegen_v2">github.com</a></li>
+		</ul>
+
 
 Pagegen can handle regular sites and blogs, organizing and generating content from flat text files and directories. Aims to generate a fully featured site ready for CSS styling.
 

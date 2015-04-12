@@ -19,12 +19,22 @@ my @protocol = split('/', $ENV{'SERVER_PROTOCOL'});
 my $protocol = lc(@protocol[0]);
 my $url = "$protocol://$ENV{'SERVER_NAME'}$ENV{'REQUEST_URI'}";
 my $subject = "404: $ENV{'REQUEST_METHOD'} -> $url";
-my $body = "User agent $ENV{'HTTP_USER_AGENT'}";
+my $refererText = "* Referer";
+
+if (length($ENV{'HTTP_REFERER'}) > 0) {
+  $refererText = "$refererText $ENV{'HTTP_REFERER'}";
+}
+else {
+  $refererText = "$refererText not set";
+}
+
+my $body = "* User agent $ENV{'HTTP_USER_AGENT'}\n$refererText";
 
 
 # Show 404 page
 print "Content-type: text/html\n";
-print "Transfer-Encoding: chunked\n\n";
+#print "Transfer-Encoding: chunked\n";
+print "\n";
 
 #foreach my $key (sort(keys(%ENV))) {
 #    print "$key = $ENV{$key}<br>\n";
