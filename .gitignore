@@ -8,5 +8,5 @@ pgstage.phnd.net
 pagegen_301_redirects.csv
 deploy_assets/prod_ftp.conf
 deploy_assets/stage_ftp.conf
-environments/*
+environments/**
 include/css/site.min.css
