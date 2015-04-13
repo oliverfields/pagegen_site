@@ -133,6 +133,15 @@ $(document).ready(function(){
   if($(previous_link+' a').length == 0) { $(previous_link).remove() }
   if($(next_link+' a').length == 0) { $(next_link).remove() }
 
+  $('a.external').click(function() {
+    try {
+      _gaq.push(['_trackEvent', 'ExternalLink', $(this).attr('href'), window.location.pathname]);
+    }
+    catch(err) {
+      // Unable to log query
+    }
+  });
+
   // Search
   function hit_in_result(hit, result){
     for (var i=0;i<result.length;i++) {
@@ -185,7 +194,7 @@ $(document).ready(function(){
         }
         // Log query
         try {
-          _gaq.push(['_trackEvent', 'Search', 'query', query_string+' ('+result.length+' '+result_text+')']);
+          _gaq.push(['_trackEvent', 'Search', 'query', query_string.toLowerCase()+'+'+result.length+'-'+result_text]);
         }
         catch(err) {
           // Unable to log query

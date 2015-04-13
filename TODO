@@ -1,14 +1,8 @@
-* Document site.conf now must have one or more sections, that environment must be specified either by command line arg, if only one section exists or using default_environment=True in appropriate section. PAGEGEN_ENVIRONMENT hook env. Updatet bundled hooks.
-* Document preserve file name page header
-* Document environment and how impacts hooks
+* Default header profile?
 * Build on mac and win
-* Option to not change file name (preserve e.g. BingSiteAuth.xml)
-* Document PAGEGEN_BASE_URL (not aailable in pre gen hook)
+** OSX uses LC_CTYPE=UTF-8, but pagegen seems to need LC_
 * Add context around term for display in search result
 * SSI/partials tag to include other files in templates
-* Add Analytics goals:
-  * Download
-  * What people are searching for
 * Create pagegen site that works out of box, only needs styling in colors fonts etc, think basic theme ready for css zen gardening:
   * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
   * Include html4css1.css so rst is basically handled in shipped theme

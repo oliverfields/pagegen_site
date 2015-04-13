@@ -47,9 +47,14 @@ Assuming bash shell, create directory for new site, initialise directory, setup 
 
 	$ mkdir my_site
 	$ cd my_site
-	$ <path to pagegen>/pagegen --init
+	$ <path to pagegen>/pagegen --init --pagegen-conf <path to pagegen.conf>
 	$ echo -e "base_url=file://$PWD/site" > site.conf
 	$ <path to pagegen>/pagegen --generate
+
+.. warning::
+
+	Python seems fail to detect locale on Mac OS X, returning a **ValueError, 'unknown locale'**. Try running pagegen command as **LC_ALL=en_US.UTF-8 pagegen ..**. To make permanent add **export LC_ALL=en_US.UTF-8** to **~/.profile**
+
 
 Open **my_site/site/index.html** in a browser to view (typically File > Open).
 

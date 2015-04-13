@@ -20,6 +20,10 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 .. raw:: html
 
 	<dl>
+	  <dt>PAGEGEN_BASE_URL</dt>
+	  <dd>Base url setting, available all hooks</dd>
+	  <dt>PAGEGEN_ENVIRONMENT</dt>
+	  <dd>Name of environment being generated</dd>
 	  <dt>PAGEGEN_SITE_DIR</dt>
 	  <dd>Pagegen root directory, available all hooks</dd>
 	  <dt>PAGEGEN_SOURCE_DIR</dt>

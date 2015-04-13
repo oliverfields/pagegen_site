@@ -6,13 +6,45 @@ On generation Pagegen will build site from pages in **content directory**. The c
 
 	$ Pagegen --generate
 
-After generation the generated HTML will be in the **site directory**, simply copy this directory to your web server to go live:)
+.. note::
+
+	If more than one sections defined in **site.conf**, use argument **--environment <section name>** or define **default_environment=True** in appropriate section.
+
+After generation the generated HTML will be in the **site directory/<environment>**, simply copy this directory to your web server to go live:)
 
 Site generation involves first creating page HTML in the **site directory**, creating sitemap and copying **include directory** to the **site directory**.
+
+
+Environments
+************
+
+Pagegen supports defining settings for multiple environments, so that the site may be generated with variations. The environment is also available as an environment variable to the hook scripts to allowing making customizations for the various environments.
+
+A test environment could be generated with settings for absolute paths and .html extension so can test locally without web server, whilst a production environment may have no .html extension for clean urls and the post_generate hook could copy the site to FTP server.
+
+If only one section is defined in **site.conf** or a section has set **default_environment=True** then no need to specify the environment when running pagegen. If multiple environments then specify with **--environment <environment>**.
+
+
+Site configuration (site.conf)
+******************************
 
 Site generation can be configured by the **site.conf**, found in the Pagegen root directory.
 
 .. include:: /home/oliver/Personal/projects/pagegen/v2/skel/site.conf
 	:literal:
 
+Example site configuration
+==========================
 
+::
+	[prod]
+	base_url=http://pagegen.phnd.net
+	absolute_urls=False
+	page_titles=True
+	
+	[test]
+	default_environment=True
+	base_url=http://localhost:8000
+	symlink_include=True
+
+To generate prod environment run **pagegen -g -e prod**.
