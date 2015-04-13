@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Gzip and file rename
+
+set -e
+
+# Gzip seperate html, css and javascript files, that way can serve both gzip and regular files
+# and rename html files with .html
+find "$PAGEGEN_TARGET_DIR" -type f -regex '^[^\.]*$' -exec mv {} {}.html \;
+
+# Create compressed copies of files that are larger than 1.4Kb
+find "$PAGEGEN_TARGET_DIR" -type f -size +1400c \( -name '*.html' -o -name '*.txt' -o -name '*.css' -o -name '*.js' -o -name '*.json' -o -name '*.rss' \) \
+| sed 's/.*/gzip --best -c "&" > "&.gz"/' \
+| sh

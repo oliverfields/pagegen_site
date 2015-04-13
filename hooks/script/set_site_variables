@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Replace variables in generated pages
+
+set -e
+
+latest_version='2.0.4'
+latest_deb='pagegen_2.0.4_all.deb'
+latest_tar='pagegen-2.0.4.tar.gz'
+unpacked_tar_dir='pagegen-2.0.4'
+pg_site="/home/oliver/Personal/projects/pagegen/pg_site"
+git_repo="https://github.com/oliverfields/pagegen_v2.git"
+
+
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_VERSION#$latest_version#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB#$latest_deb#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_TAR#$latest_tar#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#UNPACKED_TAR_DIR#$unpacked_tar_dir#g" {} \;
+find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#GIT_REPO#$git_repo#g" {} \;

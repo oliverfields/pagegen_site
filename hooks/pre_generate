@@ -2,4 +2,18 @@
 
 set -e # halt on first error
 
-#echo "Hook: Pre generate"
+#echo "$PAGEGEN_HOOK : $PAGEGEN_ENVIRONMENT"
+
+# Settings
+# --------
+
+deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
+target_dir="$PAGEGEN_TARGET_DIR"
+
+. "$PAGEGEN_HOOK_DIR/script/prepare_templates"
+
+case "$PAGEGEN_ENVIRONMENT" in
+  "prod"|"stage")
+    . "$PAGEGEN_HOOK_DIR/script/spell_check"
+  ;;
+esac

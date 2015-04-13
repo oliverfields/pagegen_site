@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Minify html files
+
+set -e
+
+htmlcompress --type html -o "$PAGEGEN_PAGE_TARGET_PATH" "$PAGEGEN_PAGE_TARGET_PATH"

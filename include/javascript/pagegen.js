@@ -150,7 +150,7 @@ $(document).ready(function(){
     result=[];
 
     // Get search index json
-    $.getJSON('/search-index.json.gz', function(data) {
+    $.getJSON('/search-index.json', function(data) {
       for (var i=0;i<query.length; i++) {
         var term=query[i];
         if (typeof data.terms[term] !== 'undefined') {

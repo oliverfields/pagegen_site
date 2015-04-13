@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Setup 404 page
+
+set -e
+
+pg_404_page="$PAGEGEN_TARGET_DIR/404.html"
+source_cgi_404_page="$deploy_assets_dir/404.pl"
+cgi_404_page_name="404.pl"
+
+cp "$source_cgi_404_page" "$PAGEGEN_TARGET_DIR/$cgi_404_page_name"
+sed -i -e "/^PAGEGEN_404_PAGE_CONTENT$/{r $pg_404_page" -e 'd}' "$PAGEGEN_TARGET_DIR/$cgi_404_page_name"
+rm "$pg_404_page"
+rm "${pg_404_page}.gz"

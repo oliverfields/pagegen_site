@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Compress css and js
+
+set -e
+
+# Compress css
+yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/site.min.css" "$PAGEGEN_SITE_DIR/include/css/site.css"
+
+# Compress js
+site_min_js="$PAGEGEN_TARGET_DIR/include/javascript/site.min.js"
+cat "$PAGEGEN_SITE_DIR/include/javascript/jquery.min.js" > "$site_min_js"
+yui-compressor "$PAGEGEN_SITE_DIR/include/javascript/pagegen.js" >> "$site_min_js"

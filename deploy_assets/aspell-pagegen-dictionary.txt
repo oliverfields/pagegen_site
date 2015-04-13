@@ -1,4 +1,4 @@
-personal_ws-1.1 en 78 
+personal_ws-1.1 en 82 
 SimpleHTTPServer
 td
 symlink
@@ -16,6 +16,7 @@ extensionless
 skel
 cd
 url
+ul
 dfn
 javascript
 github
@@ -28,8 +29,8 @@ setup
 init
 dl
 txt
-wget
 onclick
+wget
 dpkg
 dt
 dir
@@ -57,6 +58,7 @@ kbd
 href
 zxf
 Google
+gaq
 figcaption
 gzip
 MM
@@ -66,6 +68,7 @@ hostname
 pre
 tpl
 ErrorDocument
+REPO
 reStructuredText
 lbrace
 gzipped
@@ -77,3 +80,4 @@ samp
 jQuery
 SEO
 virtualenv
+trackEvent

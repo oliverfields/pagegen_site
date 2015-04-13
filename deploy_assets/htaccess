@@ -75,6 +75,9 @@ ForceType application/json
   Redirect 301 /user-manual/sitemap.xml-and-robots.txt /user-manual/site-generation
   Redirect 301 /user-manual/site-navigation /user-manual/content-management
   Redirect 301 /user-manual/web-server-setup /user-manual/web-server-tips
+
+  RewriteRule ^dynamic-content-page$ / [R=301,NC,L]
+  RewriteRule pagegen(_|-)0\.8\..* /download/pagegen-v0-8 [R=301,NC,L]
   # End Old pagegen v0.8 site redirects
 
   # Debugging on stage

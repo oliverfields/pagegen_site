@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Spell check source files before generation?
+
+set -e
+
+aspell_personal_dictionary="$deploy_assets_dir/aspell-pagegen-dictionary.txt"
+
+echo -e "Spell check? [y|n(DEFAULT)]?"
+read spell_check
+if [ "$spell_check" = "y" ]; then
+  find "$PAGEGEN_SOURCE_DIR" -type f  \! -executable -exec aspell --dont-backup --lang=en --personal=$aspell_personal_dictionary check {} \;
+fi

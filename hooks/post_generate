@@ -2,43 +2,53 @@
 
 set -e # halt on first error
 
-#echo "Hook: Post generate"
-
-latest_version='2.0.4'
-latest_deb='pagegen_2.0.4_all.deb'
-latest_tar='pagegen-2.0.4.tar.gz'
-unpacked_tar_dir='pagegen-2.0.4'
-pg_site="/home/oliver/Personal/projects/pagegen/pg_site"
-git_repo="https://github.com/oliverfields/pagegen_v2.git"
+#echo "$PAGEGEN_HOOK : $PAGEGEN_ENVIRONMENT"
 
 
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_VERSION#$latest_version#g" {} \;
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_DEB#$latest_deb#g" {} \;
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#PAGEGEN_LATEST_TAR#$latest_tar#g" {} \;
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#UNPACKED_TAR_DIR#$unpacked_tar_dir#g" {} \;
-find "$PAGEGEN_TARGET_DIR" -type f -exec sed -i "s#GIT_REPO#$git_repo#g" {} \;
+# Settings
+# --------
 
+deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
 
-case "$PAGEGEN_TARGET_ENVIRONMENT" in
+. "$PAGEGEN_HOOK_DIR/script/set_site_variables"
+
+# Robots.txt
+if [ "$PAGEGEN_ENVIRONMENT" = "stage" ] || [ "$PAGEGEN_ENVIRONMENT" = "test" ]; then
+  echo -e "User-agent: *\nDisallow: /" > "$PAGEGEN_TARGET_DIR/robots.txt"
+else
+  echo -e "User-agent: *\nDisallow:" > "$PAGEGEN_TARGET_DIR/robots.txt"
+fi
+
+case "$PAGEGEN_ENVIRONMENT" in
+  "stage"|"prod")
+
+    . "$PAGEGEN_HOOK_DIR/script/compress_js_css"
+    . "$PAGEGEN_HOOK_DIR/script/gzip"
+    . "$PAGEGEN_HOOK_DIR/script/setup_404"
+
+    # Create htaccess
+    if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
+      sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" > "$PAGEGEN_TARGET_DIR/.htaccess"
+    # Prod htaccess has expires set long time, stage not so much
+    elif [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+      sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" | sed '/^ExpiresByType/ s/".*/"now"/' > "$PAGEGEN_TARGET_DIR/.htaccess"
+    fi
+
+    . "$PAGEGEN_HOOK_DIR/script/deploy"
+    . "$PAGEGEN_HOOK_DIR/script/link_check"
+  ;;
   "test")
+
+    # Fix reference to search-index.json.gz
+    sed -i 's/search-index\.json\.gz/search-index.json/g' "$PAGEGEN_TARGET_DIR/include/javascript/pagegen.js"
+
     echo "Todos:"
     cat "$pg_site/TODO"
     grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
     grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/  * /'
     grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/  * /'
     echo
-  ;;
-  "prod"|"stage")
-    # Compress css
-    yui-compressor -o "$PAGEGEN_SITE_DIR/include/css/site.min.css" "$PAGEGEN_SITE_DIR/include/css/site.css"
 
-    # Compress js
-    site_min_js="$PAGEGEN_TARGET_DIR/include/javascript/site.min.js"
-    cat "$PAGEGEN_SITE_DIR/include/javascript/jquery.min.js" > "$site_min_js"
-    yui-compressor "$PAGEGEN_SITE_DIR/include/javascript/pagegen.js" >> "$site_min_js"
-  ;;
-  *)
-    echo "PAGEGEN_TARGET_ENVIRONMENT not set or unrecognized '$PAGEGEN_TARGET_ENVIRONMENT'"
-    exit 1
+    . "$PAGEGEN_HOOK_DIR/script/test_http_server"
   ;;
 esac
