@@ -16,7 +16,7 @@ deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
 if [ "$PAGEGEN_ENVIRONMENT" = "stage" ] || [ "$PAGEGEN_ENVIRONMENT" = "test" ]; then
   echo -e "User-agent: *\nDisallow: /" > "$PAGEGEN_TARGET_DIR/robots.txt"
 else
-  echo -e "User-agent: *\nDisallow:" > "$PAGEGEN_TARGET_DIR/robots.txt"
+  echo -e "User-agent: *\nDisallow:\nSitemap: $PAGEGEN_BASE_URL/sitemap.txt" > "$PAGEGEN_TARGET_DIR/robots.txt"
 fi
 
 case "$PAGEGEN_ENVIRONMENT" in
