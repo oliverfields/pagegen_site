@@ -56,7 +56,7 @@ First initialise a new Pagegen site directory.
 
 .. warning::
 
-	Python seems fail to detect locale on Mac OS X, returning a **ValueError, 'unknown locale'**. Try running pagegen command as **LC_ALL=en_US.UTF-8 pagegen ..**. To make permanent add **export LC_ALL=en_US.UTF-8** to **~/.profile**
+	Python does not seem to detect locale on Mac OS X, returning a **ValueError, 'unknown locale'**. Try running pagegen command as **LC_ALL=en_US.UTF-8 pagegen ..**. To make permanent add **export LC_ALL=en_US.UTF-8** to **~/.profile**
 
 
 The last command sets up the current directory with a basic pagegen framework of files and folders.

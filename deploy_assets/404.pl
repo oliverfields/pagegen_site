@@ -10,13 +10,37 @@ use Net::SMTP;
 my $to = 'pagegen@phnd.net';
 my $from = '404@pagegen.phnd.net';
 my $relay = 'www0.fastline.no';
+my @ignore_urls = (
+  "/admin.php",
+  "/user",
+  "/administrator/index.php",
+  "/wp-login.php",
+);
 
 
-# Consider doing fancy smancy:
-# http://alistapart.com/article/amoreuseful404
-# For now just send email with some basic info
+# Show 404 page
+print "Content-type: text/html\n";
+print "\n";
+#foreach my $key (sort(keys(%ENV))) {
+#    print "$key = $ENV{$key}<br>\n";
+#}
+# Important, need \n after PAGEGEN_404_PAGE_CONTENT
+print <<'404_ERROR_PAGE_HTML';
+PAGEGEN_404_PAGE_CONTENT
+
+404_ERROR_PAGE_HTML
+
+
+# If ignorable url just quit 
+foreach (@ignore_urls) {
+  if ($_ eq $ENV{'REQUEST_URI'}) {
+    exit 0;
+  }
+}
+
+# Else send an email about 404
 my @protocol = split('/', $ENV{'SERVER_PROTOCOL'});
-my $protocol = lc(@protocol[0]);
+my $protocol = lc($protocol[0]);
 my $url = "$protocol://$ENV{'SERVER_NAME'}$ENV{'REQUEST_URI'}";
 my $subject = "404: $ENV{'REQUEST_METHOD'} -> $url";
 my $refererText = "* Referer";
@@ -29,23 +53,6 @@ else {
 }
 
 my $body = "* User agent $ENV{'HTTP_USER_AGENT'}\n$refererText";
-
-
-# Show 404 page
-print "Content-type: text/html\n";
-#print "Transfer-Encoding: chunked\n";
-print "\n";
-
-#foreach my $key (sort(keys(%ENV))) {
-#    print "$key = $ENV{$key}<br>\n";
-#}
-
-# Important, need \n after PAGEGEN_404_PAGE_CONTENT
-print <<'404_ERROR_PAGE_HTML';
-PAGEGEN_404_PAGE_CONTENT
-
-404_ERROR_PAGE_HTML
-
 
 $smtp = Net::SMTP->new($relay);
 $smtp->mail($ENV{USER});

@@ -64,6 +64,7 @@ ForceType application/json
   Redirect 301 /examples/images /
   Redirect 301 /examples/incremental-variables /
   Redirect 301 /examples/sample-site-structure /user-manual/content-management
+  Redirect 301 /sample-site-structure /user-manual/content-management
   Redirect 301 /quick-start/default /quick-start
   Redirect 301 /user-manual/customize-site-design /user-manual/design-and-layout
   Redirect 301 /user-manual/default /user-manual

@@ -9,3 +9,4 @@ deploy_assets/prod_ftp.conf
 deploy_assets/stage_ftp.conf
 site/**
 include/css/site.min.css
+templates/page.tpl
