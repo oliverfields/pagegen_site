@@ -10,11 +10,12 @@ use Net::SMTP;
 my $to = 'pagegen@phnd.net';
 my $from = '404@pagegen.phnd.net';
 my $relay = 'www0.fastline.no';
+# If match following regexps do not send email
 my @ignore_urls = (
-  "/admin.php",
-  "/user",
-  "/administrator/index.php",
-  "/wp-login.php",
+  '^/user$',
+  '\.php$',
+  '\.asp$',
+  '\.aspx$'
 );
 
 
@@ -33,7 +34,7 @@ PAGEGEN_404_PAGE_CONTENT
 
 # If ignorable url just quit 
 foreach (@ignore_urls) {
-  if ($_ eq $ENV{'REQUEST_URI'}) {
+  if ($ENV{'REQUEST_URI'} =~ m#$_#) {
     exit 0;
   }
 }
