@@ -4,10 +4,10 @@
 
 set -e
 
-latest_version='2.0.4'
-latest_deb='pagegen_2.0.4_all.deb'
-latest_tar='pagegen-2.0.4.tar.gz'
-unpacked_tar_dir='pagegen-2.0.4'
+latest_version='2.1.0'
+latest_deb='pagegen_2.1.0_all.deb'
+latest_tar='pagegen-2.1.0.tar.gz'
+unpacked_tar_dir='pagegen-2.1.0'
 pg_site="/home/oliver/Personal/projects/pagegen/pg_site"
 git_repo="https://github.com/oliverfields/pagegen_v2.git"
 

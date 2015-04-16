@@ -194,7 +194,7 @@ $(document).ready(function(){
         }
         // Log query
         try {
-          _gaq.push(['_trackEvent', 'Search', 'query', query_string.toLowerCase()+'+'+result.length+'-'+result_text]);
+          _gaq.push(['_trackEvent', 'Search', 'query', query_string.toLowerCase()+' ('+result.length+' '+result_text+')']);
         }
         catch(err) {
           // Unable to log query

@@ -15,7 +15,8 @@ my @ignore_urls = (
   '^/user$',
   '\.php$',
   '\.asp$',
-  '\.aspx$'
+  '\.aspx$',
+  '/wp-admin/$'
 );
 
 
