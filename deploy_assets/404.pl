@@ -12,11 +12,13 @@ my $from = '404@pagegen.phnd.net';
 my $relay = 'www0.fastline.no';
 # If match following regexps do not send email
 my @ignore_urls = (
-  '^/user$',
+  '^/user/?$',
+  '^/admin/$',
   '\.php$',
   '\.asp$',
   '\.aspx$',
-  '/wp-admin/$'
+  '/wp-admin/$',
+  '/bitrix/admin/index.php'
 );
 
 
