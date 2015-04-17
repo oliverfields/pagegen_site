@@ -26,7 +26,7 @@ The name of the file, or directory, are used to determine the final page attribu
 
 .. warning::
 
-	On generation a **sitemap.txt** will be created, unless disabled in site configuration. A page can therefor not be called **content/sitemap.txt**.
+	On generation a **sitemap.xml** will be created, unless disabled in site configuration. A page can therefor not be called **content/sitemap.xml**.
 
 .. important::
 
