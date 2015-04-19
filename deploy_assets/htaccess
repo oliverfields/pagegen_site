@@ -17,6 +17,7 @@ ExpiresByType text/css "now plus 1 month"
 ExpiresByType multipart/x-gzip "now plus 1 month"
 ExpiresByType text/javascript "now plus 1 month"
 ExpiresByType application/javascript "now plus 1 month"
+ExpiresByType application/xml "now plus 1 day"
 ExpiresByType application/rss+xml "now plus 1 day"
 
 <files *.css.gz>
@@ -40,7 +41,9 @@ ForceType application/json
 <files *.json>
 ForceType application/json
 </files>
-
+<files *.xml.gz>
+ForceType application/xml
+</files>
 
 <IfModule mod_rewrite.c>
   RewriteEngine on 
@@ -90,15 +93,15 @@ ForceType application/json
   #RewriteCond sitemap.txt.gz -f
   #RewriteRule ^/sitemap\.txt$ /$1.txt.gz [NC,L]
 
-  # There will always be html, css, js, json, rss or txt version of file
+  # There will always be html, xml, css, js, json, rss or txt version of file
   # If file is large enough there will exist a .gz version
   # If gz version exists and client accepts gzip content send it
   # else send regular
 
   # Serve gzipped if exists
   RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME}.(txt|css|json|js|rss).gz -f
-  RewriteRule ^(.*)\.(txt|css|json|js|rss)$ $1.$2.gz [NC,L]
+  RewriteCond %{REQUEST_FILENAME}.(txt|xml|css|json|js|rss).gz -f
+  RewriteRule ^(.*)\.(txt|xml|css|json|js|rss)$ $1.$2.gz [NC,L]
 
   # If directory show gzipped index file
   RewriteCond %{HTTP:Accept-Encoding} gzip

@@ -17,8 +17,11 @@ my @ignore_urls = (
   '\.php$',
   '\.asp$',
   '\.aspx$',
-  '/wp-admin/$',
-  '/bitrix/admin/index.php'
+  '/wp-admin/.*',
+  '/bitrix/admin/index.php',
+  '.*/uploadify.swf$',
+  '/wp-includes/.*',
+  '/wp-content/.*'
 );
 
 
