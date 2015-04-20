@@ -21,7 +21,8 @@ my @ignore_urls = (
   '/bitrix/admin/index.php',
   '.*/uploadify.swf$',
   '/wp-includes/.*',
-  '/wp-content/.*'
+  '/wp-content/.*',
+  '.*/fckeditor/.*'
 );
 
 
