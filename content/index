@@ -7,7 +7,7 @@ Publish: 2015-03-26
 
 	.. raw:: html
  
-		<ul>
+		<ul class="download_buttons">
 		<li><a href="/include/download/PAGEGEN_LATEST_DEB" onclick="_gaq.push(['_trackEvent', 'Download', 'deb', 'PAGEGEN_LATEST_VERSION']);">Download .deb</a></li>
 		<li><a href="/include/download/PAGEGEN_LATEST_TAR" onclick="_gaq.push(['_trackEvent', 'Download', 'tar.gz', 'PAGEGEN_LATEST_VERSION']);">Download .tar.gz</a></li>
 		<li><a class="reference external" href="https://github.com/oliverfields/pagegen_v2">github.com</a></li>
@@ -18,10 +18,10 @@ Pagegen can handle regular sites and blogs, organizing and generating content fr
 
 * Pages are simple text files with `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ markup
 * Hierarchical page structure with menu and bread crumbs
+* Site search
 * At generation time executable files output is used as content
-* Web friendly URLs, sitemap and RSS
+* Web friendly URLs, sitemap, RSS feed, tags and categories
 * Generated html files can be hosted on any web server
 * Hooks for running custom scripts during generation (e.g. automate FTP upload or CSS/Javascript compression)
-* Template support
 * Built with Python
 
