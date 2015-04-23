@@ -22,7 +22,8 @@ my @ignore_urls = (
   '.*/uploadify.swf$',
   '/wp-includes/.*',
   '/wp-content/.*',
-  '.*/fckeditor/.*'
+  '.*/fckeditor/.*',
+  '.*/fckeditor.html'
 );
 
 
