@@ -23,7 +23,8 @@ my @ignore_urls = (
   '/wp-includes/.*',
   '/wp-content/.*',
   '.*/fckeditor/.*',
-  '.*/fckeditor.html'
+  '.*/fckeditor.html',
+  '/license.txt$'
 );
 
 
@@ -45,6 +46,11 @@ foreach (@ignore_urls) {
   if ($ENV{'REQUEST_URI'} =~ m#$_#) {
     exit 0;
   }
+}
+
+# If no user agent, just quit
+if (length($ENV{'HTTP_USER_AGENT'}) < 1){
+  exit 0;
 }
 
 # Else send an email about 404
