@@ -15,6 +15,10 @@
 <meta property="og:url" content="{{absolute_url}}"/>
 <meta property="og:description" content="{{description}}"/>
 <!-- /Open graph -->
+<link rel="apple-touch-icon" sizes="72x72" href="{{base_url}}/include/graphics/pagegen_logo_72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="{{base_url}}/include/graphics/pagegen_logo_114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="{{base_url}}/include/graphics/pagegen_logo_144x144.png" />
+<link rel="apple-touch-icon" href="{{base_url}}/include/graphics/pagegen_logo_57x57.png" />
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />

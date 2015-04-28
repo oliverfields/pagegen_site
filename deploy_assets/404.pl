@@ -15,7 +15,6 @@ my @ignore_urls = (
   '^/user/?$',
   '^/admin/$',
   '^/wp-login/$',
-  '/apple-touch-icon.png$',
   '\.php$',
   '\.asp$',
   '\.aspx$',
