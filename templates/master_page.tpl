@@ -8,6 +8,13 @@
 <meta name="copyright" content="Copyright &#169; {{year}} Oliver Fields" />
 <meta name="author" content="Oliver Fields">
 <meta name="contact" content="pagegen@phnd.net" />
+<!-- Open graph -->
+<meta property="og:image" content="{{base_url}}/include/graphics/pagegen_logo_300x300.png"/>
+<meta property="og:site_name" content="Pagegen - Static site generator"/>
+<meta property="og:title" content="{{title}}"/>
+<meta property="og:url" content="{{absolute_url}}"/>
+<meta property="og:description" content="{{description}}"/>
+<!-- /Open graph -->
 <base href="{{base_url}}" />
 <link rel="canonical" href="{{absolute_url}}" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
