@@ -6,12 +6,10 @@ Publish: 2015-03-26
 .. sidebar:: Get Pagegen
 
 	.. raw:: html
- 
-		<ul class="download_buttons">
-		<li><a href="/include/download/PAGEGEN_LATEST_DEB" onclick="_gaq.push(['_trackEvent', 'Download', 'deb', 'PAGEGEN_LATEST_VERSION']);">Download .deb</a></li>
-		<li><a href="/include/download/PAGEGEN_LATEST_TAR" onclick="_gaq.push(['_trackEvent', 'Download', 'tar.gz', 'PAGEGEN_LATEST_VERSION']);">Download .tar.gz</a></li>
-		<li><a class="reference external" href="https://github.com/oliverfields/pagegen_v2">github.com</a></li>
-		</ul>
+
+		<pre>$ pip install pagegen</pre>
+
+		<p>Then checkout the<br /><a href="/quick-start">quick start</a></p>
 
 
 Pagegen can handle regular sites and blogs, organizing and generating content from flat text files and directories. Aims to generate a fully featured site ready for CSS styling.
@@ -23,5 +21,5 @@ Pagegen can handle regular sites and blogs, organizing and generating content fr
 * Web friendly URLs, sitemap, RSS feed, tags and categories
 * Generated html files can be hosted on any web server
 * Hooks for running custom scripts during generation (e.g. automate FTP upload or CSS/Javascript compression)
-* Built with Python
+* Python 2.7
 

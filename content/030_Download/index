@@ -1,20 +1,34 @@
 Description: Pagegen is available for download as packaged .deb, tar.gz file or from github.com.
 
-Pagegen v2.0
-============
+Pagegen v2
+==========
+
+Python PIP
+----------
+
+::
+
+	$ pip install pagegen
+
+`Pypi <https://pypi.python.org/pypi/pagegen>`_
+
+
+Deb
+---
 
 .. raw:: html
 
 	<table>
 	<tr><th>Version</th><th>Released</th><th>Download</th>
-	<tr><td>2.1.0</td><td>2015-04-16</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.1.0']);" href="/include/download/pagegen_2.1.0_all.deb">deb</a>, <a onclick="_gaq.push(['_trackEvent', 'Download', 'tar.gz', '2.1.0']);" href="/include/download/pagegen-2.1.0.tar.gz">tar.gz</a></td></tr>
-	<tr><td>2.0.4</td><td>2015-04-09</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.0.4']);" href="/include/download/pagegen_2.0.4_all.deb">deb</a>, <a onclick="_gaq.push(['_trackEvent', 'Download', 'tar.gz', '2.0.4']);" href="/include/download/pagegen-2.0.4.tar.gz">tar.gz</a></td></tr>
+	<tr><td>2.1.0</td><td>2015-04-16</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.1.0']);" href="/include/download/pagegen_2.1.0_all.deb">deb</a></td></tr>
+	<tr><td>2.0.4</td><td>2015-04-09</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.0.4']);" href="/include/download/pagegen_2.0.4_all.deb">deb</a></td></tr>
 	<tr><td>2.0.3</td><td>2015-04-05</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.0.3']);" href="/include/download/pagegen_2.0.3_all.deb">deb</a></td></tr>
 	<tr><td>2.0.2</td><td>2015-03-26</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.0.2']);" href="/include/download/pagegen_2.0.2_all.deb">deb</a></td></tr>
 	</table>
 
-Git repository Pagegen
-----------------------
+
+Git repository
+--------------
 
 ::
 

@@ -91,13 +91,24 @@ article h1 { font-size: 3em; color: #577492; }
 article h2 { font-size: 2em; color: #AA9A66;}
 article h3 { font-size: 1.5em; color: #67655D;}
 article h4 { font-size: 1em; color: #67655D;}
-article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 2em; }
+article ul { list-style-type: circle; margin: 1.4em 1em 1.6em 1em; line-height: 1.4em; }
+article li { margin-bottom: 1em; }
 /* Sub lists */
 article li ul { margin: 0em 1em .5em 1em; }
 article p { line-height: 1.6em; margin-bottom: 2em; text-align: justify;}
-p.sidebar-title { font-weight: bold; color: #577492; font-size: 1.5em; margin: 0 0 .6em 0; font-family: "Trebuchet MS", Helvetica, sans-serif; text-align: center;}
+p.sidebar-title { font-weight: bold; color: #577492 !important; font-size: 1.5em; margin: 0 0 .6em 0; font-family: "Trebuchet MS", Helvetica, sans-serif; text-align: center;}
 div.sidebar { padding: .4em; background-color: #D4D8D1; color: #332C2F; margin: .4em 0 .6em 0; border-radius: 1px;}
-div.sidebar p { padding: 0; }
+div.sidebar pre { color: #332C2F;
+text-align: center;
+font-family: courier;
+font-weight: bold;
+margin-bottom: 1.4em;
+background-color: #B74934;
+border-radius: 3px;
+color: #fff;
+padding: 1em;
+}
+div.sidebar p { padding: 0; color: #332C2F; text-align: center; }
 div.sidebar ul { margin: .4em 0 .6em 0; }
 div.sidebar li { margin-left: 1.4em; color: #332C2F;}
 footer { padding: 1em 0 3em 0; border-top: solid 2px #B74934;}
@@ -158,24 +169,11 @@ span.sub_menu_shown { background-position: -262px 0px !important; }
 header, footer { width: 600px; margin: 0 auto;}
 article, #shortcuts { width: 600px; }
 html { overflow-y: scroll; }
-div.sidebar { width: 30%; float: right; padding: .4em 1em .6em 1em; }
+div.sidebar { width: 35%; float: right; padding: .4em 1em .6em 1em; }
 #crumb_trail { display: inline-block; }
 #hamburger, #search_toggle {float: left; margin-right: 1em; }
 div.sidebar { margin: 0 0 .8em .8em;}
 }
-.download_buttons li {
-background-color: #B74934;
-margin: 1em !important;
-text-align: center;
-list-style: none;
-border-radius: 3px;
-}
-.download_buttons li a{
-text-decoration: none;
-color: #fff;
-font-weight: bold;
-}
-
 /* docutils html4css1.css */
 
 table.borderless td, table.borderless th {
@@ -429,7 +427,7 @@ span.interpreted {
 
 span.option {
   white-space: nowrap }
-pre.literal-block {
+pre.literal-block, tt {
 padding: 1em;
 font-family: "Courier New", Courier, monospace;
 background-color: #000;

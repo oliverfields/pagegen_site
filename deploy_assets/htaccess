@@ -51,6 +51,7 @@ ForceType application/xml
   # Old pagegen v0.8 site redirects
   Redirect 301 /contact/default /
   Redirect 301 /contact/ /
+  Redirect 301 /contact /
   Redirect 301 /default /
   Redirect 301 /download/default /download
   Redirect 301 /examples/content-formating /user-manual/content-management
