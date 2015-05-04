@@ -10,3 +10,5 @@ deploy_assets/stage_ftp.conf
 site/**
 include/css/site.min.css
 templates/page.tpl
+site.conf
+hooks/script/cgi_deploy

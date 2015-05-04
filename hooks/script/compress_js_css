@@ -5,7 +5,6 @@
 set -e
 
 # Compress css
-echo "yui-compressor -o \"$PAGEGEN_TARGET_DIR/include/css/site.min.css\" \"$PAGEGEN_SITE_DIR/include/css/site.css\""
 yui-compressor -o "$PAGEGEN_TARGET_DIR/include/css/site.min.css" "$PAGEGEN_SITE_DIR/include/css/site.css"
 
 # Compress js
