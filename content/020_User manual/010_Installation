@@ -18,13 +18,10 @@ Install into virtual environment.
 
 ::
 
-	$ curl -O http://pagegen.phnd.net/include/download/PAGEGEN_LATEST_TAR
-	$ tar -zxf PAGEGEN_LATEST_TAR
 	$ mkdir pagegen_virtualenv
 	$ virtualenv pagegen_virtualenv
 	$ source pagegen_virtualenv/bin/activate
-	$ cd UNPACKED_TAR_DIR
-	$ python setup.py install
+	$ pip install pagegen
 
 
 github.com

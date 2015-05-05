@@ -411,9 +411,6 @@ pre.address {
   margin-top: 0 ;
   font: inherit }
 
-pre.literal-block, pre.doctest-block, pre.math {
-}
-
 span.classifier {
   font-family: sans-serif ;
   font-style: oblique }
@@ -427,7 +424,7 @@ span.interpreted {
 
 span.option {
   white-space: nowrap }
-pre.literal-block, tt {
+pre.literal-block {
 padding: 1em;
 font-family: "Courier New", Courier, monospace;
 background-color: #000;
@@ -435,6 +432,7 @@ color: lime;
 margin: .6em 0 .8em 0;
 overflow: scroll;
 }
+tt.literal {font-family: "Courier New", Courier, monospace; }
 
 span.pre {
   white-space: pre }

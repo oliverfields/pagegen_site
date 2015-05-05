@@ -1,11 +1,9 @@
-* Get into pip asap
 * Default header profile?
 * Build win
 * jpegoptim
 * Add context around term for display in search result
 * SSI/partials tag to include other files in templates
 * Create pagegen site that works out of box, only needs styling in colors fonts etc, think basic theme ready for css zen gardening:
-  * Bundle with hooks to deploy via ftp (sftp, rsync or git are other alternatives)
   * Include html4css1.css so rst is basically handled in shipped theme
   * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
 * List view needs some thinking

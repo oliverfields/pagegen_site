@@ -20,6 +20,7 @@ Deb
 
 	<table>
 	<tr><th>Version</th><th>Released</th><th>Download</th>
+	<tr><td>2.1.1</td><td>2015-05-05</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.1.1']);" href="/include/download/pagegen_2.1.1_all.deb">deb</a></td></tr>
 	<tr><td>2.1.0</td><td>2015-04-16</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.1.0']);" href="/include/download/pagegen_2.1.0_all.deb">deb</a></td></tr>
 	<tr><td>2.0.4</td><td>2015-04-09</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.0.4']);" href="/include/download/pagegen_2.0.4_all.deb">deb</a></td></tr>
 	<tr><td>2.0.3</td><td>2015-04-05</td><td><a onclick="_gaq.push(['_trackEvent', 'Download', 'deb', '2.0.3']);" href="/include/download/pagegen_2.0.3_all.deb">deb</a></td></tr>

@@ -1,9 +1,9 @@
 Description: Hooks are user customizable executables that may be run at specific points during the site generation process.
 
 
-To make the static site more dynamic(pun intended) Pagegen can run executables at preset times, hooks, during the generation process.
+To make the static site more dynamic(pun intended) Pagegen can run executables (hooks) at preset times, during the generation process.
 
-To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``). Hooks are run with the following environment variables. Non zero exit from a hook immediately aborts generation.
+To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``).
 
 .. table:: Available hooks
 
@@ -14,9 +14,10 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 	post_generate      Run when generation complete     
 	pre_generate_page  Run before page generation starts
 	post_generate_page Run when page generation complete
-	post_deploy        Run if deploy_mode set           
+	post_deploy        Run last, if deploy_mode set     
 	================== =================================
 
+Hooks are run with the following environment variables. Non zero exit from a hook immediately aborts generation.
 
 .. raw:: html
 
