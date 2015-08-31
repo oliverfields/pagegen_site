@@ -4,7 +4,7 @@
 AddEncoding x-gzip .gz
 AddDefaultCharset UTF-8
 
-ErrorDocument 404 /cgi-bin/404.pl
+ErrorDocument 404 /404
 
 ExpiresActive On
 ExpiresDefault "access plus 60 seconds"

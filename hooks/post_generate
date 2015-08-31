@@ -24,7 +24,7 @@ case "$PAGEGEN_ENVIRONMENT" in
 
     . "$PAGEGEN_HOOK_DIR/script/compress_js_css"
     . "$PAGEGEN_HOOK_DIR/script/gzip"
-    . "$PAGEGEN_HOOK_DIR/script/setup_404"
+    #. "$PAGEGEN_HOOK_DIR/script/setup_404"
 
     # Create htaccess
     if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
