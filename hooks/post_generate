@@ -45,8 +45,8 @@ case "$PAGEGEN_ENVIRONMENT" in
     echo "Todos:"
     cat "$pg_site/TODO"
     grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
-    grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/"*.py | sed 's/^/  * /'
-    grep -R TODO "/home/oliver/Personal/projects/pagegen/v2/pagegen" | sed 's/^/  * /'
+    grep -R TODO "/home/oliver/Documents/Personal/projects/pagegen/v2/"*.py | sed 's/^/  * /'
+    grep -R TODO "/home/oliver/Documents/Personal/projects/pagegen/v2/pagegen" | sed 's/^/  * /'
     echo
 
     . "$PAGEGEN_HOOK_DIR/script/test_http_server"

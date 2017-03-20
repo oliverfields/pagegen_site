@@ -6,7 +6,7 @@ set -e
 
 latest_version='2.1.1'
 latest_deb='pagegen_2.1.1_all.deb'
-pg_site="/home/oliver/Personal/projects/pagegen/pg_site"
+pg_site="/home/oliver/Documents/Personal/projects/pagegen/pg_site"
 git_repo="https://github.com/oliverfields/pagegen_v2.git"
 
 

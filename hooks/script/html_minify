@@ -4,4 +4,7 @@
 
 set -e
 
-htmlcompress --type html -o "$PAGEGEN_PAGE_TARGET_PATH" "$PAGEGEN_PAGE_TARGET_PATH"
+#htmlcompress --type html -o "$PAGEGEN_PAGE_TARGET_PATH" "$PAGEGEN_PAGE_TARGET_PATH"
+
+echo "Compressing $PAGEGEN_PAGE_TARGET_PATH"
+java -jar /home/oliver/Documents/Personal/projects/pagegen/htmlcompressor-1.5.3.jar < "$PAGEGEN_PAGE_TARGET_PATH" | sponge "$PAGEGEN_PAGE_TARGET_PATH"
