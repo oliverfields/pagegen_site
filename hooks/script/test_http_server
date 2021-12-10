@@ -5,7 +5,7 @@
 set -e
 
 echo -e "Start test HTTP server? [y|n(DEFAULT)]?"
-read spell_check
-if [ "$spell_check" = "y" ]; then
-  cd "$PAGEGEN_TARGET_DIR" && python -m SimpleHTTPServer
+read test_server 
+if [ "$test_server" = "y" ]; then
+  cd "$PAGEGEN_TARGET_DIR" && python3 -m http.server
 fi

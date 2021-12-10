@@ -1,20 +1,13 @@
 Description: Guide to Pagegen installation from .deb or .tar.gz archives and setup configuration.
 
-Installation available either from .deb, Python package or directly from github.
-
-.deb
-====
-
-::
-
-	$ wget http://pagegen.phnd.net/include/download/PAGEGEN_LATEST_DEB
-	$ sudo dpkg -i PAGEGEN_LATEST_DEB
-
-
 Python package
 ==============
 
-Install into virtual environment.
+::
+
+	pip install pagegen
+
+Or install into virtual environment.
 
 ::
 
@@ -22,17 +15,6 @@ Install into virtual environment.
 	$ virtualenv pagegen_virtualenv
 	$ source pagegen_virtualenv/bin/activate
 	$ pip install pagegen
-
-
-github.com
-==========
-
-::
-
-	$ git clone GIT_REPO pagegen
-	$ cd pagegen
-	$ chmod u+x pagegen
-	$ echo "skel_dir=$PWD/skel" > ~/.config/pagegen.conf
 
 
 Test installation
@@ -61,10 +43,10 @@ Alternatively test with a web server, this example uses the Python SimpleHTTPSer
 
 	$ mkdir my_site
 	$ cd my_site
-	$ <path to pagegen>/pagegen --init
+	$ pagegen --init
 	$ echo -e "base_url=http://localhost:8000" > site.conf
-	$ <path to pagegen>/pagegen --generate
-	$ cd site
+	$ pagegen --generate
+	$ cd site/production
 	$ python -m SimpleHTTPServer
 
 Open **http://localhost:8000** in a browser to view.

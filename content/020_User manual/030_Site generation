@@ -37,6 +37,7 @@ Example site configuration
 ==========================
 
 ::
+
 	[prod]
 	base_url=http://pagegen.phnd.net
 	absolute_urls=False
