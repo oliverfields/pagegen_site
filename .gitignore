@@ -1,6 +1,5 @@
 deploy_assets/pgstage.phnd.net
 include/css/style.min.css
-include/javascript/jquery.min.js
 include/javascript/site.min.js
 pagegen_site.scite_session
 pgstage.phnd.net
