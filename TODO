@@ -1,5 +1,4 @@
 * Default header profile?
-* Build win
 * jpegoptim
 * Add context around term for display in search result
 * SSI/partials tag to include other files in templates
@@ -7,3 +6,6 @@
   * Include html4css1.css so rst is basically handled in shipped theme
   * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
 * List view needs some thinking
+- minimize html, site wide and toggle in page header/front matter
+- Minification of js and css files in include dir, site toggle settin
+- Image optimization
