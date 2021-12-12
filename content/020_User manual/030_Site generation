@@ -30,7 +30,7 @@ Site configuration (site.conf)
 
 Site generation can be configured by the **site.conf**, found in the Pagegen root directory.
 
-.. include:: /home/oliver/Documents/Personal/projects/pagegen/v2/skel/site.conf
+.. include:: /home/oliver/Documents/Projects/pagegen_v2/src/pagegen/skel/site.conf
 	:literal:
 
 Example site configuration
@@ -48,4 +48,9 @@ Example site configuration
 	base_url=http://localhost:8000
 	symlink_include=True
 
-To generate prod environment run **pagegen -g -e prod**.
+To generate prod environment run the following.
+
+::
+
+	pagegen -g -e prod
+

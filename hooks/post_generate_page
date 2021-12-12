@@ -3,9 +3,3 @@
 set -e
 
 #echo "$PAGEGEN_HOOK : $PAGEGEN_ENVIRONMENT"
-
-case "$PAGEGEN_ENVIRONMENT" in
-  "prod"|"stage")
-    . "$PAGEGEN_HOOK_DIR/script/html_minify"
-  ;;
-esac

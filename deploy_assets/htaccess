@@ -1,9 +1,4 @@
-# Inspiration gzip content
-# http://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache
-
-AddEncoding x-gzip .gz
-AddDefaultCharset UTF-8
-
+DirectoryIndex index
 ErrorDocument 404 /404
 
 ExpiresActive On
@@ -20,111 +15,22 @@ ExpiresByType application/javascript "now plus 1 month"
 ExpiresByType application/xml "now plus 1 day"
 ExpiresByType application/rss+xml "now plus 1 day"
 
-<files *.css.gz>
-ForceType text/css
-</files>
-<files *.js.gz>
-ForceType application/javascript
-</files>
-<files *.txt.gz>
-ForceType text/plain
-</files>
-<files *.html.gz>
-ForceType text/html
-</files>
-<files *.rss.gz>
-ForceType application/rss+xml
-</files>
-<files *.json.gz>
-ForceType application/json
-</files>
-<files *.json>
-ForceType application/json
-</files>
-<files *.xml.gz>
-ForceType application/xml
-</files>
-
 <IfModule mod_rewrite.c>
   RewriteEngine on 
-
-  # Old pagegen v0.8 site redirects
-  Redirect 301 /contact/default /
-  Redirect 301 /contact/ /
-  Redirect 301 /contact /
-  Redirect 301 /default /
-  Redirect 301 /download/default /download
-  Redirect 301 /examples/content-formating /user-manual/content-management
-  Redirect 301 /examples/content-variables /user-manual/content-management
-  Redirect 301 /examples/custom-meta-description-tag /user-manual/design-and-layout
-  Redirect 301 /examples/custom-page-title-tag /user-manual/design-and-layout
-  Redirect 301 /examples /
-  Redirect 301 /dynamic-templates /
-  Redirect 301 /images /
-  Redirect 301 /incremental-variables /
-  Redirect 301 /examples/default /
-  Redirect 301 /examples/dynamic-content-page /user-manual/content-management
-  Redirect 301 /examples/dynamic-templates /user-manual/content-management
-  Redirect 301 /examples/images /
-  Redirect 301 /examples/incremental-variables /
-  Redirect 301 /examples/sample-site-structure /user-manual/content-management
-  Redirect 301 /sample-site-structure /user-manual/content-management
-  Redirect 301 /quick-start/default /quick-start
-  Redirect 301 /quick-start/ /quick-start
-  Redirect 301 /user-manual/customize-site-design /user-manual/design-and-layout
-  Redirect 301 /user-manual/default /user-manual
-  Redirect 301 /user-manual/dynamic-content /
-  Redirect 301 /user-manual/generate-site /user-manual/site-generation
-  Redirect 301 /user-manual/managing-content /user-manual/content-management
-  Redirect 301 /user-manual/pextile-markup-reference /
-  Redirect 301 /user-manual/site-configuration /user-manual/site-generation
-  Redirect 301 /user-manual/sitemap.xml-and-robots.txt /user-manual/site-generation
-  Redirect 301 /user-manual/site-navigation /user-manual/content-management
-  Redirect 301 /user-manual/web-server-setup /user-manual/web-server-tips
-
-  RewriteRule ^dynamic-content-page$ / [R=301,NC,L]
-  RewriteRule pagegen(_|-)0\.8\..* /download/pagegen-v0-8 [R=301,NC,L]
-  # End Old pagegen v0.8 site redirects
-
-  # Debugging on stage
-  #RewriteRule (.*) /cgi-bin/envs.pl?url=$1 [L]
 
   # Rewrite favicon.ico
   RewriteRule ^favicon\.ico$ /include/graphics/favicon.ico [NC,L]
   RewriteRule ^apple-touch-icon\.png$ /include/graphics/pagegen_logo_144x144.png [NC,L]
 
-  #RewriteCond sitemap.txt.gz -f
-  #RewriteRule ^/sitemap\.txt$ /$1.txt.gz [NC,L]
-
-  # There will always be html, xml, css, js, json, rss or txt version of file
-  # If file is large enough there will exist a .gz version
-  # If gz version exists and client accepts gzip content send it
-  # else send regular
-
-  # Serve gzipped if exists
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME}.(txt|xml|css|json|js|rss).gz -f
-  RewriteRule ^(.*)\.(txt|xml|css|json|js|rss)$ $1.$2.gz [NC,L]
-
-  # If directory show gzipped index file
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html.gz -f
-  RewriteRule ^(.*)$ $1/index.html.gz [NC,L]
-
-  # If directory show index file (without .html)
-  RewriteCond %{HTTP:Accept-Encoding} !gzip
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^(.*)$ $1/index.html [NC,L]
-
-  # Serve gzip if available and supported (without .html)
-  RewriteCond %{HTTP:Accept-Encoding} gzip
-  RewriteCond %{REQUEST_FILENAME}.html.gz -f
-  RewriteRule ^(.*)$ $1.html.gz [NC,L]
-
-  # Serve ungziped if available (without .html)
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [NC,L]
-
 </IfModule>
+
+# Force text/html for all files
+<FilesMatch "\.*">
+  ForceType text/html
+</FilesMatch>
+
+# Use default type for files that have an extension
+<FilesMatch "\.[a-zA-Z0-9]{1,4}$">
+  ForceType none
+</FilesMatch>
+

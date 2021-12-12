@@ -22,9 +22,7 @@ fi
 case "$PAGEGEN_ENVIRONMENT" in
   "stage"|"prod")
 
-    . "$PAGEGEN_HOOK_DIR/script/compress_js_css"
-    . "$PAGEGEN_HOOK_DIR/script/gzip"
-    #. "$PAGEGEN_HOOK_DIR/script/setup_404"
+    #. "$PAGEGEN_HOOK_DIR/script/gzip"
 
     # Create htaccess
     if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
@@ -33,9 +31,6 @@ case "$PAGEGEN_ENVIRONMENT" in
     elif [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
       sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" | sed '/^ExpiresByType/ s/".*/"now"/' > "$PAGEGEN_TARGET_DIR/.htaccess"
     fi
-
-    #. "$PAGEGEN_HOOK_DIR/script/deploy"
-    #. "$PAGEGEN_HOOK_DIR/script/link_check"
   ;;
   "test")
 

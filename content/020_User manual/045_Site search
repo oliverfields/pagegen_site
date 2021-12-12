@@ -15,7 +15,55 @@ The index is created by searching the generated files for relevant content and i
 * **include_search** Set to enable indexing
 * **search_xpaths** One or more (comma separated) xpaths to html tags who's children will be searched for terms to index. Default is **/html/body**. Should be as specific as possible to the main nodes containing page specific content. I.e. for html5 perhaps index only article tags using **//articles**. Indexing the whole page may clutter index with terms from e.g. menu or footer sections.
 
-The following tags are searched for terms: p, li, h1, h2, h3, h4, h5, h6, td, th, strong, em, i, b, a, blockquote, div, span, pre, abbr, address, cite, code, del, dfn, ins, kbd, q, samp, small, sub, sup, var, dt, dd, legend, caption, article, aside, details, figcaption, section, and summary. Also the page title tag and meta description tag are indexed.
+The page title tag and meta description tag are indexed for search, in addition to the following HTML tags.
+
+.. raw:: html
+
+	<ul style="column-count: 5;">
+		<li>p</li>
+		<li>li</li>
+		<li>h1</li>
+		<li>h2</li>
+		<li>h3</li>
+		<li>h4</li>
+		<li>h5</li>
+		<li>h6</li>
+		<li>td</li>
+		<li>th</li>
+		<li>strong</li>
+		<li>em</li>
+		<li>i</li>
+		<li>b</li>
+		<li>a</li>
+		<li>blockquote</li>
+		<li>div</li>
+		<li>span</li>
+		<li>pre</li>
+		<li>abbr</li>
+		<li>address</li>
+		<li>cite</li>
+		<li>code</li>
+		<li>del</li>
+		<li>dfn</li>
+		<li>ins</li>
+		<li>kbd</li>
+		<li>q</li>
+		<li>samp</li>
+		<li>small</li>
+		<li>sub</li>
+		<li>sup</li>
+		<li>var</li>
+		<li>dt</li>
+		<li>dd</li>
+		<li>legend</li>
+		<li>caption</li>
+		<li>article</li>
+		<li>aside</li>
+		<li>details</li>
+		<li>figcaption</li>
+		<li>section</li>
+		<li>summary</li>
+	</ul>
 
 Terms are weighted according to the tag they are found in, e.g. a term in a heading is weighted higher than the same term found in a paragraph. Search results are sorted by weight, i.e. a pages containing the term **hook** in it's title will be ranked higher in the search results than a page that only has it in a paragraph.
 

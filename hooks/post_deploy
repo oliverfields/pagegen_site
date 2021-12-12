@@ -6,7 +6,6 @@ set -e # halt on first error
 
 case "$PAGEGEN_ENVIRONMENT" in
   "stage"|"prod")
-    #. "$PAGEGEN_HOOK_DIR/script/cgi_deploy"
     . "$PAGEGEN_HOOK_DIR/script/link_check"
   ;;
 esac

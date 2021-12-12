@@ -11,14 +11,14 @@ Description: Pagegen is a static web site generator, it creates web sites from t
 		<p>Then checkout the<br /><a href="/quick-start">quick start</a></p>
 
 
-Pagegen can handle regular sites and blogs, organizing and generating content from flat text files and directories. Aims to generate a fully featured site ready for CSS styling.
+Pagegen builds sites and blogs from regular flat text files and directories.
 
 * Pages are simple text files with `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ markup
 * Unlimited hierarchical page structure with menu and bread crumbs
-* Site search
-* At generation time executable files output is used as content
+* Javascript site search
+* Pages can be output from own executables/scripts
 * Web friendly URLs, sitemap, RSS feed, tags and categories
 * Generated html files can be hosted on any web server (FTP deployment included)
-* Hooks for running custom scripts during generation (e.g. automate CSS/Javascript compression)
-* Python 3
+* Hooks for running custom scripts during generation
+* Minify HTML, CSS and/or Javascript
 

@@ -23,7 +23,9 @@
 <link rel="canonical" href="{{absolute_url}}" />
 <link rel="shortcut icon" href="/include/graphics/favicon.ico" type="image/x-icon" />
 <meta name="description" content="{{description}}" />
-PAGEGEN_HEADER_LINKS
+<link rel="stylesheet" href="/include/css/site.css" type="text/css" />
+<script src="/include/javascript/jquery.min.js"></script>
+<script src="/include/javascript/pagegen.js"></script>
 PAGEGEN_ANALYTICS_SCRIPT
 </head>
 <body>

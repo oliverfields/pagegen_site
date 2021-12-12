@@ -11,7 +11,7 @@ Pages (a file or both a directory and file) contain headers(options/settings, al
 
 .. tip::
 
-	The front page is **content/index**.
+	The front/home page is **content/index**.
 
 
 .. warning::
@@ -42,7 +42,7 @@ The page title will become the file or directory name without the sort order or 
 Sort order
 ==========
 
-Pages are sorted in the menu by listing them alphabetically, to override the default sort files and directories can be prefixed by integers followed by an underscore. The sort prefix will be striped from the title and URL.
+Pages are sorted in the menu by listing them alphabetically, to override the default sort files and directories can be prefixed by integers followed by an underscore. The sort prefix will be stripped from the title and URL.
 
 .. tip::
 
@@ -125,6 +125,25 @@ Sometimes similar types of pages, e.g. system pages, blog posts or regular artic
 Header profiles have same syntax as headers and are located in the **header_profiles** directory.
 
 Headers specified in the page content will override the headers from the profile.
+
+For example in **header_profile** directory, create **system.headers** containing the following.
+
+::
+
+	sitemap exclude: True
+	menu exclude: True
+
+Include the **system.headers** header profile like so.
+
+::
+
+	Header profile: system.headers$
+	Title: Page not found$
+	Menu title: 404$
+	
+	Sorry, couldn't find that page:($
+
+
 
 
 reStructuredText

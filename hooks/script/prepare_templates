@@ -27,16 +27,6 @@ page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
 </script>"
       fi
     ;;
-    "PAGEGEN_HEADER_LINKS")
-      if [ "$PAGEGEN_ENVIRONMENT" = "test" ]; then
-        echo '<link rel="stylesheet" href="/include/css/site.css" type="text/css" />
-<script async src="/include/javascript/jquery.min.js"></script>
-<script async src="/include/javascript/pagegen.js"></script>'
-      else
-        echo '<link type="text/css" href="/include/css/site.min.css" rel="stylesheet"></link>
-<script src="/include/javascript/site.min.js" async=""></script>'
-      fi
-    ;;
     *)
       echo "$line"
     ;;

@@ -17,6 +17,10 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 	post_deploy        Run last, if deploy_mode set     
 	================== =================================
 
+.. tip::
+
+	Run **pagegen --init** on empty directory and see **hooks** directory for examples.
+
 Hooks are run with the following environment variables. Non zero exit from a hook immediately aborts generation.
 
 .. raw:: html
