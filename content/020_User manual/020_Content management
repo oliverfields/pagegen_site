@@ -110,7 +110,7 @@ All headers are optional. They must start on the first line and content start is
 	sitemap exclude      False              Remove page from sitemap                                               
 	Sitemap changefreq   None               Values: always, hourly, daily, weekly, monthly, yearly or never        
 	Sitemap lastmod      None               Format YYYY-MM-DD                                                      
-	Sitemap priority     None               Valuse between 0.0 and 1.0                                             
+	Sitemap priority     None               Values between 0.0 and 1.0                                             
 	tags                 None               Comma separated list of tags, if exist then /tag/<tag> pages generated 
 	template             page.tpl           Template file from /templates                                          
 	title                None               If set overrides page title                                            

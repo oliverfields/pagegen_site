@@ -1,0 +1,49 @@
+Description: How to deploy finished HTML files from Pagegen to host server.
+
+After generation the generated HTML will be in the **site directory/<environment>**, Pagegen can optionally run deployment scripts to upload the site to a host server.
+
+The following settings in **site.conf** enable FTP deployment for the **Test** environment. Deployment settings must be added per environment section. An environment may have separate deployment options, e.g. test environment to local machine and production environment to FTP server.
+
+::
+
+	[test]
+	...
+	deploy_script=ftp.py
+	ftp_host=<ftp host name>
+	ftp_username=<username>
+	ftp_password=<password>
+	ftp_target_directory=<target directory on ftp server>
+
+After generation **deploy_scripts/ftp.py** will upload new site to the FTP site in the **ftp_target_directory**.
+
+
+Creating new deploy scripts
+***************************
+
+Deploy scripts are any executable scripts found in the **site directory/deploy_scripts** directory.
+
+Setting **deploy_script=<script name>** in  **site.conf** will run **site directory/deploy_scripts/<script name>** after site generation.
+
+Settings for the script may be set in **site.conf**. Any extra settings defined in the site section will be available as environment variables named as **PAGEGEN_<UPPERCASE NAME OF SETTING>**
+
+.. tip::
+
+	Deployment scripts are welcome, please get in touch if you want to share:)
+
+Example **site.conf** for deployment script Foo.
+
+::
+
+	[production]
+	...
+	deploy_script=foo.py
+	foo_access_token=<token>
+	foo_url=<url>
+
+After generation Pagegen will run **site directory/deploy_scripts/foo.py** with the following environment variables set for the script to use.
+
+* PAGEGEN_FOO_ACCESS_TOKEN
+* PAGEGEN_FOO_URL
+
+Other environment variables are also set.
+

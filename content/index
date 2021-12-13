@@ -16,9 +16,10 @@ Pagegen builds sites and blogs from regular flat text files and directories.
 * Pages are simple text files with `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ markup
 * Unlimited hierarchical page structure with menu and bread crumbs
 * Javascript site search
-* Pages can be output from own executables/scripts
+* Page content can be output from any executable/scripts
 * Web friendly URLs, sitemap, RSS feed, tags and categories
 * Generated html files can be hosted on any web server (FTP deployment included)
 * Hooks for running custom scripts during generation
+* Customizable deployment scripts
 * Minify HTML, CSS and/or Javascript
 

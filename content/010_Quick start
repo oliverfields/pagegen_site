@@ -21,7 +21,7 @@ Can also be used in a vitual environment.
 Create example site
 *******************
 
-First initialise a new Pagegen site directory. If using paggen from a virtual environment, do this from that directory (**pagegen_virtualenv** in the example above).
+First initialise a new Pagegen site directory. If using pagegen from a virtual environment, do this from that directory (**pagegen_virtualenv** in the example above).
 
 ::
 
