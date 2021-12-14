@@ -7,41 +7,26 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 
 .. table:: Available hooks
 
-	================== =================================
-	Name               Description                      
-	================== =================================
-	pre_generate       Run before generation starts     
-	post_generate      Run when generation complete     
-	pre_generate_page  Run before page generation starts
-	post_generate_page Run when page generation complete
-	post_deploy        Run last, if deploy_mode set     
-	================== =================================
+	================== ====================================
+	Name               Description                         
+	================== ====================================
+	pre_generate       Run before generation starts        
+	post_generate      Run when generation complete        
+	pre_generate_page  Run before page generation starts   
+	post_generate_page Run when page generation complete   
+	post_deploy        Run last (also after deploy scripts)
+	================== ====================================
 
 .. tip::
 
-	Run **pagegen --init** on empty directory and see **hooks** directory for examples.
+	Run **pagegen --init** on empty directory and see **hooks** directory for examples. To use an example remove **.example** and ensure the script is executable.
 
-Hooks are run with the following environment variables. Non zero exit from a hook immediately aborts generation.
+Run one of the example hooks to see the available environment variables.
 
-.. raw:: html
+::
 
-	<dl>
-	  <dt>PAGEGEN_BASE_URL</dt>
-	  <dd>Base url setting, available all hooks</dd>
-	  <dt>PAGEGEN_ENVIRONMENT</dt>
-	  <dd>Name of environment being generated</dd>
-	  <dt>PAGEGEN_SITE_DIR</dt>
-	  <dd>Pagegen root directory, available all hooks</dd>
-	  <dt>PAGEGEN_SOURCE_DIR</dt>
-	  <dd>Content directory (<Pagegen root directory>/content), available all hooks</dd>
-	  <dt>PAGEGEN_TARGET_DIR</dt>
-	  <dd>Generated site directory (<Pagegen root directory>/site), available all hooks</dd>
-	  <dt>PAGEGEN_PAGE_TITLE</dt>
-	  <dd>Page title, available *_page hooks</dd>
-	  <dt>PAGEGEN_PAGE_URL</dt>
-	  <dd>Page URL, available *_page hooks</dd>
-	  <dt>PAGEGEN_PAGE_SOURCE_PATH</dt>
-	  <dd>Path to page source, available *_page hooks</dd>
-	  <dt>PAGEGEN_PAGE_TARGET_PATH</dt>
-	  <dd>Path to page target, available *_page hooks</dd>
-	</dl>
+	cd hooks
+	mv pre_generate.example pre_generate
+	chmod +x pre_generate
+	pagegen -g
+

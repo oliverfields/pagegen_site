@@ -10,7 +10,6 @@ set -e # halt on first error
 
 deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
 
-. "$PAGEGEN_HOOK_DIR/script/set_site_variables"
 
 # Robots.txt
 if [ "$PAGEGEN_ENVIRONMENT" = "stage" ] || [ "$PAGEGEN_ENVIRONMENT" = "test" ]; then
