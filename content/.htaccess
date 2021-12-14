@@ -1,0 +1,57 @@
+#!/bin/bash
+
+echo 'Header profile: system.headers
+Preserve file name: True
+Generate HTML: False
+Exclude HTML minify: True
+
+'
+
+if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+
+	echo 'DirectoryIndex index
+ErrorDocument 404 /404
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on 
+
+  # Rewrite favicon.ico
+  RewriteRule ^favicon\.ico$ /include/graphics/favicon.ico [NC,L]
+  RewriteRule ^apple-touch-icon\.png$ /include/graphics/pagegen_logo_144x144.png [NC,L]
+
+  # Redirect to https
+  RewriteCond %{HTTPS} off
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Force text/html for all files
+#<FilesMatch "\.*">
+#  ForceType text/html
+#</FilesMatch>
+
+# Use default type for files that have an extension
+#<FilesMatch "\.[a-zA-Z0-9]{1,4}$">
+#  ForceType none
+#</FilesMatch>
+'
+fi
+
+if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
+
+	echo 'ExpiresActive On
+ExpiresDefault "access plus 60 seconds"
+ExpiresByType text/html "now plus 1 day"
+ExpiresByType image/x-icon "now plus 1 month"
+ExpiresByType image/gif "now plus 1 month"
+ExpiresByType image/jpeg "now plus 1 month"
+ExpiresByType image/png "now plus 1 month"
+ExpiresByType text/css "now plus 1 month"
+ExpiresByType multipart/x-gzip "now plus 1 month"
+ExpiresByType text/javascript "now plus 1 month"
+ExpiresByType application/javascript "now plus 1 month"
+ExpiresByType application/xml "now plus 1 day"
+ExpiresByType application/rss+xml "now plus 1 day"
+'
+
+fi
+

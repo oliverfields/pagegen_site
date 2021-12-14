@@ -95,15 +95,16 @@ All headers are optional. They must start on the first line and content start is
 .. table:: Page headers
 
 	==================== ================== =======================================================================
-	Name                 Default            Description                                                                 
+	Name                 Default            Description                                                            
 	==================== ================== =======================================================================
 	category             None               Page category, if exist then /category/<category> pages generated      
 	description          None               Html meta tag description                                              
+	exclude html minify  False              Disables HTML minifying of the page if True                            
 	generate html        True               Enable/disable parsing of page content                                 
 	header profile       None               If specified default headers will be read from header_profiles/<value> 
 	menu exclude         False              Remove page (and child pages) from menu/crumb trail                    
 	menu title           None               If set use for title in menu/crumb trail                               
-	preserve file name   False              If True file name will be kept as-is in final url
+	preserve file name   False              If True file name will be kept as-is in final url                      
 	publish              Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past
 	rss include          False              If set page is included in RSS feed (assuming site include_rss)        
 	search index exclude False              Exclude page from search index                                         

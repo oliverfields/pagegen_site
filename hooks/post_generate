@@ -2,42 +2,18 @@
 
 set -e # halt on first error
 
-#echo "$PAGEGEN_HOOK : $PAGEGEN_ENVIRONMENT"
-
-
-# Settings
-# --------
-
 deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
 
-
-# Robots.txt
-if [ "$PAGEGEN_ENVIRONMENT" = "stage" ] || [ "$PAGEGEN_ENVIRONMENT" = "test" ]; then
-  echo -e "User-agent: *\nDisallow: /" > "$PAGEGEN_TARGET_DIR/robots.txt"
-else
-  echo -e "User-agent: *\nDisallow:\nSitemap: $PAGEGEN_BASE_URL/sitemap.xml" > "$PAGEGEN_TARGET_DIR/robots.txt"
-fi
-
 case "$PAGEGEN_ENVIRONMENT" in
-  "stage"|"prod")
-
-    #. "$PAGEGEN_HOOK_DIR/script/gzip"
-
-    # Create htaccess
-    if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
-      sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" > "$PAGEGEN_TARGET_DIR/.htaccess"
-    # Prod htaccess has expires set long time, stage not so much
-    elif [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
-      sed 's/^\ *// ; /^#/d ; /^$/d' "$deploy_assets_dir/htaccess" | sed '/^ExpiresByType/ s/".*/"now"/' > "$PAGEGEN_TARGET_DIR/.htaccess"
-    fi
-  ;;
+  #"stage"|"prod")
+  #;;
   "test")
 
     # Fix reference to search-index.json.gz
-    sed -i 's/search-index\.json\.gz/search-index.json/g' "$PAGEGEN_TARGET_DIR/include/javascript/pagegen.js"
+    #sed -i 's/search-index\.json\.gz/search-index.json/g' "$PAGEGEN_TARGET_DIR/include/javascript/pagegen.js"
 
     echo "Todos:"
-    cat "$pg_site/TODO"
+    cat "$PAGEGEN_SITE_DIR/TODO"
     grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
     grep -R TODO "/home/oliver/Documents/Projects/pagegen_v2/src/pagegen/"*.py | sed 's/^/  * /'
     echo
@@ -45,3 +21,4 @@ case "$PAGEGEN_ENVIRONMENT" in
     . "$PAGEGEN_HOOK_DIR/script/test_http_server"
   ;;
 esac
+
