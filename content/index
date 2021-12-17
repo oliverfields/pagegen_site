@@ -2,13 +2,13 @@ Title: Pagegen static site generator
 Menu title: Home
 Description: Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.
 
-.. sidebar:: Get Pagegen
+.. raw:: html
 
-	.. raw:: html
-
-		<pre>$ pip install pagegen</pre>
-
-		<p>Then checkout the<br /><a href="/quick-start">quick start</a></p>
+	<div class="side-content">
+	<h2>Get Pagegen</h2>
+	<pre>$ pip install pagegen</pre>
+	<p>Then checkout the<br /><a href="/quick-start">quick start</a></p>
+	</div>
 
 
 Pagegen builds sites and blogs from regular flat text files and directories.
