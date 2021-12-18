@@ -1,0 +1,10 @@
+# <Font Awesome name>\t<#hex color1>[,<#hex color2>..]
+times	#DDDDDD
+arrow-left	#3E4349
+arrow-right	#3E4349
+bug	#3E4349,#DDDDDD	
+envelope	#3E4349,#DDDDDD
+angle-up	#3E4349,#DDDDDD
+angle-down	#3E4349,#DDDDDD
+bars	#3E4349
+

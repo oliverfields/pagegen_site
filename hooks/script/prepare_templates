@@ -6,15 +6,16 @@ set -e
 
 master_page_template="$PAGEGEN_SITE_DIR/templates/master_page.tpl"
 page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
+svg_css="$PAGEGEN_SITE_DIR/deploy_assets/font awesome svgs/font-awesome-svg-selection.css"
 
 
 # Trawl template and replace placeholders as apropriate
 {
   while read line; do
     case "$line" in
-    "PAGEGEN_ANALYTICS_SCRIPT")
-      if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
-        echo "<meta name=\"google-site-verification\" content=\"h9pxP5_cbPYfxaHUtlg4XGHgB_WR9G2pmapS8qShDSM\" />
+      "PAGEGEN_ANALYTICS_SCRIPT")
+        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
+          echo "<meta name=\"google-site-verification\" content=\"h9pxP5_cbPYfxaHUtlg4XGHgB_WR9G2pmapS8qShDSM\" />
 <script type=\"text/javascript\">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-9947760-1']);
@@ -25,11 +26,16 @@ page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>"
-      fi
-    ;;
-    *)
-      echo "$line"
-    ;;
+        fi
+      ;;
+      "PAGEGEN_SVG_CSS")
+        echo "<style>"
+        cat "$svg_css"
+        echo "</style>"
+      ;;
+      *)
+        echo "$line"
+      ;;
     esac
   done < "$master_page_template"
 } > "$page_template"

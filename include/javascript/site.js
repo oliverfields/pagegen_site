@@ -30,21 +30,29 @@ function adorn_previous_next_links() {
 
   if (previous_link.length > 0) {
     var previous_icon = document.createElement('i');
-    previous_icon.className = 'fas fa-arrow-left';
+    previous_icon.className = 'fas arrow-left-3E4349';
     previous_link[0].prepend(previous_icon);
   }
 
   if (next_link.length > 0) {
     var next_icon = document.createElement('i');
-    next_icon.className = 'fas fa-arrow-right';
+    next_icon.className = 'fas arrow-right-3E4349';
     next_link[0].append(next_icon);
   }
 }
 
 
 var uls = document.querySelectorAll('#menu ul');
-var toggle_show_sub_menu = 'sub-menu-toggle fas fa-angle-down';
-var toggle_hide_sub_menu = 'sub-menu-toggle fas fa-angle-up';
+
+ if(window.innerWidth <= 940) {
+    var toggle_show_sub_menu = 'sub-menu-toggle fas angle-down-3E4349';
+    var toggle_hide_sub_menu = 'sub-menu-toggle fas angle-up-3E4349';
+  }
+  else {
+    var toggle_show_sub_menu = 'sub-menu-toggle fas angle-down-DDDDDD';
+    var toggle_hide_sub_menu = 'sub-menu-toggle fas angle-up-DDDDDD';
+
+  }
 
 
 for (var i = 0; i < uls.length; i++) {
@@ -82,11 +90,11 @@ function toggle_sidebar() {
   var h = document.getElementById('hamburger');
   if(m.style.display === "block") {
     m.style.display="none";
-    h.className="fas fa-bars"
+    h.className="fas bars-3E4349"
   }
   else {
     m.style.display="block";
-    h.className="fas fa-times"
+    h.className="fas times-DDDDDD"
   }
 }
 

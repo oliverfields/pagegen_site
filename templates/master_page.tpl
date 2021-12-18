@@ -25,21 +25,21 @@
     <meta name="description" content="{{description}}" />
     <meta name="Generator" content="Pagegen" />
     <link rel="shortcut icon" href="{{base_url}}/include/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{base_url}}/include/css/site.css" type="text/css" />
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+PAGEGEN_SVG_CSS
 PAGEGEN_ANALYTICS_SCRIPT
   </head>
   <body>
     <div id="page" class="clearfix">
-      <i class="fas fa-bars" id="hamburger"></i>
+      <i class="fas fa-bars-3E4349" id="hamburger"></i>
       <div id="sidebar">
         <a id="page_logo" href="{{base_url}}"><img src="{{base_url}}/include/images/pagegen_150x28.png" alt="Pagegen" /></a>
         <p id="blurb">Every page is a file<br /><span>Static site generator</span></p>
         <div id="menu">{{menu}}</div>
         <ul id="project-info">
-          <li><i class="fas fa-bug"></i> <a href="https://github.com/oliverfields/pagegen_v2_site/issues">Issue tracker</a></li>
-          <li><i class="fas fa-envelope"></i> <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></li>
+          <li><i class="fas bug-3E4349"></i> <a href="https://github.com/oliverfields/pagegen_v2_site/issues">Issue tracker</a></li>
+          <li><i class="fas envelope-3E4349"></i> <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></li>
         </ul>
         <div class="github-button-container"><a class="github-button" href="https://github.com/oliverfields/pagegen_v2" data-show-count="true" data-size="large" aria-label="Star oliverfields/pagegen_v2 on GitHub">Star</a></div>
       </div><!-- /sidebar -->
