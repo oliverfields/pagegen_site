@@ -43,17 +43,8 @@ function adorn_previous_next_links() {
 
 
 var uls = document.querySelectorAll('#menu ul');
-
- if(window.innerWidth <= 940) {
-    var toggle_show_sub_menu = 'sub-menu-toggle fas angle-down-3E4349';
-    var toggle_hide_sub_menu = 'sub-menu-toggle fas angle-up-3E4349';
-  }
-  else {
-    var toggle_show_sub_menu = 'sub-menu-toggle fas angle-down-DDDDDD';
-    var toggle_hide_sub_menu = 'sub-menu-toggle fas angle-up-DDDDDD';
-
-  }
-
+var toggle_show_sub_menu = 'sub-menu-toggle fas angle-down-3E4349';
+var toggle_hide_sub_menu = 'sub-menu-toggle fas angle-up-3E4349';
 
 for (var i = 0; i < uls.length; i++) {
 
@@ -94,7 +85,7 @@ function toggle_sidebar() {
   }
   else {
     m.style.display="block";
-    h.className="fas times-DDDDDD"
+    h.className="fas times-3E4349"
   }
 }
 

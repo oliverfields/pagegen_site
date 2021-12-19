@@ -6,7 +6,10 @@ set -e
 
 master_page_template="$PAGEGEN_SITE_DIR/templates/master_page.tpl"
 page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
-svg_css="$PAGEGEN_SITE_DIR/deploy_assets/font awesome svgs/font-awesome-svg-selection.css"
+svg_css="$PAGEGEN_SITE_DIR/deploy_assets/font_awesome_svgs/font-awesome-svg-selection.css"
+site_css="$PAGEGEN_SITE_DIR/deploy_assets/site.css"
+site_javascript="$PAGEGEN_SITE_DIR/deploy_assets/site.js"
+pagegen_logo_svg="$PAGEGEN_SITE_DIR/deploy_assets/pagegen.svg"
 
 
 # Trawl template and replace placeholders as apropriate
@@ -28,10 +31,28 @@ svg_css="$PAGEGEN_SITE_DIR/deploy_assets/font awesome svgs/font-awesome-svg-sele
 </script>"
         fi
       ;;
-      "PAGEGEN_SVG_CSS")
+      "PAGEGEN_SITE_CSS")
         echo "<style>"
-        cat "$svg_css"
+        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+          python -m rcssmin < "$site_css"
+          python -m rcssmin < "$svg_css"
+        else
+          cat "$site_css"
+          cat "$svg_css"
+        fi
         echo "</style>"
+      ;;
+      "PAGEGEN_SITE_JAVASCRIPT")
+        echo "<script>"
+        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+          python -m jsmin "$site_javascript"
+        else
+          cat "$site_javascript"
+        fi
+        echo "</script>"
+      ;;
+      "PAGEGEN_LOGO_SVG")
+        cat "$pagegen_logo_svg" #| jq -Rr @uri
       ;;
       *)
         echo "$line"

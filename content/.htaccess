@@ -25,9 +25,10 @@ ErrorDocument 404 /404
 </IfModule>
 
 # Force text/html for all files
+<FilesMatch "^[^.]+$">
 #<FilesMatch "\.*">
-#  ForceType text/html
-#</FilesMatch>
+  ForceType text/html
+</FilesMatch>
 
 # Use default type for files that have an extension
 #<FilesMatch "\.[a-zA-Z0-9]{1,4}$">
