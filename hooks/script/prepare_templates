@@ -9,7 +9,6 @@ page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
 svg_css="$PAGEGEN_SITE_DIR/deploy_assets/font_awesome_svgs/font-awesome-svg-selection.css"
 site_css="$PAGEGEN_SITE_DIR/deploy_assets/site.css"
 site_javascript="$PAGEGEN_SITE_DIR/deploy_assets/site.js"
-pagegen_logo_svg="$PAGEGEN_SITE_DIR/deploy_assets/pagegen.svg"
 
 
 # Trawl template and replace placeholders as apropriate
@@ -50,9 +49,6 @@ pagegen_logo_svg="$PAGEGEN_SITE_DIR/deploy_assets/pagegen.svg"
           cat "$site_javascript"
         fi
         echo "</script>"
-      ;;
-      "PAGEGEN_LOGO_SVG")
-        cat "$pagegen_logo_svg" #| jq -Rr @uri
       ;;
       *)
         echo "$line"

@@ -46,7 +46,7 @@ display: table;
 text-align: right;
 margin: 2em auto;
 font-size: 13px;
-line-height: 13px;
+line-height: 20px;
 }
 #footer a {
 border: none;
@@ -83,9 +83,13 @@ top: 1px;
 }
 #page_logo {
 display: block;
-margin: 1em auto;
-padding: 0 1em;
+margin: .5em auto 1em auto;
 border: none;
+width: 160px;
+color: #3E4349;
+}
+#page_logo:hover {
+color: #000;
 }
 #sidebar ul {
 list-style: none;
@@ -273,4 +277,13 @@ margin: 0 0 .2em 0;
 .side-content pre {
 background-color: #333;
 color: #ddd;
+}
+#footer-logo {
+height: 16px;
+width: 72.7px;
+display: inline-block;
+color: #3E4349;
+}
+#footer-logo:hover {
+color: #000;
 }
