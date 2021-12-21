@@ -11,3 +11,4 @@
 * Password protect stage site
 * Template support environment, e.g. blocks can be only shown on stage env
 * Merge git branch new_theme into master
+* pagegen -w|--watch -> if changes to site, build and reaload webbrowser
