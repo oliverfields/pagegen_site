@@ -29,7 +29,15 @@ PAGEGEN_ANALYTICS_SCRIPT
   </head>
   <body>
     <div id="page" class="clearfix">
-      <i class="fas bars-3E4349" id="hamburger"></i>
+      <div id="top-bar">
+        <a href="{{base_url}}">
+          <svg id="pagegen-then-factory-logo" version="1.1" viewBox="0 0 30.48 6.7734" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <title>Pagegen logo</title>
+            <path d="m0.42333 6.7733h-0.42333v-4.2333h2.54v2.54h-1.6933v1.6933zm0.84667-2.54h0.42333v-0.84666h-0.84666v0.84666zm3.3867 2.54h-1.27v-2.54h1.6933v-0.84666h-1.6933v-0.84667h2.54v4.2333zm0-0.84666h0.42333v-0.84667h-0.84667v0.84667zm3.3867 0.84666h-1.27v-0.84666h1.6933v-0.84667h-1.6933v-2.54h2.54v4.2333zm0-2.54h0.42334v-0.84666h-0.84667v0.84666zm3.3867 2.54h-1.27v-4.2333h2.54v2.54h-1.6933v0.84667h1.6933v0.84666zm0-2.54h0.42333v-0.84666h-0.84666v0.84666zm3.3867 2.54h-1.27v-0.84666h1.6933v-0.84667h-1.6933v-2.54h2.54v4.2333zm0-2.54h0.42333v-0.84666h-0.84667v0.84666zm3.3867 2.54h-1.27v-4.2333h2.54v2.54h-1.6933v0.84667h1.6933v0.84666zm0-2.54h0.42334v-0.84666h-0.84667v0.84666zm2.54 2.54h-0.42333v-4.2333h1.6933v0.84667h0.84667v3.3867h-0.84667v-2.54h-0.84666v2.54zm6.7733 0h-2.9633v-6.7733h1.6933v2.54h4.2333v4.2333zm-1.27-1.6933h0.84666v-1.6933h-1.6933v1.6933zm2.54 0h0.84666v-1.6933h-1.6933v1.6933z" fill="currentColor" stroke-width="0"/>
+          </svg>
+        </a>
+        <i class="fas bars-3E4349" id="hamburger"></i>
+      </div><!-- /top-bar -->
       <div id="sidebar">
         <a id="page_logo" href="{{base_url}}">
           <svg version="1.1" viewBox="0 0 86.4 48" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -46,13 +54,7 @@ PAGEGEN_ANALYTICS_SCRIPT
         <div class="github-button-container"><a class="github-button" href="https://github.com/oliverfields/pagegen_v2" data-show-count="true" data-size="large" aria-label="Star oliverfields/pagegen_v2 on GitHub">Star</a></div>
       </div><!-- /sidebar -->
       <article id="content">
-        <div id="crumb-trail">
-          <svg id="pagegen-then-factory-logo" version="1.1" viewBox="0 0 30.48 6.7734" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-            <title>Pagegen logo</title>
-            <path d="m0.42333 6.7733h-0.42333v-4.2333h2.54v2.54h-1.6933v1.6933zm0.84667-2.54h0.42333v-0.84666h-0.84666v0.84666zm3.3867 2.54h-1.27v-2.54h1.6933v-0.84666h-1.6933v-0.84667h2.54v4.2333zm0-0.84666h0.42333v-0.84667h-0.84667v0.84667zm3.3867 0.84666h-1.27v-0.84666h1.6933v-0.84667h-1.6933v-2.54h2.54v4.2333zm0-2.54h0.42334v-0.84666h-0.84667v0.84666zm3.3867 2.54h-1.27v-4.2333h2.54v2.54h-1.6933v0.84667h1.6933v0.84666zm0-2.54h0.42333v-0.84666h-0.84666v0.84666zm3.3867 2.54h-1.27v-0.84666h1.6933v-0.84667h-1.6933v-2.54h2.54v4.2333zm0-2.54h0.42333v-0.84666h-0.84667v0.84666zm3.3867 2.54h-1.27v-4.2333h2.54v2.54h-1.6933v0.84667h1.6933v0.84666zm0-2.54h0.42334v-0.84666h-0.84667v0.84666zm2.54 2.54h-0.42333v-4.2333h1.6933v0.84667h0.84667v3.3867h-0.84667v-2.54h-0.84666v2.54zm6.7733 0h-2.9633v-6.7733h1.6933v2.54h4.2333v4.2333zm-1.27-1.6933h0.84666v-1.6933h-1.6933v1.6933zm2.54 0h0.84666v-1.6933h-1.6933v1.6933z" fill="currentColor" stroke-width="0"/>
-          </svg>
-          {{crumb_trail}}
-        </div><!-- /crumb-trail -->
+         <h1 class="first">{{title}}</h1>
         {{content}}
         <div class="clearfix prev-next-links">
           <div id="previous_link">{{previous_link}}</div>

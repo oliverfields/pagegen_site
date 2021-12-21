@@ -35,7 +35,6 @@ display: none;
 position: fixed;
 right: .2em;
 top: .2em;
-z-index: 999;
 }
 .clearfix::after {
 content: "";
@@ -55,45 +54,48 @@ border: none;
 position: relative;
 top: 1px;
 }
-#pagegen-then-factory-logo {
+#top-bar svg {
 display: none;
 }
-#crumb-trail ul {
-list-style-type: none;
-padding: 0;
-}
-#crumb-trail li {
-float: left;
-margin-right: .5em;
-}
-#crumb-trail li a {
-border: none;
-font-size: .8em;
-}
 @media screen and (max-width: 940px) {
-  #crumb-trail li:first-of-type {
-  display: none;
+  h1.first {
+  margin: 1em 0 .8em 0 !important;
   }
-  #pagegen-then-factory-logo {
+  #top-bar {
+    background-color: #eee;
+    height: 2em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  #top-bar a {
+  border: none;
+  }
+  #hamburger {
+  display: block;
+  padding: .2em;
+  float: right;
+  }
+  #top-bar svg {
+    height: 1em;
+    width: auto;
+    margin: .3em 0 .3em .5em;
     display: inline-block;
-    height: auto;
-    width: 100px;
-    float: left;
-    margin-right: .5em
+  }
+  #footer svg {
+  display: none;
   }
   article {
     padding: 1.8em;
   }
   #sidebar {
+  margin-top: 2em;
   width: 100%;
   display: none;
   background-color: #eee;
-  height: 100%;
+  max-height: 100%;
   overflow: auto;
-  }
-  #hamburger {
-  display: block;
-  padding: .2em;
   }
   #page {
   width: 100%;
@@ -195,8 +197,8 @@ font-size: 1.8em;
 h4 {
 font-size: 1.4em;
 }
-h1:first-of-type {
-margin-top: 1em;
+h1.first {
+margin: .2em 0 1em 0;
 clear: both;
 }
 pre {
