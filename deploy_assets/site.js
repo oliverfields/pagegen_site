@@ -25,8 +25,8 @@ function show_current_page_parent_menues(obj) {
 
 
 function adorn_previous_next_links() {
-  var previous_link = document.querySelectorAll('#previous_link a');
-  var next_link = document.querySelectorAll('#next_link a');
+  var previous_link = document.querySelectorAll('#previous-link a');
+  var next_link = document.querySelectorAll('#next-link a');
 
   if (previous_link.length > 0) {
     var previous_icon = document.createElement('i');
@@ -64,30 +64,27 @@ for (var i = 0; i < uls.length; i++) {
 }
 
 
-function show_current_page_parent_menues(obj) {
-  if (typeof obj === 'undefined') return;
-
-  if (obj.id == 'menu') return;
-
-  if (obj.parentElement.tagName == 'UL') {
-    obj.parentElement.style.display = 'block';
-  }
-
-  show_current_page_parent_menues(obj.parentElement);
-}
-
 function toggle_sidebar() {
+  var c = document.getElementById('content');
   var m = document.getElementById('sidebar');
   var h = document.getElementById('hamburger');
+
+  // Hide sidebar
   if(m.style.display === "block") {
     m.style.display="none";
+    c.style.display="block";
     h.className="fas bars-3E4349"
+    document.body.style.backgroundColor = '#FCFDFF';
   }
+  // Show sidebar
   else {
     m.style.display="block";
+    c.style.display="none";
     h.className="fas times-3E4349"
+    document.body.style.backgroundColor = '#EEEEEE';
   }
 }
+
 
 window.onresize = function() {
     var sidebar = document.getElementById('sidebar');

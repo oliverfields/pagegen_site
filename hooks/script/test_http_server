@@ -4,8 +4,8 @@
 
 set -e
 
-echo -e "Start test HTTP server? [y|n(DEFAULT)]?"
-read test_server 
-if [ "$test_server" = "y" ]; then
+#echo -e "Start test HTTP server? [y|n(DEFAULT)]?"
+#read test_server 
+#if [ "$test_server" = "y" ]; then
   cd "$PAGEGEN_TARGET_DIR" && python3 -m http.server
-fi
+#fi
