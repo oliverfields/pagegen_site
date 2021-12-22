@@ -9,7 +9,7 @@ Exclude HTML minify: True
 if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
   echo 'User-agent: *'
   echo 'Disallow:'
-  echo 'Sitemap: $PAGEGEN_BASE_URL/sitemap.xml'
+  echo "Sitemap: ${PAGEGEN_BASE_URL}/sitemap.xml"
 else
   echo 'User-agent: *'
   echo 'Disallow: /'

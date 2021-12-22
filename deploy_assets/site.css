@@ -15,6 +15,9 @@ color: #3E4349;
 font-family: Helvetica,sans-serif;
 line-height:1em;
 }
+ul {
+list-style-type: square;
+}
 #page {
 margin: 0 auto;
 width: 940px;
