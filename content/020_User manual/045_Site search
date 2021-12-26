@@ -71,7 +71,7 @@ Terms are weighted according to the tag they are found in, e.g. a term in a head
 Stop words
 **********
 
-Many terms are not interesting to index, for instance the, an, it etc, these terms are generally referred to as stop words. Add stop words to **stop words.txt** to keep them out of the index.
+Many terms are not interesting to index, for instance the, an, it etc, these terms are generally referred to as stop words. Add stop words to **stopwords.txt** to keep them out of the index.
 
 
 Index structure

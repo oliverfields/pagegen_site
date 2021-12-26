@@ -14,6 +14,7 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 	post_generate      Run when generation complete        
 	pre_generate_page  Run before page generation starts   
 	post_generate_page Run when page generation complete   
+	deploy             Run when site ready for deployment  
 	post_deploy        Run last (also after deploy scripts)
 	================== ====================================
 
@@ -21,7 +22,7 @@ To enable a hook make the appropriate hook file executable (``chmod +x hooks/hoo
 
 	Run **pagegen --init** on empty directory and see **hooks** directory for examples. To use an example remove **.example** and ensure the script is executable.
 
-Run one of the example hooks to see the available environment variables.
+Run one of the example hooks to see the available environment variables. All settings in the current **site.conf** environment are set, named **PAGEGEN_<setting name>**.
 
 ::
 
