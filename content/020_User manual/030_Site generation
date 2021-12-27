@@ -46,7 +46,6 @@ Example site configuration
 	[test]
 	default_environment=True
 	base_url=http://localhost:8000
-	symlink_include=True
 
 To generate prod environment run the following.
 

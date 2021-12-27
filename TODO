@@ -9,3 +9,5 @@
 * Template support environment, e.g. blocks can be only shown on stage env
 * Document -s|--serve
 * New release
+* Update command line calls on pgsite
+* Document --serve
