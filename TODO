@@ -13,3 +13,4 @@
 * Document --serve
 * --serve, must monitor content, header_profiles, hooks, include and site.conf (but not site;))
 * search.html -> get query string value and search. Check search for Uppercase Banana, seems to return nothing...?
+* Search action in form is hardcoded to not use extension, should be dynamic

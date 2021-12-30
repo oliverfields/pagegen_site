@@ -6,9 +6,9 @@ set -e
 
 master_page_template="$PAGEGEN_SITE_DIR/templates/master_page.tpl"
 page_template="$PAGEGEN_SITE_DIR/templates/page.tpl"
-svg_css="$PAGEGEN_SITE_DIR/deploy_assets/font_awesome_svgs/font-awesome-svg-selection.css"
-site_css="$PAGEGEN_SITE_DIR/deploy_assets/site.css"
-site_javascript="$PAGEGEN_SITE_DIR/deploy_assets/site.js"
+svg_css="$PAGEGEN_SITE_DIR/build_assets/font_awesome_svgs/font-awesome-svg-selection.css"
+site_css="$PAGEGEN_SITE_DIR/build_assets/site.css"
+site_javascript="$PAGEGEN_SITE_DIR/build_assets/site.js"
 
 
 # Trawl template and replace placeholders as apropriate

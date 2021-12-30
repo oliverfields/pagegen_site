@@ -4,7 +4,7 @@
 
 set -e
 
-aspell_personal_dictionary="$deploy_assets_dir/aspell-pagegen-dictionary.txt"
+aspell_personal_dictionary="$PAGEGEN_SITE_DIR/build_assets/aspell-pagegen-dictionary.txt"
 
 echo -e "Spell check? [y|n(DEFAULT)]?"
 read spell_check

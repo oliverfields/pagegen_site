@@ -55,6 +55,12 @@ PAGEGEN_ANALYTICS_SCRIPT
           </svg>
         </a>
         <p id="blurb">Every page is a file<br /><span>Static site generator</span></p>
+        <div id="search-form">
+          <form action="{{base_url}}/search-results" method="GET">
+            <input type="text" id="search-query" name="q" />
+            <input type="submit" id="search-submit" value="Search" />
+          </form>
+        </div><!-- /search-form -->
         <div id="menu">{{menu}}</div>
         <ul id="project-info">
           <li><i class="fas bug-3E4349"></i> <a href="https://github.com/oliverfields/pagegen_v2_site/issues">Issue tracker</a></li>

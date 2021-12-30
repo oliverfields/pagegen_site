@@ -2,8 +2,6 @@
 
 set -e # halt on first error
 
-#deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
-
 case "$PAGEGEN_ENVIRONMENT" in
   #"stage"|"prod")
   #;;
