@@ -2,23 +2,18 @@
 
 set -e # halt on first error
 
-deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
+#deploy_assets_dir="$PAGEGEN_SITE_DIR/deploy_assets"
 
 case "$PAGEGEN_ENVIRONMENT" in
   #"stage"|"prod")
   #;;
   "test")
-
-    # Fix reference to search-index.json.gz
-    #sed -i 's/search-index\.json\.gz/search-index.json/g' "$PAGEGEN_TARGET_DIR/include/javascript/pagegen.js"
-
     echo "Todos:"
     cat "$PAGEGEN_SITE_DIR/TODO"
     grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
     grep -R TODO "/home/oliver/Documents/Projects/pagegen_v2/src/pagegen/"*.py | sed 's/^/  * /'
     echo
 
-    . "$PAGEGEN_HOOK_DIR/script/test_http_server"
   ;;
 esac
 

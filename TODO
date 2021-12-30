@@ -11,3 +11,4 @@
 * New release
 * Update command line calls on pgsite
 * Document --serve
+* --serve, must monitor content, header_profiles, hooks, include and site.conf (but not site;))
