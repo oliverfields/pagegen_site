@@ -26,4 +26,4 @@ jobs:
           PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
           PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
         run: |
-          pagegen --generate prod
+          pagegen --generate "prod"
