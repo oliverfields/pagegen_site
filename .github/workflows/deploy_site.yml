@@ -1,6 +1,6 @@
 name: Deploy pagegen.phnd.net
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   push:
     branches:
       - master
