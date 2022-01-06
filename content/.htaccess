@@ -5,7 +5,7 @@ Preserve file name: True
 Generate HTML: False
 Exclude HTML minify: True
 
-'
+' # Part of echo ^
 
 if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
 

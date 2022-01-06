@@ -1,16 +1,9 @@
 * jpegoptim
-* Add context around term for display in search result
 * Update skel site to work like pagegen wrt css/framework
 * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
 * List view needs some thinking
 * Image optimization, inc remove exif
 * Gzip content?
 * Password protect stage site
-* Template support environment, e.g. blocks can be only shown on stage env
-* Document -s|--serve
-* New release
 * Update command line calls on pgsite
-* Document --serve
 * --serve, must monitor content, header_profiles, hooks, include and site.conf (but not site;))
-* search.html -> get query string value and search. Check search for Uppercase Banana, seems to return nothing...?
-* Search action in form is hardcoded to not use extension, should be dynamic
