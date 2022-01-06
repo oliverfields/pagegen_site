@@ -4,9 +4,7 @@ include/javascript/site.min.js
 pagegen_site.scite_session
 pgstage.phnd.net
 pagegen_301_redirects.csv
-deploy_assets/prod_ftp.conf
-deploy_assets/stage_ftp.conf
 site/**
 include/css/site.min.css
 templates/page.tpl
-hooks/script/cgi_deploy
+build_assets/ftp_secrets_env_variables

@@ -12,23 +12,16 @@ class ftp_upload():
 		self.source_files = []
 		self.source_directories = []
 		self.required_environment_variables = [
-			'PAGEGEN_FTP_HOST',
-			'PAGEGEN_FTP_USERNAME',
-			'PAGEGEN_FTP_PASSWORD',
-			'PAGEGEN_FTP_TARGET_DIRECTORY',
+			'ACTIONS_PAGEGEN_FTP_HOST',
+			'ACTIONS_PAGEGEN_FTP_USERNAME',
+			'ACTIONS_PAGEGEN_FTP_PASSWORD',
+			'ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY',
 		]
 
-		github_actions_env_prefix = 'ACTIONS_'
 
 		for req_env_var in self.required_environment_variables:
-			# If running locally use standard env names
 			if not req_env_var in environ.keys():
-				# If running Github Actions look for env name prefixed with ACTIONS_
-				if github_actions_env_prefix + req_env_var in environ.keys():
-					# If found remove ACTIONS_ prefix
-					environ[req_env_var] = environ[github_actions_env_prefix + req_env_var]
-				else:
-					self.error(1, req_env_var + ' not found in environment variables')
+				self.error(1, req_env_var + ' not found in environment variables')
 
 
 	def error(self, exit_code, msg):
@@ -60,27 +53,27 @@ class ftp_upload():
 		self.get_file_lists(environ['PAGEGEN_TARGET_DIR'])
 
 		try:
-			file_permissions = environ['PAGEGEN_FTP_FILE_PERMISSIONS']
+			file_permissions = environ['ACTIONS_PAGEGEN_FTP_FILE_PERMISSIONS']
 		except:
 			file_permissions = '644'
 
 		try:
-			directory_permissions = environ['PAGEGEN_FTP_DIRECTORY_PERMISSONS']
+			directory_permissions = environ['ACTIONS_PAGEGEN_FTP_DIRECTORY_PERMISSONS']
 		except:
 			directory_permissions = '755'
 
 		try:
-			ftp = ftplib.FTP(environ['PAGEGEN_FTP_HOST'])
-			ftp.login(environ['PAGEGEN_FTP_USERNAME'], environ['PAGEGEN_FTP_PASSWORD'])
+			ftp = ftplib.FTP(environ['ACTIONS_PAGEGEN_FTP_HOST'])
+			ftp.login(environ['ACTIONS_PAGEGEN_FTP_USERNAME'], environ['ACTIONS_PAGEGEN_FTP_PASSWORD'])
 		except Exception as e:
 			raise Exception('Unable to login to FTP server: %s' % e)
 
 		# Delete target directory content
-		self.ftp_rm_tree(ftp, environ['PAGEGEN_FTP_TARGET_DIRECTORY'])
+		self.ftp_rm_tree(ftp, environ['ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY'])
 
 		# Create directory structure
 		for d in self.source_directories:
-			directory = environ['PAGEGEN_FTP_TARGET_DIRECTORY'] + '/' + d
+			directory = environ['ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY'] + '/' + d
 
 			try:
 				ftp.mkd(directory)
@@ -91,7 +84,7 @@ class ftp_upload():
 		# Upload files
 		# Need to know if file is binary or not for FTP upload
 		for f in self.source_files:
-			target_file = environ['PAGEGEN_FTP_TARGET_DIRECTORY'] + '/' + f
+			target_file = environ['ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY'] + '/' + f
 			source_file = join(environ['PAGEGEN_TARGET_DIR'], f)
 
 			try:

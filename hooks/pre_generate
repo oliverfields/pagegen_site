@@ -8,10 +8,11 @@ target_dir="$PAGEGEN_TARGET_DIR"
 
 . "$PAGEGEN_HOOK_DIR/script/prepare_templates"
 
+
 case "$PAGEGEN_ENVIRONMENT" in
   "prod")
     # If interactive shell
-    if [ ! -z ${PS1+x} ]; then
+    if [ -n "${INTERACTIVE_PAGEGEN_SESSION+1}" ]; then
       . "$PAGEGEN_HOOK_DIR/script/spell_check"
     fi
   ;;
