@@ -11,23 +11,20 @@ class ftp_upload():
 
 		self.source_files = []
 		self.source_directories = []
+		self env_vars=[
+			'PAGEGEN_FTP_HOST',
+			'PAGEGEN_FTP_USERNAME',
+			'PAGEGEN_FTP_PASSWORD',
+			'PAGEGEN_FTP_TARGET_DIRECTORY',
+		}
 
-		# Check correct settings
-		if not 'PAGEGEN_FTP_HOST' in environ.keys():
-			self.error(1, 'ftp_host not set in site.conf')
-
-		if not 'PAGEGEN_FTP_USERNAME' in environ.keys():
-			self.error(1, 'ftp_username not set in site.conf')
-
-		if not 'PAGEGEN_FTP_PASSWORD' in environ.keys():
-			self.error(1, 'ftp_password not set in site.conf')
-
-		if not 'PAGEGEN_FTP_TARGET_DIRECTORY' in environ.keys():
-			self.error(1, 'ftp_target_directory not set in site.conf')
+		for k in self.env_vars:
+			if not k in environ.keys():
+				self.error(1, k + ' not set in site.conf or found in environment variables')
 
 
 	def error(self, exit_code, msg):
-		sys.stderr.write('ftp.py: ' + msg + '\n')
+		sys.stderr.write('hook:deploy: ' + msg + '\n')
 		sys.exit(exit_code)
 
 
