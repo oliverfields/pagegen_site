@@ -28,7 +28,4 @@ jobs:
           PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
         run: |
           cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
-          pwd
-          ls
-          cat site.conf
           pagegen -g "prod"

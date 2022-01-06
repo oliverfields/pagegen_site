@@ -6,6 +6,9 @@ set -e # halt on first error
 
 case "$PAGEGEN_ENVIRONMENT" in
   "prod")
-    . "$PAGEGEN_HOOK_DIR/script/link_check"
+    # If interactive shell
+    if [ ! -z ${PS1+x} ]; then
+      . "$PAGEGEN_HOOK_DIR/script/link_check"
+    fi
   ;;
 esac

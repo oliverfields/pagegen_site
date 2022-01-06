@@ -10,6 +10,9 @@ target_dir="$PAGEGEN_TARGET_DIR"
 
 case "$PAGEGEN_ENVIRONMENT" in
   "prod")
-    . "$PAGEGEN_HOOK_DIR/script/spell_check"
+    # If interactive shell
+    if [ ! -z ${PS1+x} ]; then
+      . "$PAGEGEN_HOOK_DIR/script/spell_check"
+    fi
   ;;
 esac
