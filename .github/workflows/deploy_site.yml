@@ -29,4 +29,6 @@ jobs:
         run: |
           cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
           pwd
+          ls
+          cat site.conf
           pagegen --generate "prod"
