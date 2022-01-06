@@ -20,6 +20,8 @@ class ftp_upload():
 
 		for req_env_var in self.required_environment_variables:
 			if not req_env_var in environ.keys():
+				for k,v in environ.items():
+					print(k + '=' + v)
 				self.error(1, req_env_var + ' not set in site.conf or found in environment variables')
 
 
