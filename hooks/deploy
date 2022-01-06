@@ -129,7 +129,7 @@ class ftp_upload():
 				# A file, so just remove
 				ftp.delete(file_or_dir)
 
-if environ['PAGEGEN_ENVIRONMENT'] == 'stage' or environ['PAGEGEN_ENVIRONMENT'] == 'prod':
+if environ['PAGEGEN_ENVIRONMENT'] == 'prod':
 	fu = ftp_upload()
 	fu.ftp_upload()
 

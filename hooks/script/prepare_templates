@@ -32,7 +32,7 @@ site_javascript="$PAGEGEN_SITE_DIR/build_assets/site.js"
       ;;
       "PAGEGEN_SITE_CSS")
         echo "<style>"
-        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
           python -m rcssmin < "$site_css"
           python -m rcssmin < "$svg_css"
         else
@@ -43,7 +43,7 @@ site_javascript="$PAGEGEN_SITE_DIR/build_assets/site.js"
       ;;
       "PAGEGEN_SITE_JAVASCRIPT")
         echo "<script>"
-        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+        if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
           python -m jsmin "$site_javascript"
         else
           cat "$site_javascript"

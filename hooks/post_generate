@@ -3,7 +3,7 @@
 set -e # halt on first error
 
 case "$PAGEGEN_ENVIRONMENT" in
-  #"stage"|"prod")
+  #"prod")
   #;;
   "test")
     echo "Todos:"

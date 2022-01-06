@@ -9,7 +9,7 @@ target_dir="$PAGEGEN_TARGET_DIR"
 . "$PAGEGEN_HOOK_DIR/script/prepare_templates"
 
 case "$PAGEGEN_ENVIRONMENT" in
-  "prod"|"stage")
+  "prod")
     . "$PAGEGEN_HOOK_DIR/script/spell_check"
   ;;
 esac

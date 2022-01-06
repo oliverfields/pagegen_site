@@ -5,7 +5,7 @@ set -e # halt on first error
 #echo "$PAGEGEN_HOOK : $PAGEGEN_ENVIRONMENT"
 
 case "$PAGEGEN_ENVIRONMENT" in
-  "stage"|"prod")
+  "prod")
     . "$PAGEGEN_HOOK_DIR/script/link_check"
   ;;
 esac

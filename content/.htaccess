@@ -7,7 +7,7 @@ Exclude HTML minify: True
 
 ' # Part of echo ^
 
-if [ "$PAGEGEN_ENVIRONMENT" = "prod" ] || [ "$PAGEGEN_ENVIRONMENT" = "stage" ]; then
+if [ "$PAGEGEN_ENVIRONMENT" = "prod" ]; then
 
 	echo 'DirectoryIndex index
 ErrorDocument 404 /404
