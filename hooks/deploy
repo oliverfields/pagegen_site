@@ -22,7 +22,10 @@ class ftp_upload():
 			# If running locally use standard env names
 			if not req_env_var in environ.keys():
 				# If running Github Actions look for env name prefixed with ACTIONS_
-				if not 'ACTIONS_' + req_env_var in environ.keys():
+				if 'ACTIONS_' + req_env_var in environ.keys():
+					# If found remove ACTIONS_ prefix
+					environ[req_env_var] = environ['ACTION_' + req_env_var]
+				else:
 					self.error(1, req_env_var + ' not found in environment variables')
 
 
