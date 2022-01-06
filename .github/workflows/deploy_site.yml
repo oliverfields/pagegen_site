@@ -1,4 +1,4 @@
-name: Deploy biolitika blog
+name: Deploy pagegen.phnd.net
 on:
   push:
     branches:
