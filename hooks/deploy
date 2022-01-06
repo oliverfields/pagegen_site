@@ -19,10 +19,11 @@ class ftp_upload():
 		]
 
 		for req_env_var in self.required_environment_variables:
+			# If running locally use standard env names
 			if not req_env_var in environ.keys():
-				for k,v in environ.items():
-					print(k + '=' + v)
-				self.error(1, req_env_var + ' not set in site.conf or found in environment variables')
+				# If running Github Actions look for env name prefixed with ACTIONS_
+				if not 'ACTIONS_' + req_env_var in environ.keys():
+					self.error(1, req_env_var + ' not found in environment variables')
 
 
 	def error(self, exit_code, msg):

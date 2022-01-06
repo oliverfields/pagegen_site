@@ -19,17 +19,13 @@ jobs:
     - name: Install Pagegen
       run: |
         pip install pagegen
-    - name: Test env vars for python
-      run: python -c 'import os;print(os.environ["PAGEGEN_FTP_HOST"])'
-      env:
-        PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }} 
     - name: Generate site
       id: run-pagegen
       env:
-        PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }}
-        PAGEGEN_FTP_USERNAME: ${{ secrets.PAGEGEN_FTP_USERNAME }}
-        PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
-        PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
+        ACTIONS_PAGEGEN_FTP_HOST: ${{ secrets.ACTIONS_PAGEGEN_FTP_HOST }}
+        ACTIONS_PAGEGEN_FTP_USERNAME: ${{ secrets.ACTIONS_PAGEGEN_FTP_USERNAME }}
+        ACTIONS_PAGEGEN_FTP_PASSWORD: ${{ secrets.ACTIONS_PAGEGEN_FTP_PASSWORD }}
+        ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY }}
       run: |
         cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
         pagegen -g "prod"
