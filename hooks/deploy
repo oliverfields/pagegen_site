@@ -18,13 +18,15 @@ class ftp_upload():
 			'PAGEGEN_FTP_TARGET_DIRECTORY',
 		]
 
+		github_actions_env_prefix = 'ACTIONS_'
+
 		for req_env_var in self.required_environment_variables:
 			# If running locally use standard env names
 			if not req_env_var in environ.keys():
 				# If running Github Actions look for env name prefixed with ACTIONS_
-				if 'ACTIONS_' + req_env_var in environ.keys():
+				if github_actions_env_prefix + req_env_var in environ.keys():
 					# If found remove ACTIONS_ prefix
-					environ[req_env_var] = environ['ACTION_' + req_env_var]
+					environ[req_env_var] = environ[github_actions_env_prefix + req_env_var]
 				else:
 					self.error(1, req_env_var + ' not found in environment variables')
 
