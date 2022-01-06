@@ -11,7 +11,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.8
       - name: Checkout website source
         id: checkout-master
         uses: actions/checkout@v2
