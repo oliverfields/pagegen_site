@@ -18,6 +18,10 @@ jobs:
       - name: Install Pagegen
         run: |
           pip install pagegen
+      - name: cd to repo
+        id: cd-repo
+        run: |
+          cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
       - name: Generate site
         id: run-pagegen
         env:
@@ -26,5 +30,4 @@ jobs:
           PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
           PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
         run: |
-          cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
           pagegen --generate "prod"
