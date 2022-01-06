@@ -31,4 +31,4 @@ jobs:
           pwd
           ls
           cat site.conf
-          pagegen --generate "prod"
+          pagegen -g "prod"
