@@ -9,23 +9,23 @@ jobs:
     name: Deploy site
     runs-on: ubuntu-latest
     steps:
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: Checkout website source
-        id: checkout-master
-        uses: actions/checkout@v2
-      - name: Install Pagegen
-        run: |
-          pip install pagegen
-      - name: Generate site
-        id: run-pagegen
-        env:
-          PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }}
-          PAGEGEN_FTP_USERNAME: ${{ secrets.PAGEGEN_FTP_USERNAME }}
-          PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
-          PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
-       run: |
-          cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
-          pagegen -g "prod"
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Checkout website source
+      id: checkout-master
+      uses: actions/checkout@v2
+    - name: Install Pagegen
+      run: |
+        pip install pagegen
+    - name: Generate site
+      id: run-pagegen
+      env:
+        PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }}
+        PAGEGEN_FTP_USERNAME: ${{ secrets.PAGEGEN_FTP_USERNAME }}
+        PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
+        PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
+      run: |
+        cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
+        pagegen -g "prod"
