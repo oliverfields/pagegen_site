@@ -1,30 +1,30 @@
 name: Deploy biolitika blog
 on:
-	push:
-		branches:
-			- master
+  push:
+    branches:
+      - master
 jobs:
-	build_job:
-		name: Deploy site
-		runs-on: ubuntu-latest
-		steps:
-			- name: Setup environment
-				env:
-					PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }}
-					PAGEGEN_FTP_USERNAME: ${{ secrets.PAGEGEN_FTP_USERNAME }}
-					PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
-					PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
-			- name: Install Python
-				uses: actions/setup-python@v2
-				with:
-					python-version: 3.7
-			- name: Checkout website source
-				id: checkout-master
-				uses: actions/checkout@v2
-			- name: Install Pagegen
-				run: |
-					pip install pagegen
-			- name: Generate site
-				id: run-pagegen
-				run: |
-					pagegen --generate prod
+  build_job:
+    name: Deploy site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+        env:
+          PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }}
+          PAGEGEN_FTP_USERNAME: ${{ secrets.PAGEGEN_FTP_USERNAME }}
+          PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
+          PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Checkout website source
+        id: checkout-master
+        uses: actions/checkout@v2
+      - name: Install Pagegen
+        run: |
+          pip install pagegen
+      - name: Generate site
+        id: run-pagegen
+        run: |
+          pagegen --generate prod
