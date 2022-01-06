@@ -21,11 +21,6 @@ jobs:
           pip install pagegen
       - name: Generate site
         id: run-pagegen
-        env:
-          PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }}
-          PAGEGEN_FTP_USERNAME: ${{ secrets.PAGEGEN_FTP_USERNAME }}
-          PAGEGEN_FTP_PASSWORD: ${{ secrets.PAGEGEN_FTP_PASSWORD }}
-          PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.PAGEGEN_FTP_TARGET_DIRECTORY }}
         run: |
           cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
           pagegen -g "prod"
