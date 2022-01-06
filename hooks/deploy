@@ -11,7 +11,7 @@ class ftp_upload():
 
 		self.source_files = []
 		self.source_directories = []
-		self env_vars=[
+		self.env_vars = [
 			'PAGEGEN_FTP_HOST',
 			'PAGEGEN_FTP_USERNAME',
 			'PAGEGEN_FTP_PASSWORD',
@@ -20,6 +20,8 @@ class ftp_upload():
 
 		for k in self.env_vars:
 			if not k in environ.keys():
+				for k,v in environ.items():
+					print(k + '=' + v)
 				self.error(1, k + ' not set in site.conf or found in environment variables')
 
 
