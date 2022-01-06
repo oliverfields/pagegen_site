@@ -20,7 +20,7 @@ jobs:
       run: |
         pip install pagegen
     - name: Test env vars for python
-      run: python -c 'import os;print(os.environ)'
+      run: python -c 'import os;print(os.environ["PAGEGEN_FTP_HOST"])'
       env:
         PAGEGEN_FTP_HOST: ${{ secrets.PAGEGEN_FTP_HOST }} 
     - name: Generate site
