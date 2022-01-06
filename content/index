@@ -18,8 +18,9 @@ Pagegen builds sites and blogs from regular flat text files and directories.
 * Javascript site search
 * Page content can be output from any executable/scripts
 * Web friendly URLs, sitemap, RSS feed, tags and categories
-* Generated html files can be hosted on any web server (FTP deployment included)
+* Generated html files can be hosted on any web server
 * Hooks for running custom scripts during generation
 * Customizable deployment scripts
 * Minify HTML, CSS and/or Javascript
+* Automate with build pipelines/CI/CD
 
