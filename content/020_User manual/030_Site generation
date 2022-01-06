@@ -30,7 +30,7 @@ Site configuration (site.conf)
 
 Site generation can be configured by the **site.conf**, found in the Pagegen root directory.
 
-.. include:: /home/oliver/Documents/Projects/pagegen_v2/src/pagegen/skel/site.conf
+.. include:: build_assets/site.conf_example
 	:literal:
 
 Example site configuration
