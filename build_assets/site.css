@@ -325,13 +325,17 @@ color: #3E4349;
 color: #000;
 }
 #search-query {
-max-width: 146px;
+max-width: 138px;
 border: solid 1px #999;
+border-radius: 3px 0 0 3px;
+padding: 4px;
 }
 #search-submit {
-max-width: 57px;
+max-width: 56px;
 margin-left: -5px;
 border: solid 1px #999;
+border-radius: 0 3px 3px;
+padding: 4px;
 }
 #search-form {
 margin: 1em auto;
