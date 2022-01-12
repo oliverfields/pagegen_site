@@ -10,3 +10,4 @@
 * Set INTERACTIVE env var to signal if run interactive sessions in hooks
 * Document link chain exclude: True header
 * Sitemap urls are wrong for regular pages, correct for directories though:P
+* Document mako context variables available
