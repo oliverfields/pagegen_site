@@ -1,5 +1,6 @@
 Title: Search results
 Menu exclude: True
+Link chain exclude: True
 
 .. raw:: html
 
