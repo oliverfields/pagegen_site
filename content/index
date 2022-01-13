@@ -13,14 +13,14 @@ Description: Pagegen is a static web site generator, it creates web sites from t
 
 Pagegen builds sites and blogs from regular flat text files and directories.
 
-* Pages are simple text files with `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ markup
-* Unlimited hierarchical page structure with menu and bread crumbs
+* Pages are regular text files with `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ markup
+* Unlimited hiearchy with built-in menu and bread crumbs
 * Javascript site search
+* Fast and lightweight `Mako <https://www.makotemplates.org/>`_ templates
 * Page content can be output from any executable/scripts
 * Web friendly URLs, sitemap, RSS feed, tags and categories
 * Generated html files can be hosted on any web server
 * Hooks for running custom scripts during generation
-* Customizable deployment scripts
 * Minify HTML, CSS and/or Javascript
 * Automate with build pipelines/CI/CD
 
