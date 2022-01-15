@@ -7,7 +7,7 @@ Description: Pagegen is a static web site generator, it creates web sites from t
 	<div class="side-content">
 	<h2>Get Pagegen</h2>
 	<pre>$ pip install pagegen</pre>
-	<p>Then checkout the<br /><a href="/quick-start">quick start</a></p>
+	<p>Then checkout the <br /><a href="/quick-start">quick start</a></p>
 	</div>
 
 
