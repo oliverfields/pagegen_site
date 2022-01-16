@@ -1,9 +1,13 @@
 #!/bin/bash
 
-echo 'Header profile: system.headers
-Preserve file name: True
+echo 'Preserve file name: True
 Generate HTML: False
 Exclude HTML minify: True
+Search index exclude: True
+Sitemap exclude: True
+Menu exclude: True
+Link chain exclude: True
+Search index exclude: True
 
 ' # Part of echo ^
 

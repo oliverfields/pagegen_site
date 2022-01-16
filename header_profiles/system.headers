@@ -1,5 +1,0 @@
-sitemap exclude: True
-menu exclude: True
-link chain exclude: True
-search index exclude: True
-preserve file name: True
