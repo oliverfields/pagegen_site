@@ -20,8 +20,8 @@ ErrorDocument 404 /404
   RewriteEngine on 
 
   # Rewrite favicon.ico
-  RewriteRule ^favicon\.ico$ /include/graphics/favicon.ico [NC,L]
-  RewriteRule ^apple-touch-icon\.png$ /include/graphics/pagegen_logo_144x144.png [NC,L]
+  RewriteRule ^favicon\.ico$ /assets/theme/images/favicon.ico [NC,L]
+  RewriteRule ^apple-touch-icon\.png$ /assets/theme/images/pagegen_logo_144x144.png [NC,L]
 
   # Redirect to https
   RewriteCond %{HTTPS} off

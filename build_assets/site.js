@@ -1,56 +1,38 @@
 function toggle_sub_menu(i) {
-  var ul = i.nextSibling;
-  if (ul.style.display == 'block') {
-    ul.style.display = 'none'
+  var ol = i.nextSibling;
+  if (ol.style.display == 'block') {
+    ol.style.display = 'none'
     i.className = toggle_show_sub_menu;
   }
   else {
-    ul.style.display = 'block';
+    ol.style.display = 'block';
     i.className = toggle_hide_sub_menu;
   }
 }
 
 
-function show_current_page_parent_menues(obj) {
+function show_current_page_parent_menus(obj) {
   if (typeof obj === 'undefined') return;
 
   if (obj.id == 'menu') return;
 
-  if (obj.parentElement.tagName == 'UL') {
+  if (obj.parentElement.tagName == 'OL') {
     obj.parentElement.style.display = 'block';
   }
 
-  show_current_page_parent_menues(obj.parentElement);
+  show_current_page_parent_menus(obj.parentElement);
 }
 
 
-function adorn_previous_next_links() {
-  var previous_link = document.querySelectorAll('#previous-link a');
-  var next_link = document.querySelectorAll('#next-link a');
-
-  if (previous_link.length > 0) {
-    var previous_icon = document.createElement('i');
-    previous_icon.className = 'fas arrow-left-3E4349';
-    previous_link[0].prepend(previous_icon);
-  }
-
-  if (next_link.length > 0) {
-    var next_icon = document.createElement('i');
-    next_icon.className = 'fas arrow-right-3E4349';
-    next_link[0].append(next_icon);
-  }
-}
-
-
-var uls = document.querySelectorAll('#menu ul');
+var ols = document.querySelectorAll('#menu ol');
 var toggle_show_sub_menu = 'sub-menu-toggle fas angle-down-3E4349';
 var toggle_hide_sub_menu = 'sub-menu-toggle fas angle-up-3E4349';
 
-for (var i = 0; i < uls.length; i++) {
+for (var i = 0; i < ols.length; i++) {
 
-  if (uls[i].parentElement.tagName === 'LI') {
+  if (ols[i].parentElement.tagName === 'LI') {
 
-    uls[i].style.display = 'none'; // Hide sub menu
+    ols[i].style.display = 'none'; // Hide sub menu
 
     // Create icon to toggle sub menu
     var toggle_icon = document.createElement('i');
@@ -59,7 +41,7 @@ for (var i = 0; i < uls.length; i++) {
       toggle_sub_menu(this);
     }
 
-    uls[i].parentNode.insertBefore(toggle_icon, uls[i]);
+    ols[i].parentNode.insertBefore(toggle_icon, ols[i]);
   }
 }
 
@@ -99,5 +81,4 @@ window.onresize = function() {
 var hamburger = document.getElementById('hamburger');
 hamburger.onclick = function (event) { toggle_sidebar() };
 
-adorn_previous_next_links();
-show_current_page_parent_menues(document.querySelectorAll('#pagegen-current-page')[0]);
+show_current_page_parent_menus(document.querySelectorAll('#pagegen-current-page')[0]);

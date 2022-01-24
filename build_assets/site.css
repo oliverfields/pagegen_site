@@ -111,7 +111,7 @@ display: none;
   #page {
   width: 100%;
   }
-  #sidebar ul {
+  #sidebar ol {
   width: 220px;
   margin: 0 auto !important;
   }
@@ -126,7 +126,7 @@ color: #3E4349;
 #page-logo:hover {
 color: #000;
 }
-#sidebar ul {
+#sidebar ol {
 list-style: none;
 padding-left: 10px;
 margin: 0;
@@ -149,12 +149,12 @@ font-size: .8em;
 color: #3E4349;
 font-style: italic;
 }
-#sidebar ul a {
+#sidebar ol a {
 border-bottom: 1px dotted #444;
 text-decoration: none;
 color: #444;
 }
-#sidebar ul a:hover {
+#sidebar ol a:hover {
 color: #000;
 border-bottom-color: #000;
 }

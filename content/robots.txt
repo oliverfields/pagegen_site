@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo 'Header profile: system.headers
-Preserve file name: True
+echo 'Preserve file name: True
 Generate HTML: False
 Exclude HTML minify: True
 Sitemap exclude: True

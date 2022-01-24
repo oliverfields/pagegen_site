@@ -37,6 +37,9 @@ Site generation can be configured by the **site.conf**, found in the Pagegen roo
 	# Set site root directory, mandatory.
 	base_url=http://localhost:8000
 	
+	# Set site theme, mandatory$
+	theme=pgsite$
+	
 	# Specify default extension, if file does not already have one. Default None, optional.
 	#default_extension=.html
 	
