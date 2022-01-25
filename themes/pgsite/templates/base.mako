@@ -19,14 +19,9 @@ from pathlib import Path
     <meta name="description" content="${page.headers['description']}" />
 	% endif
     <!-- /Open graph -->
-    <link rel="apple-touch-icon" sizes="72x72" href="${base_url}/include/images/pagegen_logo_72x72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="${base_url}/include/images/pagegen_logo_114x114.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="${base_url}/include/images/pagegen_logo_144x144.png" />
-    <link rel="apple-touch-icon" href="${base_url}/include/images/pagegen_logo_57x57.png" />
     <base href="${base_url}" />
     <link rel="canonical" href="${page.absolute_url}" />
-    <link rel="shortcut icon" href="${base_url}/include/images/favicon.ico" type="image/x-icon" />
-    
+    <link rel="shortcut icon" href="${base_url}/favicon.ico" type="image/x-icon" />
     <meta name="Generator" content="Pagegen" />
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <style>
