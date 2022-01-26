@@ -27,5 +27,5 @@ jobs:
         ACTIONS_PAGEGEN_FTP_PASSWORD: ${{ secrets.ACTIONS_PAGEGEN_FTP_PASSWORD }}
         ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY }}
       run: |
-        cd /home/runner/work/pagegen_v2_site/pagegen_v2_site
+        cd /home/runner/work/pagegen_site/pagegen_site
         pagegen -g "prod"
