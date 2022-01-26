@@ -86,10 +86,10 @@ ${css}
           </form>
         </div><!-- /search-form -->
         <div id="menu">${page.menu}</div>
-        <ul id="project-info">
+        <ol id="project-info">
           <li><i class="fas bug-3E4349"></i> <a href="https://github.com/oliverfields/pagegen_v2_site/issues">Issue tracker</a></li>
           <li><i class="fas envelope-3E4349"></i> <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></li>
-        </ul>
+        </ol>
         <div class="github-button-container"><a class="github-button" href="https://github.com/oliverfields/pagegen_v2" data-show-count="true" data-size="large" aria-label="Star oliverfields/pagegen_v2 on GitHub">Star</a></div>
       </div><!-- /sidebar -->
  
