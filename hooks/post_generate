@@ -9,7 +9,7 @@ case "$PAGEGEN_ENVIRONMENT" in
     echo "Todos:"
     cat "$PAGEGEN_SITE_DIR/TODO"
     grep -R TODO "$PAGEGEN_SOURCE_DIR"/* | sed 's/^/  * /'
-    grep -R TODO "/home/oliver/Documents/Projects/pagegen_v2/src/pagegen/"*.py | sed 's/^/  * /'
+    grep -R TODO "/home/oliver/Documents/Projects/pagegen/src/pagegen/"*.py | sed 's/^/  * /'
     echo
 
   ;;
