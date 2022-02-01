@@ -20,33 +20,22 @@ Or install into virtual environment.
 Test installation
 =================
 
-Assuming bash shell, create directory for new site, initialise directory, setup site.conf and finally generate site.
-
-::
-
-	$ mkdir my_site
-	$ cd my_site
-	$ <path to pagegen>/pagegen --init --pagegen-conf <path to pagegen.conf>
-	$ echo -e "base_url=file://$PWD/site" > site.conf
-	$ <path to pagegen>/pagegen --generate
-
-.. warning::
-
-	Python does not seem to detect locale on Mac OS X, returning a **ValueError, 'unknown locale'**. Try running pagegen command as **LC_ALL=en_US.UTF-8 pagegen ..**. To make permanent add **export LC_ALL=en_US.UTF-8** to **~/.profile**
-
-
-Open **my_site/site/index.html** in a browser to view (typically File > Open).
-
-Alternatively test with a web server, this example uses the Python SimpleHTTPServer.
+Assuming bash shell, create directory for new site, initialise directory, setup site.conf and finally generate and serve the site.
 
 ::
 
 	$ mkdir my_site
 	$ cd my_site
 	$ pagegen --init
-	$ echo -e "base_url=http://localhost:8000" > site.conf
-	$ pagegen --generate
-	$ cd site/production
-	$ python -m SimpleHTTPServer
+	$ pagegen --serve production
 
-Open **http://localhost:8000** in a browser to view.
+The above commands will generate the site and make it available to browse on localhost.
+
+The **--init** argument creates an example site in the current directory. The default **site.conf** has one section called **Production**, when calling **pagegen --serve** or **pagegen --generate** it is required to specify the configuration section to use.
+
+To just generate the site, use **pagegen --generate <config section>**, the generated site will be in the **site/<config section>** directory, all ready for uploading to a web server.
+
+.. warning::
+
+	Python does not seem to detect locale on Mac OS X, returning a **ValueError, 'unknown locale'**. Try running pagegen command as **LC_ALL=en_US.UTF-8 pagegen ..**. To make permanent add **export LC_ALL=en_US.UTF-8** to **~/.profile**
+

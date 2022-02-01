@@ -2,6 +2,5 @@
 * Write tutorial for setting up blog site (start with site bit, then implement blog bit). Explain how to setup blog (use dirs for date categorization, and executable for home/category/tag list pages
 * Update command line calls on pgsite
 * Page to explain using with github actions
-* Document link chain exclude: True header
 * Document mako context variables available
-* Page header Category changed to categories
+* user-manual/design-and-layout -> document page template variables (page.title etc)

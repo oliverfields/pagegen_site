@@ -1,22 +1,19 @@
 Description: Hooks are user customizable executables that may be run at specific points during the site generation process.
 
-
 To make the static site more dynamic(pun intended) Pagegen can run executables (hooks) at preset times, during the generation process.
 
 To enable a hook make the appropriate hook file executable (``chmod +x hooks/hook_file``).
 
-.. table:: Available hooks
-
-	================== ====================================
-	Name               Description                         
-	================== ====================================
-	pre_generate       Run before generation starts        
-	post_generate      Run when generation complete        
-	pre_generate_page  Run before page generation starts   
-	post_generate_page Run when page generation complete   
-	deploy             Run when site ready for deployment  
-	post_deploy        Run last (also after deploy scripts)
-	================== ====================================
+================== ====================================
+Name               Description                         
+================== ====================================
+pre_generate       Run before generation starts        
+post_generate      Run when generation complete        
+pre_generate_page  Run before page generation starts   
+post_generate_page Run when page generation complete   
+deploy             Run when site ready for deployment  
+post_deploy        Run last (also after deploy scripts)
+================== ====================================
 
 .. tip::
 
@@ -29,5 +26,5 @@ Run one of the example hooks to see the available environment variables. All set
 	cd hooks
 	mv pre_generate.example pre_generate
 	chmod +x pre_generate
-	pagegen -g
+	pagegen -g <environment>
 

@@ -74,11 +74,27 @@ On an error web servers can be configured to serve custom error pages (e.g a 404
 * 404 - Page not found
 * 500 - Internal server error
 
-Create the following files with appropriate content. Set the page headers to **Menu exclude: True** and **Sitemap exclude: True** to hide them from menu and sitemap.
+Create the following files with appropriate content.
 
 * content/403.html
 * content/404.html
 * content/500.html
+
+
+Example 404 page
+================
+
+::
+
+	Title: Page not found
+	Menu title: 404
+	Sitemap exclude: True
+	Menu exclude: True
+	Link chain exclude: True
+	Search index exclude: True
+	Preserve file name: True
+	
+	Sorry, couldn't find that page:(
 
 
 Apache
@@ -104,7 +120,7 @@ Nginx
 Serve compressed content
 ************************
 
-For performance content suitable for compression (e.g. text, not images) should be gzipped.
+For performance content suitable for compression (e.g. text, not images) should be gzipped. Consider also doing this with a hook script, to save the web server gzipping every file it sends.
 
 
 Apache

@@ -5,18 +5,13 @@ Content is stored as regular files and organized with directories and naming.
 Content directory
 *****************
 
-Pagegen pages are just plain text files containing page options and content organized by directory hierarchy. Each directory is treated as a page containing child pages. For directories the page content is stored in a mandatory **index** file within each directory. The index file is identical, in both syntax and structure, to regular page files.
+Pagegen pages are just plain text files containing page options and content organized by directory hierarchy. Each directory is treated as a page containing child pages. For directories the page content is either stored in file named **index** within each directory, or if no **index** file is defined one will be generated containting list of the directory contents. The index file is identical, in both syntax and structure, to regular page files.
 
 Pages (a file or both a directory and file) contain headers(options/settings, also known as front matter) and reStructuredText markup. All page content is located in the **content directory** (<pagegen directory>/content).
 
 .. tip::
 
 	The front/home page is **content/index**.
-
-
-.. warning::
-
-	All directories must contain an **index** page file.
 
 
 Naming
@@ -52,7 +47,7 @@ Pages are sorted in the menu by listing them alphabetically, to override the def
 Extension
 =========
 
-An extension is optional and is left as is. Directory index files can have extensions.
+An extension is optional and is left as is. Directory index files can also have extensions.
 
 
 URL
@@ -77,14 +72,14 @@ The page URL will be the path from the **content directory** to the file, conver
 Page file structure
 *******************
 
-Content for each page consists of an optional header containing any settings for the page followed by a blank line and reStructuredText markup.
+Content for each page consists of an optional header containing any settings for the page followed by a blank line and reStructuredText or Markdown markup.
 
 ::
 
 	[<header name>: <header value>]
 	[...]
 	
-	The rest is content marked up using reStructuredText
+	The rest is content marked up using reStructuredText or Markdown
 
 
 Headers
@@ -94,65 +89,38 @@ All headers are optional. They must start on the first line and content start is
 
 .. table:: Page headers
 
-	==================== ================== =======================================================================
-	Name                 Default            Description                                                            
-	==================== ================== =======================================================================
-	category             None               Page category, if exist then /category/<category> pages generated      
-	description          None               Html meta tag description                                              
-	exclude html minify  False              Disables HTML minifying of the page if True                            
-	generate html        True               Enable/disable parsing of page content                                 
-	header profile       None               If specified default headers will be read from header_profiles/<value> 
-	menu exclude         False              Remove page (and child pages) from menu/crumb trail                    
-	menu title           None               If set use for title in menu/crumb trail                               
-	preserve file name   False              If True file name will be kept as-is in final url                      
-	publish              Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past
-	rss include          False              If set page is included in RSS feed (assuming site include_rss)        
-	search index exclude False              Exclude page from search index                                         
-	sitemap exclude      False              Remove page from sitemap                                               
-	Sitemap changefreq   None               Values: always, hourly, daily, weekly, monthly, yearly or never        
-	Sitemap lastmod      None               Format YYYY-MM-DD                                                      
-	Sitemap priority     None               Values between 0.0 and 1.0                                             
-	tags                 None               Comma separated list of tags, if exist then /tag/<tag> pages generated 
-	template             page.tpl           Template file from /templates                                          
-	title                None               If set overrides page title                                            
-	==================== ================== =======================================================================
+	==================== ================== ======================================================================================
+	Name                 Default            Description                                                                           
+	==================== ================== ======================================================================================
+	categories           None               Comma separated list of categories, if exist then /category/<category> pages generated
+	description          None               Html meta tag description                                                             
+	exclude html minify  False              Disables HTML minifying of the page if True                                           
+	generate html        True               Enable/disable parsing of page content                                                
+	header profile       None               If specified default headers will be read from header_profiles/<value>                
+	link chain exclude   False              If True page will not be part of next- and previous-links                             
+	markup               rst                Can either be **rst** (default) for reStructuredText or **md** for Markdown           
+	menu exclude         False              Remove page (and child pages) from menu/crumb trail                                   
+	menu title           None               If set use for title in menu/crumb trail                                              
+	preserve file name   False              If True file name will be kept as-is in final url                                     
+	publish              Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past               
+	rss include          False              If set page is included in RSS feed (assuming site include_rss)                       
+	search index exclude False              Exclude page from search index                                                        
+	sitemap exclude      False              Remove page from sitemap                                                              
+	sitemap changefreq   None               Values: always, hourly, daily, weekly, monthly, yearly or never                       
+	sitemap lastmod      None               Format YYYY-MM-DD                                                                     
+	sitemap priority     None               Values between 0.0 and 1.0                                                            
+	tags                 None               Comma separated list of tags, if exist then /tag/<tag> pages generated                
+	template             page.tpl           Template file from /templates                                                         
+	title                None               If set overrides page title                                                           
+	==================== ================== ======================================================================================
 
 
-Header profiles
----------------
+Page markup
+===========
 
-Sometimes similar types of pages, e.g. system pages, blog posts or regular article pages, will have the same headers set. Header profiles allows for headers to be defined in a profile, and that profile applied to the pages that reference it in the **header profile** header.
+Pages are marked up using either `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_ or `Markdown <https://daringfireball.net/projects/markdown/>`_. In **site.conf* setting **default_markup** can be either **rst** (the default) or **md**, pages can override the sitewide configuration by setting header **markup** in the page headers/frontmatter.
 
-Header profiles have same syntax as headers and are located in the **header_profiles** directory.
-
-Headers specified in the page content will override the headers from the profile.
-
-For example in **header_profile** directory, create **system.headers** containing the following.
-
-::
-
-	sitemap exclude: True
-	menu exclude: True
-
-Include the **system.headers** header profile like so.
-
-::
-
-	Header profile: system.headers$
-	Title: Page not found$
-	Menu title: 404$
-	
-	Sorry, couldn't find that page:($
-
-
-
-
-reStructuredText
-================
-
-Pages are marked up using `reStructuredText <http://docutils.sourceforge.net/docs/ref/rst/directives.html>`_.
-
-Some files that comprise a web site may just be regular text files. These files can be setup by using the page header **generate html: false**, in which case Pagegen will dump file contents as-is, without running it through reStructuredText parser.
+Some files that comprise a web site may just be regular text files. These files can be setup by using the page header **generate html: false**, in which case Pagegen will dump file contents as-is, without running it through reStructuredText or Markdown engine.
 
 .. tip::
 
@@ -162,7 +130,7 @@ Some files that comprise a web site may just be regular text files. These files 
 Executable files
 ================
 
-Content files may be executables. If a file is executable its content from stdout will be used instead of actual file content. The output form the executable is treated identically to a regular content file, so it may specify headers and non-header content will be parsed as reStructuredText.
+Content files may be executables. If a file is executable its content from stdout will be used instead of actual file content. The output form the executable is treated identically to a regular content file, so it may specify headers and non-header content will be passed to the appropriate markup engine.
 
 Example shell script
 --------------------

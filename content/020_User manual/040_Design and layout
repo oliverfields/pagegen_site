@@ -1,45 +1,45 @@
 Description: Designing and customization of generated HTML using templates and template variables.
 
-Setting up page layout is controlled by page templates. Pages may specify a template by setting **Template** header. All templates are located in **templates** directory and the default one is **page.tpl**. The templates can be freely customized and supports the following variables.
+Setting up page layout is controlled by `Mako <https://www.makotemplates.org/>`_ templates. Pages may specify a template by setting **Template** header. All templates are located in **themes/<theme name>/templates** directory.
+
+The following context/variables are available to the templates.
 
 Template variables
 ******************
 
-.. raw:: html
-
-	<table>
-	<tr><th>Tag</th><th>Description</th></tr>
-	<tr><td>&lbrace;&lbrace;absolute_url&rbrace;&rbrace;</td><td>Full url to page</td></tr>
-	<tr><td>&lbrace;&lbrace;base_url&rbrace;&rbrace;</td><td>Site base url setting</td></tr>
-	<tr><td>&lbrace;&lbrace;categories&rbrace;&rbrace;</td><td>All categories (requires categorized pages)</td></tr>
-	<tr><td>&lbrace;&lbrace;content&rbrace;&rbrace;</td><td>Page content</td></tr>
-	<tr><td>&lbrace;&lbrace;crumb_trail&rbrace;&rbrace;</td><td>Bread crumb trail</td></tr>
-	<tr><td>&lbrace;&lbrace;day&rbrace;&rbrace;</td><td>Current day</td></tr>
-	<tr><td>&lbrace;&lbrace;description&rbrace;&rbrace;</td><td>Description text</td></tr>
-	<tr><td>&lbrace;&lbrace;menu&rbrace;&rbrace;</td><td>Site menu</td></tr>
-	<tr><td>&lbrace;&lbrace;month&rbrace;&rbrace;</td><td>Current month</td></tr>
-	<tr><td>&lbrace;&lbrace;next_link&rbrace;&rbrace;</td><td>Links to next page</td></tr>
-	<tr><td>&lbrace;&lbrace;page_category&rbrace;&rbrace;</td><td>Page category</td></tr>
-	<tr><td>&lbrace;&lbrace;page_tags&rbrace;&rbrace;</td><td>List of page tags</td></tr>
-	<tr><td>&lbrace;&lbrace;previous_link&rbrace;&rbrace;</td><td>Links to previous</td></tr>
-	<tr><td>&lbrace;&lbrace;publish&rbrace;&rbrace;</td><td>Page publish date</td></tr>
-	<tr><td>&lbrace;&lbrace;tags&rbrace;&rbrace;</td><td>All tags (requires tagged pages)</td></tr>
-	<tr><td>&lbrace;&lbrace;title&rbrace;&rbrace;</td><td>Page title</td></tr>
-	<tr><td>&lbrace;&lbrace;year&rbrace;&rbrace;</td><td>Current year</td></tr>
-	</table>
+===================== ======================
+Name                  Description
+===================== ======================
+\${absolute_url}      Absolute URL          
+\${base_url}          Base URL              
+\${page}              Page object..         
+\${page_titles}       Site setting, boolean 
+\${site_dir}          /site/<environment>   
+\${asset_dir}         /assets               
+\${source_dir}        /content              
+\${target_dir}        /site/<environment>/..
+\${default_extension} Site setting, string  
+\${tags}              List of tags          
+\${categories}        List of categories    
+\${sub_menu}          Page menu             
+\${environment}       Environment name      
+\${year}              yyyy                  
+\${month}             mm                    
+\${day}               dd                    
+===================== ======================
 
 
 .. note::
 
-	For **previous_link** and **next_link** template variables, use page header **link_chain_exclude** to keep pages out of the link sequence.
+	For **page.previous_link** and **page.next_link** template variables, use page header **link_chain_exclude** to keep pages out of the link sequence.
 
 
 CSS, Javascript, images and stuff
 *********************************
 
-When generating the site all contents in the [site directory]/include directory are copied to the output folder (see `Site generation </user-manual/site-generation>`_). Add CSS, Javascript and images (or anything else) to this directory to have them included with the generated site.
+When generating the site all contents in the **assets** directory is copied to the output directory (see `Site generation </user-manual/site-generation>`_). Additionally the **themes/<theme name>/assets** directory is copied to the **ouput folder/assets/theme** directory. Add CSS, Javascript and images (or anything else) to these directories to have them included with the generated site.
 
-HTML, CSS and Javascript may all be minified, set any of the following to options in **site.conf**.
+HTML, CSS and Javascript may be minified by setting any of the following to options in **site.conf**.
 
 * minify_html=True
 * minify_css=True
