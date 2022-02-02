@@ -12,7 +12,7 @@ Name                  Description
 ===================== ======================
 \${absolute_url}      Absolute URL          
 \${base_url}          Base URL              
-\${page}              Page object..         
+\${page}              Page object, see below
 \${page_titles}       Site setting, boolean 
 \${site_dir}          /site/<environment>   
 \${asset_dir}         /assets               
@@ -33,6 +33,41 @@ Name                  Description
 
 	For **page.previous_link** and **page.next_link** template variables, use page header **link_chain_exclude** to keep pages out of the link sequence.
 
+Page object
+***********
+
+====================== =========================
+Name                   Type
+====================== =========================
+page.absolute_url      String                   
+page.base_url          String                   
+page.children          List                     
+page.content           String (html)            
+page.crumb_trail       List                     
+page.custom_headers    Dictionary               
+page.default_extension String                   
+page.environment       String                   
+page.extension         String                   
+page.headers           List                     
+page.hook_environment  Dictionary               
+page.html              String (html)            
+page.markup            String (either rst or md)
+page.menu              String (html)            
+page.menu_title        String                   
+page.next_page         Boolean or page object   
+page.page_file_name    String                   
+page.parent            Boolean or page object   
+page.previous_page     Boolean or page object   
+page.raw_headers       List                     
+page.site_dir          String (Path)            
+page.source_path       String (Path)            
+page.target_dir        String (Path)            
+page.target_path       String (Path)            
+page.title             String                   
+page.url_include_index Boolean                  
+page.url_path          String (Path)            
+====================== =========================
+
 
 CSS, Javascript, images and stuff
 *********************************
@@ -44,6 +79,12 @@ HTML, CSS and Javascript may be minified by setting any of the following to opti
 * minify_html=True
 * minify_css=True
 * minify_javascript=True
+
+
+SASS
+****
+
+Any **.sass** file in the templates/<template name>/assets directory will be automatically compiled to **.css**.
 
 
 Site menu

@@ -56,17 +56,15 @@ URL
 The page URL will be the path from the **content directory** to the file, converted to lower case. Where sort prefix is removed and all characters that are not a-z, 0-9, dash(-), underscore(_) or period(.) are replaced with dash(-), file extensions are kept, if they are present.
 
 
-.. table:: Name examples
-
-	================================== =============== =================
-	Name                               Title           URL              
-	================================== =============== =================
-	content/Fruit juice                Fruit juice     /fruit-juice
-	content/fruit juice+ice            Fruit juice+ice /fruit-juice-ice
-	content/0001_Fruit juice           Fruit juice     /fruit-juice
-	content/0001_Fruit juice.html      Fruit juice     /fruit-juice.html
-	content/002_Fruit juice/index.html Fruit juice     /fruit-juice/
-	================================== =============== =================
+================================== =============== =================
+Name                               Title           URL              
+================================== =============== =================
+content/Fruit juice                Fruit juice     /fruit-juice
+content/fruit juice+ice            Fruit juice+ice /fruit-juice-ice
+content/0001_Fruit juice           Fruit juice     /fruit-juice
+content/0001_Fruit juice.html      Fruit juice     /fruit-juice.html
+content/002_Fruit juice/index.html Fruit juice     /fruit-juice/
+================================== =============== =================
 
 
 Page file structure
@@ -87,32 +85,30 @@ Headers
 
 All headers are optional. They must start on the first line and content start is signaled by a blank line after the headers. Headers are often referred to as front matter by static site generation engines.
 
-.. table:: Page headers
-
-	==================== ================== ======================================================================================
-	Name                 Default            Description                                                                           
-	==================== ================== ======================================================================================
-	categories           None               Comma separated list of categories, if exist then /category/<category> pages generated
-	description          None               Html meta tag description                                                             
-	exclude html minify  False              Disables HTML minifying of the page if True                                           
-	generate html        True               Enable/disable parsing of page content                                                
-	header profile       None               If specified default headers will be read from header_profiles/<value>                
-	link chain exclude   False              If True page will not be part of next- and previous-links                             
-	markup               rst                Can either be **rst** (default) for reStructuredText or **md** for Markdown           
-	menu exclude         False              Remove page (and child pages) from menu/crumb trail                                   
-	menu title           None               If set use for title in menu/crumb trail                                              
-	preserve file name   False              If True file name will be kept as-is in final url                                     
-	publish              Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past               
-	rss include          False              If set page is included in RSS feed (assuming site include_rss)                       
-	search index exclude False              Exclude page from search index                                                        
-	sitemap exclude      False              Remove page from sitemap                                                              
-	sitemap changefreq   None               Values: always, hourly, daily, weekly, monthly, yearly or never                       
-	sitemap lastmod      None               Format YYYY-MM-DD                                                                     
-	sitemap priority     None               Values between 0.0 and 1.0                                                            
-	tags                 None               Comma separated list of tags, if exist then /tag/<tag> pages generated                
-	template             page.tpl           Template file from /templates                                                         
-	title                None               If set overrides page title                                                           
-	==================== ================== ======================================================================================
+==================== ================== ======================================================================================
+Name                 Default            Description                                                                           
+==================== ================== ======================================================================================
+categories           None               Comma separated list of categories, if exist then /category/<category> pages generated
+description          None               Html meta tag description                                                             
+exclude html minify  False              Disables HTML minifying of the page if True                                           
+generate html        True               Enable/disable parsing of page content                                                
+header profile       None               If specified default headers will be read from header_profiles/<value>                
+link chain exclude   False              If True page will not be part of next- and previous-links                             
+markup               rst                Can either be **rst** (default) for reStructuredText or **md** for Markdown           
+menu exclude         False              Remove page (and child pages) from menu/crumb trail                                   
+menu title           None               If set use for title in menu/crumb trail                                              
+preserve file name   False              If True file name will be kept as-is in final url                                     
+publish              Date of generation Format YYYY-MM-DD, only generate pages (and sub pages) if today or past               
+rss include          False              If set page is included in RSS feed (assuming site include_rss)                       
+search index exclude False              Exclude page from search index                                                        
+sitemap exclude      False              Remove page from sitemap                                                              
+sitemap changefreq   None               Values: always, hourly, daily, weekly, monthly, yearly or never                       
+sitemap lastmod      None               Format YYYY-MM-DD                                                                     
+sitemap priority     None               Values between 0.0 and 1.0                                                            
+tags                 None               Comma separated list of tags, if exist then /tag/<tag> pages generated                
+template             pages.mako         Template file from /templates                                                         
+title                None               If set overrides page title                                                           
+==================== ================== ======================================================================================
 
 
 Page markup

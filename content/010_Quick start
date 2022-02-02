@@ -39,16 +39,17 @@ The above creates an example pagegen framework of files and folders in the **con
 Generate example site
 *********************
 
-We are now ready to generate the site. This will create the finished site in the *my_site/site/production/* directory.
+We are now ready to generate the site. This will create the finished site in the *my_site/site/production/* directory. The production environment comes from the config section name in **site.conf**.
 
 ::
 
-	$ pagegen --generate
+	$ pagegen --generate production
 
 The **my_site/site/production** directory now contains a freshly generated site ready for upload to a web server.
 
+When developing Pagegen can serve site locally and monitor files for changes, automatically trigging a regeneration and browser reload.
 
-Customize layout
-****************
+::
 
-Pagegen adds layout and navigation elements to each page when they are processed. To change the site look and feel change **my_site/page.template** and add required elements to **my_site/include** directory, e.g. css, images, javascript etc..
+	$ pagegen --serve production
+

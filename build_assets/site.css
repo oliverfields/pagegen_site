@@ -247,6 +247,7 @@ border-collapse: collapse;
 }
 th {
 border-bottom: 1px dotted #999;
+text-align: left;
 }
 td, th {
 padding: .4em;
