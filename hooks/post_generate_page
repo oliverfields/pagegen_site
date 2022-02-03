@@ -4,7 +4,7 @@ set -e
 
 if [ "$PAGEGEN_PAGE_HEADER_MENU_EXCLUDE" = "False" ] || [ "${PAGEGEN_PAGE_SOURCE_PATH##*/}" = "Search results" ]; then
 	rst_source_target_path="${PAGEGEN_PAGE_TARGET_PATH}.txt"
-	if [ ! -e "$rst_source_target_path" ]; then
+	if [ ! -e "$rst_source_target_path" ] && [ -e "$PAGEGEN_PAGE_SOURCE_PATH" ]; then
 		cp "$PAGEGEN_PAGE_SOURCE_PATH" "$rst_source_target_path"
 	fi
 fi
