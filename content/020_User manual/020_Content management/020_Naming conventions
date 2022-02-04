@@ -1,0 +1,48 @@
+Description: Pagegens naming convention of files and directories sets page titles, defines readable URLs and allows for sorting.
+Markup: md
+
+
+Pagegen uses the file or directory name to determine the final page title, URL and optionally menu sort order. The page path is used to create the final page URL.
+
+!!! note
+    Name syntax: sort order_title.extension
+
+
+!!! warning
+	The following names are reserved for Pagegen use, and cannot be used:
+	
+	* /sitemap.txt
+	* /sitemap.xml
+	* /assets
+
+
+## Title
+
+The page title will become the file or directory name without the sort order or extension (unless overridden using Title header, see below). The title can contain any legal file name character, except a period(.).
+
+
+## Sort order
+
+Pages are sorted in the menu by listing them alphabetically, to override the default sort files and directories can be prefixed by integers followed by an underscore. The sort prefix will be stripped from the title and URL.
+
+!!! tip
+	A good practice is to use increments of 10 when setting the sort prefix (010\_, 020\_, 030\_ etc.). This means an item can be added in the sequence with for instance 011\_ without having to rename all items.
+
+
+## Extension
+
+An extension is optional and is left as is. Directory index files can also have extensions.
+
+
+## Page URLs
+
+The page URL will be the path from the **content directory** to the file, converted to lower case. Where sort prefix is removed and all characters that are not a-z, 0-9, dash(-), underscore(_) or period(.) are replaced with dash(-), file extensions are kept, if they are present.
+
+| Name                               | Title           | URL               |
+| ---------------------------------- | --------------- | ----------------- |
+| content/Fruit juice                | Fruit juice     | /fruit-juice      |
+| content/fruit juice+ice            | Fruit juice+ice | /fruit-juice-ice  |
+| content/0001_Fruit juice           | Fruit juice     | /fruit-juice      |
+| content/0001_Fruit juice.html      | Fruit juice     | /fruit-juice.html |
+| content/002_Fruit juice/index.html | Fruit juice     | /fruit-juice/     |
+

@@ -1,0 +1,26 @@
+Description: Static content belongs in the assets and themes/&lt;theme name&gt;/assets directories.
+Markup: md
+
+A site needs static assets for things like Javascript, CSS and images. There are two asset directories that are copied to the **site/&lt;environment&gt;** directory on generation.
+
+When generating the site all contents in the **assets** directory is copied to the output directory (see [Site generation](/user-manual/site-generation)). Additionally the **themes/&lt;theme name&gt;/assets** directory is copied to the **ouput folder/assets/theme** directory.
+
+
+## CSS, Javascript and images
+
+Add content, such as CSS, Javascript and images (or anything else) to these directories to have them included with the generated site.
+
+
+## Minification
+
+HTML, CSS and Javascript may be minified by setting any of the following to options in **site.conf**.
+
+* minify_html=True
+* minify_css=True
+* minify_javascript=True
+
+
+## SASS
+
+Any **.sass** file in the templates/&lt;template name&gt;/assets directory will be automatically compiled to **.css**.
+

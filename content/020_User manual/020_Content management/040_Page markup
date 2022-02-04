@@ -1,0 +1,48 @@
+Description: Pagegen supports reStructuredText or Markdown markup.
+Markup: md
+
+Pages are marked up using either [reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/directives.html) or [Markdown](https://daringfireball.net/projects/markdown/). In **site.conf* setting **default_markup** can be either **rst** (the default) or **md**, pages can override the sitewide configuration by setting header **markup** in the page headers/front matter.
+
+Some files that comprise a web site may just be regular text files. These files can be setup by using the page header **generate html: false**, in which case Pagegen will dump file contents as-is, without running it through reStructuredText or Markdown engine.
+
+!!! tip
+	robots.txt or .htaccess are files that should be configured with **generate html: false** header.
+
+
+!!! warning
+	Graphviz support for either reStructuredText or Markdown requires Graphviz installed
+
+
+## reStructuredText support
+
+Pagegen supports standard reStructuredText. Also inline Graphviz graphs are supported, see [python-docutils-graphviz](https://pypi.org/project/python-docutils-graphviz/).
+
+
+## Markdown
+
+Pagegen Markdown is implemented by [Markdown](https://pypi.org/project/Markdown/), see the documentation for exact Markdown support. In addition inline Graphviz graphs are supported, syntax as follows:
+
+	<graphviz>dot my-graph.svg
+	digraph a {
+		b -> c -> d
+	}
+	</graphviz>
+
+The above produces the following:
+
+<graphviz>dot my-graph.svg
+	digraph a {
+		b -> c -> d
+	}
+</graphviz>
+
+There is support for other Graphviz commands, simply replace **dot** in the example above with any of the following:
+
+* dot
+* neato
+* fdp
+* sfdp
+* twopi
+* circo
+
+Replace .svg with .png to generate inline PNGs.

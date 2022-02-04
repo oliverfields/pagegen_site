@@ -1,0 +1,38 @@
+Description: Pages consist of zero or more headers and content, which can be plain text/html, reStructuredText or Markdown.
+Markup: md
+
+Content for each page consists of optional headers, containing any settings for the page, followed by a blank line and reStructuredText or Markdown markup.
+
+	[<header name>: <header value>]
+	[...]
+	
+	The rest is content marked up using reStructuredText or Markdown
+
+
+## Headers
+
+All headers are optional. They must start on the first line and content start is signaled by a blank line after the headers. Headers are often referred to as front matter by static site generation engines.
+
+| Name                 | Default            | Description                                                                            |
+| -------------------- | ------------------ | -------------------------------------------------------------------------------------- |
+| categories           | None               | Comma separated list of categories, if exist then /category/<category> pages generated |
+| description          | None               | Html meta tag description                                                              |
+| exclude html minify  | False              | Disables HTML minifying of the page if True                                            |
+| generate html        | True               | Enable/disable parsing of page content                                                 |
+| header profile       | None               | If specified default headers will be read from header_profiles/<value>                 |
+| link chain exclude   | False              | If True page will not be part of next- and previous-links                              |
+| markup               | rst                | Can either be **rst** (default) for reStructuredText or **md** for Markdown            |
+| menu exclude         | False              | Remove page (and child pages) from menu/crumb trail                                    |
+| menu title           | None               | If set use for title in menu/crumb trail                                               |
+| preserve file name   | False              | If True file name will be kept as-is in final url                                      |
+| publish              | Date of generation | Format YYYY-MM-DD, only generate pages (and sub pages) if today or past                |
+| rss include          | False              | If set page is included in RSS feed (assuming site include_rss)                        |
+| search index exclude | False              | Exclude page from search index                                                         |
+| sitemap exclude      | False              | Remove page from sitemap                                                               |
+| sitemap changefreq   | None               | Values: always, hourly, daily, weekly, monthly, yearly or never                        |
+| sitemap lastmod      | None               | Format YYYY-MM-DD                                                                      |
+| sitemap priority     | None               | Values between 0.0 and 1.0                                                             |
+| tags                 | None               | Comma separated list of tags, if exist then /tag/<tag> pages generated                 |
+| template             | pages.mako         | Template file from /templates                                                          |
+| title                | None               | If set overrides page title                                                            |
+

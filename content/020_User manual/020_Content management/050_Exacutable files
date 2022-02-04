@@ -1,0 +1,13 @@
+Description: Pages may be output from executable files. If a file is executable it is run at time of site generation, and the output used as basis for further processing.
+Markup: md
+
+Content files may be executables. If a file is executable its content from stdout will be used instead of actual file content. The output form the executable is treated identically to a regular content file, so it may specify headers and non-header content will be passed to the appropriate markup engine.
+
+## Example shell script
+
+	#!/bin/bash
+	
+	#Print any desired headers, e.g.
+	echo "Title: This will be the page title"
+	echo "" # Start content
+	echo "$(hostname)"
