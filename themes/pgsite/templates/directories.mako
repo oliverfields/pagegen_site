@@ -1,10 +1,10 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
-	<ol>
+	<ul>
 	% for c in page.children:
 		<li><a href="${c.url_path}">${c.title}</a></li>
 	% endfor
-	</ol>
+	</ul>
 </%block>
 

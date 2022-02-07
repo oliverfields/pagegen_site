@@ -7,7 +7,7 @@ On generation Pagegen will build site from pages in **content directory**. The c
 
 The **environment** is the name of the section in **site.conf**.
 
-After generation the generated HTML will be in the **site directory/<environment>**, simply copy this directory to your web server to go live.
+After generation the generated HTML will be in the **site directory/&lt;environment&gt;**, simply copy this directory to your web server to go live.
 
 
 ## Environments

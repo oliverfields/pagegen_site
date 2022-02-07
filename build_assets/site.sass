@@ -1,0 +1,370 @@
+$page-background: #FCFDFF
+$main-text: #3E4349
+$page-width: 940px
+$sidebar-width: 270px
+$content-width: 610px
+$hover-highlight: #000
+$light-background: #EEE
+$light-border: #CCC
+
+
+html
+  -webkit-text-size-adjust: 100%
+
+body
+	background-color: $page-background
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
+	margin: 0
+	padding: 0
+	border: 0
+	outline: 0
+	font-size: 16px
+	vertical-align: baseline
+	color: $main-text
+	font-family: Helvetica,sans-serif
+	line-height: 1em
+
+ul
+	list-style-type: square
+
+#page
+	margin: 0 auto
+	width: $page-width
+
+#sidebar
+	position: fixed
+	width: $sidebar-width
+	overflow-y: auto
+	max-height: 100%
+	padding-right: 1em
+
+#content
+	float: right
+	width: $content-width
+
+#top-bar a
+	border: none
+
+#hamburger
+	display: block
+	margin: .2em
+	font-size: 1.2em
+	float: right
+
+#top-bar svg
+	height: 1em
+	width: auto
+	margin: .3em 0 .3em .5em
+	display: inline-block
+
+.clearfix::after
+	content: ""
+	clear: both
+	display: table
+
+#footer
+	text-align: right
+	margin: 2em auto
+	font-size: 13px
+	line-height: 20px
+
+#footer a
+	border: none
+
+#footer img
+	position: relative
+	top: 1px
+
+#top-bar
+	display: none
+
+@media screen and (max-width: $page-width)
+	.side-content
+		width: unset !important
+		margin: 1em 0 !important
+		float: none !important
+		clear: both
+
+	#blurb, #page-logo
+		display: none !important
+
+	h1.first
+		margin: 1.5em 0 .8em 0 !important
+
+	#top-bar
+		background-color: $light-background
+		height: 2em
+		width: 100%
+		position: fixed
+		top: 0
+		left: 0
+		display: block
+
+	#footer
+		text-align: center !important
+
+	#sidebar
+		margin: 2em auto
+		width: 390px
+		position: static !important
+		padding-right: 0
+		display: none
+
+	#content
+		margin: 0 auto
+		float: none
+		padding: 0 1.8em
+		width: unset
+
+	#page
+		width: 100%
+
+	#sidebar ol
+		width: $sidebar-width
+		margin: 0 auto !important
+
+#page-logo
+	display: block
+	margin: 2em auto 1em auto
+	border: none
+	width: 160px
+	color: $main-text
+
+#page-logo:hover
+	color: $hover-highlight
+
+#sidebar ol
+	list-style: none
+	padding-left: 10px
+	margin: 0
+
+#sidebar li
+	line-height: 1.6em
+	margin-left: 10px
+	margin-bottom: 5px
+	white-space: nowrap;
+
+#blurb
+	text-align: center
+	margin: .6em 0 1em 0
+	border-top: 1px dotted #999
+	border-bottom: 1px dotted #999
+	padding: 1em 0
+	font-size: 1.1em
+
+#blurb span
+	font-size: .8em
+	color: $main-text
+	font-style: italic
+
+#sidebar ol a
+	border-bottom: 1px dotted #444
+	text-decoration: none
+	color: #444
+
+#sidebar ol a:hover
+	color: $hover-highlight
+	border-bottom-color: $hover-highlight
+
+p
+	line-height: 1.4em
+	margin: 1em 0
+
+hr
+	border: none
+	border-top: 1px dotted #444
+	margin: 1em 0
+
+a
+	border-bottom: 1px dotted #444
+	text-decoration: none
+	color: #444
+
+a:hover
+	color: $hover-highlight
+	border-bottom-color: $hover-highlight
+
+.admonition
+	margin: 1em 0
+	padding: .6em 2em
+	background-color: $light-background
+	border: 1px solid $light-border
+
+.admonition p
+	margin: 0 0 .2em 0
+
+.admonition-title
+	font-size: 1.6em
+
+h1, h2, h3, h4
+	font-family: Tahoma, sans-serif
+	font-weight: normal
+	margin: 1.2em 0 .6em 0
+
+h1
+	font-size: 2.6em
+
+h2
+	font-size: 2em
+
+h3
+	font-size: 1.8em
+
+h4
+	font-size: 1.4em
+
+h1.first
+	margin: .2em 0 1em 0
+	clear: both
+
+pre
+	line-height: 1.4em
+	margin: 1em
+	padding: .6em 1em
+	background-color: $light-background
+	font-family: 'Courier New', monospace
+	overflow-x: auto
+	overflow-y: auto
+
+blockquote
+	line-height: 1.4em
+	margin: .6em 1em
+	padding: .6em 1em
+	background-color: $light-background
+
+ul, ol
+	margin: .6em 0
+	padding-left: 2em
+
+li
+	line-height: 1.8em
+
+dl
+	margin: .6em 0
+	padding-left: 2em
+
+dt
+	font-weight: bold
+
+dd
+	margin: .6em 2em 1em 2em
+
+table
+	margin: .6em 1.6em
+	border-collapse: collapse
+
+th
+	border-bottom: 1px dotted #999
+	text-align: left
+
+td, th
+	padding: .4em
+
+a.image-reference
+	border: none
+
+i.sub-menu-toggle
+	margin-left: .2em
+	cursor: pointer
+
+#pagegen-current-page
+	font-weight: bold
+
+#previous-link
+	float: left
+	display: inline-block
+
+#previous-link i
+	margin-right: .6em
+
+#next-link
+	float: right
+	display: inline-block
+
+#next-link i
+	margin-left: .6em
+
+#previous-link a, #next-link a
+	border-bottom: none
+
+.prev-next-links
+	margin: 2em 0 3em 0
+
+#project-info
+	list-style: none
+	border-top: 1px dotted #999
+	margin-top: 1em
+	padding-top: 1em
+
+#project-info li
+	line-height: 1.8em
+
+#menu
+	margin-bottom: 1.5em
+
+.github-button-container
+	margin: .8em auto 1em auto
+	width: 191px
+
+.side-content
+	width: 280px
+	margin: 0 0 1em 1em
+	float: right
+	background-color: $light-background
+	border: 1px solid $light-border
+	text-align: center
+	padding: 1em
+
+.side-content h2
+	margin: 0 0 .2em 0
+
+.side-content pre
+	background-color: #333
+	color: #ddd
+
+#footer-logo svg
+	height: 16px
+	width: 72.7px
+	display: inline-block
+
+#footer-logo a
+	color: $main-text
+
+#footer-logo:hover
+	color: $hover-highlight 
+
+#search-query
+	max-width: 191px
+	border: solid 1px #999
+	border-radius: 3px 0 0 3px
+	padding: 4px
+
+#search-submit
+	max-width: 56px
+	margin-left: -5px
+	border: solid 1px #999
+	border-radius: 0 3px 3px 0
+	padding: 4px
+
+#search-form
+	margin: 1em auto
+	width: $sidebar-width
+
+.search-hit
+	line-height: 2.5em
+	margin-bottom: 1em
+
+.search-hit a
+	font-weight: bold
+
+.search-hit p
+	margin: 0
+
+#hit-count
+	margin-bottom: 1em
+	font-style: italic
+
+#search-query:focus
+	outline: none
+

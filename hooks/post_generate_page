@@ -2,10 +2,15 @@
 
 set -e
 
-if [ "$PAGEGEN_PAGE_HEADER_MENU_EXCLUDE" = "False" ] || [ "${PAGEGEN_PAGE_SOURCE_PATH##*/}" = "Search results" ]; then
-	rst_source_target_path="${PAGEGEN_PAGE_TARGET_PATH}.txt"
-	if [ ! -e "$rst_source_target_path" ] && [ -e "$PAGEGEN_PAGE_SOURCE_PATH" ]; then
-		cp "$PAGEGEN_PAGE_SOURCE_PATH" "$rst_source_target_path"
+# If page is in menu, then create a copy of source markup in source folder
+if [ "$PAGEGEN_PAGE_HEADER_MENU_EXCLUDE" = "False" ]; then
+	markup_target_path="${PAGEGEN_PAGE_TARGET_PATH}.txt"
+	if [ ! -e "$markup_target_path" ]; then
+		if [ -e "$PAGEGEN_PAGE_SOURCE_PATH" ]; then
+			cp "$PAGEGEN_PAGE_SOURCE_PATH" "$markup_target_path"
+		else
+			echo "This page was automatically created, it has no source file to show" > "$markup_target_path"
+		fi
 	fi
 fi
 

@@ -33,7 +33,7 @@ The above commands will generate the site and make it available to browse on loc
 
 The **--init** argument creates an example site in the current directory. The default **site.conf** has one section called **Production**, when calling **pagegen --serve** or **pagegen --generate** it is required to specify the configuration section to use.
 
-To just generate the site, use **pagegen --generate <config section>**, the generated site will be in the **site/<config section>** directory, all ready for uploading to a web server.
+To just generate the site, use **pagegen --generate &lt;config section&gt;**, the generated site will be in the **site/<config section>** directory, all ready for uploading to a web server.
 
 .. warning::
 
