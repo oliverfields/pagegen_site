@@ -1,12 +1,12 @@
 Markup: md
-Description: Example setup for rusing Github actions to build and deply Pagegen site.
+Description: Example setup for using Github actions to build and deploy Pagegen site.
 
 <div class="side-content">
 <h2>Github Actions</h2>
 <p>Github Actions are a continuous integration and continuous delivery (CI/CD) platform for running automated building, test, and deployment pipelines.</p>
 </div>
 
-Generating static pages is of course a major element of using static site generators. When working on a site, typically it is generated often, so it pays to steamline this step. When working locally regeneration can be automatic with **pagegen --serve <environment>** command, but for production a deployment pipeline is a common approach. The following will explain how the pipeline setup for this site which uses Github Actions.
+Generating static pages is of course a major element of using static site generators. When working on a site, typically it is generated often, so it pays to streamline this step. When working locally regeneration can be automatic with **pagegen --serve &lt;environment&gt;** command, but for production a deployment pipeline is a common approach. The following will explain how the pipeline setup for this site which uses Github Actions.
 
 
 ## Overview pagegen.phnd.net pipeline
@@ -33,7 +33,7 @@ Once content is created and pushed to the [pagegen.phnd.net repository](https://
 
 ## deploy_site.yml highlights
 
-The following describes key aspects of the workflow configuration. Github ofcourse provides [full documentation](https://docs.github.com/en/actions).
+The following describes key aspects of the workflow configuration. Github of course provides [full documentation](https://docs.github.com/en/actions).
 
 First conditions for running the workflow are defined, in this case a push to the master branch will trigger the workflow.
 
@@ -44,7 +44,7 @@ First conditions for running the workflow are defined, in this case a push to th
 	    branches:
 	      - master
 
-Further the job steps are defined, the first few basically choose Ubuntu as OS, install Python and checkout the repo so it is available for generation and installs pagegen.
+Further the job steps are defined, the first few basically choose Ubuntu as OS, install Python and checkout the repository so it is available for generation and installs pagegen.
 
 	jobs:
 	  build_job:
@@ -62,7 +62,7 @@ Further the job steps are defined, the first few basically choose Ubuntu as OS, 
 	      run: |
 	        pip install pagegen
 
-The next step is to run the pagegen command on the checked out repo (the **Checkout website source step** above) and finally to upload the site to FTP server. The FTP upload is implemented as a [script](https://github.com/oliverfields/pagegen_site/blob/master/hooks/deploy) that gets run by Pagegens deploy_hook.
+The next step is to run the pagegen command on the checked out repository (the **Checkout website source step** above) and finally to upload the site to FTP server. The FTP upload is implemented as a [script](https://github.com/oliverfields/pagegen_site/blob/master/hooks/deploy) that gets run by Pagegens deploy_hook.
 
 	    - name: Generate site
 	      id: run-pagegen

@@ -7,7 +7,7 @@ Description: Introduction to Pagegen setup and getting started with site generat
 
 	pip install pagegen
 
-Can also be used in a vitual environment.
+Can also be used in a virtual environment.
 
 ::
 
@@ -47,7 +47,7 @@ We are now ready to generate the site. This will create the finished site in the
 
 The **my_site/site/production** directory now contains a freshly generated site ready for upload to a web server.
 
-When developing Pagegen can serve site locally and monitor files for changes, automatically trigging a regeneration and browser reload.
+When developing Pagegen can serve site locally and monitor files for changes, automatically triggering a regeneration and browser reload.
 
 ::
 

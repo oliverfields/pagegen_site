@@ -12,7 +12,7 @@ After generation the generated HTML will be in the **site directory/&lt;environm
 
 ## Environments
 
-Pagegen supports defining settings for multiple environments, so that the site may be generated with variations. The environment is also available as an environment variable to the hook scripts to allowing making customizations for the various environments.
+Pagegen supports defining settings for multiple environments, so that the site may be generated with variations. The environment is also available as an environment variable to the hook scripts to allowing making customization's for the various environments.
 
 A test environment could be generated with settings for absolute paths and .html extension so can test locally without web server, whilst a production environment may have no .html extension for clean urls and the post_generate hook could copy the site to FTP server.
 
