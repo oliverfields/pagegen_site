@@ -1,0 +1,88 @@
+Markup: md
+
+Shortcodes are shorthand to make managing content easier. They can be used in content or templates. The following shortcode in a page content creates a HTML figure.
+
+<div class="pre-lookalike">&lt;sc&gt;figure('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')&lt;/sc&gt;</div>
+
+Shortcodes may be used in templates like so.
+
+	<% print(shortcodes['figure']('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')) %>
+
+
+The shortcode **figure** will generate the following HTML.
+
+	<figure>
+	<img src="/assets/images/eagle.jpg" alt="Eagle">
+	<figcaption>A bald eagle observes</figcaption>
+	</figure>
+
+Which looks like this:
+
+<sc>figure(self.page, 'A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')</sc>
+
+
+## Creating new shortcodes
+
+Shortcodes are Python functions(def) defined in root site directory **shortcodes.py**. Shortcode functions must return a string.
+
+The figure shortcode above could be written in **shortcodes.py** as follows:
+
+	def figure(caption, alternative_text, src_path):
+	
+		html = '<figure>\n'
+		html += '<img src="' + src_path + '" alt="' + alternative_text + '">\n'
+		html += '<figcaption>' + caption + '</figcaption>\n'
+		html += '</figure>\n'
+	
+		return html
+
+!!! Warning
+	All shortcodes must return a string value.
+
+
+## Return reStructuredText or Markdown?
+
+Shortcodes are run before the page is converted to html, meaning the shortcode return value is evaluated as either reStructuredText or Markdown, dependant on the page. Therefore shortcodes need to return strings that are compatible with the markup engine that will process them further.
+
+The example above will work with Markdown, but to make it compatable with reStructuredText additional markup needs to be added.
+
+	def figure(caption, alternative_text, src_path):
+	
+		html = '.. raw:: html\n\n'
+		html = '	<figure>\n'
+		html += '	<img src="' + src_path + '" alt="' + alternative_text + '">\n'
+		html += '	<figcaption>' + caption + '</figcaption>\n'
+		html += '	</figure>\n'
+	
+		return html
+
+
+## self.page and self.site
+
+Shortcodes have access to the Python objects page and site which are internal to Pagegen. To give a shortcode access to them, they need to be passed from the &lt;sc&gt; tag, notice the **self.page** below.
+
+<div class="pre-lookalike">&lt;sc&gt;figure(self.page, 'A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')&lt;/sc&gt;</div>
+
+Now the shortcode needs to be updated to handle the new page parameter and use it to determine if it should return markup for reStructuredText or Markdown.
+
+	def figure(page, caption, alternative_text, src_path):
+	
+		if page.markup == 'rst':
+			html_prefix = '.. raw:: html\n\n\t'
+			indent = '\t'
+		else: # Markdown
+			html_prefix = ''
+			indent = ''
+	
+		html = html_prefix + '<figure>\n'
+		html += indent + '<img src="' + src_path + '" alt="' + alternative_text + '">\n'
+		html += indent + '<figcaption>' + caption + '</figcaption>\n'
+		html += indent + '</figure>\n'
+	
+		return html
+
+## Built in shortcodes
+
+Pagegen ships with ready to use built in shortcodes. Built in shortcodes will be overridden if a shortcode defined in **shortcodes.py** has same name.
+
+<!-- TODO: List built in shortcodes -->

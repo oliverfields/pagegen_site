@@ -1,7 +1,7 @@
 Description: Introduction to Pagegen setup and getting started with site generation.
 
 .. note::
-	For in depth documentation please see `user manual </user-manual>`_.
+	For in depth documentation please see `User manual <<sc>page_url(self.site, '/user-manual/index')</sc>>`_.
 
 ::
 

@@ -29,7 +29,7 @@ from os.path import isfile
 <% css = Path(site_dir + '/build_assets/min.css').read_text() %>
 ${css}
     </style>
-% if environment == 'production':
+% if environment == 'prod':
     <meta name=\"google-site-verification\" content=\"h9pxP5_cbPYfxaHUtlg4XGHgB_WR9G2pmapS8qShDSM\" />
     <script type=\"text/javascript\">
       var _gaq = _gaq || [];

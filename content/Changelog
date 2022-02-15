@@ -8,6 +8,7 @@ wget -qO "$clog_tmp" "$clog_url"
 echo "Menu exclude: True"
 echo "Generate HTML: False"
 echo "Link chain exclude: True"
+echo "Disable shortcodes: True"
 echo ""
 
 sed -r 's/^#\ (.*)/<h1>\1<\/h1>/ ; s/^##\ (.*)/<h2>\1<\/h2>/ ; s/^###\ (.*)/<h3>\1<\/h3>/ ; s/^-\ (.*)/<li>\1<\/li>/' "$clog_tmp" \

@@ -3,3 +3,4 @@ build_assets/deploy_env_secrets
 build_assets/min.css
 build_assets/min.js
 pagegen.prof
+__pycache__

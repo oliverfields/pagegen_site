@@ -1,4 +1,4 @@
 Description: Pagegen user manual covers site installation, content management, site generation, design and layout, hooks and web server configuration tips.
 
 .. note::
-	Want to start playing straight away? Please see `quick start </quick-start>`_.
+	Want to start playing straight away? Please see `Quick start <<sc>page_url(self.site, '/quick-start')</sc>>`_.
