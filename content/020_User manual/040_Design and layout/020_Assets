@@ -3,7 +3,7 @@ Markup: md
 
 A site needs static assets for things like Javascript, CSS and images. There are two asset directories that are copied to the **site/&lt;environment&gt;** directory on generation.
 
-When generating the site all contents in the **assets** directory is copied to the output directory (see [Site generation](/user-manual/site-generation)). Additionally the **themes/&lt;theme name&gt;/assets** directory is copied to the **ouput folder/assets/theme** directory.
+When generating the site all contents in the **assets** directory is copied to the output directory (see [Site generation](/user-manual/site-generation)). Additionally the **themes/&lt;theme name&gt;/assets** directory is copied to the **output folder/assets/theme** directory.
 
 
 ## CSS, Javascript and images

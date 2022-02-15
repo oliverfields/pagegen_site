@@ -44,7 +44,7 @@ The figure shortcode above could be written in **shortcodes.py** as follows:
 
 Shortcodes are run before the page is converted to html, meaning the shortcode return value is evaluated as either reStructuredText or Markdown, dependant on the page. Therefore shortcodes need to return strings that are compatible with the markup engine that will process them further.
 
-The example above will work with Markdown, but to make it compatable with reStructuredText additional markup needs to be added.
+The example above will work with Markdown, but to make it compatible with reStructuredText additional markup needs to be added.
 
 	def figure(caption, alternative_text, src_path):
 	
