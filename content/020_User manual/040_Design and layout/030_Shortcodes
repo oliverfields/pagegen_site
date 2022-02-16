@@ -1,10 +1,12 @@
 Markup: md
 
-Shortcodes are shorthand to make managing content easier. They can be used in content or templates. The following shortcode in a page content creates a HTML figure.
+Shortcodes are shorthand to make managing content easier.
+
+They can be used in content or templates as follows.
 
 <div class="pre-lookalike">&lt;sc&gt;figure('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')&lt;/sc&gt;</div>
 
-Shortcodes may be used in templates like so.
+Or they can be used in templates like so.
 
 	<% print(shortcodes['figure']('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')) %>
 
@@ -23,7 +25,7 @@ Which looks like this:
 
 ## Creating new shortcodes
 
-Shortcodes are Python functions(def) defined in root site directory **shortcodes.py**. Shortcode functions must return a string.
+Shortcodes are Python functions(def) defined in **shortcodes.py**, in the site root directory. Shortcode functions must return a string.
 
 The figure shortcode above could be written in **shortcodes.py** as follows:
 
@@ -59,11 +61,16 @@ The example above will work with Markdown, but to make it compatible with reStru
 
 ## self.page and self.site
 
-Shortcodes have access to the Python objects page and site which are internal to Pagegen. To give a shortcode access to them, they need to be passed from the &lt;sc&gt; tag, notice the **self.page** below.
+Shortcodes have access to the internal Pagegen objects site and page, both regular Python objects. To give a shortcode access to them, they need to be passed from the &lt;sc&gt; tag, notice the **self.page** below.
 
 <div class="pre-lookalike">&lt;sc&gt;figure(self.page, 'A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')&lt;/sc&gt;</div>
 
-Now the shortcode needs to be updated to handle the new page parameter and use it to determine if it should return markup for reStructuredText or Markdown.
+From templates use **page** and **site** (without self).
+
+
+## Shortcodes to handle both markups
+
+Now the shortcode can be updated to handle the new page parameter and use it to determine if it should return markup for reStructuredText or Markdown.
 
 	def figure(page, caption, alternative_text, src_path):
 	
