@@ -89,7 +89,8 @@ ${css}
             <input type="submit" id="search-submit" value="Search" />
           </form>
         </div><!-- /search-form -->
-        <div id="menu">${page.menu}</div>
+        <% menu = shortcodes['menu'](site.pages, page) %>
+        <div id="menu">${menu}</div>
         <ol id="project-info">
           <li><i class="fas bug-3E4349"></i> <a href="https://github.com/oliverfields/pagegen_site/issues">Issue tracker</a></li>
           <li><i class="fas envelope-3E4349"></i> <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></li>
