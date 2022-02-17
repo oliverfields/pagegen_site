@@ -69,12 +69,20 @@ function toggle_sidebar() {
 
 
 window.onresize = function() {
+
     var sidebar = document.getElementById('sidebar');
     if(window.innerWidth > 940) {
+      alert('hey');
       if(sidebar.style.display != 'block') sidebar.style.display = 'block';
     }
     if(window.innerWidth <= 940) {
-      if(sidebar.style.display = 'block') sidebar.style.display = 'none';
+      if(sidebar.style.display == 'block') {
+        var h = document.getElementById('hamburger');
+        // Only hide if hamburgur icon is in effect
+        if(h.classList.contains('bars-3E4349')) {
+          sidebar.style.display = 'none';
+        }
+      }
     }
 };
 
