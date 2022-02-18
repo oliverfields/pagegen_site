@@ -11,6 +11,6 @@ if [ "$check_links" = "y" ]; then
 
   linkchecker -ocsv $PAGEGEN_BASE_URL | sed '/^#/d ; /^mailto:pagegen@phnd.net/d' > "$link_log"
   if [ "$(wc -l "$link_log")" != "1 $link_log" ]; then
-    localc "$link_log"
+    less "$link_log"
   fi
 fi
