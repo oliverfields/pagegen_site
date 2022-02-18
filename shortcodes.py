@@ -1,15 +1,19 @@
-def figure(page, caption, alternative_text, src_path):
+from os.path import isfile
+from pagegen.utility import appropriate_markup, DIRDEFAULTFILE
 
-	if page.markup == 'rst':
-		html_prefix = '.. raw:: html\n\n\t'
-		indent = '\t'
-	else: # Markdown
-		html_prefix = ''
-		indent = ''
 
-	html = html_prefix + '<figure>\n'
-	html += indent + '<img src="' + src_path + '" alt="' + alternative_text + '">\n'
-	html += indent + '<figcaption>' + caption + '</figcaption>\n'
-	html += indent + '</figure>\n'
+def source_link(page):
+	''' Return link to source file, if it exists '''
+
+	if isfile(page.target_path + '.txt'):
+
+		url = page.url_path
+
+		if url.endswith('/'):
+			url += DIRDEFAULTFILE
+
+		html = '<br /><a href="' + url + '.txt" title="Page source" target="_blank"><i class="fas code-999999"></i></a>'
+	else:
+		html = ''
 
 	return html
