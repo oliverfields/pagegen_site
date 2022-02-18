@@ -1,4 +1,5 @@
 Markup: md
+Description: Shortcodes are shorthand to make managing content easier. They can be used in content or templates.
 
 Shortcodes are shorthand to make managing content easier. They can be used in content or templates.
 
@@ -46,7 +47,7 @@ The figure shortcode above could be written in **shortcodes.py** as follows. Rem
 
 Most shortcodes will want access to either the site or page objects that Pagegen creates. To give a shortcode access to them, they are automatically passed to the shortcode function. This happens automatically from the &lt;sc&gt; tag, but need to be explicitly used when calling shortcodes in the templates.
 
-These variables are automatically available in all templates. The tradeoff to this inconsistency, between &lt;sc&gt; tag and template arguments, is to keep the tags more succinct.
+These variables are automatically available in all templates. The trade off to this inconsistency, between &lt;sc&gt; tag and template arguments, is to keep the tags more succinct.
 
 
 ## Return reStructuredText or Markdown?
