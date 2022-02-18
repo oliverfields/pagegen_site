@@ -1,15 +1,15 @@
 Markup: md
 
-Shortcodes are shorthand to make managing content easier.
+Shortcodes are shorthand to make managing content easier. They can be used in content or templates.
 
-They can be used in content or templates as follows.
+In content they are as follows.
 
 <div class="pre-lookalike">&lt;sc&gt;figure('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')&lt;/sc&gt;</div>
 
 Or they can be used in templates like so.
 
-	<% print(shortcodes['figure']('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')) %>
-
+	<% f = (shortcodes['figure'](site, page, 'A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')) %>
+	${f}
 
 The shortcode **figure** will generate the following HTML.
 
@@ -20,16 +20,19 @@ The shortcode **figure** will generate the following HTML.
 
 Which looks like this:
 
-<sc>figure(self.page, 'A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')</sc>
+<sc>figure('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')</sc>
 
 
 ## Creating new shortcodes
 
-Shortcodes are Python functions(def) defined in **shortcodes.py**, in the site root directory. Shortcode functions must return a string.
+Shortcodes are Python functions(def) defined in **shortcodes.py**, in the site root directory. Shortcode functions must:
 
-The figure shortcode above could be written in **shortcodes.py** as follows:
+- Accept at least site and page objects as arguments e.g **def my_sc(site, page[, any other arguments])**
+- Return a string
 
-	def figure(caption, alternative_text, src_path):
+The figure shortcode above could be written in **shortcodes.py** as follows. Remember that all shortcode functions must accept site and page arguments.
+
+	def figure(site, page, caption, alternative_text, src_path):
 	
 		html = '<figure>\n'
 		html += '<img src="' + src_path + '" alt="' + alternative_text + '">\n'
@@ -38,8 +41,12 @@ The figure shortcode above could be written in **shortcodes.py** as follows:
 	
 		return html
 
-!!! Warning
-	All shortcodes must return a string value.
+
+## Site and page
+
+Most shortcodes will want access to either the site or page objects that Pagegen creates. To give a shortcode access to them, they are automatically passed to the shortcode function. This happens automatically from the &lt;sc&gt; tag, but need to be explicitly used when calling shortcodes in the templates.
+
+These variables are automatically available in all templates. The tradeoff to this inconsistency, between &lt;sc&gt; tag and template arguments, is to keep the tags more succinct.
 
 
 ## Return reStructuredText or Markdown?
@@ -48,7 +55,7 @@ Shortcodes are run before the page is converted to html, meaning the shortcode r
 
 The example above will work with Markdown, but to make it compatible with reStructuredText additional markup needs to be added.
 
-	def figure(caption, alternative_text, src_path):
+	def figure(site, page, caption, alternative_text, src_path):
 	
 		html = '.. raw:: html\n\n'
 		html = '	<figure>\n'
@@ -59,20 +66,11 @@ The example above will work with Markdown, but to make it compatible with reStru
 		return html
 
 
-## self.page and self.site
+## Shortcodes to handle the different markups
 
-Shortcodes have access to the internal Pagegen objects site and page, both regular Python objects. To give a shortcode access to them, they need to be passed from the &lt;sc&gt; tag, notice the **self.page** below.
+The figure shortcode example can be updated to use the page object to determine if it should return markup for reStructuredText or Markdown.
 
-<div class="pre-lookalike">&lt;sc&gt;figure(self.page, 'A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')&lt;/sc&gt;</div>
-
-From templates use **page** and **site** (without self).
-
-
-## Shortcodes to handle both markups
-
-Now the shortcode can be updated to handle the new page parameter and use it to determine if it should return markup for reStructuredText or Markdown.
-
-	def figure(page, caption, alternative_text, src_path):
+	def figure(site, page, caption, alternative_text, src_path):
 	
 		if page.markup == 'rst':
 			html_prefix = '.. raw:: html\n\n\t'
@@ -88,8 +86,12 @@ Now the shortcode can be updated to handle the new page parameter and use it to 
 	
 		return html
 
+
 ## Built in shortcodes
 
-Pagegen ships with ready to use built in shortcodes. Built in shortcodes will be overridden if a shortcode defined in **shortcodes.py** has same name.
+Pagegen ships with ready to use built in shortcodes. Built in shortcodes will be overridden if a shortcode defined in **shortcodes.py** has the same name.
 
-<!-- TODO: List built in shortcodes -->
+!!! Tip
+	When using &lt;sc&gt; tag, omit the site and page arguments, they get passed automatically.
+
+<sc>list_shortcodes()</sc>

@@ -72,7 +72,6 @@ window.onresize = function() {
 
     var sidebar = document.getElementById('sidebar');
     if(window.innerWidth > 940) {
-      alert('hey');
       if(sidebar.style.display != 'block') sidebar.style.display = 'block';
     }
     if(window.innerWidth <= 940) {

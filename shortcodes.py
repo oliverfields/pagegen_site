@@ -2,7 +2,7 @@ from os.path import isfile
 from pagegen.utility import appropriate_markup, DIRDEFAULTFILE
 
 
-def source_link(page):
+def source_link(site, page):
 	''' Return link to source file, if it exists '''
 
 	if isfile(page.target_path + '.txt'):
@@ -17,3 +17,30 @@ def source_link(page):
 		html = ''
 
 	return html
+
+
+def list_shortcodes(site, page):
+	''' List built-in shortcodes '''
+
+	sc_built_in_whitelist = [
+		'figure',
+		'image',
+		'integrity_hash',
+		'menu',
+		'page_url',
+		'youtube',
+	]
+
+	scs = site.shortcodes.__repr__()
+
+	html = '<ul>'
+
+	for sc in scs.splitlines():
+		for bsc in sc_built_in_whitelist:
+			if sc.startswith(bsc + '('):
+				html += '<li><code>' + sc + '</code></li>'
+				break
+
+	html += '</ul>'
+
+	return appropriate_markup(page, html)
