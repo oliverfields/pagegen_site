@@ -1,4 +1,4 @@
-personal_ws-1.1 en 140 
+personal_ws-1.1 en 141 
 AddOutputFilterByType
 CCCCCC
 DOMContentLoaded
@@ -112,6 +112,7 @@ sfdp
 shortcode
 shortcodes
 sitemap
+sitemaptxt
 skel
 src
 stdout
