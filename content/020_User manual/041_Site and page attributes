@@ -1,0 +1,84 @@
+Description: Two main objects are used to create a site, site and page. These are available in to both templates and shortcodes.
+Markup: md
+
+Two main objects are used to create a site, site and page. These are available in to both templates and shortcodes.
+
+In templates use **${&lt;name&gt;}** to print value, e.g. **${page.title}**.
+
+## Page attributes
+
+- page.absolute_url
+- page.base_url
+- page.children
+- page.content
+- page.crumb_trail
+- page.custom_headers
+- page.default_extension
+- page.environment
+- page.extension
+- page.headers
+- page.hook_environment
+- page.html
+- page.markup
+- page.menu_title
+- page.next_page
+- page.page_file_name
+- page.parent
+- page.previous_page
+- page.raw_headers
+- page.site_dir
+- page.source_path
+- page.target_dir
+- page.target_path
+- page.title
+- page.url_include_index
+- page.url_path
+
+
+## Site attributes
+
+- absolute_urls
+- asset_dir
+- base_url
+- categories
+- category_dir
+- category_title
+- content_dir
+- default_extension
+- default_markup
+- default_templates
+- description_warn_max
+- description_warn_min
+- environment
+- exclude_sitemap
+- image_classes
+- include_rss
+- include_search
+- link_sequence
+- max_rss_items
+- minify_css
+- minify_html
+- minify_javascript
+- page_list
+- page_titles
+- pages
+- rss
+- rss_description
+- rss_sequence
+- rss_title
+- search_xpaths
+- serve_mode
+- site_dir
+- sitemap
+- sitemaptxt
+- tag_dir
+- tag_title
+- tags
+- target_dir
+- theme
+- theme_asset_dir
+- theme_template_dir
+- title_warn_max
+- title_warn_min
+- url_include_index
+
