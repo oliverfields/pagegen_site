@@ -45,7 +45,7 @@ The figure shortcode above could be written in **shortcodes.py** as follows. Rem
 
 ## Site and page
 
-Most shortcodes will want access to either the site or page objects that Pagegen creates. To give a shortcode access to them, they are automatically passed to the shortcode function. This happens automatically from the &lt;sc&gt; tag, but need to be explicitly used when calling shortcodes in the templates.
+Most shortcodes will want access to either the <a href="<sc>page_url('/user-manual/site-and-page-attributes')</sc>">site or page attributes</a> that Pagegen creates. To give a shortcode access to them, they are automatically passed to the shortcode function. This happens automatically from the &lt;sc&gt; tag, but need to be explicitly used when calling shortcodes in the templates.
 
 These variables are automatically available in all templates. The trade off to this inconsistency, between &lt;sc&gt; tag and template arguments, is to keep the tags more succinct.
 
