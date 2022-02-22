@@ -1,9 +1,9 @@
-Description: Two main objects are used to create a site, site and page. These are available in to both templates and shortcodes.
+Description: Two main objects are used to create a site, site and page. These are available in both templates and shortcodes.
 Markup: md
 Menu exclude: True
 Link chain exclude: True
 
-Two main objects are used to create a site, site and page. These are available in to both templates and shortcodes.
+Two main objects are used to create a site, site and page. These are available in both templates and shortcodes.
 
 In templates use **${&lt;name&gt;}** to print value, e.g. **${page.title}**.
 
