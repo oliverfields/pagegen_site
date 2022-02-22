@@ -21,7 +21,7 @@ The shortcode **figure** will generate the following HTML.
 
 Which looks like this:
 
-<sc>figure('A bald eagle observes', 'Eagle', '/assets/images/eagle.jpg')</sc>
+<sc>figure('A bald eagle observes', 'Eagle', '/assets/images/eagle-150x200.jpg')</sc>
 
 
 ## Creating new shortcodes
