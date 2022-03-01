@@ -4,3 +4,4 @@ build_assets/min.css
 build_assets/min.js
 pagegen.prof
 __pycache__
+build_assets/site.css
