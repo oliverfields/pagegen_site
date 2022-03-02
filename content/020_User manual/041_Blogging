@@ -1,0 +1,36 @@
+Markup: md
+
+Pagegen has built in functionality to support blogging.
+
+## Posts
+
+Blog posts can be organized using directories anywhere in the **content** directory. For example.
+
+- content/posts/&lt;post&gt;
+- content/posts/january/<&lt;post&gt;
+
+Typically a list of posts will be provided on the front page. This can be achieved by using the built-in shortcode list_pages. The shortcode requires a directory to find posts in and how many posts to show. Assuming posts are somewhere in the **content/posts** directory then the following will list 10 newest of them in the posts directory or any of its sub directories.
+
+	&lt;sc&gt;list_posts('posts', 10)&lt;/sc&gt;
+
+!!! Note
+	Posts are sorted by their **publish** header (in page front matter), if this is not set it defaults to the current date
+
+Templates allow greater flexibility in presentation. The site.page_list attribute contains all posts, so is an accessible way to iterate over all pages and pick out the ones to list.
+
+
+## Tags and Categories
+
+- templates
+
+
+## RSS feed
+
+
+## Authors
+
+- authors.conf
+- authors header
+- templates
+- Author SC
+- gravatar

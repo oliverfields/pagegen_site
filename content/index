@@ -12,6 +12,8 @@ Authors: edmund, maya
 
 Pagegen takes content found in a bunch of regular plain text files and folders and wraps them up nicely as a website. You can focus on writing content, and pagegen will do it up for web.
 
+<sc>list_posts('posts', '10')</sc>
+
 * Pages are regular text files with [Markdown](https://daringfireball.net/projects/markdown/) or [reStructuredText](http://docutils.sourceforge.net/rst.html) markup
 * Fast and lightweight [Mako](https://www.makotemplates.org/) templates
 * Unlimited hierarchy with built-in menu and bread crumbs
