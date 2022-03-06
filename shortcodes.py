@@ -31,7 +31,8 @@ def list_shortcodes(site, page):
 		'youtube',
 		'more',
 		'list_authors',
-		'gravatar'
+		'gravatar',
+		'list_posts'
 	]
 
 	scs = site.shortcodes.__repr__()

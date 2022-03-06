@@ -9,14 +9,24 @@ Blog posts can be organized using directories anywhere in the **content** direct
 - content/posts/&lt;post&gt;
 - content/posts/january/<&lt;post&gt;
 
-Typically a list of posts will be provided on the front page. This can be achieved by using the built-in shortcode list_pages. The shortcode requires a directory to find posts in and how many posts to show. Assuming posts are somewhere in the **content/posts** directory then the following will list 10 newest of them in the posts directory or any of its sub directories.
-
-	&lt;sc&gt;list_posts('posts', 10)&lt;/sc&gt;
+Typically a list of posts will be provided on the front page. This can be achieved by using the built-in shortcode list_posts or using templates. Both of the examples below will list any post(page) found in the argument **posts_dir** or in it's sub directories.
 
 !!! Note
-	Posts are sorted by their **publish** header (in page front matter), if this is not set it defaults to the current date
+	Posts are sorted by their **publish** header (in page front matter), this needs to be set for meaningful post listings (if not set it defaults to the current date)
 
-Templates allow greater flexibility in presentation. The site.page_list attribute contains all posts, so is an accessible way to iterate over all pages and pick out the ones to list.
+
+### Built-in shortcode list_posts
+
+The shortcode requires a directory to find posts in and how many posts to show. Assuming posts are somewhere in the **content/posts** directory then the following will list 10 newest of them in the posts directory or any of its sub directories.
+
+<div class="pre-lookalike">&lt;sc&gt;list_posts('posts', '10')&lt;/sc&gt;</div>
+
+
+### Listing posts in templates
+
+Templates allow greater flexibility in presentation. After doing **pagegen --init** in an empty directory, the directory **themes/pgsite/templates** contains **blog_home_page.mako** and **list_posts.mako** showing how posts can be listed.
+
+To use these templates simply set the page header **Template: blog_home_page.mako** in the page that will list the posts, e.g. **content/index** for the home page.
 
 
 ## Tags and Categories
