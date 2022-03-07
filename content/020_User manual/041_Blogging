@@ -54,7 +54,7 @@ In the example above, if **tags.mako** exists in the themes template directory, 
 
 For categories, the **site.conf** settings are **category_title** and **category_url**, while the templates are **category.mako** and **categories.mako**.
 
-TODO: Shortcode for listing tags and categories
+Shortcodes **tags** and **categories** return lists with links.
 
 
 ## RSS feed

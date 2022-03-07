@@ -32,7 +32,9 @@ def list_shortcodes(site, page):
 		'more',
 		'list_authors',
 		'gravatar',
-		'list_posts'
+		'list_posts',
+		'tags',
+		'categories',
 	]
 
 	scs = site.shortcodes.__repr__()
