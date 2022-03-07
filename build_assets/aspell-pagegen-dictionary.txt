@@ -1,4 +1,4 @@
-personal_ws-1.1 en 141 
+personal_ws-1.1 en 143 
 AddOutputFilterByType
 CCCCCC
 DOMContentLoaded
@@ -62,6 +62,7 @@ gaq
 getElementById
 github
 graphviz
+gravatar
 gt
 gz
 gzip
@@ -77,6 +78,7 @@ init
 innerHTML
 jQuery
 javascript
+jerry
 jpg
 json
 kbd

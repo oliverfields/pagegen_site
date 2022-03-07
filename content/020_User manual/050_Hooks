@@ -19,7 +19,7 @@ post_deploy        Run last (also after deploy scripts)
 
 	Run **pagegen --init** on empty directory and see **hooks** directory for examples. To use an example remove **.example** and ensure the script is executable.
 
-Run one of the example hooks to see the available environment variables. All settings in the current **site.conf** environment are set, named **PAGEGEN_&lt;setting name&gt;**.
+Run one of the example hooks to see the available environment variables. All settings in the current **site.conf** environment are set, named **PAGEGEN_<setting name>**.
 
 ::
 

@@ -3,7 +3,7 @@ Markup: md
 
 On generation Pagegen will build site from pages in **content directory**. The command must be run from the Pagegen root directory or one of its sub directories.
 
-	$ Pagegen --generate <environment>
+	$ pagegen --generate <environment>
 
 The **environment** is the name of the section in **site.conf**.
 
@@ -28,7 +28,6 @@ Site generation can be configured by the **site.conf**, found in the Pagegen roo
 	base_url=http://pagegen.phnd.net
 	theme=pgsite
 	absolute_urls=False
-	page_titles=True
 	
 	[test]
 	base_url=http://localhost:8000

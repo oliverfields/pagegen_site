@@ -62,7 +62,6 @@ In templates use **${&lt;name&gt;}** to print value, e.g. **${page.title}**.
 - minify_html
 - minify_javascript
 - page_list
-- page_titles
 - pages
 - rss
 - rss_description

@@ -6,7 +6,7 @@ A key feature of Pagegen is that each page has a full site menu on each page. Th
 | Option | Description |
 | ------ | ----------- |
 | Absolute URLs | **site.conf** setting **absolute_urls** toggles relative or absolute URLs in menu |
-| Excluding pages | Pages with header **Menu exclude** are not removed from menu. Any child pages will also be removed |
-| Menu titled | Pages with header **Menu title** appear with this value in menu |
+| Exclude page | Pages with header **Menu exclude** are not removed from menu. Any child pages will also be removed |
+| Menu title | Use **Menu title** value in menu, instead of page title |
 | Order | Prefix file or directories in **content directory** with **&lt;integer&gt;_** to order menu items |
 
