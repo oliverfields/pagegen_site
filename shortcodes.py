@@ -19,19 +19,25 @@ def source_link(site, page):
 	return html
 
 
+def figure(site, page, caption, alternative_text, src_path):
+	''' Make html figure '''
+
+	html = '<figure>\n'
+	html += '<img src="' + src_path + '" alt="' + alternative_text + '">\n'
+	html += '<figcaption>' + caption + '</figcaption>\n'
+	html += '</figure>\n'
+
+	return appropriate_markup(page, html)
+
+
 def list_shortcodes(site, page):
 	''' List built-in shortcodes '''
 
 	sc_built_in_whitelist = [
-		'figure',
 		'image',
-		'integrity_hash',
 		'menu',
 		'page_url',
-		'youtube',
-		'more',
 		'list_authors',
-		'gravatar',
 		'list_posts',
 		'tags',
 		'categories',
@@ -50,3 +56,34 @@ def list_shortcodes(site, page):
 	html += '</ul>'
 
 	return appropriate_markup(page, html)
+
+
+def series_navigation(site, page):
+	''' Navigation for series (related pages/blog posts) '''
+
+	if not page.headers['series']:
+		return ''
+
+	series_id = page.headers['series']
+
+	# Check if we have series html cached
+	if 'series' in site.shortcodes.cache.keys() and series_id in site.shortcodes.cache['series'].keys():
+		html = site.shortcodes.cache['series'][series_id]
+	else:
+		html = ''
+
+		# Find other pages in series
+		sorted_posts = sorted(site.page_list, key=lambda d: d.headers['publish'])
+
+		for p in sorted_posts:
+			if p.headers['series'] == series_id:
+				html += '<li><a href="' + p.url_path + '">' + p.title + '</a></li>'
+
+		html = '<ol>' + html + '</ol>'
+
+		# Cache html for use by other pages in series
+		site.shortcodes.cache['series'] = { series_id: html }
+
+	return appropriate_markup(page, html)
+
+

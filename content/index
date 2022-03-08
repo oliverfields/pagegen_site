@@ -2,8 +2,6 @@ Title: Pagegen static site generator
 Menu title: Home
 Description: Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.
 Markup: md
-Tags: foo, bar
-Categories: too, A category with spaces
 
 <div class="side-content">
 <h2>Get Pagegen</h2>

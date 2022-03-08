@@ -7,7 +7,7 @@ Pagegen has built in functionality to support blogging.
 Blog posts can be organized using directories anywhere in the **content** directory. For example.
 
 - content/posts/&lt;post&gt;
-- content/posts/January/<&lt;post&gt;
+- content/posts/January/&lt;post&gt;
 
 Typically a list of posts will be provided on the front page. This can be achieved by using the built-in shortcode list_posts or using templates. Both of the examples below will list any post(page) found in the argument **posts_dir** or in it's sub directories.
 

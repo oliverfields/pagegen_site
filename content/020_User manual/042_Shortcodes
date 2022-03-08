@@ -96,3 +96,5 @@ Pagegen ships with ready to use built in shortcodes. Built in shortcodes will be
 	When using &lt;sc&gt; tag, omit the site and page arguments, they get passed automatically.
 
 <sc>list_shortcodes()</sc>
+
+In addition **pagegen --init** will include **shortcodes.py_example** to illustrate further.
