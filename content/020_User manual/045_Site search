@@ -1,85 +1,78 @@
 Description: Pagegen includes site search functionality in form of index of terms found in generated files. The search index may be used to implement search functionality.
+Markup: md
 
 The approach used to search  static sites generally is either to use an external search engine (e.g. Google) or to use javascript to search a index file built at generation time. Pagegen will, if configured, build a search index. The index is JSON and may be searched by the client using javascript.
 
-.. note::
-
+!!! Note
 	Site search is generally something that should be customized to each site as such Pagegen provides the building blocks, but some customization must be done.
 
 
-Index generation
-****************
+## Index generation
 
-The index is created by searching the generated files for relevant content and is affected by the following site configuration options.
+The index is created by searching the generated files for relevant content and is affected by the following settings in **site.conf**.
 
-* **include_search** Set to enable indexing
-* **search_xpaths** One or more (comma separated) xpaths to html tags who's children will be searched for terms to index. Default is **/html/body**. Should be as specific as possible to the main nodes containing page specific content. I.e. for html5 perhaps index only article tags using **//articles**. Indexing the whole page may clutter index with terms from e.g. menu or footer sections.
+* **include_search=True** to enable indexing
+* **search_xpaths=&lt;xpath&gt;** one or more (comma separated) xpaths to html tags who's children will be searched for terms to index. Default is **/html/body**. Should be as specific as possible to the main nodes containing page specific content. I.e. for html5 perhaps index only article tags using **//articles**. Indexing the whole page may clutter index with terms from e.g. menu or footer sections.
 
 The page title tag and meta description tag are indexed for search, in addition to the following HTML tags.
 
-.. raw:: html
+<ul style="column-count: 5;">
+	<li>p</li>
+	<li>li</li>
+	<li>h1</li>
+	<li>h2</li>
+	<li>h3</li>
+	<li>h4</li>
+	<li>h5</li>
+	<li>h6</li>
+	<li>td</li>
+	<li>th</li>
+	<li>strong</li>
+	<li>em</li>
+	<li>i</li>
+	<li>b</li>
+	<li>a</li>
+	<li>blockquote</li>
+	<li>div</li>
+	<li>span</li>
+	<li>pre</li>
+	<li>abbr</li>
+	<li>address</li>
+	<li>cite</li>
+	<li>code</li>
+	<li>del</li>
+	<li>dfn</li>
+	<li>ins</li>
+	<li>kbd</li>
+	<li>q</li>
+	<li>samp</li>
+	<li>small</li>
+	<li>sub</li>
+	<li>sup</li>
+	<li>var</li>
+	<li>dt</li>
+	<li>dd</li>
+	<li>legend</li>
+	<li>caption</li>
+	<li>article</li>
+	<li>aside</li>
+	<li>details</li>
+	<li>figcaption</li>
+	<li>section</li>
+	<li>summary</li>
+</ul>
 
-	<ul style="column-count: 5;">
-		<li>p</li>
-		<li>li</li>
-		<li>h1</li>
-		<li>h2</li>
-		<li>h3</li>
-		<li>h4</li>
-		<li>h5</li>
-		<li>h6</li>
-		<li>td</li>
-		<li>th</li>
-		<li>strong</li>
-		<li>em</li>
-		<li>i</li>
-		<li>b</li>
-		<li>a</li>
-		<li>blockquote</li>
-		<li>div</li>
-		<li>span</li>
-		<li>pre</li>
-		<li>abbr</li>
-		<li>address</li>
-		<li>cite</li>
-		<li>code</li>
-		<li>del</li>
-		<li>dfn</li>
-		<li>ins</li>
-		<li>kbd</li>
-		<li>q</li>
-		<li>samp</li>
-		<li>small</li>
-		<li>sub</li>
-		<li>sup</li>
-		<li>var</li>
-		<li>dt</li>
-		<li>dd</li>
-		<li>legend</li>
-		<li>caption</li>
-		<li>article</li>
-		<li>aside</li>
-		<li>details</li>
-		<li>figcaption</li>
-		<li>section</li>
-		<li>summary</li>
-	</ul>
-
-Terms are weighted according to the tag they are found in, e.g. a term in a heading is weighted higher than the same term found in a paragraph. Search results are sorted by weight, i.e. a pages containing the term **hook** in it's title will be ranked higher in the search results than a page that only has it in a paragraph.
+Terms are weighted according to the tag they are found in, e.g. a term in a heading is weighted higher than the same term found in a paragraph. Search results are sorted by weight so that pages containing the search term in a title tag will be ranked higher in the search results than a page that only has the search term in in a paragraph.
 
 
-Stop words
-**********
+## Stop words
 
 Many terms are not interesting to index, for instance the, an, it etc, these terms are generally referred to as stop words. Add stop words to **stopwords.txt** to keep them out of the index.
 
 
-Index structure
-***************
+## Index structure
 
-The search index is a JSON file located on the web root, **/search-index.json**. It consists of two main sections, terms and urls. The terms section lists each term and a reference to the urls section indicating which page it is found in. The urls section lists the pages that have been indexed with their title and description.
-
-::
+The search index is generated to **/search-index.json**. It consists of two main sections, terms and urls. The terms section lists each term and a reference to the urls section indicating which page the term is found in. The urls section lists the pages that have been indexed with their title and description.
 
 	{
 	  "terms": {
@@ -104,79 +97,28 @@ The search index is a JSON file located on the web root, **/search-index.json**.
 	    ]
 	  }
 
-.. note::
-	The urls order of reference for each term is based on the terms weighting. In the example above for the term **hook** page **2** **Hooks** is ranked more significant than the **User manual** page.
+!!! Note
+	The urls order of reference for each term is based on the terms weighting. In the example above for the term **hooks** exists in two pages and the array ordering is relevant, the reference numbers refer to the pages defined in the **urls** section. **Hooks** is ranked more significant than the **User manual** page.
 
 In the urls section the url array contains three items: url, title and page description.
 
 
-Implementing site search
-************************
+## Implementing site search
 
-Implementing a site search can be done using the following jQuery. It will search for each term in the query in turn, appending hits to the result. Basically returned result will be hits for first term, hits for second term etc. More sophisticated searching may be built.
+To implement search a search form allows the user to enter and submit a search query. The query must be parsed and compared to the index structure and the search result returned to the user.
 
-
-HTML
-====
-
-::
-
-	<input type="text" id="search_query" />
-	<input type="button" onclick="do_search();" value="Search" />
-	<div id="search"></div>
+A search implementation is bundled with Pagegen. It consists of a regular html form that on submit makes a get request. The get request is handled by a page where the terms are searched for in the index structure using pure Javascript.
 
 
-Javascript
-==========
+### Search form
 
-::
+	<form action="/search.html" method="GET">
+	  <input type="text" id="search-query" name="q" />
+	  <input type="submit" id="search-submit" value="Search" />
+	</form>$
 
-	function hit_in_result(hit, result){
-	  for (var i=0;i<result.length;i++) {
-	    if (result[i].url == hit.url) {
-	      return true
-	    }
-	  }
-	  return false
-	}
-	
-	function do_search() {
-	  query=$('#search_query').val().split(' ');
-	  result=[];
-	
-	  // Get search index json
-	  $.getJSON('/search-index.json', function(data) {
-	    for (var i=0;i<query.length; i++) {
-	      var term=query[i];
-	      if (typeof data.terms[term] !== 'undefined') {
-	        for (var x=0;x<data.terms[term].length; x++) {
-	          url_id=data.terms[term][x];
-	          hit={
-	            url:data.urls[url_id][0],
-	            title:data.urls[url_id][1],
-	            desc:data.urls[url_id][2]
-	          }
-	          if (hit_in_result(hit, result) == false) {
-	            result.push(hit);
-	          }
-	        }
-	      }
-	    }
-	    // Build result content
-	    if(result.length>0) {
-	      html='<div id="hit_count">'+result.length+' results</div>'
-	      for (var n=0;n<result.length;n++) {
-	        html+='<div class="search_hit"><a href="'+result[n].url">'+result[n].title+'</a>'
-	        if (result[n].desc.length > 0) {
-	          html+='<p>'+result[n].desc+'</p>';
-	        }
-	        html+='</div>'
-	      }
-	    }
-	    else {
-	      html='Sorry, nothing found.'
-	    }
-	    $('#search_results').remove()
-	    $('#search').append('<div id="search_results">'+html+'</div>');
-	  });
-	}
+
+### Search page
+
+The [search page](https://github.com/oliverfields/pagegen/blob/master/src/pagegen/skel/content/search.html) basically gets the search query (query string parameter **q**), then fetches **search-index.json** and looks to see if any matches exist, if they do it returns the search results.
+
