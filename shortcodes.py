@@ -45,15 +45,15 @@ def list_shortcodes(site, page):
 
 	scs = site.shortcodes.__repr__()
 
-	html = '<ul>'
+	html = '<table><tr><th>Shortcode name</th><th>Description</th></tr>'
 
 	for sc in scs.splitlines():
 		for bsc in sc_built_in_whitelist:
 			if sc.startswith(bsc + '('):
-				html += '<li><code>' + sc + '</code></li>'
+				html += '<tr><td><code>' + sc + '</code></td><td>' + site.shortcodes[bsc].__doc__ + '</td></tr>'
 				break
 
-	html += '</ul>'
+	html += '</table>'
 
 	return appropriate_markup(page, html)
 
