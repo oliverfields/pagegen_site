@@ -5,7 +5,8 @@ Markup: md
 Pagegen uses the file or directory name to determine the final page title, URL and optionally menu sort order. The page path is used to create the final page URL.
 
 !!! note
-    Name syntax: sort order_title.extension
+    Name syntax: `<sort order>_<title>[.extension]`<br />
+	Example: `020_About us.html`
 
 
 !!! warning
@@ -36,7 +37,7 @@ An extension is optional and is left as is. Directory index files can also have 
 
 ## Page URLs
 
-The page URL will be the path from the **content directory** to the file, converted to lower case. Where sort prefix is removed and all characters that are not a-z, 0-9, dash(-), underscore(_) or period(.) are replaced with dash(-), file extensions are kept, if they are present.
+The page URL will be the path from the `content directory` to the file, converted to lower case. Where sort prefix is removed and all characters that are not a-z, 0-9, dash(-), underscore(_) or period(.) are replaced with dash(-), file extensions are kept, if they are present.
 
 | Name                               | Title           | URL               |
 | ---------------------------------- | --------------- | ----------------- |

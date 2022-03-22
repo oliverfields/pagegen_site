@@ -1,13 +1,13 @@
 Description: How to generate finished HTML files from Pagegen content files and the available configuration settings.
 Markup: md
 
-On generation Pagegen will build site from pages in **content directory**. The command must be run from the Pagegen root directory or one of its sub directories.
+On generation Pagegen will build site from pages in `content` directory. The command must be run from the Pagegen root directory or one of its sub directories.
 
 	$ pagegen --generate <environment>
 
-The **environment** is the name of the section in **site.conf**.
+The **environment** is the name of the section in `site.conf`.
 
-After generation the generated HTML will be in the **site directory/&lt;environment&gt;**, simply copy this directory to your web server to go live.
+After generation the generated HTML will be in the `site directory/<environment>`, simply copy this directory to your web server to go live.
 
 
 ## Environments
@@ -19,7 +19,7 @@ A test environment could be generated with settings for absolute paths and .html
 
 ## Site configuration (site.conf)
 
-Site generation can be configured by the **site.conf**, found in the Pagegen root directory, see [example](https://github.com/oliverfields/pagegen/blob/master/src/pagegen/skel/site.conf).
+Site generation can be configured by the `site.conf`, found in the Pagegen root directory, see [example](https://github.com/oliverfields/pagegen/blob/master/src/pagegen/skel/site.conf).
 
 
 ## Example site configuration

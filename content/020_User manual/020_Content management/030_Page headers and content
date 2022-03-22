@@ -39,5 +39,5 @@ All headers are optional. They must start on the first line and content start is
 
 ## Excerpt
 
-Excerpts are the start of the page content. To create an excerpt add **<!-- more -->** to the page content. All content before the more tag will be the excerpt available as **page.excerpt**. Useful when listing pages to show a short excerpt of each page.
+Excerpts are the start of the page content. To create an excerpt add `<!-- more -->` to the page content. All content before the more tag will be the excerpt available as `page.excerpt`. Useful when listing pages to show a short excerpt of each page.
 

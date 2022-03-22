@@ -9,10 +9,10 @@ The approach used to search  static sites generally is either to use an external
 
 ## Index generation
 
-The index is created by searching the generated files for relevant content and is affected by the following settings in **site.conf**.
+The index is created by searching the generated files for relevant content and is affected by the following settings in `site.conf`.
 
-* **include_search=True** to enable indexing
-* **search_xpaths=&lt;xpath&gt;** one or more (comma separated) xpaths to html tags who's children will be searched for terms to index. Default is **/html/body**. Should be as specific as possible to the main nodes containing page specific content. I.e. for html5 perhaps index only article tags using **//articles**. Indexing the whole page may clutter index with terms from e.g. menu or footer sections.
+* `include_search=True` to enable indexing
+* `search_xpaths=<xpath>` one or more (comma separated) xpaths to html tags who's children will be searched for terms to index. Default is `/html/body`. Should be as specific as possible to the main nodes containing page specific content. I.e. for html5 perhaps index only article tags using `//articles`. Indexing the whole page may clutter index with terms from e.g. menu or footer sections.
 
 The page title tag and meta description tag are indexed for search, in addition to the following HTML tags.
 
@@ -67,12 +67,12 @@ Terms are weighted according to the tag they are found in, e.g. a term in a head
 
 ## Stop words
 
-Many terms are not interesting to index, for instance the, an, it etc, these terms are generally referred to as stop words. Add stop words to **stopwords.txt** to keep them out of the index.
+Many terms are not interesting to index, for instance the, an, it etc, these terms are generally referred to as stop words. Add stop words to `stopwords.txt` to keep them out of the index.
 
 
 ## Index structure
 
-The search index is generated to **/search-index.json**. It consists of two main sections, terms and urls. The terms section lists each term and a reference to the urls section indicating which page the term is found in. The urls section lists the pages that have been indexed with their title and description.
+The search index is generated to `/search-index.json`. It consists of two main sections, terms and urls. The terms section lists each term and a reference to the urls section indicating which page the term is found in. The urls section lists the pages that have been indexed with their title and description.
 
 	{
 	  "terms": {
@@ -120,5 +120,5 @@ A search implementation is bundled with Pagegen. It consists of a regular html f
 
 ### Search page
 
-The [search page](https://github.com/oliverfields/pagegen/blob/master/src/pagegen/skel/content/search.html) basically gets the search query (query string parameter **q**), then fetches **search-index.json** and looks to see if any matches exist, if they do it returns the search results.
+The [search page](https://github.com/oliverfields/pagegen/blob/master/src/pagegen/skel/content/search.html) basically gets the search query (query string parameter `q`), then fetches `search-index.json` and looks to see if any matches exist, if they do it returns the search results.
 

@@ -1,15 +1,15 @@
 Description: Pagegen supports reStructuredText or Markdown markup.
 Markup: md
 
-Pages are marked up using either [reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/directives.html) or [Markdown](https://daringfireball.net/projects/markdown/). In **site.conf* setting **default_markup** can be either **rst** (the default) or **md**, pages can override the site wide configuration by setting header **markup** in the page headers/front matter.
+Pages are marked up using either [reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/directives.html) or [Markdown](https://daringfireball.net/projects/markdown/). In `site.conf` setting `default_markup` can be either **rst** (the default) or **md**, pages can override the site wide configuration by setting header `markup` in the page headers/front matter.
 
 !!! tip
 	View markup used on this site using the <i class="fas code-999999"></i> link at the very bottom of each page.
 
-Some files that comprise a web site may just be regular text files. These files can be setup by using the page header **generate html: false**, in which case Pagegen will dump file contents as-is, without running it through reStructuredText or Markdown engine.
+Some files that comprise a web site may just be regular text files. These files can be setup by using the page header `generate html: false`, in which case Pagegen will dump file contents as-is, without running it through reStructuredText or Markdown engine.
 
 !!! tip
-	robots.txt or .htaccess are files that should be configured with **generate html: false** header.
+	robots.txt or .htaccess are files that should be configured with `generate html: false` header.
 
 
 !!! warning
@@ -39,7 +39,7 @@ The above produces the following:
 	}
 </graphviz>
 
-There is support for other Graphviz commands, simply replace **dot** in the example above with any of the following:
+There is support for other Graphviz commands, simply replace `dot` in the example above with any of the following:
 
 * dot
 * neato

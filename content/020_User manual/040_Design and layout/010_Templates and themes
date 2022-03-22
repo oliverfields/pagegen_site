@@ -3,14 +3,14 @@ Markup: md
 
 Setting up page layout is controlled by [Mako](https://www.makotemplates.org/) templates. Mako is well documented elsewhere, the following deals with Pagegen specifics.
 
-Pages may specify a template by setting **Template** header.
+Pages may specify a template by setting `Template` header.
 
-All templates are located in **themes/&lt;theme name&gt;/templates** directory.
+All templates are located in `themes/<theme name>/templates` directory.
 
 
 ## Default templates
 
-Templates may be created to as needed, but there must be at least one called **pages.mako**. The following templates will be used in specific circumstances, if they exist in the **themes/&lt;theme name&gt;/templates** directory.
+Templates may be created to as needed, but there must be at least one called `pages.mako`. The following templates will be used in specific circumstances, if they exist in the `themes/<theme name>/templates` directory.
 
 | Name             | Purpose                                        |
 | ---------------- | ---------------------------------------------- |
@@ -18,7 +18,7 @@ Templates may be created to as needed, but there must be at least one called **p
 | authors.mako     | Listing of authors                             |
 | categories.mako  | Listing the categories defined in page headers |
 | category.mako    | Listing the pages for a given category         |
-| directories.mako | Used if no **index** file defined in directory |
+| directories.mako | Used if no `index` file defined in directory |
 | pages.mako       | Mandatory, default template                    |
 | tag.mako         | Listing the pages for a given tag              |
 | tags.mako        | Listing the tags defined in page headers       |
