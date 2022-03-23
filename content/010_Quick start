@@ -5,7 +5,7 @@ Description: Introduction to Pagegen setup and getting started with site generat
 
 ::
 
-	pip install pagegen
+	$ pip install pagegen
 
 Can also be used in a virtual environment.
 

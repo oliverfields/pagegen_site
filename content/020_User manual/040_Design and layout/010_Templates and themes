@@ -5,7 +5,20 @@ Setting up page layout is controlled by [Mako](https://www.makotemplates.org/) t
 
 Pages may specify a template by setting `Template` header.
 
-All templates are located in `themes/<theme name>/templates` directory.
+
+## Themes
+
+All templates are located in `themes/<theme name>/templates` directory. Set site theme in `site.conf` using `theme=<theme name>`.
+
+Theme directory structure:
+
+	my_theme/
+	├── assets/
+	└── templates/
+
+On generation the `assets` directory and its sub directories are copied verbatim to `site/<environment>/assets/theme`. This is where all theme assets (javascript, css, images etc) for the theme are located.
+
+The `templates` directory contains the theme mako templates, it must contain `pages.mako`, and may contain whatever other templates are required to render the site. In addition it may contain default templates, see below.
 
 
 ## Default templates
