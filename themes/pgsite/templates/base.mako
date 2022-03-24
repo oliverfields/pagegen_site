@@ -44,8 +44,12 @@ ${css}
   </head>
   <body>
     <div id="page">
-     <article id="content">
-         <h1 class="first">${page.title}</h1>
+      % if page.custom_headers.get('hide title') != 'True':
+      <article id="content">
+          <h1 class="first">${page.title}</h1>
+      % else:
+      <article id="content" class="no-title">
+      % endif
         <%block name="content" />
         <div class="clearfix prev-next-links">
           % if page.previous_page:

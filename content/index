@@ -1,6 +1,7 @@
 Title: Pagegen static site generator
-Menu title: Home
+Menu exclude: True
 Description: Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.
+Hide title: True
 Markup: md
 
 <div class="side-content">
