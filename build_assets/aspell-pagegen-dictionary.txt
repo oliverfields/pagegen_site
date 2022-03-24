@@ -1,4 +1,4 @@
-personal_ws-1.1 en 143 
+personal_ws-1.1 en 145 
 AddOutputFilterByType
 CCCCCC
 DOMContentLoaded
@@ -16,6 +16,7 @@ Minify
 Nginx
 PNGs
 PWD
+Pagegen's
 REPO
 SEO
 SetOuptupFilter
@@ -137,6 +138,7 @@ urls
 virtualenv
 wget
 xml
+xpath
 xpaths
 yml
 yyyy
