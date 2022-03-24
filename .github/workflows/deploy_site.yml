@@ -9,6 +9,8 @@ jobs:
     name: Deploy site
     runs-on: ubuntu-latest
     steps:
+    - name: Install Graphviz
+      run: sudo apt install -y graphviz
     - name: Install Python
       uses: actions/setup-python@v2
       with:
