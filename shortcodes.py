@@ -1,27 +1,27 @@
 from os.path import isfile
-from pagegen.utility import appropriate_markup, DIRDEFAULTFILE
+from pagegen.utility import appropriate_markup, DIRDEFAULTFILE, write_file
 from urllib.parse import urlparse
+from shutil import copyfile
 
 
 def source_link(site, page):
-	''' Return link to source file, if it exists '''
+	"""Copy source file and generate link to it. The actual source files are copied using post_generate_page hook"""
 
-	if isfile(page.target_path + '.txt'):
+	html = ''
 
+	if page.headers['menu exclude'] == False or 'home page' in page.custom_headers.keys():
 		url = page.url_path
 
 		if url.endswith('/'):
 			url += DIRDEFAULTFILE
 
 		html = '<br /><a href="' + url + '.txt" title="Page source" target="_blank"><i class="fas code-999999"></i></a>'
-	else:
-		html = ''
 
 	return html
 
 
 def figure(site, page, caption, alternative_text, src_path):
-	''' Make html figure '''
+	"""Make html figure"""
 
 	html = '<figure>\n'
 	html += '<img src="' + src_path + '" alt="' + alternative_text + '">\n'
@@ -32,7 +32,7 @@ def figure(site, page, caption, alternative_text, src_path):
 
 
 def list_shortcodes(site, page):
-	''' List built-in shortcodes '''
+	"""List built-in shortcodes"""
 
 	sc_built_in_whitelist = [
 		'image',
@@ -51,7 +51,7 @@ def list_shortcodes(site, page):
 	for sc in scs.splitlines():
 		for bsc in sc_built_in_whitelist:
 			if sc.startswith(bsc + '('):
-				html += '<tr><td><code>' + sc + '</code></td><td>' + site.shortcodes[bsc].__doc__ + '</td></tr>'
+				html += '<tr><td>' + sc + '</td><td>' + site.shortcodes[bsc].__doc__ + '</td></tr>'
 				break
 
 	html += '</table>'
@@ -60,7 +60,7 @@ def list_shortcodes(site, page):
 
 
 def series_navigation(site, page):
-	''' Navigation for series (related pages/blog posts) '''
+	"""Navigation for series (related pages/blog posts)"""
 
 	if not page.headers['series']:
 		return ''
@@ -89,13 +89,13 @@ def series_navigation(site, page):
 
 
 def social_links(site, page, **links):
-	'''List social links, try to guess font awesome icon to use with each link.
+	"""List social links, try to guess font awesome icon to use with each link.
 		Example:
 			<sc>social_links(Facebook='https://www.facebook.com/oliverjfields', Github='https://github.com/olvfie')</sc>
 
 		Requires font-awesome link in html, e.g. 
     		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css" integrity="sha512-OivR4OdSsE1onDm/i3J3Hpsm5GmOVvr9r49K3jJ0dnsxVzZgaOJ5MfxEAxCyGrzWozL9uJGKz6un3A7L+redIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	'''
+	"""
 
 	html = '<ul>'
 
