@@ -44,7 +44,7 @@ ul
 	width: $content-width
 
 article.no-title
-	padding-top: 1.4em
+	padding-top: 2em
 
 #top-bar a
 	border: none
@@ -83,6 +83,9 @@ article.no-title
 	display: none
 
 @media screen and (max-width: $page-width)
+	article.no-title
+		padding-top: 1em !important
+
 	.side-content
 		width: unset !important
 		margin: 1em 0 !important
@@ -115,7 +118,7 @@ article.no-title
 		display: none
 
 	#content
-		margin: 0 auto
+		margin: 2em auto
 		float: none
 		padding: 0 1.8em
 		width: unset
@@ -139,14 +142,17 @@ article.no-title
 
 #sidebar ol
 	list-style: none
-	padding-left: 10px
-	margin: 0
+	padding-left: 0
+	margin: 0 0 0 1em
+
+#sidebar > div#menu > ol > li
+	margin-left: 0
 
 #sidebar li
-	line-height: 1.6em
-	margin-left: 10px
-	margin-bottom: 5px
-	white-space: nowrap;
+	line-height: 2em
+	margin-left: 1em
+	margin-bottom: .4em
+	white-space: nowrap
 
 #blurb
 	text-align: center
@@ -300,9 +306,7 @@ i.sub-menu-toggle
 
 #project-info
 	list-style: none
-	border-top: 1px dotted #999
-	margin-top: 1em
-	padding-top: 1em
+	margin: 1em 0 ! important
 
 #project-info li
 	line-height: 1.8em
@@ -311,7 +315,7 @@ i.sub-menu-toggle
 	margin-bottom: 1.5em
 
 .github-button-container
-	margin: .8em auto 1em auto
+	margin: .8em 1em 2em 1em
 	width: 270px
 
 .side-content
@@ -356,9 +360,8 @@ i.sub-menu-toggle
 
 #search-form form
 	display: block
-	margin: 1em auto
+	margin: 2em 1em
 	width: $sidebar-width
-	text-align: center
 
 .search-hit
 	line-height: 2.5em
