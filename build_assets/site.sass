@@ -37,7 +37,9 @@ ul
 	width: $sidebar-width
 	overflow-y: auto
 	max-height: 100%
-	padding-right: 1em
+
+#sidebar-content
+	width: calc($sidebar-width - 100%)
 
 #content
 	float: right
@@ -111,11 +113,14 @@ article.no-title
 		text-align: center !important
 
 	#sidebar
-		margin: 2em auto
-		width: 390px
+		width: 100%
 		position: static !important
 		padding-right: 0
 		display: none
+
+	#sidebar-content
+		width: $sidebar-width
+		margin: 1em auto
 
 	#content
 		margin: 2em auto
@@ -132,7 +137,7 @@ article.no-title
 
 #page-logo
 	display: block
-	margin: 2em auto 1em auto
+	margin: 2em 60px 1em
 	border: none
 	width: 160px
 	color: $main-text
@@ -145,7 +150,7 @@ article.no-title
 	padding-left: 0
 	margin: 0 0 0 1em
 
-#sidebar > div#menu > ol > li
+div#menu > ol
 	margin-left: 0
 
 #sidebar li
@@ -155,12 +160,14 @@ article.no-title
 	white-space: nowrap
 
 #blurb
-	text-align: center
-	margin: .6em 0 1em 0
+	width: 260px
+	margin: .6em 10px 1em 10px
 	border-top: 1px dotted #999
 	border-bottom: 1px dotted #999
 	padding: 1em 0
 	font-size: 1.1em
+	display: block
+	text-align: center
 
 #blurb span
 	font-size: .8em
@@ -316,7 +323,7 @@ i.sub-menu-toggle
 
 .github-button-container
 	margin: .8em 1em 2em 1em
-	width: 270px
+	width: 100px
 
 .side-content
 	width: 280px
@@ -346,7 +353,7 @@ i.sub-menu-toggle
 	color: $hover-highlight 
 
 #search-query
-	max-width: 191px
+	max-width: 180px
 	border: solid 1px #999
 	border-radius: 3px 0 0 3px
 	padding: 4px
@@ -361,7 +368,7 @@ i.sub-menu-toggle
 #search-form form
 	display: block
 	margin: 2em 1em
-	width: $sidebar-width
+	width: calc($sidebar-width - 100%)
 
 .search-hit
 	line-height: 2.5em
