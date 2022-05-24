@@ -34,7 +34,7 @@ All headers are optional. They must start on the first line and content start is
 | sitemap lastmod      | None               | Format YYYY-MM-DD                                                                      |
 | sitemap priority     | None               | Values between 0.0 and 1.0                                                             |
 | tags                 | None               | Comma separated list of tags, if exist then /tag/<tag> pages generated                 |
-| template             | pages.mako         | Template file from /templates                                                          |
+| template             | pages.mako         | Template file from `<theme>/templates`                                                 |
 | title                | None               | If set overrides page title                                                            |
 
 
