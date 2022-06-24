@@ -24,6 +24,7 @@ All headers are optional. They must start on the first line and content start is
 | markup               | rst                | Can either be **rst** (default) for reStructuredText or **md** for Markdown            |
 | menu exclude         | False              | Remove page (and child pages) from menu/crumb trail                                    |
 | menu title           | None               | If set use for title in menu/crumb trail                                               |
+| number headings      | False              | If True add numbering (1, 1.1, 1.2 etc) to h2-h5 tags                                  |  
 | preserve file name   | False              | If True file name will be kept as-is in final url                                      |
 | publish              | Date of generation | Format YYYY-MM-DD, only generate pages (and sub pages) if today or past                |
 | rss include          | False              | If set page is included in RSS feed (assuming site include_rss)                        |
@@ -33,7 +34,7 @@ All headers are optional. They must start on the first line and content start is
 | sitemap lastmod      | None               | Format YYYY-MM-DD                                                                      |
 | sitemap priority     | None               | Values between 0.0 and 1.0                                                             |
 | tags                 | None               | Comma separated list of tags, if exist then /tag/<tag> pages generated                 |
-| template             | pages.mako         | Template file from /templates                                                          |
+| template             | pages.mako         | Template file from `<theme>/templates`                                                 |
 | title                | None               | If set overrides page title                                                            |
 
 
