@@ -17,11 +17,11 @@ min_js="$PAGEGEN_SITE_DIR/build_assets/min.js"
 pysassc "$site_sass" "$site_css"
 
 # Minify Font awesome css and concatinate with site.css
-python -m rcssmin < "$site_css" > "$min_css" 
-python -m rcssmin < "$svg_css" >> "$min_css" 
+python3 -m rcssmin < "$site_css" > "$min_css" 
+python3 -m rcssmin < "$svg_css" >> "$min_css" 
 
 # Minify js
-python -m jsmin "$site_javascript" > "$min_js"
+python3 -m jsmin "$site_javascript" > "$min_js"
 
 case "$PAGEGEN_ENVIRONMENT" in
   "prod")
