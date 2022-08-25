@@ -29,8 +29,6 @@ Templates may be created to as needed, but there must be at least one called `pa
 | ---------------- | ---------------------------------------------- |
 | author.mako      | Author profile template                        |
 | authors.mako     | Listing of authors                             |
-| categories.mako  | Listing the categories defined in page headers |
-| category.mako    | Listing the pages for a given category         |
 | directories.mako | Used if no `index` file defined in directory |
 | pages.mako       | Mandatory, default template                    |
 | tag.mako         | Listing the pages for a given tag              |

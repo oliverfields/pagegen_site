@@ -16,7 +16,6 @@ All headers are optional. They must start on the first line and content start is
 | Name                 | Default            | Description                                                                            |
 | -------------------- | ------------------ | -------------------------------------------------------------------------------------- |
 | authors              | None               | Comma separated list of authors, each item must match section in authors.conf          |
-| categories           | None               | Comma separated list of categories, if exist then /category/<category> pages generated |
 | description          | None               | Html meta tag description                                                              |
 | exclude html minify  | False              | Disables HTML minifying of the page if True                                            |
 | generate html        | True               | Enable/disable parsing of page content                                                 |

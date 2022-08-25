@@ -93,7 +93,7 @@ The figure shortcode example can be updated to use the page object to determine 
 Pagegen ships with ready to use built in shortcodes. Built in shortcodes will be overridden if a shortcode defined in `shortcodes.py` has the same name.
 
 !!! Note
-	When using &lt;sc&gt; tag, omit the site and page arguments, they get passed automatically. For instance, use <code>&lt;sc&gt;categories()&lt;/sc&gt;</code> to call the categories shortcode, no need to specify site and page, they are passed implicitly.
+	When using &lt;sc&gt; tag, omit the site and page arguments, they get passed automatically. For instance, use <code>&lt;sc&gt;tags()&lt;/sc&gt;</code> to call the tags shortcode, no need to specify site and page, they are passed implicitly.
 
 <sc>list_shortcodes()</sc>
 

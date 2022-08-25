@@ -42,9 +42,6 @@ In templates use `${<name>}` to print value, e.g. `${page.title}`.
 - absolute_urls
 - asset_dir
 - base_url
-- categories
-- category_dir
-- category_title
 - content_dir
 - default_extension
 - default_markup

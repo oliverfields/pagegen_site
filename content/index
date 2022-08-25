@@ -18,7 +18,7 @@ Pagegen takes content found in a bunch of regular plain text files and folders a
 * Unlimited site hierarchy defined by files and directories
 * Auto site rebuild for easier development
 * Javascript site search
-* Web friendly URLs, sitemap, RSS feed, tags and categories
+* Web friendly URLs, sitemap, RSS feed and tags
 * Page content can be output from any executable/scripts
 * Hooks for running custom scripts during generation
 * Shortcodes support

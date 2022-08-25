@@ -29,9 +29,9 @@ Templates allow greater flexibility in presentation. After doing `pagegen --init
 To use these templates simply set the page header `Template: blog_home_page.mako` in the page that will list the posts, e.g. `content/index` for the home page.
 
 
-## Tags and Categories
+## Tags
 
-Pages maybe tagged or categorized by setting either `tags` or `categories` page headers. Tags and categories work similarly, for brevity only tags will be explained in detail. The header values are strings separated by commas.
+Pages maybe tagged by setting `tags` page headers. The header values are strings separated by commas.
 
 	Tags: foo, bar
 
@@ -52,9 +52,7 @@ The following `site.conf` settings affect the tags pages, e.g. for translation p
 
 In the example above, if `tags.mako` exists in the themes template directory, then it will be used to generate index.html, otherwise `pages.mako` will be used. Similarly `bar.html` and `foo.html` will use `tag.mako` if it exists.
 
-For categories, the `site.conf` settings are `category_title` and `category_url`, while the templates are `category.mako` and `categories.mako`.
-
-Shortcodes `tags` and `categories` return lists with links.
+Shortcode `tags` returns a list with links.
 
 
 ## RSS feed
