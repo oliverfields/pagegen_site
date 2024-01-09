@@ -1,5 +1,6 @@
 from os.path import isfile
-from pagegen.utility import appropriate_markup, DIRDEFAULTFILE, write_file
+from pagegen.utility import appropriate_markup, write_file
+from pagegen.constants import DIRDEFAULTFILE
 from urllib.parse import urlparse
 from shutil import copyfile
 

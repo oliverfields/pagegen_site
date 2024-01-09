@@ -19,8 +19,3 @@ HTML, CSS and Javascript may be minified by setting any of the following to opti
 * minify_css=True
 * minify_javascript=True
 
-
-## SASS
-
-Any `.sass` file in the `templates/<template name>/assets` directory will be automatically compiled to `.css`.
-
