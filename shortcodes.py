@@ -123,3 +123,4 @@ def social_links(site, page, **links):
 		html += '<li><a href="' + link + '">' + icon + name + '</a></li>' 
 
 	return appropriate_markup(page, html + '</ul>')
+
