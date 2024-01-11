@@ -12,10 +12,6 @@ min_css="$PAGEGEN_SITE_DIR/build_assets/min.css"
 site_javascript="$PAGEGEN_SITE_DIR/build_assets/site.js"
 min_js="$PAGEGEN_SITE_DIR/build_assets/min.js"
 
-
-# Compile sass
-#sassc "$site_sass" "$site_css"
-
 # Minify Font awesome css and concatinate with site.css
 python3 -m rcssmin < "$site_css" > "$min_css" 
 python3 -m rcssmin < "$svg_css" >> "$min_css" 

@@ -1,11 +1,11 @@
-Description: Pages consist of zero or more headers and content, which can be plain text/html, reStructuredText or Markdown.
+Description: Pages consist of zero or more headers and content, which can be plain text/html, Markdown or reStructuredText.
 
-Content for each page consists of optional headers, containing any settings for the page, followed by a blank line and reStructuredText or Markdown markup.
+Content for each page consists of optional headers, containing any settings for the page, followed by a blank line and Markdown or reStructuredText markup.
 
 	[<header name>: <header value>]
 	[...]
 	
-	The rest is content marked up using reStructuredText or Markdown
+	The rest is content marked up using Markdown or reStructuredText
 
 
 ## Headers
@@ -19,7 +19,7 @@ All headers are optional. They must start on the first line and content start is
 | exclude html minify  | False              | Disables HTML minifying of the page if True                                            |
 | generate html        | True               | Enable/disable parsing of page content                                                 |
 | link chain exclude   | False              | If True page will not be part of next- and previous-links                              |
-| markup               | rst                | Can either be **rst** (default) for reStructuredText or **md** for Markdown            |
+| markup               | md                | Can either be **md** (default) for Markdown or **rst** for reStructuredText            |
 | menu exclude         | False              | Remove page (and child pages) from menu/crumb trail                                    |
 | menu title           | None               | If set use for title in menu/crumb trail                                               |
 | number headings      | False              | If True add numbering (1, 1.1, 1.2 etc) to h2-h5 tags                                  |

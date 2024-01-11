@@ -17,6 +17,12 @@ Or install into virtual environment.
 	$ source pagegen_virtualenv/bin/activate
 	$ pip install pagegen
 
+Default markup is now Markdown, if you want to use reStructuredText install required packages like so.
+
+::
+
+	pip install pagegen[extra]
+
 
 Test installation
 =================

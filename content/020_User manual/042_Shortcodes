@@ -49,9 +49,9 @@ Most shortcodes will want access to either the <a href="<sc>page_url('/user-manu
 These variables are automatically available in all templates. The trade off to this inconsistency, between &lt;sc&gt; tag and template arguments, is to keep the tags more succinct.
 
 
-## Return reStructuredText or Markdown?
+## Return Markdoen of reStructuredText?
 
-Shortcodes are run before the page is converted to html, meaning the shortcode return value is evaluated as either reStructuredText or Markdown, dependant on the page. Therefore shortcodes need to return strings that are compatible with the markup engine that will process them further.
+Shortcodes are run before the page is converted to html, meaning the shortcode return value is evaluated as either Markdown or reStructuredText, dependant on the page markup header. Therefore shortcodes need to return strings that are compatible with the markup engine that will process them further.
 
 The example above will work with Markdown, but to make it compatible with reStructuredText additional markup needs to be added.
 
@@ -68,7 +68,7 @@ The example above will work with Markdown, but to make it compatible with reStru
 
 ## Shortcodes to handle the different markups
 
-The figure shortcode example can be updated to use the page object to determine if it should return markup for reStructuredText or Markdown.
+The figure shortcode example can be updated to use the page object to determine if it should return markup for Markdown or reStructuredText.
 
 	def figure(site, page, caption, alternative_text, src_path):
 	

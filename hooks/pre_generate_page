@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-#echo "$PAGEGEN_HOOK : $PAGEGEN_ENVIRONMENT"

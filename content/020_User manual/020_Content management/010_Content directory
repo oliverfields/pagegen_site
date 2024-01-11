@@ -6,7 +6,7 @@ Content is stored as regular files and organized using directories and naming co
 
 Pagegen pages are just plain text files containing page options and content organized by directory hierarchy. Each directory is treated as a page containing child pages. For directories the page content is either stored in file named `index` within each directory. If no `index` file is defined one will be generated containing list of the directory contents. The index file is identical, in both syntax and structure, to regular page files.
 
-Pages contain headers(options/settings, also known as front matter) and reStructuredText or Markdown markup. All page content is located in the `/content` directory.
+Pages contain headers(options/settings, also known as front matter) and Markdown or reStructuredText markup. All page content is located in the `/content` directory.
 
 !!! tip
 	The front/home page is `content/index`.
