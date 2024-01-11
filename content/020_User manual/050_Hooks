@@ -1,4 +1,5 @@
 Description: Hooks are user customizable executables that may be run at specific points during the site generation process.
+Markup: rst
 
 To make the static site more dynamic(pun intended) Pagegen can run executables (hooks) at preset times, during the generation process.
 

@@ -1,5 +1,4 @@
 Description: Pagegen supports reStructuredText or Markdown markup.
-Markup: md
 
 Pages are marked up using either [reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/directives.html) or [Markdown](https://daringfireball.net/projects/markdown/). In `site.conf` setting `default_markup` can be either **rst** (the default) or **md**, pages can override the site wide configuration by setting header `markup` in the page headers/front matter.
 

@@ -1,5 +1,4 @@
 Description: Pages consist of zero or more headers and content, which can be plain text/html, reStructuredText or Markdown.
-Markup: md
 
 Content for each page consists of optional headers, containing any settings for the page, followed by a blank line and reStructuredText or Markdown markup.
 

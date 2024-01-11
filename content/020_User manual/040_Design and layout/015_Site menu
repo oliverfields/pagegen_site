@@ -1,5 +1,4 @@
 Description: Pagegen automatically builds a full site menu from the directories and files. The build can be customized.
-Markup: md
 
 A key feature of Pagegen is that each page has a full site menu on each page. The menu can be customized as follows.
 

@@ -1,5 +1,4 @@
 Description: Static content belongs in the assets and themes/&lt;theme name&gt;/assets directories.
-Markup: md
 
 A site needs static assets for things like Javascript, CSS and images. There are two asset directories that are copied to the `site/<environment>` directory on generation.
 

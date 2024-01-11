@@ -1,5 +1,4 @@
 Description: Pagegen uses regular file system files and directories to organize and store content.
-Markup: md
 
 Content is stored as regular files and organized using directories and naming conventions.
 

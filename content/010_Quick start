@@ -1,4 +1,5 @@
 Description: Introduction to Pagegen setup and getting started with site generation.
+Markup: rst
 
 .. note::
 	For in depth documentation please see `User manual <<sc>page_url('/user-manual/index')</sc>>`_.

@@ -3,6 +3,7 @@ Menu exclude: True
 Link chain exclude: True
 Search index exclude: True
 Sitemap exclude: True
+Markup: rst
 
 .. raw:: html
 

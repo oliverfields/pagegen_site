@@ -1,5 +1,4 @@
 Description: How to generate finished HTML files from Pagegen content files and the available configuration settings.
-Markup: md
 
 On generation Pagegen will build site from pages in `content` directory. The command must be run from the Pagegen root directory or one of its sub directories.
 

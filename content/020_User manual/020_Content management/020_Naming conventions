@@ -1,6 +1,4 @@
 Description: Pagegen's naming convention of files and directories sets page titles, defines readable URLs and allows for sorting.
-Markup: md
-
 
 Pagegen uses the file or directory name to determine the final page title, URL and optionally menu sort order. The page path is used to create the final page URL.
 

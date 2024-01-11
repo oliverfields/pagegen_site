@@ -1,5 +1,4 @@
 Description: Pagegen has several features that make it easier to use in a shell.
-Markup: md
 
 Pagegen is supplied with a few features that make the shell environment easier to use. These extras are found in the extras directory.
 

@@ -1,5 +1,4 @@
 Description: Designing and customization of generated HTML using templates and template variables.
-Markup: md
 
 Setting up page layout is controlled by [Mako](https://www.makotemplates.org/) templates. Mako is well documented elsewhere, the following deals with Pagegen specifics.
 
