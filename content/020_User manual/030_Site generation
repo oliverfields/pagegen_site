@@ -2,7 +2,7 @@ Description: How to generate finished HTML files from Pagegen content files and 
 
 On generation Pagegen will build site from pages in `content` directory. The command must be run from the Pagegen root directory or one of its sub directories.
 
-	$ pagegen --generate <environment>
+	$ pgn --generate <environment>
 
 The **environment** is the name of the section in `site.conf`.
 
@@ -34,5 +34,5 @@ Site generation can be configured by the `site.conf`, found in the Pagegen root 
 
 To generate prod environment run the following.
 
-	pagegen -g prod
+	$ pgn -g prod
 

@@ -28,13 +28,13 @@ First initialise a new Pagegen site directory. If using pagegen from a virtual e
 
 	$ mkdir my_site
 	$ cd my_site
-	$ pagegen --init
+	$ pgn --init
 
 The above creates an example pagegen framework of files and folders in the ``content`` directory.
 
 .. warning::
 
-	Python does not seem to detect locale on Mac OS X, returning a ``ValueError, 'unknown locale'``. Try running pagegen command as ``LC_ALL=en_US.UTF-8 pagegen ..``. To make permanent add ``export LC_ALL=en_US.UTF-8`` to ``~/.profile``
+	Python does not seem to detect locale on Mac OS X, returning a ``ValueError, 'unknown locale'``. Try running pgn command as ``LC_ALL=en_US.UTF-8 pgn ..``. To make permanent add ``export LC_ALL=en_US.UTF-8`` to ``~/.profile``
 
 
 Generate example site
@@ -44,7 +44,7 @@ We are now ready to generate the site. This will create the finished site in the
 
 ::
 
-	$ pagegen --generate production
+	$ pgn --generate production
 
 The ``my_site/site/production`` directory now contains a freshly generated site ready for upload to a web server.
 
@@ -52,5 +52,5 @@ When developing Pagegen can serve site locally and monitor files for changes, au
 
 ::
 
-	$ pagegen --serve production
+	$ pgn --serve production
 

@@ -10,11 +10,11 @@ Completion support for:
 - Pagegen environments (defined in `site.conf`)
 - Files and directories in `content directory`
 
-Bash completion for the pagegen command. To enable on Ubuntu symlink as follows `sudo ln -s <pagegen path>/extras/_pagegen_bash_complete /etc/bash_completion.d/pagegen_completion`.
+Bash completion for the `pgn` command. To enable on Ubuntu symlink as follows `sudo ln -s <pagegen path>/extras/_pagegen_bash_complete /etc/bash_completion.d/pagegen_completion`.
 
 The completion will be enabled when in a pagegen directory (i.e. there is a `site.conf` in the current directory or above.
 
-If `pagegen` command is run with no arguments, and fzy or fzf are installed, user can select file from `content` directory and have it open in **EDITOR**. If path does not exist, it will be created.
+If `pgn` command is run with no arguments, and fzy or fzf are installed, user can select file from `content` directory and have it open in **EDITOR**. If path does not exist, it will be created.
 
 ## Vim plugin
 

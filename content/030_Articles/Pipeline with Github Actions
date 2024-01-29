@@ -5,12 +5,12 @@ Description: Example setup for using Github actions to build and deploy Pagegen 
 <p>Github Actions are a continuous integration and continuous delivery (CI/CD) platform for running automated building, test, and deployment pipelines.</p>
 </div>
 
-Generating static pages is of course a major element of using static site generators. When working on a site, typically it is generated often, so it pays to streamline this step. When working locally regeneration can be automatic with `pagegen --serve <environment>` command, but for production a deployment pipeline is a common approach. The following will explain how the pipeline setup for this site which uses Github Actions.
+Generating static pages is of course a major element of using static site generators. When working on a site, typically it is generated often, so it pays to streamline this step. When working locally regeneration can be automatic with `pgn --serve <environment>` command, but for production a deployment pipeline is a common approach. The following will explain how the pipeline setup for this site which uses Github Actions.
 
 
 ## Overview pagegen.phnd.net pipeline
 
-Once content is created and pushed to the [pagegen.phnd.net repository](https://github.com/oliverfields/pagegen_site), Github looks for any defined workflows and finds [.github/workflows/deploy_site.yml](https://github.com/oliverfields/pagegen_site/blob/master/.github/workflows/deploy_site.yml). The `deploy_site.yml` file is used by Github Actions to build the site, basically running the regular pagegen command. A deploy hook uploads the site to the web server, in this case using FTP.
+Once content is created and pushed to the [pagegen.phnd.net repository](https://github.com/oliverfields/pagegen_site), Github looks for any defined workflows and finds [.github/workflows/deploy_site.yml](https://github.com/oliverfields/pagegen_site/blob/master/.github/workflows/deploy_site.yml). The `deploy_site.yml` file is used by Github Actions to build the site, basically running the regular pgn command. A deploy hook uploads the site to the web server, in this case using FTP.
 
 <graphviz>dot pagegen_pipeline.svg
 	digraph D {
@@ -72,7 +72,7 @@ The next step is to run the pagegen command on the checked out repository (the `
 	        ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY: ${{ secrets.ACTIONS_PAGEGEN_FTP_TARGET_DIRECTORY }}
 	      run: |
 	        cd /home/runner/work/pagegen_site/pagegen_site
-	        pagegen -g "prod"
+	        pgn -g "prod"
 
 
 Because security the deploy script is made to look for sensitive information in the Actions environment. These [encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) become environment variables available during the workflow. They are managed from the Github site.

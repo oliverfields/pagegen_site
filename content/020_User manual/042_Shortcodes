@@ -96,4 +96,4 @@ Pagegen ships with ready to use built in shortcodes. Built in shortcodes will be
 
 <sc>list_shortcodes()</sc>
 
-In addition `pagegen --init` will include `shortcodes.py_example` to illustrate further.
+In addition `pgn --init` will include `shortcodes.py_example` to illustrate further.

@@ -18,14 +18,14 @@ post_deploy        Run last (also after deploy scripts)
 
 .. tip::
 
-	Run ``pagegen --init`` on empty directory and see ``hooks`` directory for examples. To use an example remove ``.example`` and ensure the script is executable.
+	Run ``pgn --init`` on empty directory and see ``hooks`` directory for examples. To use an example remove ``.example`` and ensure the script is executable.
 
 Run one of the example hooks to see the available environment variables. All settings in the current ``site.conf`` environment are set, named ``PAGEGEN_<setting name>``.
 
 ::
 
-	cd hooks
-	mv pre_generate.example pre_generate
-	chmod +x pre_generate
-	pagegen -g <environment>
+	$ cd hooks
+	$ mv pre_generate.example pre_generate
+	$ chmod +x pre_generate
+	$ pgn -g <environment>
 
