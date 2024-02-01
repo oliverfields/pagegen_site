@@ -19,79 +19,103 @@ A bare repository is typically used for pulling and pushing to, it does not have
 
 Lets setup the `webrepo`, we need to do this on the web server.
 
-> $ ssh me@mywebserver.com
-  $ mkdir webrepo
-  $ cd webrepo
-  $ git --bare init
+<pre>
+$ ssh me@mywebserver.com
+$ mkdir webrepo
+$ cd webrepo
+$ git --bare init
+</pre>
 
 Also create a directory for building the site.
 
-> $ mkdir build
+<pre>
+$ mkdir build
+</pre>
 
 Install pagegen on the web server.
 
-> $ pip install pagegen
+<pre>
+$ pip install pagegen
+</pre>
 
 We will now setup a git hook that gets triggered every time the `webrepo` receives a push. Git hooks are simply scripts that are run when certain events happen, in our case we will use the `post-receive` hook.
 
 Create the `webrepo/hooks/post-receive` with the following content.
 
-> #!/bin/bash
-  
-  # Ensure this is same as the build directory created above
-  build_dir="/home/me/build"
-  
-  echo "Git checkout.."
-  GIT_WORK_TREE="$build_dir" git checkout -f master
-  
-  echo "Building.."
-  cd "$build_dir"
-  # Ensure this path is correct and that you have an environment called production in your site.conf
-  "$HOME/.local/bin/pgn" --generate production
+<pre>
+#!/bin/bash
+
+# Ensure this is same as the build directory created above
+build_dir="/home/me/build"
+
+echo "Git checkout.."
+GIT_WORK_TREE="$build_dir" git checkout -f master
+
+echo "Building.."
+cd "$build_dir"
+# Ensure this path is correct and that you have an environment called production in your site.conf
+"$HOME/.local/bin/pgn" --generate production
+</pre>
 
 Ensure the hook is executable.
 
-> $ chmod u+x webrepo/hooks/post-receive
+<pre>
+$ chmod u+x webrepo/hooks/post-receive
+</pre>
 
 Lets assume the web server is setup to serve `www` directory. We now want to make  `www` a symlink that points to the `build/site/production` directory, because that is where the our freshly built site will be found.
 
-> ln -s "$HOME/build/site/production" "$HOME/www"
+<pre>
+ln -s "$HOME/build/site/production" "$HOME/www"
+</pre>
 
 To recap we have now setup the following.
 
-> ├── build
-  │   └── site
-  │       └── production # Pagegen will build site here
-  ├── webrepo
-  │   └── hooks
-  │       └── post-receive # Script run on push to trigger pagegen build
-  └── www -> /tmp/t/build/site/production # Symlink to site
+<pre>
+├── build
+│   └── site
+│       └── production # Pagegen will build site here
+├── webrepo
+│   └── hooks
+│       └── post-receive # Script run on push to trigger pagegen build
+└── www -> /tmp/t/build/site/production # Symlink to site, this is what the webserver serves
+</pre>
 
 ## Dev repo
 
 This git repo can be anywhere, e.g. github, local or whatever. Use this repo in day to day development. If you don't have one already you can setup one on your local machine like so. We will refer to it as `devrepo`.
 
-> $ mkdir devrepo
-  $ cd devrepo
-  $ git init
+<pre>
+$ mkdir devrepo
+$ cd devrepo
+$ git init
+</pre>
 
-To enable pushing changes from the `devrepo` to the `webrepo` we need to configure a git remote. A git repo may have multiple remotes. Lets assume you setup your `devrepo` with github, the following will list the github remote.
+To enable pushing changes from the `devrepo` to the `webrepo` we need to configure a git remote. A git repo may have multiple remotes. Lets assume you setup your `devrepo` with github, the following will list the github remote, make sure you run it from the `devrepo` directory.
 
-> $ git remote
-  origin
+<pre>
+$ git remote
+origin
+</pre>
 
-By convention origin is the name of the remote repository that the project was originally cloned from.
+By convention `origin` is the name of the remote repository that the project was originally cloned from.
 
 To see more detail run the command again with argument `-v`.
 
-> $ git remote -v
+<pre>
+$ git remote -v
+</pre>
 
 We want to add `webrepo` as a new remote to `devrepo`, we can call the remote what we want, but will just unimaginatively call it `web` for now.
 
-> $ git remote add web me@mywebserver.com:~/webrepo
+<pre>
+$ git remote add web me@mywebserver.com:~/webrepo
+</pre>
 
 Now we can commit, push and pull and generally use `devrepo` as usual, but when we are ready to update the live site we can simply commit all changes and push to `webreop`.
 
-> $ git push web
+<pre>
+$ git push web
+</pre>
 
 The push will send all changes to `webrepo` and trigger our hook to check out the new changes in the `build` directory, run `pgn --generate production` building the new site effectively making it available to serve through the `www` symlink.
