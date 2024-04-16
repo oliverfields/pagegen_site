@@ -21,7 +21,7 @@ Default markup is now Markdown, if you want to use reStructuredText install requ
 
 ::
 
-	pip install pagegen[extra]
+	pip install pagegen[rst]
 
 
 Test installation
