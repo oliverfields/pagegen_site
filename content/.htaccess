@@ -5,9 +5,6 @@ sitemap: False
 DirectoryIndex index
 ErrorDocument 404 /404
 
-Alias /assets /home/5/p/phnd/pg_site/pagegen.phnd.net/assets
-Alias /theme /home/5/p/phnd/pg_site/pagegen.phnd.net/themes/kiss/assets
-
 <IfModule mod_rewrite.c>
   RewriteEngine on 
 
