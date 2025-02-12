@@ -58,7 +58,7 @@
     ## End Open graph
     <link rel="alternate" type="application/rss+xml" title="${site.conf['rss']['title']}" href="/feed.rss">
     <meta name="Generator" content="Pagegen" />
-    <link rel="shortcut icon" href="${site.base_url}/theme/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/theme/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/theme/site.css" type="text/css" />
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
