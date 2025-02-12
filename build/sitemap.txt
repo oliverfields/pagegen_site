@@ -1,0 +1,4 @@
+https://pagegen4.phnd.net/index
+https://pagegen4.phnd.net/manual/content-management/index
+https://pagegen4.phnd.net/manual/content-management/page-markup
+https://pagegen4.phnd.net/manual/design-and-layout/templates-and-themes
