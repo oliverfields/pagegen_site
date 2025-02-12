@@ -1,6 +1,2 @@
-site/**
-build_assets/deploy_env_secrets
-build_assets/min.css
-build_assets/min.js
-pagegen.prof
+.cache/**
 __pycache__

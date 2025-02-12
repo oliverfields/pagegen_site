@@ -1,1 +1,37 @@
-Something unrenderd
+DirectoryIndex index
+ErrorDocument 404 /404
+
+Alias /assets /home/5/p/phnd/pg_site/pagegen.phnd.net/assets
+Alias /theme /home/5/p/phnd/pg_site/pagegen.phnd.net/theme/kiss/assets
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on 
+
+  # Rewrite favicon.ico
+  RewriteRule ^favicon\.ico$ /theme/images/favicon.ico [NC,L]
+  RewriteRule ^apple-touch-icon\.png$ /theme/images/pagegen_logo_144x144.png [NC,L]
+
+  # Redirect to https
+  RewriteCond %{HTTPS} off
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Force text/html for all files
+<FilesMatch "^[^.]+$">
+#<FilesMatch "\.*">
+  ForceType text/html
+</FilesMatch>
+
+ExpiresActive On
+ExpiresDefault "access plus 60 seconds"
+ExpiresByType text/html "now plus 1 day"
+ExpiresByType image/x-icon "now plus 1 month"
+ExpiresByType image/gif "now plus 1 month"
+ExpiresByType image/jpeg "now plus 1 month"
+ExpiresByType image/png "now plus 1 month"
+ExpiresByType text/css "now plus 1 month"
+ExpiresByType multipart/x-gzip "now plus 1 month"
+ExpiresByType text/javascript "now plus 1 month"
+ExpiresByType application/javascript "now plus 1 month"
+ExpiresByType application/xml "now plus 1 day"
+ExpiresByType application/rss+xml "now plus 1 day"

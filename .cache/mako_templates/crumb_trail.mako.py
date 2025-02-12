@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739386618.5757709
+_modified_time = 1739387128.1065114
 _enable_loop = True
 _template_filename = '/home/lemo/Documents/pg_site/themes/kiss/templates/crumb_trail.mako'
 _template_uri = 'crumb_trail.mako'
@@ -16,7 +16,7 @@ _exports = []
 def render_body(context,page,site,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        __M_locals = __M_dict_builtin(site=site,pageargs=pageargs,page=page)
+        __M_locals = __M_dict_builtin(site=site,page=page,pageargs=pageargs)
         len = context.get('len', UNDEFINED)
         range = context.get('range', UNDEFINED)
         __M_writer = context.writer()
@@ -61,7 +61,7 @@ def render_body(context,page,site,**pageargs):
         
         
         __M_locals_builtin_stored = __M_locals_builtin()
-        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['i','join','dir_index','path_parts','crumb_home_title','p','maybe_index','sep','isfile','crumbs','isdir','NoOptionError'] if __M_key in __M_locals_builtin_stored]))
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['crumb_home_title','i','maybe_index','isdir','sep','path_parts','isfile','dir_index','crumbs','NoOptionError','p','join'] if __M_key in __M_locals_builtin_stored]))
         __M_writer('\n')
         __M_writer(str(crumbs))
         __M_writer('\n')
