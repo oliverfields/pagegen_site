@@ -14,7 +14,7 @@ Table of Contents:
 	--rem: 12pt;
 	--font-p: 1em/1.7  'Open Sans', 'DejaVu Sans', FreeSans, Helvetica, sans-serif;
 	--font-h: .9em/1.5 'Open Sans', 'DejaVu Sans', FreeSans, Helvetica, sans-serif;
-	--font-c: .9em/1.4 'DejaVu Sans Mono', monospace;
+	--font-c: .9em/1.4 'Courier', monospace;
 	--border: 1px solid var(--cmed);
 	--ornament: "‹‹‹ ›››";
 	/* foreground   | background color */
@@ -53,7 +53,7 @@ padding: 0;
 background-color: var(--cbg);
 }
 footer { margin: 2rem 0rem 3rem; font-size: 90%; opacity: .8;}
-p { margin: .6em 0; }
+p { margin: 1.5em 0 2em; }
 
 /* links */
 a[href]{ text-decoration: underline solid var(--cmed); text-underline-position: under; }
@@ -103,20 +103,33 @@ figcaption > *:first-child, caption > *:first-child { display: inline-block; mar
 figure > *:not(:last-child) { margin-bottom: 0.4rem; }
 
 /* code */
-pre > code {
+pre > code, pre, div.admonition {
   margin: 0;
   position: relative;
   padding: 0.8em;
   border-left: .4rem solid var(--cemph);
 }
-code, kbd, samp {
+code, kbd, samp, pre {
 	padding: 0.2em;
 	font: var(--font-c);
 	background: var(--clight);
 	border-radius: 4px;
 }
 kbd { border: 1px solid var(--cmed); }
-
+pre {
+padding: 1em;
+font: var(--font-c);
+line-height: 1em;
+}
+div.admonition {
+padding: 1em;
+background: var(--clight);
+border-radius: 4px;
+}
+p.admonition-title {
+font-weight: bold;
+margin: 0 0 1em;
+}
 /* misc */
 blockquote { border-left: 0.4rem solid var(--cmed); padding: 0 0 0 1rem;  }
 time{ color: var(--cdark); }

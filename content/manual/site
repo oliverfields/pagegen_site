@@ -1,0 +1,59 @@
+Title: Site
+Date: 2025-02-13
+Description: Add me
+
+Pagegen sites are just plain text files containing page headers and content and organized by directory hierarchy. A pagegen site is generally organized as follows:
+
+<pre>
+├── assets              Image/media files
+├── build               Generated site
+├── content             Page content
+├── plugins             Custom plugins
+├── site.conf           Configuration file
+└── themes              Themes
+    └── &lt;theme name&gt;    A theme
+        ├── assets      Theme image/media files
+        └── templates   Templates
+</pre>
+
+## Assets directory
+
+Contains image/media files required for the generated site.
+
+By default this directory is copied to the `build` directory on generation. This can be disabled in `site.conf` with the `copy_assets_to_build_dir` setting.
+
+
+## Build directory
+
+When `pgn -g` is run generated content ends up here. The content of this directory is the finished site, and can be uploaded to a web server.
+
+
+## Content directory
+
+The contents of this directory is where [pages](/manual/pages) are stored and organized using directories.
+
+Each file in the content directory becomes a page and the directory structure is copied verbatim to the `build` directory.
+
+File and directory names will therefore become the urls of the generated site, as such they should be named accordingly.
+
+!!! note
+
+    Prefer to name files and directories only with lowercase ascii alphanumeric characters and using dashes (-) to separate words
+
+
+## Plugins directory
+
+Directory for custom [plugins](/manual/plugins).
+
+
+## Site.conf configuration file
+
+Site configuration file. The `pgn` command will search the current directory and its parents until it finds `site.conf`. Similar to how `git` works.
+
+
+## Themes directory
+
+Themes consist of `assets` and templates. The `assets` directory is copied to `build/theme` when site is generated.
+
+Pagegen comes with [Mako templates plugin](/manual/plugins/bundled), that looks in `themes/&lt;theme name&gt;/templates` for templates.
+

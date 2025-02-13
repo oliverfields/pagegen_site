@@ -1,0 +1,43 @@
+Title: Quick start
+Date: 2025-02-13
+Description: Introduction to Pagegen setup and getting started with site generation.
+
+For in depth documentation please see the Manual.
+
+## Installation
+
+    $ pip install pagegen
+
+Can also be used in a virtual environment.
+
+    $ mkdir pagegen_virtualenv
+    $ virtualenv pagegen_virtualenv
+    $ cd pagegen_virtualenv
+    $ source bin/activate
+    $ pip install pagegen
+
+## Create example site
+
+First initialise a new Pagegen site directory.
+
+    $ mkdir my_site
+    $ cd my_site
+    $ pgn --init
+
+The above creates an example Pagegen framework of files and folders in the `content` directory.
+
+
+## Generate example site
+
+We are now ready to generate the site. This will create the finished site in the `my_site/build` directory.
+
+    $ pgn --generate
+
+The `my_site/build` directory now contains a freshly generated site ready for upload to a web server.
+
+## Live reload
+
+When developing Pagegen can serve site locally and monitor files for changes, automatically triggering a regeneration and browser reload.
+
+    $ pgn --live-reload
+

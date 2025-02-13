@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739387128.093944
+_modified_time = 1739452619.1935034
 _enable_loop = True
-_template_filename = '/home/lemo/Documents/pg_site/themes/kiss/templates/base.mako'
+_template_filename = '/home/oliver/Documents/pg_site/themes/kiss/templates/base.mako'
 _template_uri = 'base.mako'
 _source_encoding = 'utf-8'
 _exports = ['content']
@@ -17,13 +17,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        str = context.get('str', UNDEFINED)
+        isinstance = context.get('isinstance', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         site = context.get('site', UNDEFINED)
+        str = context.get('str', UNDEFINED)
         year = context.get('year', UNDEFINED)
         page = context.get('page', UNDEFINED)
-        isinstance = context.get('isinstance', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <base href="')
         __M_writer(str(site.base_url))
@@ -72,7 +72,7 @@ def render_body(context,**pageargs):
             
         
         __M_locals_builtin_stored = __M_locals_builtin()
-        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_width','og_image_height','og_image_url','og_image_alt','og_image_type'] if __M_key in __M_locals_builtin_stored]))
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_url','og_image_height','og_image_type','og_image_alt','og_image_width'] if __M_key in __M_locals_builtin_stored]))
         __M_writer('\n    <meta property="og:image" content="')
         __M_writer(str(og_image_url))
         __M_writer('"/>\n    <meta property="og:image:secure_url" content="')
@@ -98,18 +98,14 @@ def render_body(context,**pageargs):
             __M_writer('" />\n')
         __M_writer('    <link rel="alternate" type="application/rss+xml" title="')
         __M_writer(str(site.conf['rss']['title']))
-        __M_writer('" href="/feed.rss">\n    <meta name="Generator" content="Pagegen" />\n    <link rel="shortcut icon" href="')
-        __M_writer(str(site.base_url))
-        __M_writer('/theme/favicon.ico" type="image/x-icon" />\n    <link rel="stylesheet" href="/theme/site.css" type="text/css" />\n    <script async defer src="https://buttons.github.io/buttons.js"></script>\n  </head>\n  <body>\n    <div id="content">\n      <article>\n        ')
-        runtime._include_file(context, 'crumb_trail.mako', _template_uri, site=site, page=page)
-        __M_writer('\n        <h1>')
+        __M_writer('" href="/feed.rss">\n    <meta name="Generator" content="Pagegen" />\n    <link rel="shortcut icon" href="/theme/favicon.ico" type="image/x-icon" />\n    <link rel="stylesheet" href="/theme/site.css" type="text/css" />\n    <script async defer src="https://buttons.github.io/buttons.js"></script>\n  </head>\n  <body>\n    <div id="content">\n      <article>\n        <h1>')
         __M_writer(str(page.headers['title']))
         __M_writer('</h1>\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\n      </article>\n      <footer>Copyright &#169; 2022 - ')
+        __M_writer('\n      </article>\n      <footer>Copyright &#169; ')
         __M_writer(str(year))
         __M_writer('</footer>\n    </div><!-- /content -->\n    <div id="menu">\n      <header>\n        <a href="/">\n          <img width="120" height="66" src="/theme/pgn-logo.svg">\n        </a>\n        <h2>Every page is a file</h2>\n        <em>Static site generator</em>\n      </header>\n      <div id="search-form">\n        <form action="')
         __M_writer(str(site.base_url))
@@ -134,6 +130,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/home/lemo/Documents/pg_site/themes/kiss/templates/base.mako", "uri": "base.mako", "source_encoding": "utf-8", "line_map": {"16": 0, "28": 1, "29": 7, "30": 7, "31": 8, "32": 8, "33": 9, "34": 9, "35": 10, "36": 11, "37": 12, "38": 13, "39": 14, "40": 15, "41": 16, "42": 17, "45": 16, "46": 17, "47": 17, "48": 18, "49": 19, "50": 21, "51": 21, "52": 21, "53": 25, "54": 25, "55": 26, "56": 27, "57": 28, "58": 29, "59": 30, "60": 31, "61": 32, "62": 33, "63": 34, "64": 35, "65": 36, "66": 37, "67": 38, "68": 39, "69": 40, "70": 41, "71": 42, "72": 43, "73": 44, "76": 43, "77": 44, "78": 44, "79": 45, "80": 45, "81": 46, "82": 46, "83": 47, "84": 47, "85": 48, "86": 48, "87": 49, "88": 49, "89": 51, "90": 51, "91": 52, "92": 52, "93": 54, "94": 55, "95": 55, "96": 55, "97": 56, "98": 56, "99": 59, "100": 59, "101": 59, "102": 61, "103": 61, "104": 68, "105": 68, "106": 69, "107": 69, "112": 70, "113": 72, "114": 72, "115": 83, "116": 83, "117": 88, "118": 88, "124": 70, "135": 124}}
+{"filename": "/home/oliver/Documents/pg_site/themes/kiss/templates/base.mako", "uri": "base.mako", "source_encoding": "utf-8", "line_map": {"16": 0, "28": 1, "29": 7, "30": 7, "31": 8, "32": 8, "33": 9, "34": 9, "35": 10, "36": 11, "37": 12, "38": 13, "39": 14, "40": 15, "41": 16, "42": 17, "45": 16, "46": 17, "47": 17, "48": 18, "49": 19, "50": 21, "51": 21, "52": 21, "53": 25, "54": 25, "55": 26, "56": 27, "57": 28, "58": 29, "59": 30, "60": 31, "61": 32, "62": 33, "63": 34, "64": 35, "65": 36, "66": 37, "67": 38, "68": 39, "69": 40, "70": 41, "71": 42, "72": 43, "73": 44, "76": 43, "77": 44, "78": 44, "79": 45, "80": 45, "81": 46, "82": 46, "83": 47, "84": 47, "85": 48, "86": 48, "87": 49, "88": 49, "89": 51, "90": 51, "91": 52, "92": 52, "93": 54, "94": 55, "95": 55, "96": 55, "97": 56, "98": 56, "99": 59, "100": 59, "101": 59, "102": 68, "103": 68, "108": 69, "109": 71, "110": 71, "111": 82, "112": 82, "113": 87, "114": 87, "120": 69, "131": 120}}
 __M_END_METADATA
 """

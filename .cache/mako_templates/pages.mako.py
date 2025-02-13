@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739387128.0800772
+_modified_time = 1739452619.1889608
 _enable_loop = True
-_template_filename = '/home/lemo/Documents/pg_site/themes/kiss/templates/pages.mako'
+_template_filename = '/home/oliver/Documents/pg_site/themes/kiss/templates/pages.mako'
 _template_uri = 'pages.mako'
 _source_encoding = 'utf-8'
 _exports = ['content']
@@ -60,6 +60,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/home/lemo/Documents/pg_site/themes/kiss/templates/pages.mako", "uri": "pages.mako", "source_encoding": "utf-8", "line_map": {"27": 0, "35": 1, "40": 4, "46": 2, "53": 2, "54": 3, "55": 3, "61": 55}}
+{"filename": "/home/oliver/Documents/pg_site/themes/kiss/templates/pages.mako", "uri": "pages.mako", "source_encoding": "utf-8", "line_map": {"27": 0, "35": 1, "40": 4, "46": 2, "53": 2, "54": 3, "55": 3, "61": 55}}
 __M_END_METADATA
 """

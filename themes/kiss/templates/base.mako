@@ -65,11 +65,10 @@
   <body>
     <div id="content">
       <article>
-        <%include file="crumb_trail.mako" args="site=site, page=page" />
         <h1>${page.headers['title']}</h1>
         <%block name="content" />
       </article>
-      <footer>Copyright &#169; 2022 - ${year}</footer>
+      <footer>Copyright &#169; ${year}</footer>
     </div><!-- /content -->
     <div id="menu">
       <header>
