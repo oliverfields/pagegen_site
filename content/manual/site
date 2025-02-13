@@ -4,17 +4,15 @@ Description: Add me
 
 Pagegen sites are just plain text files containing page headers and content and organized by directory hierarchy. A pagegen site is generally organized as follows:
 
-<pre>
-├── assets              Image/media files
-├── build               Generated site
-├── content             Page content
-├── plugins             Custom plugins
-├── site.conf           Configuration file
-└── themes              Themes
-    └── &lt;theme name&gt;    A theme
-        ├── assets      Theme image/media files
-        └── templates   Templates
-</pre>
+    ├── assets              Image/media files
+    ├── build               Generated site
+    ├── content             Page content
+    ├── plugins             Custom plugins
+    ├── site.conf           Configuration file
+    └── themes              Themes
+        └── <theme name>    A theme
+            ├── assets      Theme image/media files
+            └── templates   Templates
 
 ## Assets directory
 
@@ -55,5 +53,5 @@ Site configuration file. The `pgn` command will search the current directory and
 
 Themes consist of `assets` and templates. The `assets` directory is copied to `build/theme` when site is generated.
 
-Pagegen comes with [Mako templates plugin](/manual/plugins/bundled), that looks in `themes/&lt;theme name&gt;/templates` for templates.
+Pagegen comes with [Mako templates plugin](/manual/plugins/bundled), that looks in `themes/<theme name>/templates` for templates.
 

@@ -1,7 +1,6 @@
 http://localhost:8000/index
+http://localhost:8000/quick-start
 http://localhost:8000/manual/pages
-http://localhost:8000/manual/quick-start
-http://localhost:8000/manual/site
 http://localhost:8000/manual/plugins/plugin-x-walkthru
 http://localhost:8000/manual/plugins/plugin-development
 http://localhost:8000/manual/plugins/bundled
@@ -9,3 +8,4 @@ http://localhost:8000/article/apache-and-nginx-setup-tips
 http://localhost:8000/article/pagegen-vim-plugin
 http://localhost:8000/article/deploying-to-github-pages
 http://localhost:8000/article/git-deployment-example
+http://localhost:8000/manual/site

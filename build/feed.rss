@@ -10,19 +10,14 @@
 <description>Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.</description>
 </item>
 <item>
-<title>Pages</title>
-<link>http://localhost:8000/manual/pages</link>
-<description>Add me</description>
-</item>
-<item>
 <title>Quick start</title>
-<link>http://localhost:8000/manual/quick-start</link>
+<link>http://localhost:8000/quick-start</link>
 <description>Introduction to Pagegen setup and getting started with site generation.</description>
 </item>
 <item>
-<title>Site</title>
-<link>http://localhost:8000/manual/site</link>
-<description>Add me</description>
+<title>Pages</title>
+<link>http://localhost:8000/manual/pages</link>
+<description>Pages consist of zero or more headers and content, which can be plain text, html or Markdown</description>
 </item>
 <item>
 <title>Plugin X walkthru</title>
@@ -57,6 +52,11 @@
 <item>
 <title>Git deployment example</title>
 <link>http://localhost:8000/article/git-deployment-example</link>
+<description>Add me</description>
+</item>
+<item>
+<title>Site</title>
+<link>http://localhost:8000/manual/site</link>
 <description>Add me</description>
 </item>
 </channel>

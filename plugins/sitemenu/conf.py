@@ -1,6 +1,6 @@
 conf = {
     'menu': {
-        '/manual/quick-start': 'Quick start',
+        '/quick-start': 'Quick start',
         'Manual': {
            '/manual/site': 'Site',
            '/manual/pages': 'Pages',

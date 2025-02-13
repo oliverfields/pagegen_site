@@ -56,7 +56,7 @@ footer { margin: 2rem 0rem 3rem; font-size: 90%; opacity: .8;}
 p { margin: 1.5em 0 2em; }
 
 /* links */
-a[href]{ text-decoration: underline solid var(--cmed); text-underline-position: under; }
+a[href]{ text-decoration: underline dotted var(--clink); text-underline-position: under; }
 a[href^="#"] {text-decoration: none; }
 a:hover, button:not([disabled]):hover, summary:hover {
 filter: brightness(92%); color: var(--cemph); border-color: var(--cemph);
@@ -81,8 +81,7 @@ h6 + p { display: inline; }
 /* tables */
 td, th {
   padding: 0.5em 0.8em;
-  text-align: right;
-  border-bottom: 0.1rem solid var(--cmed);
+  text-align: left;
   white-space: nowrap;
   font-size: 95%;
 }
@@ -103,24 +102,20 @@ figcaption > *:first-child, caption > *:first-child { display: inline-block; mar
 figure > *:not(:last-child) { margin-bottom: 0.4rem; }
 
 /* code */
-pre > code, pre, div.admonition {
+pre > code, div.admonition {
   margin: 0;
   position: relative;
   padding: 0.8em;
   border-left: .4rem solid var(--cemph);
 }
-code, kbd, samp, pre {
-	padding: 0.2em;
-	font: var(--font-c);
-	background: var(--clight);
-	border-radius: 4px;
-}
-kbd { border: 1px solid var(--cmed); }
-pre {
-padding: 1em;
+code, kbd, samp {
+padding: 0.2em;
 font: var(--font-c);
+background: var(--clight);
+border-radius: 4px;
 line-height: 1em;
 }
+kbd { border: 1px solid var(--cmed); }
 div.admonition {
 padding: 1em;
 background: var(--clight);
