@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739455869.1832032
+_modified_time = 1739461461.997355
 _enable_loop = True
-_template_filename = '/home/oliver/Documents/pg_site/themes/kiss/templates/base.mako'
+_template_filename = '/home/lemo/Documents/pg_site/themes/kiss/templates/base.mako'
 _template_uri = 'base.mako'
 _source_encoding = 'utf-8'
 _exports = ['content']
@@ -17,13 +17,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        str = context.get('str', UNDEFINED)
-        isinstance = context.get('isinstance', UNDEFINED)
+        site = context.get('site', UNDEFINED)
+        year = context.get('year', UNDEFINED)
+        page = context.get('page', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        page = context.get('page', UNDEFINED)
-        year = context.get('year', UNDEFINED)
-        site = context.get('site', UNDEFINED)
+        str = context.get('str', UNDEFINED)
+        isinstance = context.get('isinstance', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <base href="')
         __M_writer(str(site.base_url))
@@ -72,7 +72,7 @@ def render_body(context,**pageargs):
             
         
         __M_locals_builtin_stored = __M_locals_builtin()
-        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_alt','og_image_url','og_image_height','og_image_width','og_image_type'] if __M_key in __M_locals_builtin_stored]))
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_url','og_image_type','og_image_width','og_image_alt','og_image_height'] if __M_key in __M_locals_builtin_stored]))
         __M_writer('\n    <meta property="og:image" content="')
         __M_writer(str(og_image_url))
         __M_writer('"/>\n    <meta property="og:image:secure_url" content="')
@@ -130,6 +130,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/home/oliver/Documents/pg_site/themes/kiss/templates/base.mako", "uri": "base.mako", "source_encoding": "utf-8", "line_map": {"16": 0, "28": 1, "29": 7, "30": 7, "31": 8, "32": 8, "33": 9, "34": 9, "35": 10, "36": 11, "37": 12, "38": 13, "39": 14, "40": 15, "41": 16, "42": 17, "45": 16, "46": 17, "47": 17, "48": 18, "49": 19, "50": 21, "51": 21, "52": 21, "53": 25, "54": 25, "55": 26, "56": 27, "57": 28, "58": 29, "59": 30, "60": 31, "61": 32, "62": 33, "63": 34, "64": 35, "65": 36, "66": 37, "67": 38, "68": 39, "69": 40, "70": 41, "71": 42, "72": 43, "73": 44, "76": 43, "77": 44, "78": 44, "79": 45, "80": 45, "81": 46, "82": 46, "83": 47, "84": 47, "85": 48, "86": 48, "87": 49, "88": 49, "89": 51, "90": 51, "91": 52, "92": 52, "93": 54, "94": 55, "95": 55, "96": 55, "97": 56, "98": 56, "99": 59, "100": 59, "101": 59, "102": 68, "103": 68, "108": 69, "109": 71, "110": 71, "111": 82, "112": 82, "113": 87, "114": 87, "120": 69, "131": 120}}
+{"filename": "/home/lemo/Documents/pg_site/themes/kiss/templates/base.mako", "uri": "base.mako", "source_encoding": "utf-8", "line_map": {"16": 0, "28": 1, "29": 7, "30": 7, "31": 8, "32": 8, "33": 9, "34": 9, "35": 10, "36": 11, "37": 12, "38": 13, "39": 14, "40": 15, "41": 16, "42": 17, "45": 16, "46": 17, "47": 17, "48": 18, "49": 19, "50": 21, "51": 21, "52": 21, "53": 25, "54": 25, "55": 26, "56": 27, "57": 28, "58": 29, "59": 30, "60": 31, "61": 32, "62": 33, "63": 34, "64": 35, "65": 36, "66": 37, "67": 38, "68": 39, "69": 40, "70": 41, "71": 42, "72": 43, "73": 44, "76": 43, "77": 44, "78": 44, "79": 45, "80": 45, "81": 46, "82": 46, "83": 47, "84": 47, "85": 48, "86": 48, "87": 49, "88": 49, "89": 51, "90": 51, "91": 52, "92": 52, "93": 54, "94": 55, "95": 55, "96": 55, "97": 56, "98": 56, "99": 59, "100": 59, "101": 59, "102": 68, "103": 68, "108": 69, "109": 71, "110": 71, "111": 82, "112": 82, "113": 87, "114": 87, "120": 69, "131": 120}}
 __M_END_METADATA
 """
