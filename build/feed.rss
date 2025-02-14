@@ -2,61 +2,61 @@
 <rss version="2.0">
 <channel>
 <title>Pagegen static site generator</title>
-<link>https://pagegen4.phnd.net</link>
+<link>https://pagegen.phnd.net</link>
 <description>Every page is a file</description>
 <item>
 <title>Pagegen static site generator</title>
-<link>https://pagegen4.phnd.net/index</link>
+<link>https://pagegen.phnd.net/index</link>
 <description>Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.</description>
 </item>
 <item>
 <title>Quick start</title>
-<link>https://pagegen4.phnd.net/quick-start</link>
+<link>https://pagegen.phnd.net/quick-start</link>
 <description>Introduction to Pagegen setup and getting started with site generation.</description>
 </item>
 <item>
 <title>Pages</title>
-<link>https://pagegen4.phnd.net/manual/pages</link>
+<link>https://pagegen.phnd.net/manual/pages</link>
 <description>Pages consist of zero or more headers and content, which can be plain text, html or Markdown</description>
 </item>
 <item>
 <title>Site</title>
-<link>https://pagegen4.phnd.net/manual/site</link>
+<link>https://pagegen.phnd.net/manual/site</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Included plugins</title>
-<link>https://pagegen4.phnd.net/manual/plugins/included</link>
+<link>https://pagegen.phnd.net/manual/plugins/included</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Plugin development</title>
-<link>https://pagegen4.phnd.net/manual/plugins/plugin-development</link>
+<link>https://pagegen.phnd.net/manual/plugins/plugin-development</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Deploying to github pages</title>
-<link>https://pagegen4.phnd.net/article/deploying-to-github-pages</link>
+<link>https://pagegen.phnd.net/article/deploying-to-github-pages</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Apache and nginx setup tips</title>
-<link>https://pagegen4.phnd.net/article/apache-and-nginx-setup-tips</link>
+<link>https://pagegen.phnd.net/article/apache-and-nginx-setup-tips</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Git deployment example</title>
-<link>https://pagegen4.phnd.net/article/git-deployment-example</link>
+<link>https://pagegen.phnd.net/article/git-deployment-example</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Pagegen vim plugin</title>
-<link>https://pagegen4.phnd.net/article/pagegen-vim-plugin</link>
+<link>https://pagegen.phnd.net/article/pagegen-vim-plugin</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Plugin installation</title>
-<link>https://pagegen4.phnd.net/manual/plugins/installation</link>
+<link>https://pagegen.phnd.net/manual/plugins/installation</link>
 <description>Add me</description>
 </item>
 </channel>
