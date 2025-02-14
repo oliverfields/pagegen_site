@@ -1,6 +1,6 @@
 Title: Plugin development
 Date: 2025-02-13
-Description: Add me
+Description: Brief guide to developing Pagegen plugins.
 
 Pagegens plugin architecture is straight forward. During site generation Pagegen makes hooks available for plugins to trigger the appropriate plugin functions(def).
 

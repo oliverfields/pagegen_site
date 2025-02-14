@@ -1,6 +1,6 @@
 Title: Site
 Date: 2025-02-13
-Description: Add me
+Description: Directory structure of a Pagegen site.
 
 Pagegen sites are just plain text files containing page headers and content and organized by directory hierarchy. A pagegen site is generally organized as follows:
 

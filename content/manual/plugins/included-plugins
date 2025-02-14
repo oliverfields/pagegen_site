@@ -1,6 +1,6 @@
 Title: Included plugins
 Date: 2025-02-13
-Description: Add me
+Description: Pagegen comes with several plugins included.
 
 The following plugins are included with pagegen. To use them enable in `site.conf` in the `[site]` and updating the `enabled_plugins` setting.
 
