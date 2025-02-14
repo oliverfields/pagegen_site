@@ -25,23 +25,13 @@
 <description>Add me</description>
 </item>
 <item>
-<title>Plugin development</title>
-<link>https://pagegen4.phnd.net/manual/plugins/plugin-development</link>
-<description>Add me</description>
-</item>
-<item>
 <title>Included plugins</title>
 <link>https://pagegen4.phnd.net/manual/plugins/included</link>
 <description>Add me</description>
 </item>
 <item>
-<title>Apache and nginx setup tips</title>
-<link>https://pagegen4.phnd.net/article/apache-and-nginx-setup-tips</link>
-<description>Add me</description>
-</item>
-<item>
-<title>Pagegen vim plugin</title>
-<link>https://pagegen4.phnd.net/article/pagegen-vim-plugin</link>
+<title>Plugin development</title>
+<link>https://pagegen4.phnd.net/manual/plugins/plugin-development</link>
 <description>Add me</description>
 </item>
 <item>
@@ -50,8 +40,18 @@
 <description>Add me</description>
 </item>
 <item>
+<title>Apache and nginx setup tips</title>
+<link>https://pagegen4.phnd.net/article/apache-and-nginx-setup-tips</link>
+<description>Add me</description>
+</item>
+<item>
 <title>Git deployment example</title>
 <link>https://pagegen4.phnd.net/article/git-deployment-example</link>
+<description>Add me</description>
+</item>
+<item>
+<title>Pagegen vim plugin</title>
+<link>https://pagegen4.phnd.net/article/pagegen-vim-plugin</link>
 <description>Add me</description>
 </item>
 <item>

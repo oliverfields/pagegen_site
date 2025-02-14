@@ -2,10 +2,10 @@ https://pagegen4.phnd.net/index
 https://pagegen4.phnd.net/quick-start
 https://pagegen4.phnd.net/manual/pages
 https://pagegen4.phnd.net/manual/site
-https://pagegen4.phnd.net/manual/plugins/plugin-development
 https://pagegen4.phnd.net/manual/plugins/installation
 https://pagegen4.phnd.net/manual/plugins/included
-https://pagegen4.phnd.net/article/apache-and-nginx-setup-tips
-https://pagegen4.phnd.net/article/pagegen-vim-plugin
+https://pagegen4.phnd.net/manual/plugins/plugin-development
 https://pagegen4.phnd.net/article/deploying-to-github-pages
+https://pagegen4.phnd.net/article/apache-and-nginx-setup-tips
 https://pagegen4.phnd.net/article/git-deployment-example
+https://pagegen4.phnd.net/article/pagegen-vim-plugin
