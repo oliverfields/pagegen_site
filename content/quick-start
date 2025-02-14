@@ -4,6 +4,7 @@ Description: Introduction to Pagegen setup and getting started with site generat
 
 For in depth documentation please see the Manual.
 
+
 ## Installation
 
     $ pip install pagegen
@@ -15,6 +16,7 @@ Can also be used in a virtual environment.
     $ cd pagegen_virtualenv
     $ source bin/activate
     $ pip install pagegen
+
 
 ## Create example site
 
@@ -34,6 +36,7 @@ We are now ready to generate the site. This will create the finished site in the
     $ pgn --generate
 
 The `my_site/build` directory now contains a freshly generated site ready for upload to a web server.
+
 
 ## Live reload
 
