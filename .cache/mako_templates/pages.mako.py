@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739541058.363565
+_modified_time = 1739541571.7354648
 _enable_loop = True
 _template_filename = '/home/oliver/Documents/pg_site/themes/kiss/templates/pages.mako'
 _template_uri = 'pages.mako'
@@ -28,9 +28,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        page = context.get('page', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        page = context.get('page', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -46,9 +46,9 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        page = context.get('page', UNDEFINED)
         def content():
             return render_content(context)
-        page = context.get('page', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n  ')
         __M_writer(str(page.out))

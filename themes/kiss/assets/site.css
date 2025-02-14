@@ -82,7 +82,6 @@ h6 + p { display: inline; }
 td, th {
   padding: 0.5em 0.8em;
   text-align: left;
-  white-space: nowrap;
   font-size: 95%;
 }
 thead th[colspan] { padding: .2em 0.8em; text-align: center; }
@@ -140,7 +139,7 @@ margin-top: 0;
 
 article,
 footer {
-padding: 1rem 0;
+padding: 1rem;
 }
 
 header {
