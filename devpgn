@@ -1,0 +1,11 @@
+#!/bin/bash
+
+declare -A ENVS
+ENVS['PGN_SITE_BASE_URL']='http://localhost:8000'
+ENVS['PGN_SITE_COPY_ASSETS_TO_BUILD_DIR']='False'
+
+for k in ${!ENVS[@]}; do
+    export "$k=${ENVS[$k]}"
+done
+
+pgn $*
