@@ -14,7 +14,7 @@ GIT_WORK_TREE="$build_dir" git checkout -f master
 
 echo "Building.."
 cd "$build_dir"
-# Ensure this path is correct and that you have an environment called production in your site.conf
+# Ensure this path is correct
 "$HOME/.local/bin/pgn" --generate
 </code></pre> <p>Ensure the hook is executable.</p> <pre><code>$ chmod u+x webrepo/hooks/post-receive
 </code></pre> <p>Lets assume the web server is setup to serve <code>www</code> directory. We now want to make <code>www</code> a symlink that points to the <code>build/site/production</code> directory, because that is where the our freshly built site will be found.</p> <pre><code>ln -s "$HOME/build" "$HOME/www"
