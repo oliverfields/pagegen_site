@@ -98,7 +98,6 @@ for (let i = 0; i < showHideLinks.length; i++) {
 
 // Show current page
 page_url = window.location.pathname;
-console.log(page_url);
 let menuLinks = m.getElementsByTagName('A');
 for (let i = 0; i < menuLinks.length; i++) {
   if ('/' + menuLinks[i].href.split('/').slice(3).join('/') == page_url) {
