@@ -286,6 +286,8 @@ margin: .5rem 0 0 1rem;
 color: var(--clink);
 text-decoration: none;
 cursor: pointer;
+font-size: .9em;
+color: var(--cfg);
 }
 
 .github-button-container {

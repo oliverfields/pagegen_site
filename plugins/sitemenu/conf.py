@@ -5,9 +5,9 @@ conf = {
            '/manual/site': 'Site',
            '/manual/pages': 'Pages',
             'Plugins': {
-                '/manual/plugins/bundled': 'Bundled',
-                '/manual/plugins/plugin-development': 'Plugin development',
-                '/manual/plugins/plugin-x-walkthru': 'Plugin x walkthru'
+                '/manual/plugins/included': 'Included',
+                '/manual/plugins/installation': 'Installation',
+                '/manual/plugins/plugin-development': 'Development'
             }
         },
         'Articles': {

@@ -2,7 +2,80 @@ Title: Plugin development
 Date: 2025-02-13
 Description: Add me
 
-Build cycle
-Site.Index
-Hooks
-site and page objects
+Pagegens plugin architecture is straight forward. During site generation Pagegen makes hooks available for plugins to trigger the appropriate plugin functions(def).
+
+## Hooks
+
+The available hooks are as follows.
+
+| Hook | Description |
+| ---- | ----------- |
+| hook_pre_build | Before site generation starts |
+| hook_pre_build_lists | Before build list is generated, the build list is the list of files that need to be built |
+| hook_page_* | Page hooks, run per page that is generated, see table below |
+| hook_post_build_lists | After build list is populated with pages to be buildt |
+| hook_post_build | After site generation |
+
+Page hooks are run for each page that is registered in the build list.
+
+| Hook | Description |
+| ---- | ----------- |
+| hook_page_deps | After page dependencies have been identified |
+| hook_page_pre_build | Before page is built |
+| hook_page_render | Render page.content to page.out |
+| hook_page_post_build | After page has been buildt/rendered |
+
+
+## Hook objects
+
+When a plugin function is called it is passed a list of objects that are relevant for that particular hook. The site object is always made available and mostly the page object also.
+
+From the `site` object typical things the following attributes are highlighted.
+
+| Name | Description |
+| ---- | ----------- |
+| site.build_dir | Build directory |
+| site.conf | Configuration |
+| site.content_dir | Content directory
+| site.index | List of all pages meta data, including headers |
+| site.site_dir | Root site directory |
+
+From the `page` object typical things the following attributes are highlighted.
+
+| Name | Description |
+| ---- | ----------- |
+| page.absolute_url | Full url to page (canonical) |
+| page.content | Page content without headers/frontmatter |
+| page.headers | Dictionary of headers set in page |
+| page.out | Final output written to `build` directory |
+| page.raw | Page content as read from disk |
+| page.relative_url | URL relative to site root |
+| page.source_path | Page source file path |
+| page.target_path | Where final output(page.out) will be saved |
+
+
+## Example plugin
+
+The following plugin creates extracts an excerpt from a page during rendering. The objects argument contains two objects, site and page.
+
+    class Plugin():
+
+        def hook_page_render(self, objects):
+
+            p = objects['page']
+
+            print(p.relative_url)
+
+
+To test this out do the following:
+
+1. Add the code above to `<site dir>/plugins/test/test.py`
+2. Enable the plugin in `site.conf` section `[site]` by adding setting `enabled_plugins=test`, alternatively appending `, test` if the setting exists
+3. Make sure there are some pages and run `pgn -gV` to see what is going on
+
+The function/def name `def hook_page_render` can be any of the hooks specified above.
+
+
+TODO add github link to /plugins
+
+To get a better understanding of how plugins are written, please see github.

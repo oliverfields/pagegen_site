@@ -2,61 +2,61 @@
 <rss version="2.0">
 <channel>
 <title>Pagegen static site generator</title>
-<link>https://pagegen4.phnd.net</link>
+<link>http://localhost:8000</link>
 <description>Every page is a file</description>
 <item>
 <title>Pagegen static site generator</title>
-<link>https://pagegen4.phnd.net/index</link>
+<link>http://localhost:8000/index</link>
 <description>Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.</description>
 </item>
 <item>
 <title>Quick start</title>
-<link>https://pagegen4.phnd.net/quick-start</link>
+<link>http://localhost:8000/quick-start</link>
 <description>Introduction to Pagegen setup and getting started with site generation.</description>
 </item>
 <item>
 <title>Pages</title>
-<link>https://pagegen4.phnd.net/manual/pages</link>
+<link>http://localhost:8000/manual/pages</link>
 <description>Pages consist of zero or more headers and content, which can be plain text, html or Markdown</description>
 </item>
 <item>
 <title>Site</title>
-<link>https://pagegen4.phnd.net/manual/site</link>
-<description>Add me</description>
-</item>
-<item>
-<title>Plugin X walkthru</title>
-<link>https://pagegen4.phnd.net/manual/plugins/plugin-x-walkthru</link>
-<description>Add me</description>
-</item>
-<item>
-<title>Bundled Plugins</title>
-<link>https://pagegen4.phnd.net/manual/plugins/bundled</link>
+<link>http://localhost:8000/manual/site</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Plugin development</title>
-<link>https://pagegen4.phnd.net/manual/plugins/plugin-development</link>
+<link>http://localhost:8000/manual/plugins/plugin-development</link>
 <description>Add me</description>
 </item>
 <item>
-<title>Deploying to github pages</title>
-<link>https://pagegen4.phnd.net/article/deploying-to-github-pages</link>
+<title>Included plugins</title>
+<link>http://localhost:8000/manual/plugins/included</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Apache and nginx setup tips</title>
-<link>https://pagegen4.phnd.net/article/apache-and-nginx-setup-tips</link>
-<description>Add me</description>
-</item>
-<item>
-<title>Git deployment example</title>
-<link>https://pagegen4.phnd.net/article/git-deployment-example</link>
+<link>http://localhost:8000/article/apache-and-nginx-setup-tips</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Pagegen vim plugin</title>
-<link>https://pagegen4.phnd.net/article/pagegen-vim-plugin</link>
+<link>http://localhost:8000/article/pagegen-vim-plugin</link>
+<description>Add me</description>
+</item>
+<item>
+<title>Deploying to github pages</title>
+<link>http://localhost:8000/article/deploying-to-github-pages</link>
+<description>Add me</description>
+</item>
+<item>
+<title>Git deployment example</title>
+<link>http://localhost:8000/article/git-deployment-example</link>
+<description>Add me</description>
+</item>
+<item>
+<title>Plugin installation</title>
+<link>http://localhost:8000/manual/plugins/installation</link>
 <description>Add me</description>
 </item>
 </channel>

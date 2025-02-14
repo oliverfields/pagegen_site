@@ -1,0 +1,18 @@
+Title: Included plugins
+Date: 2025-02-13
+Description: Add me
+
+The following plugins are included with pagegen. To use them enable in `site.conf` in the `[site]` and updating the `enabled_plugins` setting.
+
+TODO Link to READMES in github
+
+| Name | Description |
+| ---- | ----------- |
+| excerpt | Adds any content preceeding `<!-- more -->` to page.excerpt |
+| mako_templates | Pages with header `template: <name>` get rendered by that Mako template  |
+| minify | Minifies HTML in pages and any .css or .js files in assets or theme assets  |
+| pgn_markdown | Converts page content marked up with Markdown to HTML |
+| rss | Site RSS feed  |
+| shortcodes | Shortcodes are Python functions defined in shortcodes.py and can be called in page content using &lt;sc&gt;function_name(arg1, argN)&lt;sc&gt; or in Mako templates |
+| sitemap | Simple list of site urls in /sitemap.txt. Page header `sitemap: False` ommits page from sitemap |
+

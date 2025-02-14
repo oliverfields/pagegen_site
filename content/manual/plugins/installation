@@ -1,0 +1,11 @@
+Date: 2025-02-14
+Title: Plugin installation
+Description: Add me
+
+Plugins are installed in a few steps.
+
+1. Ensure that root site directory has a `plugins` directory, if not create it
+2. Create a directory for the plugin to be installed in `plugins` and copy the plugin files there
+3. Enable the plugin in `site.conf` in the `[site]` section adding `<plugin name>` to `enabled_plugins` setting. The list of plugin names must be separated by commas
+4. Optionally add any configuration to `site.conf`, see plugin documentation
+5. Optionally add plugin to any `hook_*` settings if the order of plugin execution is required for correct operation (if not set Pagegen will execute in alphabetical order)

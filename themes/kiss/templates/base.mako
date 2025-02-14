@@ -72,18 +72,19 @@
     </div><!-- /content -->
     <div id="menu">
       <header>
-        <a href="/">
+        <a href="/index">
           <img width="120" height="66" src="/theme/pgn-logo.svg">
         </a>
         <h2>Every page is a file</h2>
         <em>Static site generator</em>
       </header>
+<!--
       <div id="search-form">
         <form action="${site.base_url}/search-results" method="GET">
           <input type="text" id="search-query" name="q" />
           <input type="submit" id="search-submit" value="🔍️" />
         </form>
-      </div><!-- /search-form -->
+      </div> --><!-- /search-form -->
       ${site.cache['sitemenu']}
       <ol>
         <li>✉️ <a href="mailto:pagegen@phnd.net">pagegen@phnd.net</a></li>
