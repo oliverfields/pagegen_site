@@ -5,7 +5,7 @@ Date: 2025-01-31
 <div class="side-content">
 <h2>Get Pagegen</h2>
 <kbd>$ pip install pagegen</kbd>
-<p>Then checkout the <br /><a href="/manual/quick-start">quick start</a></p>
+<p>Then checkout the <br /><a href="/quick-start">quick start</a></p>
 </div>
 
 Pagegen takes content found in a bunch of regular plain text files and folders and wraps them up nicely as a website. You can focus on writing content, and pagegen will do it up for web.

@@ -53,5 +53,5 @@ Site configuration file. The `pgn` command will search the current directory and
 
 Themes consist of `assets` and templates. The `assets` directory is copied to `build/theme` when site is generated.
 
-Pagegen comes with [Mako templates plugin](/manual/plugins/bundled), that looks in `themes/<theme name>/templates` for templates.
+Pagegen comes with [Mako templates plugin](/manual/plugins/included), that looks in `themes/<theme name>/templates` for templates.
 
