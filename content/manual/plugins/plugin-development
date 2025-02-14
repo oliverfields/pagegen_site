@@ -75,7 +75,4 @@ To test this out do the following:
 
 The function/def name `def hook_page_render` can be any of the hooks specified above.
 
-
-TODO add github link to /plugins
-
-To get a better understanding of how plugins are written, please see github.
+To get a better understanding of how plugins are written please take a look at the [plugins included with Pagegen](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins).

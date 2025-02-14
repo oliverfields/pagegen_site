@@ -1,11 +1,12 @@
 #!/bin/bash
 
-declare -A ENVS
-ENVS['PGN_SITE_BASE_URL']='http://localhost:8000'
-ENVS['PGN_SITE_COPY_ASSETS_TO_BUILD_DIR']='False'
+set -x
 
-for k in ${!ENVS[@]}; do
-    export "$k=${ENVS[$k]}"
-done
+PGN_SITE_BASE_URL=http://localhost:8000
+PGN_SITE_COPY_ASSETS_TO_BUILD_DIR=False
+
+echo TODO may seem like site baase url not detected
 
 pgn $*
+
+set +x

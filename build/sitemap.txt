@@ -2,8 +2,8 @@ https://pagegen.phnd.net/index
 https://pagegen.phnd.net/quick-start
 https://pagegen.phnd.net/manual/pages
 https://pagegen.phnd.net/manual/site
-https://pagegen.phnd.net/manual/plugins/installation
-https://pagegen.phnd.net/manual/plugins/included
+https://pagegen.phnd.net/manual/plugins/included-plugins
+https://pagegen.phnd.net/manual/plugins/plugin-installation
 https://pagegen.phnd.net/manual/plugins/plugin-development
 https://pagegen.phnd.net/article/deploying-to-github-pages
 https://pagegen.phnd.net/article/apache-and-nginx-setup-tips

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739553672.0653336
+_modified_time = 1739554879.3749743
 _enable_loop = True
 _template_filename = '/home/lemo/Documents/pg_site/themes/kiss/templates/base.mako'
 _template_uri = 'base.mako'
@@ -17,11 +17,11 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        year = context.get('year', UNDEFINED)
         isinstance = context.get('isinstance', UNDEFINED)
         page = context.get('page', UNDEFINED)
-        year = context.get('year', UNDEFINED)
-        str = context.get('str', UNDEFINED)
         site = context.get('site', UNDEFINED)
+        str = context.get('str', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -72,7 +72,7 @@ def render_body(context,**pageargs):
             
         
         __M_locals_builtin_stored = __M_locals_builtin()
-        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_alt','og_image_type','og_image_width','og_image_height','og_image_url'] if __M_key in __M_locals_builtin_stored]))
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_height','og_image_type','og_image_alt','og_image_width','og_image_url'] if __M_key in __M_locals_builtin_stored]))
         __M_writer('\n    <meta property="og:image" content="')
         __M_writer(str(og_image_url))
         __M_writer('"/>\n    <meta property="og:image:secure_url" content="')
