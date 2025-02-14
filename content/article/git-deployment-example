@@ -49,7 +49,7 @@ Create the `webrepo/hooks/post-receive` with the following content.
 
     echo "Building.."
     cd "$build_dir"
-    # Ensure this path is correct and that you have an environment called production in your site.conf
+    # Ensure this path is correct
     "$HOME/.local/bin/pgn" --generate
 
 Ensure the hook is executable.
