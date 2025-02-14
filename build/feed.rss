@@ -42,12 +42,12 @@
 <item>
 <title>Apache and nginx setup tips</title>
 <link>https://pagegen.phnd.net/article/apache-and-nginx-setup-tips</link>
-<description>Add me</description>
+<description>Pagegen user experience and SEO may be increased by configuring the web server appropriately.</description>
 </item>
 <item>
 <title>Git deployment example</title>
 <link>https://pagegen.phnd.net/article/git-deployment-example</link>
-<description>Add me</description>
+<description>Push changes to remote server and trigger git hooks to deploy web site.</description>
 </item>
 <item>
 <title>Pagegen vim plugin</title>
