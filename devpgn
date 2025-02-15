@@ -2,10 +2,8 @@
 
 set -x
 
-PGN_SITE_BASE_URL=http://localhost:8000
-PGN_SITE_COPY_ASSETS_TO_BUILD_DIR=False
-
-echo TODO may seem like site baase url not detected
+export PGN_SITE_BASE_URL=http://localhost:8000
+export PGN_SITE_COPY_ASSETS_TO_BUILD_DIR=False
 
 pgn $*
 

@@ -52,7 +52,7 @@ color: var(--cfg);
 padding: 0;
 background-color: var(--cbg);
 }
-footer { margin: 2rem 0rem 3rem; font-size: 90%; opacity: .8;}
+footer { margin: 0rem 0rem 3rem; padding: 0 1rem; font-size: 90%; opacity: .8;}
 p { margin: 1.5em 0 2em; }
 
 /* links */
@@ -137,8 +137,7 @@ article h1:first-child {
 margin-top: 0;
 }
 
-article,
-footer {
+article {
 padding: 1rem;
 }
 

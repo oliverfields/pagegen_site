@@ -2,61 +2,61 @@
 <rss version="2.0">
 <channel>
 <title>Pagegen static site generator</title>
-<link>https://pagegen.phnd.net</link>
+<link>http://localhost:8000</link>
 <description>Every page is a file</description>
 <item>
 <title>Pagegen static site generator</title>
-<link>https://pagegen.phnd.net/index</link>
+<link>http://localhost:8000/index</link>
 <description>Pagegen is a static web site generator, it creates web sites from text files and directories. Manage your site from the command line.</description>
 </item>
 <item>
 <title>Quick start</title>
-<link>https://pagegen.phnd.net/quick-start</link>
+<link>http://localhost:8000/quick-start</link>
 <description>Introduction to Pagegen setup and getting started with site generation.</description>
 </item>
 <item>
 <title>Pages</title>
-<link>https://pagegen.phnd.net/manual/pages</link>
+<link>http://localhost:8000/manual/pages</link>
 <description>Pages consist of zero or more headers and content, which can be plain text, html or Markdown</description>
 </item>
 <item>
 <title>Site</title>
-<link>https://pagegen.phnd.net/manual/site</link>
+<link>http://localhost:8000/manual/site</link>
 <description>Directory structure of a Pagegen site.</description>
 </item>
 <item>
 <title>Included plugins</title>
-<link>https://pagegen.phnd.net/manual/plugins/included-plugins</link>
+<link>http://localhost:8000/manual/plugins/included-plugins</link>
 <description>Pagegen comes with several plugins included.</description>
 </item>
 <item>
 <title>Plugin development</title>
-<link>https://pagegen.phnd.net/manual/plugins/plugin-development</link>
+<link>http://localhost:8000/manual/plugins/plugin-development</link>
 <description>Brief guide to developing Pagegen plugins.</description>
 </item>
 <item>
 <title>Deploying to github pages</title>
-<link>https://pagegen.phnd.net/article/deploying-to-github-pages</link>
+<link>http://localhost:8000/article/deploying-to-github-pages</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Apache and nginx setup tips</title>
-<link>https://pagegen.phnd.net/article/apache-and-nginx-setup-tips</link>
+<link>http://localhost:8000/article/apache-and-nginx-setup-tips</link>
 <description>Pagegen user experience and SEO may be increased by configuring the web server appropriately.</description>
 </item>
 <item>
 <title>Git deployment example</title>
-<link>https://pagegen.phnd.net/article/git-deployment-example</link>
+<link>http://localhost:8000/article/git-deployment-example</link>
 <description>Push changes to remote server and trigger git hooks to deploy web site.</description>
 </item>
 <item>
 <title>Pagegen vim plugin</title>
-<link>https://pagegen.phnd.net/article/pagegen-vim-plugin</link>
+<link>http://localhost:8000/article/pagegen-vim-plugin</link>
 <description>Add me</description>
 </item>
 <item>
 <title>Plugin installation</title>
-<link>https://pagegen.phnd.net/manual/plugins/plugin-installation</link>
+<link>http://localhost:8000/manual/plugins/plugin-installation</link>
 <description>How to install Pagegen plugins.</description>
 </item>
 </channel>
