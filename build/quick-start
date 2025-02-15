@@ -21,6 +21,7 @@ function show_current_page_parent_menus(obj){
   if (obj.id == 'site-menu') return;
   if (obj.parentElement.tagName == 'OL') {
     obj.parentElement.style.display='block';
+    obj.parentElement.parentElement.children[0].children[0].innerHTML = '▲';
   }
   show_current_page_parent_menus(obj.parentElement);
 }
@@ -30,6 +31,7 @@ let m = document.getElementById('site-menu');
 // Add click event to toggle sub menus
 let showHideLinks = m.getElementsByClassName('toggle-expand');
 for (let i = 0; i < showHideLinks.length; i++) {
+
   showHideLinks[i].addEventListener("click", function() {
     for (const child of this.parentElement.children) {
       if (child.tagName == 'OL') {
