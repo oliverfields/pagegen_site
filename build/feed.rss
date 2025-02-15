@@ -2,7 +2,7 @@
 <rss version="2.0">
 <channel>
 <title>Pagegen static site generator</title>
-<link>http://localhost:8000</link>
+<link>https://pagegen.phnd.net</link>
 <description>Every page is a file</description>
 <item>
 <title>Pagegen static site generator</title>

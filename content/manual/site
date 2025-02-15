@@ -46,7 +46,9 @@ Directory for custom [plugins](/manual/plugins).
 
 ## Site.conf configuration file
 
-Site configuration file. The `pgn` command will search the current directory and its parents until it finds `site.conf`. Similar to how `git` works.
+Pagegen site configuration is done primarily from `site.conf`, please see [commented site.conf on github](https://github.com/oliverfields/pagegen/blob/master/src/pagegen/skel/site.conf). The `pgn` command will search the current directory and its parents until it finds `site.conf`. Similar to how the git command works.
+
+Briefly the config is devided in sections containing settings. The default section is `[site]` and must always be present. The config file supports comments using `#`.
 
 
 ## Themes directory
