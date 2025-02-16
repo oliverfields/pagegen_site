@@ -35,7 +35,7 @@ class Plugin():
 
     def hook_post_build_lists(self, objects):
 
-        logger.info('Adding sitemenu to site.cache["sitemenu"]')
+        logger.debug('Adding sitemenu to site.cache["sitemenu"]')
         self.content_dir = objects['site'].content_dir
         self.ignore = conf['ignore']
         self.menu = conf['menu']
@@ -59,7 +59,7 @@ class Plugin():
                     logger.warning('Page not defined in site menu: ' + c_rel_path)
 
             else:
-                logger.info('Ignoring: ' + c_rel_path)
+                logger.debug('Ignoring: ' + c_rel_path)
 
 
         menu = '<menu id="site-menu">' + '\n'.join(self.to_html(self.menu)) + '</menu>'
