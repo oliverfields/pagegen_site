@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1739541571.7400477
+_modified_time = 1739542154.9141753
 _enable_loop = True
 _template_filename = '/home/oliver/Documents/pg_site/themes/kiss/templates/base.mako'
 _template_uri = 'base.mako'
@@ -18,12 +18,12 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         page = context.get('page', UNDEFINED)
-        str = context.get('str', UNDEFINED)
-        site = context.get('site', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        isinstance = context.get('isinstance', UNDEFINED)
+        site = context.get('site', UNDEFINED)
         year = context.get('year', UNDEFINED)
+        str = context.get('str', UNDEFINED)
+        isinstance = context.get('isinstance', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="UTF-8">\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <base href="')
         __M_writer(str(site.base_url))
@@ -72,7 +72,7 @@ def render_body(context,**pageargs):
             
         
         __M_locals_builtin_stored = __M_locals_builtin()
-        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_type','og_image_alt','og_image_url','og_image_height','og_image_width'] if __M_key in __M_locals_builtin_stored]))
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['og_image_alt','og_image_url','og_image_height','og_image_type','og_image_width'] if __M_key in __M_locals_builtin_stored]))
         __M_writer('\n    <meta property="og:image" content="')
         __M_writer(str(og_image_url))
         __M_writer('"/>\n    <meta property="og:image:secure_url" content="')
