@@ -1,10 +1,10 @@
 https://pagegen.phnd.net/index
 https://pagegen.phnd.net/quick-start
 https://pagegen.phnd.net/articles/apache-and-nginx-setup-tips
+https://pagegen.phnd.net/articles/pagegen-vim-plugin
 https://pagegen.phnd.net/articles/git-deployment-example
 https://pagegen.phnd.net/manual/pages
 https://pagegen.phnd.net/manual/site
 https://pagegen.phnd.net/manual/plugins/plugin-installation
 https://pagegen.phnd.net/manual/plugins/plugin-development
 https://pagegen.phnd.net/manual/plugins/included-plugins
-http://localhost:8000/articles/pagegen-vim-plugin
