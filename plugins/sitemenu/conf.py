@@ -12,7 +12,8 @@ conf = {
         },
         'Articles': {
             '/articles/git-deployment-example': 'Git deployment example',
-            '/articles/apache-and-nginx-setup-tips': 'Apache and Nginx setup tips'
+            '/articles/apache-and-nginx-setup-tips': 'Apache and Nginx setup tips',
+            '/articles/pagegen-vim-plugin': 'Pagegen Vim plugin'
         }
     },
     'ignore': [

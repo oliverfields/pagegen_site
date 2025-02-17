@@ -1,0 +1,30 @@
+Date: 2025-02-17
+Title: Pagegen Vim plugin
+Description: The Pagegen Vim plugin is a collection of functionality to make editing a Pagegen site more efficient.
+
+The Pagegen Vim plugin is a collection of functionality to make editing a Pagegen site more efficient.
+
+
+## Installation
+
+⚠️ The plugin requires `fzy` installed on system.
+
+
+    $ cp extras/vim-plugin ~/.vim/pack/plugins/start/pagegen
+
+
+## Overview
+
+| Name | Keys | Description |
+| ---- | ---- | ----------- |
+| Figure | &lt;leader&gt;f | Select media from assets directory and insert markup |
+| Link | &lt;leader&gt;l | Select page from content directory and insert link markup  |
+| Open file of URL | &lt;leader&gt;o<br />&lt;leader&gt;or | Opens source file of the url that the cursor is on. Refresh file list `<leader>or` |
+| Suggest tags/keywords | &lt;leader&gt;k | Adds words that appear most often in the page to the tag header/frontmatter |
+| Tags | &lt;leader&gt;t<br />&lt;leader&gt;tr | Select a tag and add it to Tags page header/frontmatter. Refresh list of tags using `<leader>tr` |
+| Templates | &lt;leader&gt;m | Select template and insert into current buffer/file. Templates are bash shell scripts stored in vim/templates directory, they are called with one argument, the file name of the current page |
+
+
+## Local vimrc
+
+If `vim/pagegen.vim` exists it will be sourced.

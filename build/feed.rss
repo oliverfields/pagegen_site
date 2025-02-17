@@ -49,4 +49,9 @@
 <link>https://pagegen.phnd.net/manual/plugins/plugin-installation</link>
 <description>How to install Pagegen plugins.</description>
 </item>
+<item>
+<title>Pagegen Vim plugin</title>
+<link>http://localhost:8000/articles/pagegen-vim-plugin</link>
+<description>The Pagegen Vim plugin is a collection of functionality to make editing a Pagegen site more efficient.</description>
+</item>
 </channel>

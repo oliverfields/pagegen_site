@@ -7,3 +7,4 @@ https://pagegen.phnd.net/manual/site
 https://pagegen.phnd.net/manual/plugins/plugin-installation
 https://pagegen.phnd.net/manual/plugins/plugin-development
 https://pagegen.phnd.net/manual/plugins/included-plugins
+http://localhost:8000/articles/pagegen-vim-plugin
