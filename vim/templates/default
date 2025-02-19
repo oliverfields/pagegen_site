@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Date: $(date +%Y-%m-%d)"
+echo "Title: $1"
+echo ""
+echo ""
