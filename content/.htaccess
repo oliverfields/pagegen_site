@@ -1,6 +1,7 @@
 render: False
 rss: False
 sitemap: False
+search: False
 
 DirectoryIndex index
 ErrorDocument 404 /404
