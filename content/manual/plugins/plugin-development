@@ -12,18 +12,12 @@ The available hooks are as follows.
 | ---- | ----------- |
 | hook_pre_build | Before site generation starts |
 | hook_pre_build_lists | Before build list is generated, the build list is the list of files that need to be built |
-| hook_page_* | Page hooks, run per page that is generated, see table below |
 | hook_post_build_lists | After build list is populated with pages to be buildt |
-| hook_post_build | After site generation |
-
-Page hooks are run for each page that is registered in the build list.
-
-| Hook | Description |
-| ---- | ----------- |
 | hook_page_deps | After page dependencies have been identified |
-| hook_page_pre_build | Before page is built |
-| hook_page_render | Render page.content to page.out |
-| hook_page_post_build | After page has been buildt/rendered |
+| hook_page_pre_build | For each page in build list: Before page is built |
+| hook_page_render | For each page in build list: Render page.content to page.out |
+| hook_page_post_build | For each page in build list: After page has been buildt/rendered |
+| hook_post_build | After site generation |
 
 
 ## Hook objects
