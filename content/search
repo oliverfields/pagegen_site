@@ -1,0 +1,7 @@
+Title: Search
+render: False
+rss: False
+sitemap: False
+search: False
+Template: search
+

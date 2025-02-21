@@ -35,14 +35,14 @@
 <description>Directory structure of a Pagegen site.</description>
 </item>
 <item>
-<title>Included plugins</title>
-<link>https://pagegen.phnd.net/manual/plugins/included-plugins</link>
-<description>Pagegen comes with several plugins included.</description>
-</item>
-<item>
 <title>Plugin development</title>
 <link>https://pagegen.phnd.net/manual/plugins/plugin-development</link>
 <description>Brief guide to developing Pagegen plugins.</description>
+</item>
+<item>
+<title>Included plugins</title>
+<link>https://pagegen.phnd.net/manual/plugins/included-plugins</link>
+<description>Pagegen comes with several plugins included.</description>
 </item>
 <item>
 <title>Plugin installation</title>
