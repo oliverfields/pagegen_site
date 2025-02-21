@@ -248,6 +248,10 @@ background-color: var(--cbg);
 cursor: pointer;
 }
 
+.search-hit p {
+margin-top: .5rem;
+}
+
 #menu menu {
 max-width: 70%;
 margin: 1rem auto;
