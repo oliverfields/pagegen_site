@@ -1,7 +1,6 @@
-Title: Search
-render: False
+title: Search
 rss: False
 sitemap: False
 search: False
-Template: search
+template: search
 

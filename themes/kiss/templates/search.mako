@@ -54,8 +54,7 @@ function doSearch(searchString) {
     if(result.length>0) {
       html='';
       for (var n=0;n<result.length;n++) {
-        result[n].url.startsWith('/${site.tag_dir}/') ? tag_class = ' tag-hit' : tag_class = '';
-        html+='<div class="search-hit"><a class="' + tag_class + '" href="'+result[n].url+'">'+result[n].title+'</a>'
+        html+='<div class="search-hit"><a href="'+result[n].url+'">'+result[n].title+'</a>'
         if (result[n].desc.length > 0) {
           html+='<p>'+result[n].desc+'</p>';
         }
