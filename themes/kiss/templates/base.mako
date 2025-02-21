@@ -79,7 +79,7 @@
         <em>Static site generator</em>
       </header>
       <div id="search-form">
-        <form action="${site.base_url}/search-results" method="GET">
+        <form action="${site.base_url}/search" method="GET">
           <input type="text" id="search-query" name="q" />
           <input type="submit" id="search-submit" value="🔍️" />
         </form>

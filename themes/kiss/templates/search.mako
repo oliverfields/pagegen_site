@@ -1,8 +1,6 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
-<h1 class="page-title">Search</h1>
-
 <div id="search"></div>
 <script>
 function addHit(data, result, urlIndex, exactMatch){
@@ -78,7 +76,7 @@ queryString = window.location.search.substring(1).split('&');
 for (let i = 0; i < queryString.length; i++) {
   let key_value = queryString[i].split('=');
   if(key_value[0] == 'q') {
-    //document.getElementById('search-query').value = key_value[1];
+    document.getElementById('search-query').value = key_value[1];
     doSearch(key_value[1]);
     break;
   }
