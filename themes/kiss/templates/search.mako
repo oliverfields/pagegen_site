@@ -76,8 +76,8 @@ queryString = window.location.search.substring(1).split('&');
 for (let i = 0; i < queryString.length; i++) {
   let key_value = queryString[i].split('=');
   if(key_value[0] == 'q') {
-    console.log(key_value);
-    document.getElementById('search-query').setAttribute('value', key_value[1]);
+    //console.log(key_value);
+    //document.getElementById('search-query').setAttribute('value', key_value[1]);
     doSearch(key_value[1]);
     break;
   }
