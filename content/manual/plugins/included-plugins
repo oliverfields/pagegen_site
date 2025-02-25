@@ -11,7 +11,7 @@ The following plugins are included with pagegen. To use them enable in `site.con
 | [minify](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/minify) | Minifies HTML in pages and any .css or .js files in assets or theme assets  |
 | [pgn_markdown](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/pgn_markdown) | Converts page content marked up with Markdown to HTML |
 | [rss](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/rss) | Site RSS feed  |
-| [shortcodes](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/shortcodes) | Shortcodes are Python functions defined in shortcodes.py and can be called in page content using &lt;sc&gt;function_name(arg1, argN)&lt;sc&gt; or in Mako templates |
+| [shortcodes](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/shortcodes) | Shortcodes are Python functions defined in shortcodes.py and can be called in page content using &lt;sc&gt;function_name(arg1, argN)&lt;sc&gt; or in Mako templates `site.plugins['shortcodes'][<shortcode name>](site, page, args..)` |
 | [site_search](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/site_search) | Provides json index and javascript to implement a basic site search |
 | [sitemap](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/sitemap) | Simple list of site urls in /sitemap.txt. Page header `sitemap: False` ommits page from sitemap |
 
