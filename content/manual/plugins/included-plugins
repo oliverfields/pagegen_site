@@ -6,7 +6,6 @@ The following plugins are included with pagegen. To use them enable in `site.con
 
 | Name | Description |
 | ---- | ----------- |
-| [excerpt](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/excerpt) | Adds any content preceeding `<!-- more -->` to page.excerpt |
 | [mako_templates](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/mako_templates) | Pages with header `template: <name>` get rendered by that Mako template  |
 | [minify](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/minify) | Minifies HTML in pages and any .css or .js files in assets or theme assets  |
 | [pgn_markdown](https://github.com/oliverfields/pagegen/tree/master/src/pagegen/plugins/pgn_markdown) | Converts page content marked up with Markdown to HTML |
