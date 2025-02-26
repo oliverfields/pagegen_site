@@ -19,6 +19,7 @@ conf = {
     'ignore': [
         '/index',
         '/404',
-        '/.htaccess'
+        '/.htaccess',
+        '/search'
     ]
 }
