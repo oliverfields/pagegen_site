@@ -38,9 +38,9 @@ We are now ready to generate the site. This will create the finished site in the
 The `my_site/build` directory now contains a freshly generated site ready for upload to a web server.
 
 
-## Live reload
+## Serve locally
 
-When developing Pagegen can serve site locally and monitor files for changes, automatically triggering a regeneration and browser reload.
+When developing Pagegen can serve site locally. Rebuilds must be triggered manually.
 
-    $ pgn --live-reload
+    $ pgn --serve
 
